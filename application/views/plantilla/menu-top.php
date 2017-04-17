@@ -10,7 +10,7 @@
 				$font_size = 14;
 				echo '<span class="logo-lg" style="font-size: '.$font_size.'px">
 				<center>
-				<img src="'.base_url().'assets/uploads/img/xnativa_logo.png" class="img-responsive" alt="User Image" width="125">
+				SCHWEIZER
 				</center>
 				</span>';
 				?>

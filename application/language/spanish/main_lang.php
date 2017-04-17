@@ -62,6 +62,7 @@ $lang['domicilio']          = "Domicilio";
 $lang['date_add']           = "Fecha alta";
 $lang['dia']                = "Día";
 $lang['dias']               = "Días";
+$lang['dimension']          = "Dimensión";
 
 /*--------------------------------------------------------------------------------  
     E
@@ -125,6 +126,8 @@ $lang['informacion']        = "Información";
 $lang['id_animal']          = "ID Animal";
 $lang['id_pedido']          = "ID Pedido";
 $lang['id_factura']         = "ID Factura";
+$lang['inmueble']         	= "Inmueble";
+$lang['inmuebles']         	= "Inmuebles";
 
 /*--------------------------------------------------------------------------------  
     L
@@ -156,7 +159,9 @@ $lang['ok']                 = "OK";
 $lang['new_password']       = "Nueva Password";
 $lang['no_encontrada']      = "no encontrada";
 $lang['nro_proveedor']      = "Nro pedido proveedor";
-$lang['nro_factura']        = "Nro factura   proveedor";
+$lang['nro_factura']        = "Nro factura proveedor";
+$lang['nro_referencia']     = "Nro referencia";
+
 
 
 /*--------------------------------------------------------------------------------  
@@ -188,6 +193,9 @@ $lang['proveedor']          = "Proveedor";
 $lang['perfil']             = "Perfil";
 $lang['puesto']             = "Puesto";
 $lang['pedido']             = "Pedido";
+$lang['proyecto']           = "Proyecto";
+$lang['proyectos']          = "Proyectos";
+$lang['precio']          	= "Precio";
 
 /*--------------------------------------------------------------------------------  
     R

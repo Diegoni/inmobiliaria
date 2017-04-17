@@ -118,7 +118,7 @@ class Login extends CI_Controller
             
 			$this->m_logs_usuarios->insert($registro);
             
-            redirect('/animales/table/','refresh');    
+            redirect('/clientes/table/','refresh');    
 	  	}
 	}
     

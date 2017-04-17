@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-03-2017 a las 00:49:19
+-- Tiempo de generación: 18-04-2017 a las 01:08:10
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `tesis`
+-- Base de datos: `inmobiliaria`
 --
 
 -- --------------------------------------------------------
@@ -59,143 +59,6 @@ CREATE TABLE IF NOT EXISTS `alertas_estado` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `animales`
---
-
-CREATE TABLE IF NOT EXISTS `animales` (
-`id_animal` int(11) NOT NULL,
-  `animal` varchar(64) NOT NULL,
-  `tarjeta` varchar(64) NOT NULL,
-  `id_tipo` int(11) NOT NULL,
-  `fecha_ingreso` datetime NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
-  `id_padre` int(11) NOT NULL,
-  `id_madre` int(11) NOT NULL,
-  `id_proveedor` int(11) NOT NULL,
-  `peso` decimal(5,2) NOT NULL,
-  `altura` decimal(5,2) NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `comentario` text NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `animales`
---
-
-INSERT INTO `animales` (`id_animal`, `animal`, `tarjeta`, `id_tipo`, `fecha_ingreso`, `fecha_nacimiento`, `id_padre`, `id_madre`, `id_proveedor`, `peso`, `altura`, `id_estado`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, '0', 'f446b1999a', 1, '2016-05-06 00:00:00', '2016-05-06', 0, 0, 0, '26.00', '2.50', 0, '-', '2016-10-06 21:05:47', '2016-10-06 21:05:47', 1, 1, 0),
-(2, '3', '2', 1, '2017-02-15 00:00:00', '2017-02-09', 0, 0, 1, '27.00', '2.40', 0, '', '2017-02-28 12:44:29', '2017-02-28 12:44:29', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `animales_estados`
---
-
-CREATE TABLE IF NOT EXISTS `animales_estados` (
-`id_estado` int(11) NOT NULL,
-  `estado` varchar(64) NOT NULL,
-  `date_add` int(11) NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` datetime NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Volcado de datos para la tabla `animales_estados`
---
-
-INSERT INTO `animales_estados` (`id_estado`, `estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Novillo', 2016, '2016-10-11 20:58:06', '0000-00-00 00:00:00', 1, 0),
-(2, 'Lactancia', 2016, '2016-10-11 20:58:27', '0000-00-00 00:00:00', 1, 0),
-(3, 'Normal', 2016, '2016-10-11 20:59:27', '0000-00-00 00:00:00', 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `animales_permisos`
---
-
-CREATE TABLE IF NOT EXISTS `animales_permisos` (
-`id_permiso` int(11) NOT NULL,
-  `id_animal` int(11) NOT NULL,
-  `id_sector` int(11) NOT NULL,
-  `comentario` text NOT NULL,
-  `ingreso` tinyint(4) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `animales_permisos`
---
-
-INSERT INTO `animales_permisos` (`id_permiso`, `id_animal`, `id_sector`, `comentario`, `ingreso`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 1, 4, '<p>Aumentar el peso&nbsp;</p>\r\n', 0, 1, 1, '2016-10-13 20:52:55', '2016-10-13 20:52:55', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `animales_rutinas`
---
-
-CREATE TABLE IF NOT EXISTS `animales_rutinas` (
-`id_rutina` int(11) NOT NULL,
-  `id_tipo` int(11) NOT NULL,
-  `id_sector` int(11) NOT NULL,
-  `id_dia` int(11) NOT NULL,
-  `inicio` time NOT NULL,
-  `final` time NOT NULL,
-  `comentario` text NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `animales_rutinas`
---
-
-INSERT INTO `animales_rutinas` (`id_rutina`, `id_tipo`, `id_sector`, `id_dia`, `inicio`, `final`, `comentario`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 1, 2, 1, '08:00:00', '10:00:00', '', 1, 1, '2016-10-13 20:50:29', '2016-10-13 20:50:29', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `animales_tipos`
---
-
-CREATE TABLE IF NOT EXISTS `animales_tipos` (
-`id_tipo` int(11) NOT NULL,
-  `tipo` varchar(128) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `animales_tipos`
---
-
-INSERT INTO `animales_tipos` (`id_tipo`, `tipo`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Vacuno criollo', '2016-10-13 20:49:26', '2016-10-13 20:49:26', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `clientes`
 --
 
@@ -219,15 +82,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `clientes`
---
-
-INSERT INTO `clientes` (`id_cliente`, `cliente`, `id_tipo`, `email`, `telefono`, `telefono_alternativo`, `web`, `id_forma_juridica`, `id_empleado`, `calle`, `calle_numero`, `id_localidad`, `id_provincia`, `comentario`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 'Miguel Rodriguez', 2, '', '', '', '', 1, 0, '', 0, 0, 0, '', 1, 1, '2016-10-12 20:21:26', '2016-10-12 20:21:26', 0),
-(2, 'Mirta Chichita', 3, '', '', '', '', 0, 0, '', 0, 0, 0, '', 1, 1, '2016-10-12 20:21:44', '2016-10-12 20:21:52', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -329,15 +184,7 @@ CREATE TABLE IF NOT EXISTS `empleados` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `empleados`
---
-
-INSERT INTO `empleados` (`id_empleado`, `empleado`, `id_puesto`, `id_encargado`, `dni`, `fecha_ingreso`, `telefono`, `telefono_alternativo`, `email`, `id_provincia`, `id_localidad`, `calle`, `calle_numero`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Diego Nieto', 1, 0, '31246501', '0000-00-00', '', '', '', 0, 0, '', 0, '2016-10-05 19:17:43', '2016-11-18 01:06:51', 1, 1, 0),
-(2, 'Jose Perales', 2, 0, '32165487', '0000-00-00', '', '', '', 13, 0, '', 0, '2016-10-06 17:50:01', '2016-10-12 17:22:09', 1, 1, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -357,14 +204,7 @@ CREATE TABLE IF NOT EXISTS `empleados_marcaciones` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `empleados_marcaciones`
---
-
-INSERT INTO `empleados_marcaciones` (`id_marcacion`, `id_empleado`, `id_sector`, `marcacion`, `id_tipo`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 2, 3, '2016-10-11 04:19:24', 1, '', '2016-10-11 17:42:56', '2016-10-11 17:42:56', 1, 1, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -401,15 +241,7 @@ CREATE TABLE IF NOT EXISTS `empleados_puestos` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `empleados_puestos`
---
-
-INSERT INTO `empleados_puestos` (`id_puesto`, `puesto`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Encargado', '', '2016-10-05 17:42:52', '2016-10-05 17:42:52', 1, 1, 0),
-(2, 'Veterinario', '', '2016-10-06 17:49:26', '2016-10-06 17:49:26', 1, 1, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -430,14 +262,7 @@ CREATE TABLE IF NOT EXISTS `empleados_turnos` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `empleados_turnos`
---
-
-INSERT INTO `empleados_turnos` (`id_turno`, `id_puesto`, `id_sector`, `id_dia`, `ingreso`, `egreso`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 2, 3, 1, '08:00:00', '13:00:00', '', '2016-10-11 17:39:42', '2016-10-11 17:39:42', 1, 1, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -489,15 +314,7 @@ CREATE TABLE IF NOT EXISTS `facturas` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `facturas`
---
-
-INSERT INTO `facturas` (`id_factura`, `id_cliente`, `id_pedido`, `fecha_entrega`, `id_condicion_pago`, `id_forma_pago`, `id_origen`, `id_envio`, `comentario_publico`, `comentario_privado`, `id_estado`, `total`, `total_sin_iva`, `total_iva`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 2, 0, '0000-00-00', 2, 0, 0, 0, '', '', 0, '2526.32', '0.00', '0.00', 1, 1, '2016-10-12 20:23:46', '2016-10-12 20:23:46', 0),
-(2, 1, 1, '2017-02-02', 1, 1, 1, 2, '', '', 0, '1587.65', '0.00', '0.00', 1, 1, '2017-02-28 12:46:35', '2017-02-28 12:46:35', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -576,15 +393,7 @@ CREATE TABLE IF NOT EXISTS `facturas_proveedores` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `facturas_proveedores`
---
-
-INSERT INTO `facturas_proveedores` (`id_factura`, `id_proveedor`, `id_pedido`, `nro_factura`, `fecha_entrega`, `id_condicion_pago`, `id_forma_pago`, `id_origen`, `id_envio`, `comentario`, `id_estado`, `total`, `total_sin_iva`, `total_iva`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 1, 1, 89521, '0000-00-00', 1, 1, 3, 1, '', 0, '598.35', '0.00', '0.00', 1, 1, '2016-10-13 17:25:44', '2016-10-13 17:25:44', 0),
-(2, 1, 1, 9868, '0000-00-00', 1, 1, 3, 2, '', 0, '1578.89', '0.00', '0.00', 1, 1, '2017-02-28 12:45:21', '2017-02-28 12:45:21', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -658,23 +467,83 @@ INSERT INTO `formas_pagos` (`id_forma_pago`, `forma_pago`, `user_add`, `user_upd
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ingresos`
+-- Estructura de tabla para la tabla `inmuebles`
 --
 
-CREATE TABLE IF NOT EXISTS `ingresos` (
-`id_ingreso` int(11) NOT NULL,
-  `id_animal` int(11) NOT NULL,
-  `id_sector` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `inmuebles` (
+  `id_inmueble` int(11) NOT NULL,
+  `inmueble` varchar(128) NOT NULL,
+  `id_proyecto` varchar(128) NOT NULL,
+  `id_tipo` int(11) NOT NULL,
+  `precio` double(14,2) NOT NULL,
+  `nro_referencia` int(11) NOT NULL,
+  `dimension` varchar(64) NOT NULL,
+  `calle` varchar(64) NOT NULL,
+  `calle_numero` int(11) NOT NULL,
+  `comentario` text NOT NULL,
+  `id_estado` int(11) NOT NULL DEFAULT '1',
   `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
   `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `ingresos`
+-- Volcado de datos para la tabla `inmuebles`
 --
 
-INSERT INTO `ingresos` (`id_ingreso`, `id_animal`, `id_sector`, `date_add`, `eliminado`) VALUES
-(1, 1, 1, '2016-10-13 20:28:59', 0);
+INSERT INTO `inmuebles` (`id_inmueble`, `inmueble`, `id_proyecto`, `id_tipo`, `precio`, `nro_referencia`, `dimension`, `calle`, `calle_numero`, `comentario`, `id_estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(0, 'Lote 01', '1', 1, 400.00, 55023, '1000 x 1000', '', 0, '', 1, '2017-04-18 01:01:57', '2017-04-18 01:01:57', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `inmuebles_estados`
+--
+
+CREATE TABLE IF NOT EXISTS `inmuebles_estados` (
+`id_estado` int(11) NOT NULL,
+  `estado` varchar(64) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `inmuebles_estados`
+--
+
+INSERT INTO `inmuebles_estados` (`id_estado`, `estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, '<span class="label label-success">Libre</span>', '2017-04-18 00:59:29', '2017-04-18 00:59:29', 1, 1, 0),
+(2, '<span class="label label-default">Ocupado</span>', '2017-04-18 00:59:35', '2017-04-18 00:59:35', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `inmuebles_tipos`
+--
+
+CREATE TABLE IF NOT EXISTS `inmuebles_tipos` (
+`id_tipo` int(11) NOT NULL,
+  `tipo` varchar(64) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `inmuebles_tipos`
+--
+
+INSERT INTO `inmuebles_tipos` (`id_tipo`, `tipo`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 'Lote', '2017-04-18 01:01:10', '2017-04-18 01:01:10', 1, 1, 0),
+(2, 'Casa', '2017-04-18 01:01:15', '2017-04-18 01:01:15', 1, 1, 0),
+(3, 'Departamento', '2017-04-18 01:01:25', '2017-04-18 01:01:25', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -23369,1370 +23238,225 @@ CREATE TABLE IF NOT EXISTS `logs_usuarios` (
   `date_add` datetime NOT NULL,
   `programa` varchar(32) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1355 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=213 ;
 
 --
 -- Volcado de datos para la tabla `logs_usuarios`
 --
 
 INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `registro`, `user_add`, `date_add`, `programa`, `eliminado`) VALUES
-(1, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-06 20:48:12', 'tambos', 0),
-(2, 4, 'animales/table', 'access', '', '', '1', '2016-10-06 20:48:12', 'tambos', 0),
-(3, 4, 'menus/table', 'access', '', '', '1', '2016-10-06 20:53:11', 'tambos', 0),
-(4, 4, 'menus/abm', 'access', '', '', '1', '2016-10-06 20:53:14', 'tambos', 0),
-(5, 4, '{"id_menu":"0","url":"ordene\\/table\\/","menu":"Orde","icon":"","id_padre":"1","date_add":"2016-10-06 20:53:35","date_upd":"2016-10-06 20:53:35","user_add":"1","user_upd":"1"}', 'insert', 'menus', '24', '1', '2016-10-06 20:53:35', 'tambos', 0),
-(6, 4, '{"id_perfil":"1","id_menu":24,"ver":1,"editar":1,"date_add":"2016-10-06 20:53:35","date_upd":"2016-10-06 20:53:35","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '24', '1', '2016-10-06 20:53:35', 'tambos', 0),
-(7, 4, 'menus/table', 'access', '', '', '1', '2016-10-06 20:53:35', 'tambos', 0),
-(8, 3, 'logout', 'logout', '', '', '1', '2016-10-06 20:54:40', 'tambos', 0),
-(9, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-06 20:54:41', 'tambos', 0),
-(10, 4, 'animales/table', 'access', '', '', '1', '2016-10-06 20:54:42', 'tambos', 0),
-(11, 4, 'animales/table', 'access', '', '', '1', '2016-10-06 21:01:12', 'tambos', 0),
-(12, 4, 'menus/table', 'access', '', '', '1', '2016-10-06 21:01:15', 'tambos', 0),
-(13, 4, 'menus/abm', 'access', '', '', '1', '2016-10-06 21:01:18', 'tambos', 0),
-(14, 4, '{"id_menu":"24","url":"ordenes\\/table\\/","menu":"Orde\\u00f1es","icon":"","id_padre":"1","date_upd":"2016-10-06 21:01:24","user_upd":"1"}', 'update', 'menus', '24', '1', '2016-10-06 21:01:24', 'tambos', 0),
-(15, 4, 'menus/table', 'access', '', '', '1', '2016-10-06 21:01:24', 'tambos', 0),
-(16, 3, 'logout', 'logout', '', '', '1', '2016-10-06 21:01:28', 'tambos', 0),
-(17, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-06 21:01:33', 'tambos', 0),
-(18, 4, 'animales/table', 'access', '', '', '1', '2016-10-06 21:01:33', 'tambos', 0),
-(19, 4, 'ordenes/table', 'access', '', '', '1', '2016-10-06 21:01:50', 'tambos', 0),
-(20, 4, 'ordenes/abm', 'access', '', '', '1', '2016-10-06 21:01:53', 'tambos', 0),
-(21, 4, 'ordenes/abm', 'access', '', '', '1', '2016-10-06 21:04:55', 'tambos', 0),
-(22, 4, 'animales/table', 'access', '', '', '1', '2016-10-06 21:05:02', 'tambos', 0),
-(23, 4, 'animales/abm', 'access', '', '', '1', '2016-10-06 21:05:04', 'tambos', 0),
-(24, 4, '{"id_animal":"0","fecha_ingreso":"2016-05-06","fecha_nacimiento":"2016-05-06","id_padre":"","id_madre":"","id_proveedor":"","peso":"26","altura":"2.5","id_estado":"","comentario":"-","date_add":"2016-10-06 21:05:47","date_upd":"2016-10-06 21:05:47","user_add":"1","user_upd":"1"}', 'insert', 'animales', '1', '1', '2016-10-06 21:05:47', 'tambos', 0),
-(25, 4, 'animales/table', 'access', '', '', '1', '2016-10-06 21:05:47', 'tambos', 0),
-(26, 4, 'ordenes/table', 'access', '', '', '1', '2016-10-06 21:08:33', 'tambos', 0),
-(27, 4, 'ordenes/abm', 'access', '', '', '1', '2016-10-06 21:08:35', 'tambos', 0),
-(28, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-10-06 21:09:46', 'tambos', 0),
-(29, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-10-06 21:09:49', 'tambos', 0),
-(30, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-10-06 21:10:22', 'tambos', 0),
-(31, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-10-06 21:10:45', 'tambos', 0),
-(32, 4, '{"id_sector":"1","id_tambo":"1","id_tipo":"1","sector":"Principal","id_empleado":"1","ordene":1,"date_upd":"2016-10-06 21:10:48","user_upd":"1"}', 'update', 'tambos_sectores', '1', '1', '2016-10-06 21:10:48', 'tambos', 0),
-(33, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-10-06 21:10:48', 'tambos', 0),
-(34, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-10-06 21:10:53', 'tambos', 0),
-(35, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-10-06 21:10:57', 'tambos', 0),
-(36, 4, 'ordenes/table', 'access', '', '', '1', '2016-10-06 21:11:02', 'tambos', 0),
-(37, 4, 'ordenes/abm', 'access', '', '', '1', '2016-10-06 21:11:04', 'tambos', 0),
-(38, 4, 'ordenes/abm', 'access', '', '', '1', '2016-10-06 21:13:40', 'tambos', 0),
-(39, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-11 16:22:41', 'tambos', 0),
-(40, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 16:22:42', 'tambos', 0),
-(41, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-11 16:22:48', 'tambos', 0),
-(42, 4, 'ordenes/table', 'access', '', '', '1', '2016-10-11 16:22:50', 'tambos', 0),
-(43, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-11 16:22:56', 'tambos', 0),
-(44, 4, 'empleados/table', 'access', '', '', '1', '2016-10-11 16:23:00', 'tambos', 0),
-(45, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:37:50', 'tambos', 0),
-(46, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:38:09', 'tambos', 0),
-(47, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:38:16', 'tambos', 0),
-(48, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 16:38:21', 'tambos', 0),
-(49, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:38:52', 'tambos', 0),
-(50, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:39:03', 'tambos', 0),
-(51, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:39:11', 'tambos', 0),
-(52, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:39:38', 'tambos', 0),
-(53, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:39:53', 'tambos', 0),
-(54, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 16:39:55', 'tambos', 0),
-(55, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-10-11 16:40:04', 'tambos', 0),
-(56, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-10-11 16:40:07', 'tambos', 0),
-(57, 4, '{"id_sector":"1","id_tambo":"1","id_tipo":"1","sector":"Comedor Principal","id_empleado":"1","date_upd":"2016-10-11 16:40:14","user_upd":"1"}', 'update', 'tambos_sectores', '1', '1', '2016-10-11 16:40:14', 'tambos', 0),
-(58, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-10-11 16:40:14', 'tambos', 0),
-(59, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-10-11 16:40:17', 'tambos', 0),
-(60, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"5","sector":"Veterinaria Principal","id_empleado":"2","date_upd":"2016-10-11 16:40:24","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-10-11 16:40:24', 'tambos', 0),
-(61, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-10-11 16:40:24', 'tambos', 0),
-(62, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-10-11 16:40:28', 'tambos', 0),
-(63, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"1","sector":"Comedor Secundario","id_empleado":"1","date_upd":"2016-10-11 16:40:33","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-10-11 16:40:33', 'tambos', 0),
-(64, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-10-11 16:40:33', 'tambos', 0),
-(65, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-10-11 16:40:35', 'tambos', 0),
-(66, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"2","sector":"Corral Principal","id_empleado":"1","date_upd":"2016-10-11 16:40:40","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-10-11 16:40:40', 'tambos', 0),
-(67, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-10-11 16:40:40', 'tambos', 0),
-(68, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:40:44', 'tambos', 0),
-(69, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 16:40:47', 'tambos', 0),
-(70, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 16:43:44', 'tambos', 0),
-(71, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:43:52', 'tambos', 0),
-(72, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:43:54', 'tambos', 0),
-(73, 4, 'empleados/table', 'access', '', '', '1', '2016-10-11 16:44:34', 'tambos', 0),
-(74, 4, 'empleados/abm', 'access', '', '', '1', '2016-10-11 16:44:36', 'tambos', 0),
-(75, 4, 'empleados_puestos/table', 'access', '', '', '1', '2016-10-11 16:49:03', 'tambos', 0),
-(76, 4, 'empleados_puestos/abm', 'access', '', '', '1', '2016-10-11 16:49:06', 'tambos', 0),
-(77, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 16:57:08', 'tambos', 0),
-(78, 4, 'empleados_puestos/table', 'access', '', '', '1', '2016-10-11 16:57:34', 'tambos', 0),
-(79, 4, 'empleados_puestos/abm', 'access', '', '', '1', '2016-10-11 16:57:37', 'tambos', 0),
-(80, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:11:57', 'tambos', 0),
-(81, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 17:12:01', 'tambos', 0),
-(82, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 17:12:34', 'tambos', 0),
-(83, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 17:12:53', 'tambos', 0),
-(84, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 17:13:11', 'tambos', 0),
-(85, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 17:13:18', 'tambos', 0),
-(86, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 17:13:22', 'tambos', 0),
-(87, 4, '{"id_menu":"0","url":"marcaciones\\/table\\/","menu":"Marcaciones","icon":"","id_padre":"9","date_add":"2016-10-11 17:13:40","date_upd":"2016-10-11 17:13:40","user_add":"1","user_upd":"1"}', 'insert', 'menus', '25', '1', '2016-10-11 17:13:40', 'tambos', 0),
-(88, 4, '{"id_perfil":"1","id_menu":25,"ver":1,"editar":1,"date_add":"2016-10-11 17:13:40","date_upd":"2016-10-11 17:13:40","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '25', '1', '2016-10-11 17:13:40', 'tambos', 0),
-(89, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 17:13:40', 'tambos', 0),
-(90, 3, 'logout', 'logout', '', '', '1', '2016-10-11 17:13:43', 'tambos', 0),
-(91, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-11 17:13:45', 'tambos', 0),
-(92, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 17:13:46', 'tambos', 0),
-(93, 4, 'empleados_marcaciones/table/', 'denied_access', '', '', '1', '2016-10-11 17:14:03', 'tambos', 0),
-(94, 3, 'logout', 'logout', '', '', '1', '2016-10-11 17:14:03', 'tambos', 0),
-(95, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-11 17:14:05', 'tambos', 0),
-(96, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 17:14:05', 'tambos', 0),
-(97, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 17:14:08', 'tambos', 0),
-(98, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 17:14:11', 'tambos', 0),
-(99, 4, '{"id_menu":"25","url":"empleados_marcaciones\\/table\\/","menu":"Marcaciones","icon":"","id_padre":"9","date_upd":"2016-10-11 17:14:17","user_upd":"1"}', 'update', 'menus', '25', '1', '2016-10-11 17:14:17', 'tambos', 0),
-(100, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 17:14:17', 'tambos', 0),
-(101, 3, 'logout', 'logout', '', '', '1', '2016-10-11 17:14:20', 'tambos', 0),
-(102, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-11 17:14:22', 'tambos', 0),
-(103, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 17:14:22', 'tambos', 0),
-(104, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 17:14:25', 'tambos', 0),
-(105, 4, 'empleados_marcaciones/abm', 'access', '', '', '1', '2016-10-11 17:14:29', 'tambos', 0),
-(106, 4, 'empleados/table', 'access', '', '', '1', '2016-10-11 17:14:40', 'tambos', 0),
-(107, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 17:20:59', 'tambos', 0),
-(108, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:23:26', 'tambos', 0),
-(109, 4, 'tambos/table', 'access', '', '', '1', '2016-10-11 17:23:29', 'tambos', 0),
-(110, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-10-11 17:23:30', 'tambos', 0),
-(111, 4, 'logs_usuarios/table', 'access', '', '', '1', '2016-10-11 17:23:32', 'tambos', 0),
-(112, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 17:23:34', 'tambos', 0),
-(113, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2016-10-11 17:23:36', 'tambos', 0),
-(114, 4, 'usuarios/table', 'access', '', '', '1', '2016-10-11 17:23:37', 'tambos', 0),
-(115, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-11 17:23:42', 'tambos', 0),
-(116, 4, 'ordenes/table', 'access', '', '', '1', '2016-10-11 17:23:43', 'tambos', 0),
-(117, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-11 17:23:44', 'tambos', 0),
-(118, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 17:23:46', 'tambos', 0),
-(119, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 17:30:29', 'tambos', 0),
-(120, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 17:35:52', 'tambos', 0),
-(121, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 17:36:39', 'tambos', 0),
-(122, 4, 'empleados_marcaciones/abm', 'access', '', '', '1', '2016-10-11 17:36:45', 'tambos', 0),
-(123, 4, 'empleados_marcaciones/abm', 'access', '', '', '1', '2016-10-11 17:37:19', 'tambos', 0),
-(124, 4, 'empleados_marcaciones/abm', 'access', '', '', '1', '2016-10-11 17:37:30', 'tambos', 0),
-(125, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:38:59', 'tambos', 0),
-(126, 4, 'empleados/table', 'access', '', '', '1', '2016-10-11 17:39:04', 'tambos', 0),
-(127, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:39:06', 'tambos', 0),
-(128, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 17:39:08', 'tambos', 0),
-(129, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 17:39:32', 'tambos', 0),
-(130, 4, '{"id_turno":"0","id_puesto":"2","id_sector":"3","id_dia":"1","ingreso":"08","egreso":"13","comentario":"","date_add":"2016-10-11 17:39:42","date_upd":"2016-10-11 17:39:42","user_add":"1","user_upd":"1"}', 'insert', 'empleados_turnos', '1', '1', '2016-10-11 17:39:42', 'tambos', 0),
-(131, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:39:42', 'tambos', 0),
-(132, 4, '{"id_turno":"0","id_puesto":"2","id_sector":"3","id_dia":"1","ingreso":"08","egreso":"13","comentario":"","date_add":"2016-10-11 17:40:09","date_upd":"2016-10-11 17:40:09","user_add":"1","user_upd":"1"}', 'insert', 'empleados_turnos', '2', '1', '2016-10-11 17:40:09', 'tambos', 0),
-(133, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:40:09', 'tambos', 0),
-(134, 4, '{"id_turno":"0","id_puesto":"2","id_sector":"3","id_dia":"1","ingreso":"08","egreso":"13","comentario":"","date_add":"2016-10-11 17:40:45","date_upd":"2016-10-11 17:40:45","user_add":"1","user_upd":"1"}', 'insert', 'empleados_turnos', '3', '1', '2016-10-11 17:40:45', 'tambos', 0),
-(135, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:40:46', 'tambos', 0),
-(136, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:41:50', 'tambos', 0),
-(137, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:42:04', 'tambos', 0),
-(138, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:42:24', 'tambos', 0),
-(139, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:42:32', 'tambos', 0),
-(140, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 17:42:42', 'tambos', 0),
-(141, 4, 'empleados_marcaciones/abm', 'access', '', '', '1', '2016-10-11 17:42:44', 'tambos', 0),
-(142, 4, '{"id_marcacion":"0","id_empleado":"2","id_sector":"3","marcacion":"08","id_tipo":"1","comentario":"","date_add":"2016-10-11 17:42:56","date_upd":"2016-10-11 17:42:56","user_add":"1","user_upd":"1"}', 'insert', 'empleados_marcaciones', '1', '1', '2016-10-11 17:42:56', 'tambos', 0),
-(143, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 17:42:56', 'tambos', 0),
-(144, 4, '{"id_marcacion":"0","id_empleado":"2","id_sector":"3","marcacion":"08","id_tipo":"1","comentario":"","date_add":"2016-10-11 17:43:24","date_upd":"2016-10-11 17:43:24","user_add":"1","user_upd":"1"}', 'insert', 'empleados_marcaciones', '2', '1', '2016-10-11 17:43:24', 'tambos', 0),
-(145, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 17:43:24', 'tambos', 0),
-(146, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 17:44:16', 'tambos', 0),
-(147, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 17:44:27', 'tambos', 0),
-(148, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 19:27:05', 'tambos', 0),
-(149, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:27:08', 'tambos', 0),
-(150, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:30:10', 'tambos', 0),
-(151, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:30:17', 'tambos', 0),
-(152, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:30:27', 'tambos', 0),
-(153, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:30:33', 'tambos', 0),
-(154, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:30:39', 'tambos', 0),
-(155, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:30:44', 'tambos', 0),
-(156, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:32:20', 'tambos', 0),
-(157, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:32:55', 'tambos', 0),
-(158, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:33:16', 'tambos', 0),
-(159, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:33:30', 'tambos', 0),
-(160, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:34:07', 'tambos', 0),
-(161, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:35:19', 'tambos', 0),
-(162, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:36:01', 'tambos', 0),
-(163, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:37:46', 'tambos', 0),
-(164, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:38:33', 'tambos', 0),
-(165, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:39:52', 'tambos', 0),
-(166, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:40:06', 'tambos', 0),
-(167, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:40:11', 'tambos', 0),
-(168, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:41:54', 'tambos', 0),
-(169, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:41:56', 'tambos', 0),
-(170, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:42:33', 'tambos', 0),
-(171, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:42:39', 'tambos', 0),
-(172, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:43:00', 'tambos', 0),
-(173, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:43:54', 'tambos', 0),
-(174, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 19:44:55', 'tambos', 0),
-(175, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:11:05', 'tambos', 0),
-(176, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:11:55', 'tambos', 0),
-(177, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:12:10', 'tambos', 0),
-(178, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:13:31', 'tambos', 0),
-(179, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:14:28', 'tambos', 0),
-(180, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:14:35', 'tambos', 0),
-(181, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:14:48', 'tambos', 0),
-(182, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:14:53', 'tambos', 0),
-(183, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:14:56', 'tambos', 0),
-(184, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:16:27', 'tambos', 0),
-(185, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:16:38', 'tambos', 0),
-(186, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:18:57', 'tambos', 0),
-(187, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:23:07', 'tambos', 0),
-(188, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:23:09', 'tambos', 0),
-(189, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:24:16', 'tambos', 0),
-(190, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:25:18', 'tambos', 0),
-(191, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:26:05', 'tambos', 0),
-(192, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:27:50', 'tambos', 0),
-(193, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:28:10', 'tambos', 0),
-(194, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:28:23', 'tambos', 0),
-(195, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:28:28', 'tambos', 0),
-(196, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 20:29:06', 'tambos', 0),
-(197, 4, 'empleados_marcaciones/abm', 'access', '', '', '1', '2016-10-11 20:29:09', 'tambos', 0),
-(198, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 20:29:20', 'tambos', 0),
-(199, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:29:22', 'tambos', 0),
-(200, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:31:47', 'tambos', 0),
-(201, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:32:55', 'tambos', 0),
-(202, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:33:21', 'tambos', 0),
-(203, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:33:53', 'tambos', 0),
-(204, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:34:12', 'tambos', 0),
-(205, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:37:46', 'tambos', 0),
-(206, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:39:23', 'tambos', 0),
-(207, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:43:15', 'tambos', 0),
-(208, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:43:46', 'tambos', 0),
-(209, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:44:45', 'tambos', 0),
-(210, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:46:41', 'tambos', 0),
-(211, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:47:04', 'tambos', 0),
-(212, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:48:16', 'tambos', 0),
-(213, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:49:09', 'tambos', 0),
-(214, 4, 'empleados_turnos/abm/', 'denied_access', '', '', '1', '2016-10-11 20:50:13', 'tambos', 0),
-(215, 3, 'logout', 'logout', '', '', '1', '2016-10-11 20:50:14', 'tambos', 0),
-(216, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-11 20:50:19', 'tambos', 0),
-(217, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 20:50:19', 'tambos', 0),
-(218, 3, 'logout', 'logout', '', '', '1', '2016-10-11 20:50:25', 'tambos', 0),
-(219, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-11 20:53:41', 'tambos', 0),
-(220, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 20:53:41', 'tambos', 0),
-(221, 3, 'logout', 'logout', '', '', '1', '2016-10-11 20:53:48', 'tambos', 0),
-(222, 3, 'logout', 'logout', '', '', 'end_session', '2016-10-11 20:53:48', 'tambos', 0),
-(223, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-11 20:53:50', 'tambos', 0),
-(224, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 20:53:50', 'tambos', 0),
-(225, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:53:54', 'tambos', 0),
-(226, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:54:08', 'tambos', 0),
-(227, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:54:28', 'tambos', 0),
-(228, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:54:48', 'tambos', 0),
-(229, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-11 20:55:20', 'tambos', 0),
-(230, 4, 'empleados_marcaciones/abm', 'access', '', '', '1', '2016-10-11 20:55:22', 'tambos', 0),
-(231, 4, 'empleados_turnos/table', 'access', '', '', '1', '2016-10-11 20:55:37', 'tambos', 0),
-(232, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2016-10-11 20:55:41', 'tambos', 0),
-(233, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 20:56:09', 'tambos', 0),
-(234, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:56:13', 'tambos', 0),
-(235, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:57:18', 'tambos', 0),
-(236, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:57:26', 'tambos', 0),
-(237, 4, 'animales_estados/table', 'access', '', '', '1', '2016-10-11 20:57:51', 'tambos', 0),
-(238, 4, 'animales_estados/abm', 'access', '', '', '1', '2016-10-11 20:57:53', 'tambos', 0),
-(239, 4, '{"id_estado":"0","estado":"Novillo","date_add":"2016-10-11 20:58:06","date_upd":"2016-10-11 20:58:06","user_add":"1","user_upd":"1"}', 'insert', 'animales_estados', '1', '1', '2016-10-11 20:58:06', 'tambos', 0),
-(240, 4, 'animales_estados/abm', 'access', '', '', '1', '2016-10-11 20:58:06', 'tambos', 0),
-(241, 4, 'animales_estados/table', 'access', '', '', '1', '2016-10-11 20:58:13', 'tambos', 0),
-(242, 4, 'animales_estados/abm', 'access', '', '', '1', '2016-10-11 20:58:14', 'tambos', 0),
-(243, 4, '{"id_estado":"0","estado":"Lactancia","date_add":"2016-10-11 20:58:27","date_upd":"2016-10-11 20:58:27","user_add":"1","user_upd":"1"}', 'insert', 'animales_estados', '2', '1', '2016-10-11 20:58:27', 'tambos', 0),
-(244, 4, 'animales_estados/abm', 'access', '', '', '1', '2016-10-11 20:58:27', 'tambos', 0),
-(245, 4, 'animales_estados/table', 'access', '', '', '1', '2016-10-11 20:58:31', 'tambos', 0),
-(246, 4, 'animales_estados/abm', 'access', '', '', '1', '2016-10-11 20:58:37', 'tambos', 0),
-(247, 4, '{"id_estado":"0","estado":"Normal","date_add":"2016-10-11 20:59:27","date_upd":"2016-10-11 20:59:27","user_add":"1","user_upd":"1"}', 'insert', 'animales_estados', '3', '1', '2016-10-11 20:59:27', 'tambos', 0),
-(248, 4, 'animales_estados/table', 'access', '', '', '1', '2016-10-11 20:59:27', 'tambos', 0),
-(249, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 20:59:30', 'tambos', 0),
-(250, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 20:59:31', 'tambos', 0),
-(251, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 21:00:32', 'tambos', 0),
-(252, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-11 21:01:01', 'tambos', 0),
-(253, 4, 'empleados_puestos/table', 'access', '', '', '1', '2016-10-11 21:03:01', 'tambos', 0),
-(254, 4, 'empleados_puestos/abm', 'access', '', '', '1', '2016-10-11 21:07:47', 'tambos', 0),
-(255, 4, 'usuarios/table', 'access', '', '', '1', '2016-10-11 21:08:49', 'tambos', 0),
-(256, 4, 'usuarios/table', 'access', '', '', '1', '2016-10-11 21:08:57', 'tambos', 0),
-(257, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:09:00', 'tambos', 0),
-(258, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:09:05', 'tambos', 0),
-(259, 4, '{"id_menu":"0","menu":"Compras","icon":"","id_padre":"0","date_add":"2016-10-11 21:09:13","date_upd":"2016-10-11 21:09:13","user_add":"1","user_upd":"1"}', 'insert', 'menus', '26', '1', '2016-10-11 21:09:13', 'tambos', 0),
-(260, 4, '{"id_perfil":"1","id_menu":26,"ver":1,"editar":1,"date_add":"2016-10-11 21:09:13","date_upd":"2016-10-11 21:09:13","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '26', '1', '2016-10-11 21:09:13', 'tambos', 0),
-(261, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:09:13', 'tambos', 0),
-(262, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:09:15', 'tambos', 0),
-(263, 4, '{"id_menu":"0","menu":"Ventas","icon":"","id_padre":"0","date_add":"2016-10-11 21:09:19","date_upd":"2016-10-11 21:09:19","user_add":"1","user_upd":"1"}', 'insert', 'menus', '27', '1', '2016-10-11 21:09:19', 'tambos', 0),
-(264, 4, '{"id_perfil":"1","id_menu":27,"ver":1,"editar":1,"date_add":"2016-10-11 21:09:20","date_upd":"2016-10-11 21:09:20","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '27', '1', '2016-10-11 21:09:20', 'tambos', 0),
-(265, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:09:20', 'tambos', 0),
-(266, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:09:24', 'tambos', 0),
-(267, 4, '{"id_menu":"0","url":"clientes\\/table\\/","menu":"Clientes","icon":"","id_padre":"26","date_add":"2016-10-11 21:09:42","date_upd":"2016-10-11 21:09:42","user_add":"1","user_upd":"1"}', 'insert', 'menus', '28', '1', '2016-10-11 21:09:42', 'tambos', 0),
-(268, 4, '{"id_perfil":"1","id_menu":28,"ver":1,"editar":1,"date_add":"2016-10-11 21:09:42","date_upd":"2016-10-11 21:09:42","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '28', '1', '2016-10-11 21:09:43', 'tambos', 0),
-(269, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:09:43', 'tambos', 0),
-(270, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:09:44', 'tambos', 0),
-(271, 4, '{"id_menu":"0","url":"pedidos\\/table\\/","menu":"Pedidos","icon":"","id_padre":"27","date_add":"2016-10-11 21:10:08","date_upd":"2016-10-11 21:10:08","user_add":"1","user_upd":"1"}', 'insert', 'menus', '29', '1', '2016-10-11 21:10:08', 'tambos', 0),
-(272, 4, '{"id_perfil":"1","id_menu":29,"ver":1,"editar":1,"date_add":"2016-10-11 21:10:08","date_upd":"2016-10-11 21:10:08","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '29', '1', '2016-10-11 21:10:08', 'tambos', 0),
-(273, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:10:08', 'tambos', 0),
-(274, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:10:10', 'tambos', 0),
-(275, 4, '{"id_menu":"0","url":"facturas\\/table\\/","menu":"Facturas","icon":"","id_padre":"27","date_add":"2016-10-11 21:10:24","date_upd":"2016-10-11 21:10:24","user_add":"1","user_upd":"1"}', 'insert', 'menus', '30', '1', '2016-10-11 21:10:25', 'tambos', 0),
-(276, 4, '{"id_perfil":"1","id_menu":30,"ver":1,"editar":1,"date_add":"2016-10-11 21:10:25","date_upd":"2016-10-11 21:10:25","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '30', '1', '2016-10-11 21:10:25', 'tambos', 0),
-(277, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:10:25', 'tambos', 0),
-(278, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:10:29', 'tambos', 0),
-(279, 4, '{"id_menu":"28","url":"clientes\\/table\\/","menu":"Clientes","icon":"","id_padre":"27","date_upd":"2016-10-11 21:10:33","user_upd":"1"}', 'update', 'menus', '28', '1', '2016-10-11 21:10:33', 'tambos', 0),
-(280, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:10:33', 'tambos', 0),
-(281, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:10:39', 'tambos', 0),
-(282, 4, '{"id_menu":"0","url":"proveedores\\/table\\/","menu":"Proveedores","icon":"","id_padre":"26","date_add":"2016-10-11 21:10:53","date_upd":"2016-10-11 21:10:53","user_add":"1","user_upd":"1"}', 'insert', 'menus', '31', '1', '2016-10-11 21:10:53', 'tambos', 0),
-(283, 4, '{"id_perfil":"1","id_menu":31,"ver":1,"editar":1,"date_add":"2016-10-11 21:10:53","date_upd":"2016-10-11 21:10:53","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '31', '1', '2016-10-11 21:10:53', 'tambos', 0),
-(284, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:10:53', 'tambos', 0),
-(285, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:10:55', 'tambos', 0),
-(286, 4, '{"id_menu":"0","url":"pedidos_proveedores\\/table\\/","menu":"Pedidos","icon":"","id_padre":"26","date_add":"2016-10-11 21:11:12","date_upd":"2016-10-11 21:11:12","user_add":"1","user_upd":"1"}', 'insert', 'menus', '32', '1', '2016-10-11 21:11:12', 'tambos', 0),
-(287, 4, '{"id_perfil":"1","id_menu":32,"ver":1,"editar":1,"date_add":"2016-10-11 21:11:12","date_upd":"2016-10-11 21:11:12","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '32', '1', '2016-10-11 21:11:12', 'tambos', 0),
-(288, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:11:12', 'tambos', 0),
-(289, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:11:14', 'tambos', 0),
-(290, 4, '{"id_menu":"0","url":"facturas_proveedores\\/table\\/","menu":"Facturas","icon":"","id_padre":"26","date_add":"2016-10-11 21:11:28","date_upd":"2016-10-11 21:11:28","user_add":"1","user_upd":"1"}', 'insert', 'menus', '33', '1', '2016-10-11 21:11:28', 'tambos', 0),
-(291, 4, '{"id_perfil":"1","id_menu":33,"ver":1,"editar":1,"date_add":"2016-10-11 21:11:28","date_upd":"2016-10-11 21:11:28","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '33', '1', '2016-10-11 21:11:28', 'tambos', 0),
-(292, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:11:28', 'tambos', 0),
-(293, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:11:37', 'tambos', 0),
-(294, 4, '{"id_menu":"30","url":"facturas_cliente\\/table\\/","menu":"Facturas","icon":"","id_padre":"27","date_upd":"2016-10-11 21:11:50","user_upd":"1"}', 'update', 'menus', '30', '1', '2016-10-11 21:11:50', 'tambos', 0),
-(295, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:11:50', 'tambos', 0),
-(296, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:11:53', 'tambos', 0),
-(297, 4, '{"id_menu":"29","url":"pedidos_clientes\\/table\\/","menu":"Pedidos","icon":"","id_padre":"27","date_upd":"2016-10-11 21:12:00","user_upd":"1"}', 'update', 'menus', '29', '1', '2016-10-11 21:12:00', 'tambos', 0),
-(298, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:12:00', 'tambos', 0),
-(299, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:12:03', 'tambos', 0),
-(300, 4, '{"id_menu":"30","url":"facturas_clientes\\/table\\/","menu":"Facturas","icon":"","id_padre":"27","date_upd":"2016-10-11 21:12:06","user_upd":"1"}', 'update', 'menus', '30', '1', '2016-10-11 21:12:06', 'tambos', 0),
-(301, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:12:06', 'tambos', 0),
-(302, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:12:08', 'tambos', 0),
-(303, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:12:18', 'tambos', 0),
-(304, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:12:23', 'tambos', 0),
-(305, 4, '{"id_menu":"0","url":"pagos_proveedores\\/table\\/","menu":"Pagos","icon":"","id_padre":"26","date_add":"2016-10-11 21:12:40","date_upd":"2016-10-11 21:12:40","user_add":"1","user_upd":"1"}', 'insert', 'menus', '34', '1', '2016-10-11 21:12:40', 'tambos', 0),
-(306, 4, '{"id_perfil":"1","id_menu":34,"ver":1,"editar":1,"date_add":"2016-10-11 21:12:40","date_upd":"2016-10-11 21:12:40","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '34', '1', '2016-10-11 21:12:40', 'tambos', 0),
-(307, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:12:40', 'tambos', 0),
-(308, 4, 'menus/abm', 'access', '', '', '1', '2016-10-11 21:12:42', 'tambos', 0),
-(309, 4, '{"id_menu":"0","url":"pagos_clientes\\/table\\/","menu":"Pagos","icon":"","id_padre":"27","date_add":"2016-10-11 21:12:57","date_upd":"2016-10-11 21:12:57","user_add":"1","user_upd":"1"}', 'insert', 'menus', '35', '1', '2016-10-11 21:12:57', 'tambos', 0),
-(310, 4, '{"id_perfil":"1","id_menu":35,"ver":1,"editar":1,"date_add":"2016-10-11 21:12:57","date_upd":"2016-10-11 21:12:57","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '35', '1', '2016-10-11 21:12:57', 'tambos', 0),
-(311, 4, 'menus/table', 'access', '', '', '1', '2016-10-11 21:12:57', 'tambos', 0),
-(312, 3, 'logout', 'logout', '', '', '1', '2016-10-11 21:13:06', 'tambos', 0),
-(313, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-11 21:13:10', 'tambos', 0),
-(314, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 21:13:10', 'tambos', 0),
-(315, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 21:30:33', 'tambos', 0),
-(316, 4, 'animales/table', 'access', '', '', '1', '2016-10-11 21:30:36', 'tambos', 0),
-(317, 4, 'animales/abm', 'access', '', '', '1', '2016-10-11 21:30:39', 'tambos', 0),
-(318, 4, 'animales_tipos/table', 'access', '', '', '1', '2016-10-11 21:31:29', 'tambos', 0),
-(319, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 14:31:22', 'tambos', 0),
-(320, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 14:31:23', 'tambos', 0),
-(321, 4, 'usuarios/table', 'access', '', '', '1', '2016-10-12 14:31:30', 'tambos', 0),
-(322, 4, 'usuarios/abm', 'access', '', '', '1', '2016-10-12 14:34:10', 'tambos', 0),
-(323, 4, 'usuarios/abm', 'access', '', '', '1', '2016-10-12 14:34:29', 'tambos', 0),
-(324, 4, 'usuarios/abm', 'access', '', '', '1', '2016-10-12 14:34:44', 'tambos', 0),
-(325, 4, 'usuarios/table', 'access', '', '', '1', '2016-10-12 14:34:55', 'tambos', 0),
-(326, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2016-10-12 14:34:56', 'tambos', 0),
-(327, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2016-10-12 14:34:59', 'tambos', 0),
-(328, 3, 'logout', 'logout', '', '', 'end_session', '2016-10-12 17:13:10', 'tambos', 0),
-(329, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 17:13:13', 'tambos', 0),
-(330, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 17:13:13', 'tambos', 0),
-(331, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 17:13:20', 'tambos', 0),
-(332, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:13:40', 'tambos', 0),
-(333, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:14:33', 'tambos', 0),
-(334, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:15:07', 'tambos', 0),
-(335, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:16:32', 'tambos', 0),
-(336, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:16:56', 'tambos', 0),
-(337, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:17:11', 'tambos', 0),
-(338, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:19:11', 'tambos', 0),
-(339, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 17:19:13', 'tambos', 0),
-(340, 4, '{"id_menu":"0","url":"formas_juridicas\\/table\\/","menu":"Formas Juridicas","icon":"","id_padre":"13","date_add":"2016-10-12 17:19:30","date_upd":"2016-10-12 17:19:30","user_add":"1","user_upd":"1"}', 'insert', 'menus', '36', '1', '2016-10-12 17:19:30', 'tambos', 0),
-(341, 4, '{"id_perfil":"1","id_menu":36,"ver":1,"editar":1,"date_add":"2016-10-12 17:19:30","date_upd":"2016-10-12 17:19:30","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '36', '1', '2016-10-12 17:19:30', 'tambos', 0),
-(342, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:19:31', 'tambos', 0),
-(343, 3, 'logout', 'logout', '', '', '1', '2016-10-12 17:19:35', 'tambos', 0),
-(344, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 17:19:37', 'tambos', 0),
-(345, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 17:19:37', 'tambos', 0),
-(346, 4, 'formas_juridicas/table', 'access', '', '', '1', '2016-10-12 17:19:41', 'tambos', 0),
-(347, 4, 'formas_juridicas/abm', 'access', '', '', '1', '2016-10-12 17:19:42', 'tambos', 0),
-(348, 4, '{"id_forma_juridica":"0","forma_juridica":"Responsable Inscripto","date_add":"2016-10-12 17:19:52","date_upd":"2016-10-12 17:19:52","user_add":"1","user_upd":"1"}', 'insert', 'formas_juridicas', '0', '1', '2016-10-12 17:19:52', 'tambos', 0),
-(349, 4, 'formas_juridicas/table', 'access', '', '', '1', '2016-10-12 17:19:52', 'tambos', 0),
-(350, 4, 'formas_juridicas/abm', 'access', '', '', '1', '2016-10-12 17:19:54', 'tambos', 0),
-(351, 4, '{"id_forma_juridica":"0","forma_juridica":"Monotributista","date_add":"2016-10-12 17:20:34","date_upd":"2016-10-12 17:20:34","user_add":"1","user_upd":"1"}', 'insert', 'formas_juridicas', '2', '1', '2016-10-12 17:20:34', 'tambos', 0),
-(352, 4, 'formas_juridicas/table', 'access', '', '', '1', '2016-10-12 17:20:34', 'tambos', 0),
-(353, 4, 'formas_juridicas/abm', 'access', '', '', '1', '2016-10-12 17:20:37', 'tambos', 0),
-(354, 4, '{"id_forma_juridica":"0","forma_juridica":"Responsable no inscripto","date_add":"2016-10-12 17:20:47","date_upd":"2016-10-12 17:20:47","user_add":"1","user_upd":"1"}', 'insert', 'formas_juridicas', '3', '1', '2016-10-12 17:20:47', 'tambos', 0),
-(355, 4, 'formas_juridicas/table', 'access', '', '', '1', '2016-10-12 17:20:48', 'tambos', 0),
-(356, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 17:20:52', 'tambos', 0),
-(357, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:20:54', 'tambos', 0),
-(358, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:21:34', 'tambos', 0),
-(359, 4, 'empleados/table', 'access', '', '', '1', '2016-10-12 17:21:47', 'tambos', 0),
-(360, 4, 'empleados/abm', 'access', '', '', '1', '2016-10-12 17:21:49', 'tambos', 0),
-(361, 4, '{"id_empleado":"1","empleado":"Diego Nieto","id_puesto":"1","dni":"31246501","telefono":"","telefono_alternativo":"","email":"","id_provincia":"","id_localidad":"","calle":"","calle_numero":"0","date_upd":"2016-10-12 17:21:58","user_upd":"1"}', 'update', 'empleados', '1', '1', '2016-10-12 17:21:58', 'tambos', 0),
-(362, 4, 'empleados/table', 'access', '', '', '1', '2016-10-12 17:21:58', 'tambos', 0),
-(363, 4, 'empleados/abm', 'access', '', '', '1', '2016-10-12 17:22:00', 'tambos', 0),
-(364, 4, '{"id_empleado":"2","empleado":"Jose Perales","id_puesto":"2","dni":"32165487","telefono":"","telefono_alternativo":"","email":"","id_provincia":"13","id_localidad":"","calle":"","calle_numero":"0","date_upd":"2016-10-12 17:22:09","user_upd":"1"}', 'update', 'empleados', '2', '1', '2016-10-12 17:22:09', 'tambos', 0),
-(365, 4, 'empleados/table', 'access', '', '', '1', '2016-10-12 17:22:09', 'tambos', 0),
-(366, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 17:22:12', 'tambos', 0),
-(367, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:22:14', 'tambos', 0),
-(368, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:23:32', 'tambos', 0),
-(369, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 17:23:36', 'tambos', 0),
-(370, 4, '{"id_menu":"0","url":"clientes_tipos\\/table\\/","menu":"Clientes tipos","icon":"","id_padre":"13","date_add":"2016-10-12 17:23:50","date_upd":"2016-10-12 17:23:50","user_add":"1","user_upd":"1"}', 'insert', 'menus', '37', '1', '2016-10-12 17:23:50', 'tambos', 0),
-(371, 4, '{"id_perfil":"1","id_menu":37,"ver":1,"editar":1,"date_add":"2016-10-12 17:23:50","date_upd":"2016-10-12 17:23:50","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '37', '1', '2016-10-12 17:23:50', 'tambos', 0),
-(372, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:23:50', 'tambos', 0),
-(373, 3, 'logout', 'logout', '', '', '1', '2016-10-12 17:23:53', 'tambos', 0),
-(374, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 17:23:55', 'tambos', 0),
-(375, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 17:23:55', 'tambos', 0),
-(376, 4, 'clientes_tipos/table', 'access', '', '', '1', '2016-10-12 17:23:59', 'tambos', 0),
-(377, 4, 'clientes_tipos/abm', 'access', '', '', '1', '2016-10-12 17:24:01', 'tambos', 0),
-(378, 4, '{"id_tipo":"0","tipo":"Regular","date_add":"2016-10-12 17:24:12","date_upd":"2016-10-12 17:24:12","user_add":"1","user_upd":"1"}', 'insert', 'clientes_tipos', '0', '1', '2016-10-12 17:24:13', 'tambos', 0),
-(379, 4, 'clientes_tipos/table', 'access', '', '', '1', '2016-10-12 17:24:13', 'tambos', 0),
-(380, 4, 'clientes_tipos/abm', 'access', '', '', '1', '2016-10-12 17:24:14', 'tambos', 0),
-(381, 4, '{"id_tipo":"0","tipo":"Nuevo","date_add":"2016-10-12 17:24:38","date_upd":"2016-10-12 17:24:38","user_add":"1","user_upd":"1"}', 'insert', 'clientes_tipos', '2', '1', '2016-10-12 17:24:38', 'tambos', 0),
-(382, 4, 'clientes_tipos/table', 'access', '', '', '1', '2016-10-12 17:24:38', 'tambos', 0),
-(383, 4, 'clientes_tipos/abm', 'access', '', '', '1', '2016-10-12 17:24:40', 'tambos', 0),
-(384, 4, '{"id_tipo":"0","tipo":"Potencial","date_add":"2016-10-12 17:24:46","date_upd":"2016-10-12 17:24:46","user_add":"1","user_upd":"1"}', 'insert', 'clientes_tipos', '3', '1', '2016-10-12 17:24:46', 'tambos', 0),
-(385, 4, 'clientes_tipos/table', 'access', '', '', '1', '2016-10-12 17:24:46', 'tambos', 0),
-(386, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 17:24:49', 'tambos', 0),
-(387, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 17:24:52', 'tambos', 0),
-(388, 4, 'animales_tipos/table', 'access', '', '', '1', '2016-10-12 17:25:25', 'tambos', 0),
-(389, 4, 'clientes_tipos/table', 'access', '', '', '1', '2016-10-12 17:25:28', 'tambos', 0),
-(390, 4, 'clientes_tipos/table', 'access', '', '', '1', '2016-10-12 17:29:15', 'tambos', 0),
-(391, 4, 'proveedores/table', 'access', '', '', '1', '2016-10-12 17:29:46', 'tambos', 0),
-(392, 4, 'proveedores/abm', 'access', '', '', '1', '2016-10-12 17:29:49', 'tambos', 0),
-(393, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:30:12', 'tambos', 0),
-(394, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 17:30:21', 'tambos', 0),
-(395, 4, '{"id_menu":"37","url":"clientes_tipos\\/table\\/","menu":"Clientes Tipos","icon":"","id_padre":"13","date_upd":"2016-10-12 17:30:27","user_upd":"1"}', 'update', 'menus', '37', '1', '2016-10-12 17:30:27', 'tambos', 0),
-(396, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:30:27', 'tambos', 0),
-(397, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 17:30:29', 'tambos', 0),
-(398, 4, '{"id_menu":"0","url":"proveedores_tipos\\/table\\/","menu":"Proveedores Tipos","icon":"","id_padre":"13","date_add":"2016-10-12 17:30:47","date_upd":"2016-10-12 17:30:47","user_add":"1","user_upd":"1"}', 'insert', 'menus', '38', '1', '2016-10-12 17:30:47', 'tambos', 0),
-(399, 4, '{"id_perfil":"1","id_menu":38,"ver":1,"editar":1,"date_add":"2016-10-12 17:30:47","date_upd":"2016-10-12 17:30:47","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '38', '1', '2016-10-12 17:30:47', 'tambos', 0),
-(400, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:30:47', 'tambos', 0),
-(401, 3, 'logout', 'logout', '', '', '1', '2016-10-12 17:30:50', 'tambos', 0),
-(402, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 17:30:52', 'tambos', 0),
-(403, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 17:30:52', 'tambos', 0),
-(404, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 17:32:55', 'tambos', 0),
-(405, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 17:33:21', 'tambos', 0),
-(406, 3, 'logout', 'logout', '', '', '1', '2016-10-12 17:33:24', 'tambos', 0),
-(407, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 17:33:26', 'tambos', 0),
-(408, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 17:33:26', 'tambos', 0),
-(409, 4, 'proveedores_tipos/table', 'access', '', '', '1', '2016-10-12 17:33:45', 'tambos', 0),
-(410, 4, 'proveedores_tipos/abm', 'access', '', '', '1', '2016-10-12 17:33:55', 'tambos', 0),
-(411, 4, '{"id_tipo":"0","tipo":"Principal","date_add":"2016-10-12 17:34:02","date_upd":"2016-10-12 17:34:02","user_add":"1","user_upd":"1"}', 'insert', 'proveedores_tipos', '0', '1', '2016-10-12 17:34:02', 'tambos', 0),
-(412, 4, 'proveedores_tipos/table', 'access', '', '', '1', '2016-10-12 17:34:02', 'tambos', 0),
-(413, 4, 'proveedores_tipos/abm', 'access', '', '', '1', '2016-10-12 17:34:04', 'tambos', 0),
-(414, 4, '{"id_tipo":"0","tipo":"Secundario","date_add":"2016-10-12 17:34:26","date_upd":"2016-10-12 17:34:26","user_add":"1","user_upd":"1"}', 'insert', 'proveedores_tipos', '2', '1', '2016-10-12 17:34:26', 'tambos', 0),
-(415, 4, 'proveedores_tipos/table', 'access', '', '', '1', '2016-10-12 17:34:26', 'tambos', 0),
-(416, 4, 'proveedores/table', 'access', '', '', '1', '2016-10-12 17:37:56', 'tambos', 0),
-(417, 4, 'proveedores/abm', 'access', '', '', '1', '2016-10-12 17:38:00', 'tambos', 0),
-(418, 4, 'proveedores/abm', 'access', '', '', '1', '2016-10-12 17:39:06', 'tambos', 0),
-(419, 4, 'proveedores/abm', 'access', '', '', '1', '2016-10-12 17:39:15', 'tambos', 0),
-(420, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:39:18', 'tambos', 0),
-(421, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 17:39:24', 'tambos', 0),
-(422, 4, '{"id_menu":"29","url":"pedidos\\/table\\/","menu":"Pedidos","icon":"","id_padre":"27","date_upd":"2016-10-12 17:39:29","user_upd":"1"}', 'update', 'menus', '29', '1', '2016-10-12 17:39:29', 'tambos', 0),
-(423, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:39:29', 'tambos', 0),
-(424, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 17:39:32', 'tambos', 0),
-(425, 4, '{"id_menu":"35","url":"pagos\\/table\\/","menu":"Pagos","icon":"","id_padre":"27","date_upd":"2016-10-12 17:39:36","user_upd":"1"}', 'update', 'menus', '35', '1', '2016-10-12 17:39:36', 'tambos', 0),
-(426, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 17:39:36', 'tambos', 0),
-(427, 3, 'logout', 'logout', '', '', '1', '2016-10-12 17:39:43', 'tambos', 0),
-(428, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 17:39:45', 'tambos', 0),
-(429, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 17:39:45', 'tambos', 0),
-(430, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 17:57:58', 'tambos', 0),
-(431, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 17:58:26', 'tambos', 0),
-(432, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 17:58:29', 'tambos', 0),
-(433, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 17:58:50', 'tambos', 0),
-(434, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 17:58:55', 'tambos', 0),
-(435, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 18:00:19', 'tambos', 0),
-(436, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 18:01:04', 'tambos', 0),
-(437, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 18:01:55', 'tambos', 0),
-(438, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 18:02:22', 'tambos', 0),
-(439, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 18:02:55', 'tambos', 0),
-(440, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 18:03:23', 'tambos', 0),
-(441, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 18:04:19', 'tambos', 0),
-(442, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:11:11', 'tambos', 0),
-(443, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:12:05', 'tambos', 0),
-(444, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:13:00', 'tambos', 0),
-(445, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:13:03', 'tambos', 0),
-(446, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:13:51', 'tambos', 0),
-(447, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:13:57', 'tambos', 0),
-(448, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:14:14', 'tambos', 0),
-(449, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:14:42', 'tambos', 0),
-(450, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:14:54', 'tambos', 0);
-INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `registro`, `user_add`, `date_add`, `programa`, `eliminado`) VALUES
-(451, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:22:16', 'tambos', 0),
-(452, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:25:23', 'tambos', 0),
-(453, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:26:43', 'tambos', 0),
-(454, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:27:08', 'tambos', 0),
-(455, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 19:27:22', 'tambos', 0),
-(456, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:27:25', 'tambos', 0),
-(457, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 19:45:14', 'tambos', 0),
-(458, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 19:45:16', 'tambos', 0),
-(459, 4, '{"id_menu":"0","url":"condiciones_pagos\\/table\\/","menu":"Condiciones Pagos","icon":"","id_padre":"13","date_add":"2016-10-12 19:45:32","date_upd":"2016-10-12 19:45:32","user_add":"1","user_upd":"1"}', 'insert', 'menus', '39', '1', '2016-10-12 19:45:32', 'tambos', 0),
-(460, 4, '{"id_perfil":"1","id_menu":39,"ver":1,"editar":1,"date_add":"2016-10-12 19:45:32","date_upd":"2016-10-12 19:45:32","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '39', '1', '2016-10-12 19:45:33', 'tambos', 0),
-(461, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 19:45:33', 'tambos', 0),
-(462, 3, 'logout', 'logout', '', '', '1', '2016-10-12 19:45:36', 'tambos', 0),
-(463, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 19:45:37', 'tambos', 0),
-(464, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 19:45:38', 'tambos', 0),
-(465, 4, 'condiciones_pagos/table', 'access', '', '', '1', '2016-10-12 19:45:55', 'tambos', 0),
-(466, 4, 'condiciones_pagos/table', 'access', '', '', '1', '2016-10-12 19:46:26', 'tambos', 0),
-(467, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 19:46:31', 'tambos', 0),
-(468, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:46:33', 'tambos', 0),
-(469, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 19:46:48', 'tambos', 0),
-(470, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 19:46:54', 'tambos', 0),
-(471, 4, '{"id_menu":"0","url":"formas_pagos\\/table\\/","menu":"Formas Pagos","icon":"","id_padre":"13","date_add":"2016-10-12 19:47:07","date_upd":"2016-10-12 19:47:07","user_add":"1","user_upd":"1"}', 'insert', 'menus', '40', '1', '2016-10-12 19:47:07', 'tambos', 0),
-(472, 4, '{"id_perfil":"1","id_menu":40,"ver":1,"editar":1,"date_add":"2016-10-12 19:47:07","date_upd":"2016-10-12 19:47:07","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '40', '1', '2016-10-12 19:47:07', 'tambos', 0),
-(473, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 19:47:07', 'tambos', 0),
-(474, 3, 'logout', 'logout', '', '', '1', '2016-10-12 19:47:10', 'tambos', 0),
-(475, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 19:47:12', 'tambos', 0),
-(476, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 19:47:12', 'tambos', 0),
-(477, 4, 'formas_pagos/table', 'access', '', '', '1', '2016-10-12 19:48:40', 'tambos', 0),
-(478, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 19:48:49', 'tambos', 0),
-(479, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:48:50', 'tambos', 0),
-(480, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 19:49:03', 'tambos', 0),
-(481, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 19:49:04', 'tambos', 0),
-(482, 4, '{"id_menu":"0","url":"origenes\\/table\\/","menu":"Origenes","icon":"","id_padre":"13","date_add":"2016-10-12 19:49:19","date_upd":"2016-10-12 19:49:19","user_add":"1","user_upd":"1"}', 'insert', 'menus', '41', '1', '2016-10-12 19:49:19', 'tambos', 0),
-(483, 4, '{"id_perfil":"1","id_menu":41,"ver":1,"editar":1,"date_add":"2016-10-12 19:49:19","date_upd":"2016-10-12 19:49:19","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '41', '1', '2016-10-12 19:49:19', 'tambos', 0),
-(484, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 19:49:20', 'tambos', 0),
-(485, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 19:49:22', 'tambos', 0),
-(486, 4, '{"id_menu":"0","url":"envios\\/table\\/","menu":"Envios","icon":"","id_padre":"13","date_add":"2016-10-12 19:49:34","date_upd":"2016-10-12 19:49:34","user_add":"1","user_upd":"1"}', 'insert', 'menus', '42', '1', '2016-10-12 19:49:34', 'tambos', 0),
-(487, 4, '{"id_perfil":"1","id_menu":42,"ver":1,"editar":1,"date_add":"2016-10-12 19:49:34","date_upd":"2016-10-12 19:49:34","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '42', '1', '2016-10-12 19:49:34', 'tambos', 0),
-(488, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 19:49:34', 'tambos', 0),
-(489, 3, 'logout', 'logout', '', '', '1', '2016-10-12 19:49:39', 'tambos', 0),
-(490, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 19:50:39', 'tambos', 0),
-(491, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 19:50:39', 'tambos', 0),
-(492, 4, 'envios/table', 'access', '', '', '1', '2016-10-12 19:52:46', 'tambos', 0),
-(493, 4, 'envios/abm', 'access', '', '', '1', '2016-10-12 19:52:51', 'tambos', 0),
-(494, 4, '{"id_envio":"0","envio":"Recepci\\u00f3n","date_add":"2016-10-12 19:53:00","date_upd":"2016-10-12 19:53:00","user_add":"1","user_upd":"1"}', 'insert', 'envios', '1', '1', '2016-10-12 19:53:01', 'tambos', 0),
-(495, 4, 'envios/table', 'access', '', '', '1', '2016-10-12 19:53:01', 'tambos', 0),
-(496, 4, 'envios/abm', 'access', '', '', '1', '2016-10-12 19:53:03', 'tambos', 0),
-(497, 4, '{"id_envio":"0","envio":"Transporte Fido","date_add":"2016-10-12 19:53:13","date_upd":"2016-10-12 19:53:13","user_add":"1","user_upd":"1"}', 'insert', 'envios', '2', '1', '2016-10-12 19:53:13', 'tambos', 0),
-(498, 4, 'envios/table', 'access', '', '', '1', '2016-10-12 19:53:13', 'tambos', 0),
-(499, 4, 'origenes/table', 'access', '', '', '1', '2016-10-12 19:54:30', 'tambos', 0),
-(500, 4, 'origenes/abm', 'access', '', '', '1', '2016-10-12 19:54:32', 'tambos', 0),
-(501, 4, '{"id_origen":"0","origen":"Llamado telef\\u00f3nico","date_add":"2016-10-12 19:55:07","date_upd":"2016-10-12 19:55:07","user_add":"1","user_upd":"1"}', 'insert', 'origenes', '0', '1', '2016-10-12 19:55:07', 'tambos', 0),
-(502, 4, 'origenes/table', 'access', '', '', '1', '2016-10-12 19:55:07', 'tambos', 0),
-(503, 4, 'origenes/abm', 'access', '', '', '1', '2016-10-12 19:55:09', 'tambos', 0),
-(504, 4, '{"id_origen":"0","origen":"Visita","date_add":"2016-10-12 19:55:52","date_upd":"2016-10-12 19:55:52","user_add":"1","user_upd":"1"}', 'insert', 'origenes', '2', '1', '2016-10-12 19:55:52', 'tambos', 0),
-(505, 4, 'origenes/table', 'access', '', '', '1', '2016-10-12 19:55:53', 'tambos', 0),
-(506, 4, 'origenes/abm', 'access', '', '', '1', '2016-10-12 19:55:59', 'tambos', 0),
-(507, 4, '{"id_origen":"2","origen":"Visita vendedor","date_upd":"2016-10-12 19:56:04","user_upd":"1"}', 'update', 'origenes', '2', '1', '2016-10-12 19:56:04', 'tambos', 0),
-(508, 4, 'origenes/table', 'access', '', '', '1', '2016-10-12 19:56:04', 'tambos', 0),
-(509, 4, 'origenes/abm', 'access', '', '', '1', '2016-10-12 19:56:06', 'tambos', 0),
-(510, 4, '{"id_origen":"0","origen":"Local comercial","date_add":"2016-10-12 19:56:18","date_upd":"2016-10-12 19:56:18","user_add":"1","user_upd":"1"}', 'insert', 'origenes', '3', '1', '2016-10-12 19:56:18', 'tambos', 0),
-(511, 4, 'origenes/table', 'access', '', '', '1', '2016-10-12 19:56:18', 'tambos', 0),
-(512, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 19:56:23', 'tambos', 0),
-(513, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 19:56:26', 'tambos', 0),
-(514, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 19:57:05', 'tambos', 0),
-(515, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 19:57:07', 'tambos', 0),
-(516, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 19:58:15', 'tambos', 0),
-(517, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 19:58:27', 'tambos', 0),
-(518, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 19:58:32', 'tambos', 0),
-(519, 4, '{"id_menu":"30","url":"facturas\\/table\\/","menu":"Facturas","icon":"","id_padre":"27","date_upd":"2016-10-12 19:58:37","user_upd":"1"}', 'update', 'menus', '30', '1', '2016-10-12 19:58:37', 'tambos', 0),
-(520, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 19:58:37', 'tambos', 0),
-(521, 3, 'logout', 'logout', '', '', '1', '2016-10-12 19:58:48', 'tambos', 0),
-(522, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 19:58:50', 'tambos', 0),
-(523, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 19:58:51', 'tambos', 0),
-(524, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 20:06:06', 'tambos', 0),
-(525, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-12 20:06:27', 'tambos', 0),
-(526, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-12 20:07:20', 'tambos', 0),
-(527, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-12 20:07:23', 'tambos', 0),
-(528, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 20:09:14', 'tambos', 0),
-(529, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 20:09:22', 'tambos', 0),
-(530, 4, '{"id_menu":"0","url":"pedidos_estados\\/table\\/","menu":"Pedidos Estados","icon":"","id_padre":"13","date_add":"2016-10-12 20:09:38","date_upd":"2016-10-12 20:09:38","user_add":"1","user_upd":"1"}', 'insert', 'menus', '43', '1', '2016-10-12 20:09:38', 'tambos', 0),
-(531, 4, '{"id_perfil":"1","id_menu":43,"ver":1,"editar":1,"date_add":"2016-10-12 20:09:38","date_upd":"2016-10-12 20:09:38","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '43', '1', '2016-10-12 20:09:38', 'tambos', 0),
-(532, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 20:09:38', 'tambos', 0),
-(533, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 20:09:40', 'tambos', 0),
-(534, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 20:10:26', 'tambos', 0),
-(535, 3, 'logout', 'logout', '', '', '1', '2016-10-12 20:10:35', 'tambos', 0),
-(536, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 20:10:36', 'tambos', 0),
-(537, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 20:10:36', 'tambos', 0),
-(538, 4, 'pedidos_estados/table', 'access', '', '', '1', '2016-10-12 20:11:38', 'tambos', 0),
-(539, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 20:13:25', 'tambos', 0),
-(540, 4, 'menus/abm', 'access', '', '', '1', '2016-10-12 20:13:27', 'tambos', 0),
-(541, 4, '{"id_menu":"0","url":"facturas_estados\\/table\\/","menu":"Facturas Estados","icon":"","id_padre":"13","date_add":"2016-10-12 20:13:41","date_upd":"2016-10-12 20:13:41","user_add":"1","user_upd":"1"}', 'insert', 'menus', '44', '1', '2016-10-12 20:13:41', 'tambos', 0),
-(542, 4, '{"id_perfil":"1","id_menu":44,"ver":1,"editar":1,"date_add":"2016-10-12 20:13:41","date_upd":"2016-10-12 20:13:41","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '44', '1', '2016-10-12 20:13:41', 'tambos', 0),
-(543, 4, 'menus/table', 'access', '', '', '1', '2016-10-12 20:13:41', 'tambos', 0),
-(544, 3, 'logout', 'logout', '', '', '1', '2016-10-12 20:13:44', 'tambos', 0),
-(545, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-12 20:13:45', 'tambos', 0),
-(546, 4, 'animales/table', 'access', '', '', '1', '2016-10-12 20:13:46', 'tambos', 0),
-(547, 4, 'facturas_estados/table', 'access', '', '', '1', '2016-10-12 20:13:51', 'tambos', 0),
-(548, 4, 'condiciones_pagos/table', 'access', '', '', '1', '2016-10-12 20:13:59', 'tambos', 0),
-(549, 4, 'animales_estados/table', 'access', '', '', '1', '2016-10-12 20:14:06', 'tambos', 0),
-(550, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 20:14:28', 'tambos', 0),
-(551, 4, 'facturas/table', 'access', '', '', '1', '2016-10-12 20:20:27', 'tambos', 0),
-(552, 4, 'facturas/table', 'access', '', '', '1', '2016-10-12 20:20:50', 'tambos', 0),
-(553, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 20:20:54', 'tambos', 0),
-(554, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 20:20:56', 'tambos', 0),
-(555, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 20:20:59', 'tambos', 0),
-(556, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 20:21:01', 'tambos', 0),
-(557, 4, '{"id_cliente":"0","cliente":"Miguel Rodriguez","id_tipo":"2","email":"","telefono":"","telefono_alternativo":"","web":"","id_forma_juridica":"1","id_empleado":"","calle":"","calle_numero":"","id_provincia":"","comentario":"","date_add":"2016-10-12 20:21:26","date_upd":"2016-10-12 20:21:26","user_add":"1","user_upd":"1"}', 'insert', 'clientes', '1', '1', '2016-10-12 20:21:26', 'tambos', 0),
-(558, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 20:21:26', 'tambos', 0),
-(559, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 20:21:30', 'tambos', 0),
-(560, 4, '{"id_cliente":"0","cliente":"Mirta Chichita","id_tipo":"","email":"","telefono":"","telefono_alternativo":"","web":"","id_forma_juridica":"","id_empleado":"","calle":"","calle_numero":"","id_provincia":"","comentario":"","date_add":"2016-10-12 20:21:44","date_upd":"2016-10-12 20:21:44","user_add":"1","user_upd":"1"}', 'insert', 'clientes', '2', '1', '2016-10-12 20:21:44', 'tambos', 0),
-(561, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 20:21:44', 'tambos', 0),
-(562, 4, 'clientes/abm', 'access', '', '', '1', '2016-10-12 20:21:48', 'tambos', 0),
-(563, 4, '{"id_cliente":"2","cliente":"Mirta Chichita","id_tipo":"3","email":"","telefono":"","telefono_alternativo":"","web":"","id_forma_juridica":"","id_empleado":"","calle":"","calle_numero":"0","id_provincia":"","comentario":"","date_upd":"2016-10-12 20:21:52","user_upd":"1"}', 'update', 'clientes', '2', '1', '2016-10-12 20:21:53', 'tambos', 0),
-(564, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 20:21:53', 'tambos', 0),
-(565, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 20:21:56', 'tambos', 0),
-(566, 4, 'pedidos/abm', 'access', '', '', '1', '2016-10-12 20:21:58', 'tambos', 0),
-(567, 4, '{"id_pedido":"0","id_cliente":"1","id_empleado":"1","fecha_entrega":"12-10-2016","validez":"13-10-2016","id_condicion_pago":"1","id_forma_pago":"2","id_origen":"1","id_envio":"1","comentario_publico":"","comentario_privado":"","date_add":"2016-10-12 20:22:18","date_upd":"2016-10-12 20:22:18","user_add":"1","user_upd":"1"}', 'insert', 'pedidos', '1', '1', '2016-10-12 20:22:18', 'tambos', 0),
-(568, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 20:22:18', 'tambos', 0),
-(569, 4, 'facturas/table', 'access', '', '', '1', '2016-10-12 20:22:27', 'tambos', 0),
-(570, 4, 'facturas/abm', 'access', '', '', '1', '2016-10-12 20:22:47', 'tambos', 0),
-(571, 4, 'facturas/abm', 'access', '', '', '1', '2016-10-12 20:23:05', 'tambos', 0),
-(572, 4, 'facturas/abm', 'access', '', '', '1', '2016-10-12 20:23:35', 'tambos', 0),
-(573, 4, '{"id_cliente":"2","id_pedido":"0","fecha_entrega":"13-10-2016","id_condicion_pago":"","id_forma_pago":"","id_origen":"","id_envio":"","comentario_publico":"","comentario_privado":"","date_add":"2016-10-12 20:23:46","date_upd":"2016-10-12 20:23:46","user_add":"1","user_upd":"1"}', 'insert', 'facturas', '1', '1', '2016-10-12 20:23:46', 'tambos', 0),
-(574, 4, 'facturas/table', 'access', '', '', '1', '2016-10-12 20:23:46', 'tambos', 0),
-(575, 4, 'pagos/table', 'access', '', '', '1', '2016-10-12 20:31:40', 'tambos', 0),
-(576, 4, 'pagos/table', 'access', '', '', '1', '2016-10-12 20:32:17', 'tambos', 0),
-(577, 4, 'pagos/table', 'access', '', '', '1', '2016-10-12 20:33:39', 'tambos', 0),
-(578, 4, 'pagos/table', 'access', '', '', '1', '2016-10-12 20:33:54', 'tambos', 0),
-(579, 4, 'pagos/table', 'access', '', '', '1', '2016-10-12 20:34:05', 'tambos', 0),
-(580, 4, 'pagos/table', 'access', '', '', '1', '2016-10-12 20:34:24', 'tambos', 0),
-(581, 4, 'pagos/abm', 'access', '', '', '1', '2016-10-12 20:34:32', 'tambos', 0),
-(582, 4, 'pagos/abm', 'access', '', '', '1', '2016-10-12 20:34:56', 'tambos', 0),
-(583, 4, '{"id_pago":"0","id_factura":"1","id_forma_pago":"1","total":"60.50","comentario":"","date_add":"2016-10-12 20:35:04","date_upd":"2016-10-12 20:35:04","user_add":"1","user_upd":"1"}', 'insert', 'pagos', '1', '1', '2016-10-12 20:35:04', 'tambos', 0),
-(584, 4, 'pagos/table', 'access', '', '', '1', '2016-10-12 20:35:04', 'tambos', 0),
-(585, 4, 'facturas/table', 'access', '', '', '1', '2016-10-12 20:35:09', 'tambos', 0),
-(586, 4, 'pedidos/table', 'access', '', '', '1', '2016-10-12 20:35:12', 'tambos', 0),
-(587, 4, 'clientes/table', 'access', '', '', '1', '2016-10-12 20:35:14', 'tambos', 0),
-(588, 4, 'proveedores/table', 'access', '', '', '1', '2016-10-12 20:35:21', 'tambos', 0),
-(589, 4, 'proveedores/abm', 'access', '', '', '1', '2016-10-12 20:35:24', 'tambos', 0),
-(590, 4, '{"id_proveedor":"0","proveedor":"Vendedor vacuno","id_tipo":"1","email":"","telefono":"","telefono_alternativo":"","web":"","id_forma_juridica":"1","id_empleado":"","calle":"","calle_numero":"","id_provincia":"5","comentario":"","date_add":"2016-10-12 20:35:44","date_upd":"2016-10-12 20:35:44","user_add":"1","user_upd":"1"}', 'insert', 'proveedores', '1', '1', '2016-10-12 20:35:44', 'tambos', 0),
-(591, 4, 'proveedores/table', 'access', '', '', '1', '2016-10-12 20:35:44', 'tambos', 0),
-(592, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-12 20:36:09', 'tambos', 0),
-(593, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-12 20:36:11', 'tambos', 0),
-(594, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-12 20:36:49', 'tambos', 0),
-(595, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-12 20:37:12', 'tambos', 0),
-(596, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-12 20:38:26', 'tambos', 0),
-(597, 4, '{"id_pedido":"0","id_proveedor":"1","nro_proveedor":"8595","fecha_entrega":"12-10-2016","validez":"13-10-2016","id_condicion_pago":"1","id_forma_pago":"1","id_origen":"3","id_envio":"1","comentario":"","date_add":"2016-10-12 20:38:46","date_upd":"2016-10-12 20:38:46","user_add":"1","user_upd":"1"}', 'insert', 'pedidos_proveedores', '0', '1', '2016-10-12 20:38:46', 'tambos', 0),
-(598, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-12 20:38:46', 'tambos', 0),
-(599, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-12 20:39:15', 'tambos', 0),
-(600, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-12 20:39:21', 'tambos', 0),
-(601, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-13 16:58:02', 'tambos', 0),
-(602, 4, 'animales/table', 'access', '', '', '1', '2016-10-13 16:58:02', 'tambos', 0),
-(603, 4, 'facturas/table', 'access', '', '', '1', '2016-10-13 17:21:05', 'tambos', 0),
-(604, 4, 'facturas_proveedores/table', 'access', '', '', '1', '2016-10-13 17:22:15', 'tambos', 0),
-(605, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:22:20', 'tambos', 0),
-(606, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:22:41', 'tambos', 0),
-(607, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:23:18', 'tambos', 0),
-(608, 4, 'facturas_proveedores/table', 'access', '', '', '1', '2016-10-13 17:23:20', 'tambos', 0),
-(609, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:23:22', 'tambos', 0),
-(610, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:23:46', 'tambos', 0),
-(611, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:24:09', 'tambos', 0),
-(612, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:24:42', 'tambos', 0),
-(613, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:25:21', 'tambos', 0),
-(614, 4, '{"id_factura":"0","id_proveedor":"1","id_pedido":"1","nro_factura":"89521","fecha_entrega":"13-10-2016","id_condicion_pago":"1","id_forma_pago":"1","id_origen":"3","id_envio":"1","comentario":"","date_add":"2016-10-13 17:25:44","date_upd":"2016-10-13 17:25:44","user_add":"1","user_upd":"1"}', 'insert', 'facturas_proveedores', '1', '1', '2016-10-13 17:25:44', 'tambos', 0),
-(615, 4, 'facturas_proveedores/table', 'access', '', '', '1', '2016-10-13 17:25:44', 'tambos', 0),
-(616, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:26:13', 'tambos', 0),
-(617, 4, 'pagos/table', 'access', '', '', '1', '2016-10-13 17:26:16', 'tambos', 0),
-(618, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:28:35', 'tambos', 0),
-(619, 4, 'pagos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:28:37', 'tambos', 0),
-(620, 4, 'pagos_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:28:42', 'tambos', 0),
-(621, 4, 'pagos_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:29:33', 'tambos', 0),
-(622, 4, 'pagos_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:29:52', 'tambos', 0),
-(623, 4, '{"id_pago":"0","id_factura":"1","id_forma_pago":"1","total":"8562","comentario":"","date_add":"2016-10-13 17:30:03","date_upd":"2016-10-13 17:30:03","user_add":"1","user_upd":"1"}', 'insert', 'pagos_proveedores', '0', '1', '2016-10-13 17:30:03', 'tambos', 0),
-(624, 4, 'pagos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:30:03', 'tambos', 0),
-(625, 4, 'pagos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:30:59', 'tambos', 0),
-(626, 4, 'pagos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:31:21', 'tambos', 0),
-(627, 4, 'pagos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:32:28', 'tambos', 0),
-(628, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:33:27', 'tambos', 0),
-(629, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:49:29', 'tambos', 0),
-(630, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:51:43', 'tambos', 0),
-(631, 4, '{"id_pedido":"1","id_proveedor":"1","nro_proveedor":"8595","fecha_entrega":"2016-10-13","validez":"2016-10-13","id_condicion_pago":"1","id_forma_pago":"1","id_origen":"3","id_envio":"1","comentario":"","date_upd":"2016-10-13 17:51:50","user_upd":"1"}', 'update', 'pedidos_proveedores', '1', '1', '2016-10-13 17:51:50', 'tambos', 0),
-(632, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:51:50', 'tambos', 0),
-(633, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:51:53', 'tambos', 0),
-(634, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:52:36', 'tambos', 0),
-(635, 4, '{"id_pedido":"1","id_proveedor":"1","nro_proveedor":"8595","fecha_entrega":"2016-10-13","validez":"2016-10-14","id_condicion_pago":"1","id_forma_pago":"1","id_origen":"3","id_envio":"1","comentario":"","date_upd":"2016-10-13 17:53:30","user_upd":"1"}', 'update', 'pedidos_proveedores', '1', '1', '2016-10-13 17:53:30', 'tambos', 0),
-(636, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2016-10-13 17:53:30', 'tambos', 0),
-(637, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2016-10-13 17:53:33', 'tambos', 0),
-(638, 4, 'animales/table', 'access', '', '', '1', '2016-10-13 17:54:01', 'tambos', 0),
-(639, 4, 'animales/abm', 'access', '', '', '1', '2016-10-13 17:54:03', 'tambos', 0),
-(640, 4, 'animales/table', 'access', '', '', '1', '2016-10-13 17:54:26', 'tambos', 0),
-(641, 3, 'logout', 'logout', '', '', 'end_session', '2016-10-13 20:10:58', 'tambos', 0),
-(642, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-13 20:11:05', 'tambos', 0),
-(643, 4, 'animales/table', 'access', '', '', '1', '2016-10-13 20:11:06', 'tambos', 0),
-(644, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-13 20:11:11', 'tambos', 0),
-(645, 4, 'ordenes/table', 'access', '', '', '1', '2016-10-13 20:13:04', 'tambos', 0),
-(646, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-13 20:13:05', 'tambos', 0),
-(647, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 20:13:10', 'tambos', 0),
-(648, 4, 'seguimientos_estados/table', 'access', '', '', '1', '2016-10-13 20:13:23', 'tambos', 0),
-(649, 4, 'usuarios/table', 'access', '', '', '1', '2016-10-13 20:13:34', 'tambos', 0),
-(650, 4, 'usuarios/abm', 'access', '', '', '1', '2016-10-13 20:13:35', 'tambos', 0),
-(651, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2016-10-13 20:13:46', 'tambos', 0),
-(652, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2016-10-13 20:13:48', 'tambos', 0),
-(653, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2016-10-13 20:15:37', 'tambos', 0),
-(654, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2016-10-13 20:16:15', 'tambos', 0),
-(655, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2016-10-13 20:16:28', 'tambos', 0),
-(656, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2016-10-13 20:16:57', 'tambos', 0),
-(657, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2016-10-13 20:17:20', 'tambos', 0),
-(658, 4, 'facturas_proveedores/table', 'access', '', '', '1', '2016-10-13 20:17:29', 'tambos', 0),
-(659, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2016-10-13 20:17:31', 'tambos', 0),
-(660, 4, 'seguimientos_estados/table', 'access', '', '', '1', '2016-10-13 20:23:04', 'tambos', 0),
-(661, 4, 'seguimientos_estados/abm', 'access', '', '', '1', '2016-10-13 20:23:06', 'tambos', 0),
-(662, 4, '{"id_estado":"0","estado":"Observaci\\u00f3n","date_add":"2016-10-13 20:23:19","date_upd":"2016-10-13 20:23:19","user_add":"1","user_upd":"1"}', 'insert', 'seguimientos_estados', '1', '1', '2016-10-13 20:23:19', 'tambos', 0),
-(663, 4, 'seguimientos_estados/table', 'access', '', '', '1', '2016-10-13 20:23:19', 'tambos', 0),
-(664, 4, 'seguimientos_estados/abm', 'access', '', '', '1', '2016-10-13 20:23:23', 'tambos', 0),
-(665, 4, '{"id_estado":"0","estado":"Medicamento","date_add":"2016-10-13 20:23:30","date_upd":"2016-10-13 20:23:30","user_add":"1","user_upd":"1"}', 'insert', 'seguimientos_estados', '2', '1', '2016-10-13 20:23:30', 'tambos', 0),
-(666, 4, 'seguimientos_estados/table', 'access', '', '', '1', '2016-10-13 20:23:30', 'tambos', 0),
-(667, 4, 'seguimientos_estados/abm', 'access', '', '', '1', '2016-10-13 20:23:38', 'tambos', 0),
-(668, 4, '{"id_estado":"2","estado":"Tratamiento con medicamento","date_upd":"2016-10-13 20:23:46","user_upd":"1"}', 'update', 'seguimientos_estados', '2', '1', '2016-10-13 20:23:46', 'tambos', 0),
-(669, 4, 'seguimientos_estados/table', 'access', '', '', '1', '2016-10-13 20:23:46', 'tambos', 0),
-(670, 4, 'seguimientos_estados/abm', 'access', '', '', '1', '2016-10-13 20:23:52', 'tambos', 0),
-(671, 4, '{"id_estado":"0","estado":"Rehabilitaci\\u00f3n ","date_add":"2016-10-13 20:24:03","date_upd":"2016-10-13 20:24:03","user_add":"1","user_upd":"1"}', 'insert', 'seguimientos_estados', '3', '1', '2016-10-13 20:24:03', 'tambos', 0),
-(672, 4, 'seguimientos_estados/table', 'access', '', '', '1', '2016-10-13 20:24:03', 'tambos', 0),
-(673, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-13 20:24:17', 'tambos', 0),
-(674, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 20:24:19', 'tambos', 0),
-(675, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 20:25:31', 'tambos', 0),
-(676, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 20:25:39', 'tambos', 0),
-(677, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 20:26:35', 'tambos', 0),
-(678, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 20:26:57', 'tambos', 0),
-(679, 4, '{"id_seguimiento":"0","id_animal":"1","titulo":"Perdida de peso","comentario":"<p>Se comienza observaci&oacute;n por perdida de peso del animal<\\/p>\\r\\n","id_estado":"1","date_add":"2016-10-13 20:27:27","date_upd":"2016-10-13 20:27:27","user_add":"1","user_upd":"1"}', 'insert', 'seguimientos', '1', '1', '2016-10-13 20:27:27', 'tambos', 0),
-(680, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-13 20:27:27', 'tambos', 0),
-(681, 4, 'seguimientos_estados/table', 'access', '', '', '1', '2016-10-13 20:27:43', 'tambos', 0),
-(682, 4, 'seguimientos_estados/abm', 'access', '', '', '1', '2016-10-13 20:27:45', 'tambos', 0),
-(683, 4, '{"id_estado":"0","estado":"Finalizado","date_add":"2016-10-13 20:27:53","date_upd":"2016-10-13 20:27:53","user_add":"1","user_upd":"1"}', 'insert', 'seguimientos_estados', '4', '1', '2016-10-13 20:27:53', 'tambos', 0),
-(684, 4, 'seguimientos_estados/table', 'access', '', '', '1', '2016-10-13 20:27:53', 'tambos', 0),
-(685, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-13 20:28:05', 'tambos', 0),
-(686, 4, 'ordenes/table', 'access', '', '', '1', '2016-10-13 20:28:15', 'tambos', 0),
-(687, 4, 'ordenes/abm', 'access', '', '', '1', '2016-10-13 20:28:17', 'tambos', 0),
-(688, 4, '{"id_ordene":"0","id_sector":"1","id_animal":"1","cantidad":"80","date_add":"2016-10-13 20:28:36","date_upd":"2016-10-13 20:28:36","user_add":"1","user_upd":"1"}', 'insert', 'ordenes', '1', '1', '2016-10-13 20:28:36', 'tambos', 0),
-(689, 4, 'ordenes/table', 'access', '', '', '1', '2016-10-13 20:28:36', 'tambos', 0),
-(690, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-13 20:28:48', 'tambos', 0),
-(691, 4, 'ingresos/abm', 'access', '', '', '1', '2016-10-13 20:28:52', 'tambos', 0),
-(692, 4, '{"id_ingreso":"0","id_animal":"1","id_sector":"1","date_add":"2016-10-13 20:28:59"}', 'insert', 'ingresos', '1', '1', '2016-10-13 20:28:59', 'tambos', 0),
-(693, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-13 20:28:59', 'tambos', 0),
-(694, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-13 20:29:26', 'tambos', 0),
-(695, 4, 'ingresos/abm', 'access', '', '', '1', '2016-10-13 20:29:28', 'tambos', 0),
-(696, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-13 20:29:40', 'tambos', 0),
-(697, 4, 'menus/table', 'access', '', '', '1', '2016-10-13 20:38:40', 'tambos', 0),
-(698, 4, 'menus/abm', 'access', '', '', '1', '2016-10-13 20:38:43', 'tambos', 0),
-(699, 4, '{"id_menu":"0","url":"animales_rutinas\\/table\\/","menu":"Rutinas","icon":"","id_padre":"1","date_add":"2016-10-13 20:39:12","date_upd":"2016-10-13 20:39:12","user_add":"1","user_upd":"1"}', 'insert', 'menus', '45', '1', '2016-10-13 20:39:12', 'tambos', 0),
-(700, 4, '{"id_perfil":"1","id_menu":45,"ver":1,"editar":1,"date_add":"2016-10-13 20:39:12","date_upd":"2016-10-13 20:39:12","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '45', '1', '2016-10-13 20:39:12', 'tambos', 0),
-(701, 4, 'menus/table', 'access', '', '', '1', '2016-10-13 20:39:12', 'tambos', 0),
-(702, 3, 'logout', 'logout', '', '', '1', '2016-10-13 20:39:18', 'tambos', 0),
-(703, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-13 20:39:20', 'tambos', 0),
-(704, 4, 'animales/table', 'access', '', '', '1', '2016-10-13 20:39:20', 'tambos', 0),
-(705, 4, 'animales_rutinas/table', 'access', '', '', '1', '2016-10-13 20:49:02', 'tambos', 0),
-(706, 4, 'animales_rutinas/abm', 'access', '', '', '1', '2016-10-13 20:49:05', 'tambos', 0),
-(707, 4, 'animales_tipos/table', 'access', '', '', '1', '2016-10-13 20:49:11', 'tambos', 0),
-(708, 4, 'animales_tipos/abm', 'access', '', '', '1', '2016-10-13 20:49:13', 'tambos', 0),
-(709, 4, '{"id_tipo":"0","tipo":"Vacuno criollo","date_add":"2016-10-13 20:49:26","date_upd":"2016-10-13 20:49:26","user_add":"1","user_upd":"1"}', 'insert', 'animales_tipos', '1', '1', '2016-10-13 20:49:26', 'tambos', 0),
-(710, 4, 'animales_tipos/table', 'access', '', '', '1', '2016-10-13 20:49:26', 'tambos', 0),
-(711, 4, 'animales_rutinas/table', 'access', '', '', '1', '2016-10-13 20:49:31', 'tambos', 0),
-(712, 4, 'animales_rutinas/abm', 'access', '', '', '1', '2016-10-13 20:49:32', 'tambos', 0),
-(713, 4, 'animales_rutinas/abm', 'access', '', '', '1', '2016-10-13 20:49:59', 'tambos', 0),
-(714, 4, '{"id_rutina":"0","id_tipo":"1","id_sector":"2","id_dia":"1","inicio":"08:00","final":"10:00","comentario":"","date_add":"2016-10-13 20:50:29","date_upd":"2016-10-13 20:50:29","user_add":"1","user_upd":"1"}', 'insert', 'animales_rutinas', '1', '1', '2016-10-13 20:50:29', 'tambos', 0),
-(715, 4, 'animales_rutinas/table', 'access', '', '', '1', '2016-10-13 20:50:29', 'tambos', 0),
-(716, 4, 'animales_rutinas/abm', 'access', '', '', '1', '2016-10-13 20:50:50', 'tambos', 0),
-(717, 4, 'animales_rutinas/abm', 'access', '', '', '1', '2016-10-13 20:51:31', 'tambos', 0),
-(718, 4, 'animales_rutinas/table', 'access', '', '', '1', '2016-10-13 20:51:37', 'tambos', 0),
-(719, 4, 'menus/table', 'access', '', '', '1', '2016-10-13 20:51:49', 'tambos', 0),
-(720, 4, 'menus/abm', 'access', '', '', '1', '2016-10-13 20:51:51', 'tambos', 0),
-(721, 4, '{"id_menu":"0","url":"animales_permisos\\/table\\/","menu":"Permisos","icon":"","id_padre":"1","date_add":"2016-10-13 20:52:11","date_upd":"2016-10-13 20:52:11","user_add":"1","user_upd":"1"}', 'insert', 'menus', '46', '1', '2016-10-13 20:52:11', 'tambos', 0),
-(722, 4, '{"id_perfil":"1","id_menu":46,"ver":1,"editar":1,"date_add":"2016-10-13 20:52:11","date_upd":"2016-10-13 20:52:11","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '46', '1', '2016-10-13 20:52:11', 'tambos', 0),
-(723, 4, 'menus/table', 'access', '', '', '1', '2016-10-13 20:52:11', 'tambos', 0),
-(724, 3, 'logout', 'logout', '', '', '1', '2016-10-13 20:52:16', 'tambos', 0),
-(725, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2016-10-13 20:52:18', 'tambos', 0),
-(726, 4, 'animales/table', 'access', '', '', '1', '2016-10-13 20:52:18', 'tambos', 0),
-(727, 4, 'animales_permisos/table', 'access', '', '', '1', '2016-10-13 20:52:20', 'tambos', 0),
-(728, 4, 'animales_permisos/abm', 'access', '', '', '1', '2016-10-13 20:52:41', 'tambos', 0),
-(729, 4, '{"id_permiso":"0","id_animal":"1","id_sector":"4","comentario":"<p>Aumentar el peso&nbsp;<\\/p>\\r\\n","date_add":"2016-10-13 20:52:55","date_upd":"2016-10-13 20:52:55","user_add":"1","user_upd":"1"}', 'insert', 'animales_permisos', '1', '1', '2016-10-13 20:52:55', 'tambos', 0),
-(730, 4, 'animales_permisos/table', 'access', '', '', '1', '2016-10-13 20:52:56', 'tambos', 0),
-(731, 4, 'animales_permisos/table', 'access', '', '', '1', '2016-10-13 20:53:12', 'tambos', 0),
-(732, 4, 'animales_rutinas/table', 'access', '', '', '1', '2016-10-13 20:54:11', 'tambos', 0),
-(733, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-13 20:54:19', 'tambos', 0),
-(734, 4, 'animales_rutinas/table', 'access', '', '', '1', '2016-10-13 20:54:32', 'tambos', 0),
-(735, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-13 21:00:14', 'tambos', 0),
-(736, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 21:00:22', 'tambos', 0),
-(737, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 21:01:04', 'tambos', 0),
-(738, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 21:01:28', 'tambos', 0),
-(739, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 21:02:30', 'tambos', 0),
-(740, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 21:02:43', 'tambos', 0),
-(741, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 21:02:52', 'tambos', 0),
-(742, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 21:03:26', 'tambos', 0),
-(743, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-13 21:03:34', 'tambos', 0),
-(744, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 21:03:35', 'tambos', 0),
-(745, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-13 21:03:41', 'tambos', 0),
-(746, 4, 'seguimientos/abm', 'access', '', '', '1', '2016-10-13 21:03:44', 'tambos', 0),
-(747, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-10-14 00:51:40', 'tambos', 0),
-(748, 4, 'animales/table', 'access', '', '', '1', '2016-10-14 00:51:40', 'tambos', 0),
-(749, 4, 'animales/table', 'access', '', '', '1', '2016-10-14 00:59:21', 'tambos', 0),
-(750, 4, 'animales/table', 'access', '', '', '1', '2016-10-14 01:01:48', 'tambos', 0),
-(751, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2016-10-14 01:02:29', 'tambos', 0),
-(752, 3, 'logout', 'logout', '', '', '1', '2016-10-14 01:03:46', 'tambos', 0),
-(753, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-10-14 01:03:52', 'tambos', 0),
-(754, 4, 'animales/table', 'access', '', '', '1', '2016-10-14 01:03:53', 'tambos', 0),
-(755, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-14 01:04:01', 'tambos', 0),
-(756, 4, 'ordenes/table', 'access', '', '', '1', '2016-10-14 01:04:03', 'tambos', 0),
-(757, 4, 'animales_permisos/table', 'access', '', '', '1', '2016-10-14 01:04:05', 'tambos', 0),
-(758, 4, 'animales_rutinas/table', 'access', '', '', '1', '2016-10-14 01:04:07', 'tambos', 0),
-(759, 4, 'seguimientos/table', 'access', '', '', '1', '2016-10-14 01:04:10', 'tambos', 0),
-(760, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-10-14 02:22:42', 'tambos', 0),
-(761, 4, 'animales/table', 'access', '', '', '1', '2016-10-14 02:22:43', 'tambos', 0),
-(762, 4, 'animales/table', 'access', '', '', '1', '2016-10-14 02:23:04', 'tambos', 0),
-(763, 4, 'animales_rutinas/table', 'access', '', '', '1', '2016-10-14 02:24:05', 'tambos', 0),
-(764, 4, 'animales_rutinas/abm', 'access', '', '', '1', '2016-10-14 02:24:09', 'tambos', 0),
-(765, 4, 'animales/table', 'access', '', '', '1', '2016-10-14 02:28:38', 'tambos', 0),
-(766, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-10-28 20:22:13', 'tambos', 0),
-(767, 4, 'animales/table', 'access', '', '', '1', '2016-10-28 20:22:13', 'tambos', 0),
-(768, 4, 'animales/abm', 'access', '', '', '1', '2016-10-28 20:22:21', 'tambos', 0),
-(769, 4, 'animales/abm', 'access', '', '', '1', '2016-10-28 20:29:52', 'tambos', 0),
-(770, 4, 'animales/abm', 'access', '', '', '1', '2016-10-28 20:30:20', 'tambos', 0),
-(771, 4, 'animales/abm', 'access', '', '', '1', '2016-10-28 20:31:04', 'tambos', 0),
-(772, 4, 'animales/abm', 'access', '', '', '1', '2016-10-28 20:33:58', 'tambos', 0),
-(773, 4, 'animales/abm', 'access', '', '', '1', '2016-10-28 20:34:45', 'tambos', 0),
-(774, 4, 'animales/abm', 'access', '', '', '1', '2016-10-28 20:35:29', 'tambos', 0),
-(775, 4, 'animales_permisos/table', 'access', '', '', '1', '2016-10-28 20:36:32', 'tambos', 0),
-(776, 4, 'animales_permisos/table', 'access', '', '', '1', '2016-10-28 20:43:45', 'tambos', 0),
-(777, 4, 'animales_permisos/abm', 'access', '', '', '1', '2016-10-28 20:43:48', 'tambos', 0),
-(778, 4, 'ingresos/table', 'access', '', '', '1', '2016-10-28 20:44:08', 'tambos', 0),
-(779, 4, 'ingresos/abm', 'access', '', '', '1', '2016-10-28 20:44:09', 'tambos', 0),
-(780, 4, 'menus/table', 'access', '', '', '1', '2016-10-28 21:16:55', 'tambos', 0),
-(781, 4, 'menus/abm', 'access', '', '', '1', '2016-10-28 21:16:58', 'tambos', 0),
-(782, 4, '{"id_menu":"0","url":"tambos_compuertas\\/table\\/","menu":"Compuertas","icon":"","id_padre":"15","date_add":"2016-10-28 21:17:16","date_upd":"2016-10-28 21:17:16","user_add":"1","user_upd":"1"}', 'insert', 'menus', '47', '1', '2016-10-28 21:17:16', 'tambos', 0),
-(783, 4, '{"id_perfil":"1","id_menu":47,"ver":1,"editar":1,"date_add":"2016-10-28 21:17:16","date_upd":"2016-10-28 21:17:16","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '47', '1', '2016-10-28 21:17:16', 'tambos', 0),
-(784, 4, 'menus/table', 'access', '', '', '1', '2016-10-28 21:17:16', 'tambos', 0),
-(785, 4, 'menus/abm', 'access', '', '', '1', '2016-10-28 21:17:19', 'tambos', 0),
-(786, 4, '{"id_menu":"0","url":"tambos_lectores\\/table\\/","menu":"Lectores","icon":"","id_padre":"15","date_add":"2016-10-28 21:17:34","date_upd":"2016-10-28 21:17:34","user_add":"1","user_upd":"1"}', 'insert', 'menus', '48', '1', '2016-10-28 21:17:34', 'tambos', 0),
-(787, 4, '{"id_perfil":"1","id_menu":48,"ver":1,"editar":1,"date_add":"2016-10-28 21:17:34","date_upd":"2016-10-28 21:17:34","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '48', '1', '2016-10-28 21:17:34', 'tambos', 0),
-(788, 4, 'menus/table', 'access', '', '', '1', '2016-10-28 21:17:34', 'tambos', 0),
-(789, 3, 'logout', 'logout', '', '', '1', '2016-10-28 21:17:38', 'tambos', 0),
-(790, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-10-28 21:17:39', 'tambos', 0),
-(791, 4, 'animales/table', 'access', '', '', '1', '2016-10-28 21:17:40', 'tambos', 0),
-(792, 4, 'tambos_lectores/table', 'access', '', '', '1', '2016-10-28 21:19:41', 'tambos', 0),
-(793, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-10-28 21:20:00', 'tambos', 0),
-(794, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-10-28 21:20:05', 'tambos', 0),
-(795, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-10-28 21:20:51', 'tambos', 0),
-(796, 4, '{"id_compuerta":"0","compuerta":"7G","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-10-28 21:21:18","date_upd":"2016-10-28 21:21:18","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '1', '1', '2016-10-28 21:21:18', 'tambos', 0),
-(797, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-10-28 21:21:18', 'tambos', 0),
-(798, 4, '{"id_compuerta":"0","compuerta":"7G","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-10-28 21:21:35","date_upd":"2016-10-28 21:21:35","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '2', '1', '2016-10-28 21:21:35', 'tambos', 0),
-(799, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-10-28 21:21:35', 'tambos', 0),
-(800, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-10-28 21:21:39', 'tambos', 0),
-(801, 4, '{"id_compuerta":"2","compuerta":"7P","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_upd":"2016-10-28 21:21:44","user_upd":"1"}', 'update', 'tambos_compuertas', '2', '1', '2016-10-28 21:21:44', 'tambos', 0),
-(802, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-10-28 21:21:45', 'tambos', 0),
-(803, 4, 'tambos_lectores/table', 'access', '', '', '1', '2016-10-28 21:21:54', 'tambos', 0),
-(804, 4, 'tambos_lectores/abm', 'access', '', '', '1', '2016-10-28 21:21:55', 'tambos', 0),
-(805, 4, 'tambos_lectores/abm', 'access', '', '', '1', '2016-10-28 21:22:27', 'tambos', 0),
-(806, 4, 'tambos_lectores/abm', 'access', '', '', '1', '2016-10-28 21:22:53', 'tambos', 0),
-(807, 4, '{"id_lector":"0","lector":"Abre 7G","id_compuerta":"1","in_out":1,"comentario":"<p>Lector marca ACME<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-10-28 21:23:22","date_upd":"2016-10-28 21:23:22","user_add":"1","user_upd":"1"}', 'insert', 'tambos_lectores', '1', '1', '2016-10-28 21:23:23', 'tambos', 0),
-(808, 4, 'tambos_lectores/table', 'access', '', '', '1', '2016-10-28 21:23:23', 'tambos', 0),
-(809, 4, '{"id_lector":"0","lector":"Abre 7G","id_compuerta":"1","in_out":1,"comentario":"<p>Lector marca ACME<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-10-28 21:23:38","date_upd":"2016-10-28 21:23:38","user_add":"1","user_upd":"1"}', 'insert', 'tambos_lectores', '2', '1', '2016-10-28 21:23:38', 'tambos', 0),
-(810, 4, 'tambos_lectores/table', 'access', '', '', '1', '2016-10-28 21:23:38', 'tambos', 0),
-(811, 4, 'tambos_lectores/abm', 'access', '', '', '1', '2016-10-28 21:23:40', 'tambos', 0),
-(812, 4, '{"id_lector":"2","lector":"Cierra 7G","id_compuerta":"1","comentario":"<p>Lector marca ACME<\\/p>\\r\\n","id_proveedor":"1","in_out":0,"date_upd":"2016-10-28 21:23:47","user_upd":"1"}', 'update', 'tambos_lectores', '2', '1', '2016-10-28 21:23:47', 'tambos', 0),
-(813, 4, 'tambos_lectores/table', 'access', '', '', '1', '2016-10-28 21:23:47', 'tambos', 0),
-(814, 4, 'tambos_lectores/abm', 'access', '', '', '1', '2016-10-28 21:23:49', 'tambos', 0),
-(815, 4, '{"id_lector":"2","lector":"Cierra 7G","id_compuerta":"1","comentario":"<p>Lector marca ACME<\\/p>\\r\\n","id_proveedor":"1","in_out":0,"date_upd":"2016-10-28 21:23:57","user_upd":"1"}', 'update', 'tambos_lectores', '2', '1', '2016-10-28 21:23:57', 'tambos', 0),
-(816, 4, 'tambos_lectores/table', 'access', '', '', '1', '2016-10-28 21:23:57', 'tambos', 0),
-(817, 4, '{"id_lector":"2","lector":"Cierra 7G","id_compuerta":"1","comentario":"<p>Lector marca ACME<\\/p>\\r\\n","id_proveedor":"1","in_out":0,"date_upd":"2016-10-28 21:24:23","user_upd":"1"}', 'update', 'tambos_lectores', '2', '1', '2016-10-28 21:24:23', 'tambos', 0),
-(818, 4, 'tambos_lectores/table', 'access', '', '', '1', '2016-10-28 21:24:23', 'tambos', 0),
-(819, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-11-01 23:17:12', 'tambos', 0),
-(820, 4, 'animales/table', 'access', '', '', '1', '2016-11-01 23:17:12', 'tambos', 0),
-(821, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:17:17', 'tambos', 0),
-(822, 4, 'tambos_sectores_tipos/table', 'access', '', '', '1', '2016-11-01 23:17:22', 'tambos', 0),
-(823, 4, 'tambos_sectores_tipos/table', 'access', '', '', '1', '2016-11-01 23:18:55', 'tambos', 0),
-(824, 4, 'tambos_sectores_tipos/abm', 'access', '', '', '1', '2016-11-01 23:19:00', 'tambos', 0),
-(825, 4, '{"id_tipo":"1","tipo":"Corrales","date_upd":"2016-11-01 23:19:05","user_upd":"1"}', 'update', 'tambos_sectores_tipos', '1', '1', '2016-11-01 23:19:05', 'tambos', 0),
-(826, 4, 'tambos_sectores_tipos/table', 'access', '', '', '1', '2016-11-01 23:19:05', 'tambos', 0),
-(827, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:19:20', 'tambos', 0),
-(828, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:20:07', 'tambos', 0),
-(829, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:20:24', 'tambos', 0),
-(830, 4, '{"id_sector":"1","id_tambo":"1","id_tipo":"1","sector":"Comedor Principal","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","id_empleado":"1","date_upd":"2016-11-01 23:20:46","user_upd":"1"}', 'update', 'tambos_sectores', '1', '1', '2016-11-01 23:20:46', 'tambos', 0),
-(831, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:20:46', 'tambos', 0),
-(832, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:20:52', 'tambos', 0),
-(833, 4, '{"id_sector":"1","id_tambo":"1","id_tipo":"1","sector":"Corral 1","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","id_empleado":"1","date_upd":"2016-11-01 23:21:00","user_upd":"1"}', 'update', 'tambos_sectores', '1', '1', '2016-11-01 23:21:00', 'tambos', 0),
-(834, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:21:00', 'tambos', 0),
-(835, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:21:07', 'tambos', 0),
-(836, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"1","sector":"Corral 2","comentario":"<span class=\\"content__meta-item\\"><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM<\\/span> \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<span class=\\"content__meta-item\\"><strong>Phone:<\\/strong> (0) 66 5738902<\\/span>\\r\\n\\t\\t\\t\\t\\t\\t\\t","id_empleado":"1","date_upd":"2016-11-01 23:21:16","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-01 23:21:16', 'tambos', 0),
-(837, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:21:16', 'tambos', 0),
-(838, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:21:46', 'tambos', 0),
-(839, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"2","sector":"Alimentaci\\u00f3n","comentario":"<span class=\\"content__meta-item\\"><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM<\\/span> \\r\\n<span class=\\"content__meta-item\\"><strong>Phone:<\\/strong> (0) 66 5738902<\\/span>\\r\\n\\t\\t\\t\\t\\t\\t\\t","id_empleado":"1","date_upd":"2016-11-01 23:22:02","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-11-01 23:22:03', 'tambos', 0),
-(840, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:22:03', 'tambos', 0),
-(841, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:22:10', 'tambos', 0),
-(842, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"2","sector":"Sala de orde\\u00f1e 1","comentario":"<span class=\\"content__meta-item\\"><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM<\\/span> \\r\\n<span class=\\"content__meta-item\\"><strong>Phone:<\\/strong> (0) 66 5738902<\\/span>","id_empleado":"2","date_upd":"2016-11-01 23:22:26","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-01 23:22:26', 'tambos', 0),
-(843, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:22:26', 'tambos', 0),
-(844, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:22:28', 'tambos', 0),
-(845, 4, '{"id_sector":"0","id_tambo":"1","id_tipo":"2","sector":"Sala de orde\\u00f1e 2","comentario":"<span class=\\"content__meta-item\\"><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM<\\/span> \\r\\n<span class=\\"content__meta-item\\"><strong>Phone:<\\/strong> (0) 66 5738902<\\/span>","id_empleado":"1","date_add":"2016-11-01 23:22:42","date_upd":"2016-11-01 23:22:42","user_add":"1","user_upd":"1"}', 'insert', 'tambos_sectores', '5', '1', '2016-11-01 23:22:42', 'tambos', 0),
-(846, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:22:42', 'tambos', 0),
-(847, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:22:50', 'tambos', 0),
-(848, 4, '{"id_sector":"0","id_tambo":"1","id_tipo":"3","sector":"Maternidad","comentario":"<span class=\\"content__meta-item\\"><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM<\\/span> \\r\\n<span class=\\"content__meta-item\\"><strong>Phone:<\\/strong> (0) 66 5738902<\\/span>","id_empleado":"","date_add":"2016-11-01 23:23:00","date_upd":"2016-11-01 23:23:00","user_add":"1","user_upd":"1"}', 'insert', 'tambos_sectores', '6', '1', '2016-11-01 23:23:01', 'tambos', 0),
-(849, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:23:01', 'tambos', 0),
-(850, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:23:03', 'tambos', 0),
-(851, 4, '{"id_sector":"0","id_tambo":"1","id_tipo":"3","sector":"Veterinaria","comentario":"<span class=\\"content__meta-item\\"><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM<\\/span> \\r\\n<span class=\\"content__meta-item\\"><strong>Phone:<\\/strong> (0) 66 5738902<\\/span>","id_empleado":"1","date_add":"2016-11-01 23:23:20","date_upd":"2016-11-01 23:23:20","user_add":"1","user_upd":"1"}', 'insert', 'tambos_sectores', '7', '1', '2016-11-01 23:23:20', 'tambos', 0),
-(852, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:23:20', 'tambos', 0);
-INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `registro`, `user_add`, `date_add`, `programa`, `eliminado`) VALUES
-(853, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:23:25', 'tambos', 0),
-(854, 4, '{"id_sector":"6","id_tambo":"1","id_tipo":"3","sector":"Maternidad","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","id_empleado":"2","date_upd":"2016-11-01 23:23:28","user_upd":"1"}', 'update', 'tambos_sectores', '6', '1', '2016-11-01 23:23:28', 'tambos', 0),
-(855, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:23:29', 'tambos', 0),
-(856, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:23:36', 'tambos', 0),
-(857, 4, '{"id_sector":"0","id_tambo":"1","id_tipo":"4","sector":"Oficinas","comentario":"<span class=\\"content__meta-item\\"><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM<\\/span> \\r\\n<span class=\\"content__meta-item\\"><strong>Phone:<\\/strong> (0) 66 5738902<\\/span>","id_empleado":"1","date_add":"2016-11-01 23:23:48","date_upd":"2016-11-01 23:23:48","user_add":"1","user_upd":"1"}', 'insert', 'tambos_sectores', '8', '1', '2016-11-01 23:23:48', 'tambos', 0),
-(858, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:23:48', 'tambos', 0),
-(859, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:26:51', 'tambos', 0),
-(860, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:29:11', 'tambos', 0),
-(861, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:29:39', 'tambos', 0),
-(862, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:29:43', 'tambos', 0),
-(863, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:29:46', 'tambos', 0),
-(864, 4, '{"id_sector":"1","id_tambo":"1","id_tipo":"1","sector":"Corral 1","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"854.08","y":"425","width":"180","height":"360","id_empleado":"1","date_upd":"2016-11-01 23:30:03","user_upd":"1"}', 'update', 'tambos_sectores', '1', '1', '2016-11-01 23:30:03', 'tambos', 0),
-(865, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:30:03', 'tambos', 0),
-(866, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:32:16', 'tambos', 0),
-(867, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:32:25', 'tambos', 0),
-(868, 4, '{"id_sector":"1","id_tambo":"1","id_tipo":"1","sector":"Corral 1","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"854.08","y":"425.00","width":"180.00","height":"360.00","id_empleado":"1","date_upd":"2016-11-01 23:32:28","user_upd":"1"}', 'update', 'tambos_sectores', '1', '1', '2016-11-01 23:32:28', 'tambos', 0),
-(869, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:32:28', 'tambos', 0),
-(870, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:32:30', 'tambos', 0),
-(871, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:32:44', 'tambos', 0),
-(872, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:32:46', 'tambos', 0),
-(873, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"1","sector":"Corral 2","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"600","y":"270","width":"200","height":"230","id_empleado":"1","date_upd":"2016-11-01 23:33:06","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-01 23:33:06', 'tambos', 0),
-(874, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:33:06', 'tambos', 0),
-(875, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:33:18', 'tambos', 0),
-(876, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"2","sector":"Sala de orde\\u00f1e 1","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"10","y":"360","width":"500","height":"100","id_empleado":"2","date_upd":"2016-11-01 23:33:39","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-01 23:33:39', 'tambos', 0),
-(877, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:33:40', 'tambos', 0),
-(878, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:33:53', 'tambos', 0),
-(879, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"2","sector":"Alimentaci\\u00f3n","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"600","y":"12.59","width":"350.14","height":"168.14","id_empleado":"1","date_upd":"2016-11-01 23:34:14","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-11-01 23:34:14', 'tambos', 0),
-(880, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:34:14', 'tambos', 0),
-(881, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:34:47', 'tambos', 0),
-(882, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"1","sector":"Corral 2","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"600.00","y":"270.00","width":"200.00","height":"230.00","id_empleado":"1","date_upd":"2016-11-01 23:35:33","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-01 23:35:34', 'tambos', 0),
-(883, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:35:34', 'tambos', 0),
-(884, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:35:39', 'tambos', 0),
-(885, 4, '{"id_sector":"5","id_tambo":"1","id_tipo":"2","sector":"Sala de orde\\u00f1e 2","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"600","y":"270","width":"200","height":"230","id_empleado":"1","date_upd":"2016-11-01 23:35:56","user_upd":"1"}', 'update', 'tambos_sectores', '5', '1', '2016-11-01 23:35:56', 'tambos', 0),
-(886, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:35:56', 'tambos', 0),
-(887, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:36:29', 'tambos', 0),
-(888, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"1","sector":"Corral 2","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"991.9","y":"12","width":"195.4","height":"339.1","id_empleado":"1","date_upd":"2016-11-01 23:36:47","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-01 23:36:47', 'tambos', 0),
-(889, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:36:47', 'tambos', 0),
-(890, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:37:06', 'tambos', 0),
-(891, 4, '{"id_sector":"6","id_tambo":"1","id_tipo":"3","sector":"Maternidad","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"49.09","y":"12.16","width":"334.73","height":"94.85","id_empleado":"2","date_upd":"2016-11-01 23:37:24","user_upd":"1"}', 'update', 'tambos_sectores', '6', '1', '2016-11-01 23:37:25', 'tambos', 0),
-(892, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:37:25', 'tambos', 0),
-(893, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:37:47', 'tambos', 0),
-(894, 4, '{"id_sector":"7","id_tambo":"1","id_tipo":"3","sector":"Veterinaria","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"49.12","y":"175.57","width":"180","height":"135","id_empleado":"1","date_upd":"2016-11-01 23:38:10","user_upd":"1"}', 'update', 'tambos_sectores', '7', '1', '2016-11-01 23:38:10', 'tambos', 0),
-(895, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:38:10', 'tambos', 0),
-(896, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:51:23', 'tambos', 0),
-(897, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"2","sector":"Sala de ordene 1","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"10.00","y":"360.00","width":"500.00","height":"100.00","id_empleado":"2","date_upd":"2016-11-01 23:51:30","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-01 23:51:30', 'tambos', 0),
-(898, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:51:30', 'tambos', 0),
-(899, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:51:33', 'tambos', 0),
-(900, 4, '{"id_sector":"5","id_tambo":"1","id_tipo":"2","sector":"Sala de ordene 2","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"600.00","y":"270.00","width":"200.00","height":"230.00","id_empleado":"1","date_upd":"2016-11-01 23:51:37","user_upd":"1"}', 'update', 'tambos_sectores', '5', '1', '2016-11-01 23:51:37', 'tambos', 0),
-(901, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:51:37', 'tambos', 0),
-(902, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:52:55', 'tambos', 0),
-(903, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"1","sector":"Corral 2","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"10.00","y":"360.00","width":"500.00","height":"100.00","id_empleado":"2","date_upd":"2016-11-01 23:53:05","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-01 23:53:05', 'tambos', 0),
-(904, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:53:05', 'tambos', 0),
-(905, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:53:21', 'tambos', 0),
-(906, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"1","sector":"Corral 1","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"600.00","y":"12.59","width":"350.14","height":"168.14","id_empleado":"1","date_upd":"2016-11-01 23:53:29","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-11-01 23:53:29', 'tambos', 0),
-(907, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:53:29', 'tambos', 0),
-(908, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:53:55', 'tambos', 0),
-(909, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"1","sector":"VeterinariaB","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"10.00","y":"360.00","width":"500.00","height":"100.00","id_empleado":"2","date_upd":"2016-11-01 23:54:04","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-01 23:54:04', 'tambos', 0),
-(910, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:54:04', 'tambos', 0),
-(911, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:54:20', 'tambos', 0),
-(912, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"1","sector":"Corral 2 Listo","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"10.00","y":"360.00","width":"500.00","height":"100.00","id_empleado":"2","date_upd":"2016-11-01 23:54:30","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-01 23:54:30', 'tambos', 0),
-(913, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:54:30', 'tambos', 0),
-(914, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:54:41', 'tambos', 0),
-(915, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:54:44', 'tambos', 0),
-(916, 4, '{"id_sector":"1","id_tambo":"1","id_tipo":"4","sector":"Oficinas Listo","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"854.08","y":"425.00","width":"180.00","height":"360.00","id_empleado":"1","date_upd":"2016-11-01 23:55:01","user_upd":"1"}', 'update', 'tambos_sectores', '1', '1', '2016-11-01 23:55:01', 'tambos', 0),
-(917, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:55:01', 'tambos', 0),
-(918, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:55:17', 'tambos', 0),
-(919, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"1","sector":"Corral 1 Listo","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"600.00","y":"12.59","width":"350.14","height":"168.14","id_empleado":"1","date_upd":"2016-11-01 23:55:22","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-11-01 23:55:23', 'tambos', 0),
-(920, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:55:23', 'tambos', 0),
-(921, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:55:42', 'tambos', 0),
-(922, 4, '{"id_sector":"6","id_tambo":"1","id_tipo":"3","sector":"Maternidad Listo","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"49.09","y":"12.16","width":"334.73","height":"94.85","id_empleado":"2","date_upd":"2016-11-01 23:55:48","user_upd":"1"}', 'update', 'tambos_sectores', '6', '1', '2016-11-01 23:55:48', 'tambos', 0),
-(923, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:55:48', 'tambos', 0),
-(924, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:55:54', 'tambos', 0),
-(925, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"1","sector":"Veterinaria Listo","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"991.90","y":"12.00","width":"195.40","height":"339.10","id_empleado":"1","date_upd":"2016-11-01 23:56:04","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-01 23:56:04', 'tambos', 0),
-(926, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:56:04', 'tambos', 0),
-(927, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:56:18', 'tambos', 0),
-(928, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"3","sector":"Veterinaria Listo","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"991.90","y":"12.00","width":"195.40","height":"339.10","id_empleado":"1","date_upd":"2016-11-01 23:56:22","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-01 23:56:22', 'tambos', 0),
-(929, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:56:22', 'tambos', 0),
-(930, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:56:41', 'tambos', 0),
-(931, 4, '{"id_sector":"8","id_tambo":"1","id_tipo":"2","sector":"Alimentacion","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"0.00","y":"0.00","width":"0.00","height":"0.00","id_empleado":"1","date_upd":"2016-11-01 23:56:51","user_upd":"1"}', 'update', 'tambos_sectores', '8', '1', '2016-11-01 23:56:51', 'tambos', 0),
-(932, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:56:51', 'tambos', 0),
-(933, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:57:02', 'tambos', 0),
-(934, 4, '{"id_sector":"7","id_tambo":"1","id_tipo":"2","sector":"Sala de ordene 1","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"49.12","y":"175.57","width":"180.00","height":"135.00","id_empleado":"1","date_upd":"2016-11-01 23:57:12","user_upd":"1"}', 'update', 'tambos_sectores', '7', '1', '2016-11-01 23:57:12', 'tambos', 0),
-(935, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:57:12', 'tambos', 0),
-(936, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:57:29', 'tambos', 0),
-(937, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"1","sector":"Corral 1","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"600.00","y":"12.59","width":"350.14","height":"168.14","id_empleado":"1","date_upd":"2016-11-01 23:57:35","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-11-01 23:57:35', 'tambos', 0),
-(938, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:57:35', 'tambos', 0),
-(939, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:57:39', 'tambos', 0),
-(940, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"1","sector":"Corral 2","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"10.00","y":"360.00","width":"500.00","height":"100.00","id_empleado":"2","date_upd":"2016-11-01 23:57:45","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-01 23:57:45', 'tambos', 0),
-(941, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:57:45', 'tambos', 0),
-(942, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:57:48', 'tambos', 0),
-(943, 4, '{"id_sector":"6","id_tambo":"1","id_tipo":"3","sector":"Maternidad","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902&quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"49.09","y":"12.16","width":"334.73","height":"94.85","id_empleado":"2","date_upd":"2016-11-01 23:57:53","user_upd":"1"}', 'update', 'tambos_sectores', '6', '1', '2016-11-01 23:57:54', 'tambos', 0),
-(944, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:57:54', 'tambos', 0),
-(945, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-01 23:57:58', 'tambos', 0),
-(946, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"3","sector":"Veterinaria","comentario":"<p><strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902 &quot; rows=&quot;5&quot;&gt;<strong>Opening Hours:<\\/strong> 6:30AM &mdash; 11:30PM <strong>Phone:<\\/strong> (0) 66 5738902<\\/p>\\r\\n","x":"991.90","y":"12.00","width":"195.40","height":"339.10","id_empleado":"1","date_upd":"2016-11-01 23:58:03","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-01 23:58:03', 'tambos', 0),
-(947, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-01 23:58:03', 'tambos', 0),
-(948, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-11-08 23:33:28', 'tambos', 0),
-(949, 4, 'animales/table', 'access', '', '', '1', '2016-11-08 23:33:29', 'tambos', 0),
-(950, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:33:35', 'tambos', 0),
-(951, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:33:38', 'tambos', 0),
-(952, 4, '{"id_compuerta":"1","compuerta":"Corral 1","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_upd":"2016-11-08 23:33:47","user_upd":"1"}', 'update', 'tambos_compuertas', '1', '1', '2016-11-08 23:33:47', 'tambos', 0),
-(953, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:33:47', 'tambos', 0),
-(954, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:33:49', 'tambos', 0),
-(955, 4, '{"id_compuerta":"2","compuerta":"Corral 2","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_upd":"2016-11-08 23:33:54","user_upd":"1"}', 'update', 'tambos_compuertas', '2', '1', '2016-11-08 23:33:54', 'tambos', 0),
-(956, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:33:54', 'tambos', 0),
-(957, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:33:58', 'tambos', 0),
-(958, 4, '{"id_compuerta":"1","compuerta":"Corral 1","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_upd":"2016-11-08 23:34:01","user_upd":"1"}', 'update', 'tambos_compuertas', '1', '1', '2016-11-08 23:34:01', 'tambos', 0),
-(959, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:34:01', 'tambos', 0),
-(960, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:34:03', 'tambos', 0),
-(961, 4, '{"id_compuerta":"0","compuerta":"Sala de ordene 2","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"","date_add":"2016-11-08 23:34:20","date_upd":"2016-11-08 23:34:20","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '3', '1', '2016-11-08 23:34:20', 'tambos', 0),
-(962, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:34:20', 'tambos', 0),
-(963, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:34:22', 'tambos', 0),
-(964, 4, '{"id_compuerta":"0","compuerta":"Sala de ordene 1","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-11-08 23:34:33","date_upd":"2016-11-08 23:34:33","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '4', '1', '2016-11-08 23:34:33', 'tambos', 0),
-(965, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:34:33', 'tambos', 0),
-(966, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:34:39', 'tambos', 0),
-(967, 4, '{"id_compuerta":"0","compuerta":"Alimentacion","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-11-08 23:34:50","date_upd":"2016-11-08 23:34:50","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '5', '1', '2016-11-08 23:34:50', 'tambos', 0),
-(968, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:34:50', 'tambos', 0),
-(969, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:34:52', 'tambos', 0),
-(970, 4, '{"id_compuerta":"0","compuerta":"Veterinaria","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-11-08 23:35:02","date_upd":"2016-11-08 23:35:02","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '6', '1', '2016-11-08 23:35:02', 'tambos', 0),
-(971, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:35:02', 'tambos', 0),
-(972, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:35:05', 'tambos', 0),
-(973, 4, '{"id_compuerta":"0","compuerta":"Maternidad","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-11-08 23:35:45","date_upd":"2016-11-08 23:35:45","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '7', '1', '2016-11-08 23:35:45', 'tambos', 0),
-(974, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:35:45', 'tambos', 0),
-(975, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:35:52', 'tambos', 0),
-(976, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:35:59', 'tambos', 0),
-(977, 4, '{"id_compuerta":"7","compuerta":"Maternidad","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_upd":"2016-11-08 23:36:01","user_upd":"1"}', 'update', 'tambos_compuertas', '7', '1', '2016-11-08 23:36:01', 'tambos', 0),
-(978, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:36:01', 'tambos', 0),
-(979, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:36:02', 'tambos', 0),
-(980, 4, '{"id_compuerta":"0","compuerta":"Procesos","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-11-08 23:36:24","date_upd":"2016-11-08 23:36:24","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '8', '1', '2016-11-08 23:36:25', 'tambos', 0),
-(981, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:36:25', 'tambos', 0),
-(982, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:36:26', 'tambos', 0),
-(983, 4, '{"id_compuerta":"0","compuerta":"Tratamientos","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_proveedor":"1","date_add":"2016-11-08 23:36:39","date_upd":"2016-11-08 23:36:39","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '9', '1', '2016-11-08 23:36:39', 'tambos', 0),
-(984, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:36:39', 'tambos', 0),
-(985, 4, 'animales_rutinas/table', 'access', '', '', '1', '2016-11-08 23:37:08', 'tambos', 0),
-(986, 4, 'tambos_lectores/table', 'access', '', '', '1', '2016-11-08 23:40:03', 'tambos', 0),
-(987, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:40:12', 'tambos', 0),
-(988, 4, 'tambos_lectores/table', 'access', '', '', '1', '2016-11-08 23:40:15', 'tambos', 0),
-(989, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-08 23:41:34', 'tambos', 0),
-(990, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:41:42', 'tambos', 0),
-(991, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:43:45', 'tambos', 0),
-(992, 4, '{"id_compuerta":"5","compuerta":"Alimentacion","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"5","id_proveedor":"1","date_upd":"2016-11-08 23:43:52","user_upd":"1"}', 'update', 'tambos_compuertas', '5', '1', '2016-11-08 23:43:52', 'tambos', 0),
-(993, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:43:52', 'tambos', 0),
-(994, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:43:53', 'tambos', 0),
-(995, 4, '{"id_compuerta":"1","compuerta":"Corral 1","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"4","id_proveedor":"1","date_upd":"2016-11-08 23:43:59","user_upd":"1"}', 'update', 'tambos_compuertas', '1', '1', '2016-11-08 23:43:59', 'tambos', 0),
-(996, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:43:59', 'tambos', 0),
-(997, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:44:01', 'tambos', 0),
-(998, 4, '{"id_compuerta":"2","compuerta":"Corral 2","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"3","id_proveedor":"1","date_upd":"2016-11-08 23:44:05","user_upd":"1"}', 'update', 'tambos_compuertas', '2', '1', '2016-11-08 23:44:06', 'tambos', 0),
-(999, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:44:06', 'tambos', 0),
-(1000, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:44:08', 'tambos', 0),
-(1001, 4, '{"id_compuerta":"7","compuerta":"Maternidad","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"6","id_proveedor":"1","date_upd":"2016-11-08 23:44:11","user_upd":"1"}', 'update', 'tambos_compuertas', '7', '1', '2016-11-08 23:44:11', 'tambos', 0),
-(1002, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:44:11', 'tambos', 0),
-(1003, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:44:13', 'tambos', 0),
-(1004, 4, '{"id_compuerta":"8","compuerta":"Procesos","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"","id_proveedor":"1","date_upd":"2016-11-08 23:44:19","user_upd":"1"}', 'update', 'tambos_compuertas', '8', '1', '2016-11-08 23:44:19', 'tambos', 0),
-(1005, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:44:19', 'tambos', 0),
-(1006, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:44:22', 'tambos', 0),
-(1007, 4, '{"id_compuerta":"4","compuerta":"Sala de ordene 1","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"8","id_proveedor":"1","date_upd":"2016-11-08 23:44:27","user_upd":"1"}', 'update', 'tambos_compuertas', '4', '1', '2016-11-08 23:44:27', 'tambos', 0),
-(1008, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:44:27', 'tambos', 0),
-(1009, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:44:29', 'tambos', 0),
-(1010, 4, '{"id_compuerta":"3","compuerta":"Sala de ordene 2","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"7","id_proveedor":"1","date_upd":"2016-11-08 23:44:34","user_upd":"1"}', 'update', 'tambos_compuertas', '3', '1', '2016-11-08 23:44:34', 'tambos', 0),
-(1011, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:44:34', 'tambos', 0),
-(1012, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:44:36', 'tambos', 0),
-(1013, 4, '{"id_compuerta":"9","compuerta":"Tratamientos","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"","id_proveedor":"1","date_upd":"2016-11-08 23:44:38","user_upd":"1"}', 'update', 'tambos_compuertas', '9', '1', '2016-11-08 23:44:38', 'tambos', 0),
-(1014, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:44:38', 'tambos', 0),
-(1015, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-08 23:44:40', 'tambos', 0),
-(1016, 4, '{"id_compuerta":"6","compuerta":"Veterinaria","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"2","id_proveedor":"1","date_upd":"2016-11-08 23:44:44","user_upd":"1"}', 'update', 'tambos_compuertas', '6', '1', '2016-11-08 23:44:44', 'tambos', 0),
-(1017, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:44:44', 'tambos', 0),
-(1018, 4, '{"id_compuerta":"6","compuerta":"Veterinaria","comentario":"<p>INTEL con doble nucleo<\\/p>\\r\\n","id_sector":"2","id_proveedor":"1","date_upd":"2016-11-08 23:45:12","user_upd":"1"}', 'update', 'tambos_compuertas', '6', '1', '2016-11-08 23:45:12', 'tambos', 0),
-(1019, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-08 23:45:13', 'tambos', 0),
-(1020, 4, 'menus/table', 'access', '', '', '1', '2016-11-09 00:00:08', 'tambos', 0),
-(1021, 4, 'menus/abm', 'access', '', '', '1', '2016-11-09 00:00:10', 'tambos', 0),
-(1022, 4, '{"id_menu":"0","url":"tambos_caminos\\/table\\/","menu":"Caminos","icon":"","id_padre":"15","date_add":"2016-11-09 00:00:23","date_upd":"2016-11-09 00:00:23","user_add":"1","user_upd":"1"}', 'insert', 'menus', '49', '1', '2016-11-09 00:00:24', 'tambos', 0),
-(1023, 4, '{"id_perfil":"1","id_menu":49,"ver":1,"editar":1,"date_add":"2016-11-09 00:00:25","date_upd":"2016-11-09 00:00:25","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '49', '1', '2016-11-09 00:00:25', 'tambos', 0),
-(1024, 4, 'menus/table', 'access', '', '', '1', '2016-11-09 00:00:25', 'tambos', 0),
-(1025, 3, 'logout', 'logout', '', '', '1', '2016-11-09 00:00:29', 'tambos', 0),
-(1026, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-11-09 00:00:38', 'tambos', 0),
-(1027, 4, 'animales/table', 'access', '', '', '1', '2016-11-09 00:00:38', 'tambos', 0),
-(1028, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-09 00:00:43', 'tambos', 0),
-(1029, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:02:45', 'tambos', 0),
-(1030, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:04:05', 'tambos', 0),
-(1031, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:04:14', 'tambos', 0),
-(1032, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:06:18', 'tambos', 0),
-(1033, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:10:07', 'tambos', 0),
-(1034, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:10:54', 'tambos', 0),
-(1035, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:11:14', 'tambos', 0),
-(1036, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:12:13', 'tambos', 0),
-(1037, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:12:46', 'tambos', 0),
-(1038, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:13:04', 'tambos', 0),
-(1039, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:15:31', 'tambos', 0),
-(1040, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:15:46', 'tambos', 0),
-(1041, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:15:58', 'tambos', 0),
-(1042, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:21:33', 'tambos', 0),
-(1043, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:22:07', 'tambos', 0),
-(1044, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:22:47', 'tambos', 0),
-(1045, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:22:54', 'tambos', 0),
-(1046, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:23:20', 'tambos', 0),
-(1047, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:23:54', 'tambos', 0),
-(1048, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:24:10', 'tambos', 0),
-(1049, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:25:00', 'tambos', 0),
-(1050, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:25:33', 'tambos', 0),
-(1051, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-09 00:26:03', 'tambos', 0),
-(1052, 3, '{"usuario":"admin","ip":"::1","navegador":"Firefox","sistema":"Windows 10"}', 'login', '', '', '1', '2016-11-17 16:12:06', 'tambos', 0),
-(1053, 4, 'animales/table', 'access', '', '', '1', '2016-11-17 16:12:06', 'tambos', 0),
-(1054, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:12:12', 'tambos', 0),
-(1055, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:12:14', 'tambos', 0),
-(1056, 4, '{"id_sector":"5","id_tambo":"1","id_tipo":"2","sector":"Alimentacion","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM\\r\\n<p><strong>Horario cierre:<\\/strong> 20:30PM \\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto\\r\\n\\r\\n","x":"10.00","y":"360.00","width":"500.00","height":"100.00","id_empleado":"2","date_upd":"2016-11-17 16:14:15","user_upd":"1"}', 'update', 'tambos_sectores', '5', '1', '2016-11-17 16:14:15', 'tambos', 0),
-(1057, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:14:15', 'tambos', 0),
-(1058, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:14:35', 'tambos', 0),
-(1059, 4, '{"id_sector":"5","id_tambo":"1","id_tipo":"2","sector":"Alimentacion","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"10.00","y":"360.00","width":"500.00","height":"100.00","id_empleado":"2","date_upd":"2016-11-17 16:14:44","user_upd":"1"}', 'update', 'tambos_sectores', '5', '1', '2016-11-17 16:14:44', 'tambos', 0),
-(1060, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:14:44', 'tambos', 0),
-(1061, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:15:06', 'tambos', 0),
-(1062, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:15:06', 'tambos', 0),
-(1063, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:15:07', 'tambos', 0),
-(1064, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:15:08', 'tambos', 0),
-(1065, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:15:08', 'tambos', 0),
-(1066, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:15:09', 'tambos', 0),
-(1067, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:15:10', 'tambos', 0),
-(1068, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"1","sector":"Corral 1","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM\\r\\n<p><strong>Horario cierre:<\\/strong> 20:30PM \\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto","x":"854.08","y":"425.00","width":"180.00","height":"360.00","id_empleado":"1","date_upd":"2016-11-17 16:15:27","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-11-17 16:15:27', 'tambos', 0),
-(1069, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:15:27', 'tambos', 0),
-(1070, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"1","sector":"Corral 2","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM\\r\\n<p><strong>Horario cierre:<\\/strong> 20:30PM \\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto","x":"991.90","y":"12.00","width":"195.40","height":"339.10","id_empleado":"1","date_upd":"2016-11-17 16:15:34","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-17 16:15:34', 'tambos', 0),
-(1071, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:15:35', 'tambos', 0),
-(1072, 4, '{"id_sector":"6","id_tambo":"1","id_tipo":"3","sector":"Maternidad","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM\\r\\n<p><strong>Horario cierre:<\\/strong> 20:30PM \\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto","x":"49.09","y":"12.16","width":"334.73","height":"94.85","id_empleado":"2","date_upd":"2016-11-17 16:15:39","user_upd":"1"}', 'update', 'tambos_sectores', '6', '1', '2016-11-17 16:15:40', 'tambos', 0),
-(1073, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:15:40', 'tambos', 0),
-(1074, 4, '{"id_sector":"1","id_tambo":"1","id_tipo":"4","sector":"Oficinas","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM\\r\\n<p><strong>Horario cierre:<\\/strong> 20:30PM \\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto","x":"0.00","y":"0.00","width":"0.00","height":"0.00","id_empleado":"1","date_upd":"2016-11-17 16:15:44","user_upd":"1"}', 'update', 'tambos_sectores', '1', '1', '2016-11-17 16:15:44', 'tambos', 0),
-(1075, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:15:44', 'tambos', 0),
-(1076, 4, '{"id_sector":"8","id_tambo":"1","id_tipo":"2","sector":"Sala de ordene 1","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM\\r\\n<p><strong>Horario cierre:<\\/strong> 20:30PM \\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto","x":"600.00","y":"12.59","width":"350.14","height":"168.14","id_empleado":"1","date_upd":"2016-11-17 16:15:49","user_upd":"1"}', 'update', 'tambos_sectores', '8', '1', '2016-11-17 16:15:49', 'tambos', 0),
-(1077, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:15:49', 'tambos', 0),
-(1078, 4, '{"id_sector":"7","id_tambo":"1","id_tipo":"2","sector":"Sala de ordene 2","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM\\r\\n<p><strong>Horario cierre:<\\/strong> 20:30PM \\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto","x":"600.00","y":"270.00","width":"200.00","height":"230.00","id_empleado":"1","date_upd":"2016-11-17 16:15:55","user_upd":"1"}', 'update', 'tambos_sectores', '7', '1', '2016-11-17 16:15:55', 'tambos', 0),
-(1079, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:15:55', 'tambos', 0),
-(1080, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"3","sector":"Veterinaria","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM\\r\\n<p><strong>Horario cierre:<\\/strong> 20:30PM \\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto","x":"49.12","y":"175.57","width":"180.00","height":"135.00","id_empleado":"1","date_upd":"2016-11-17 16:15:59","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-17 16:15:59', 'tambos', 0),
-(1081, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:15:59', 'tambos', 0),
-(1082, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:16:17', 'tambos', 0),
-(1083, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:16:18', 'tambos', 0),
-(1084, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:16:18', 'tambos', 0),
-(1085, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:16:19', 'tambos', 0),
-(1086, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:16:19', 'tambos', 0),
-(1087, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:16:20', 'tambos', 0),
-(1088, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-17 16:16:20', 'tambos', 0),
-(1089, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"1","sector":"Corral 1","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"854.08","y":"425.00","width":"180.00","height":"360.00","id_empleado":"1","date_upd":"2016-11-17 16:16:26","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-11-17 16:16:26', 'tambos', 0),
-(1090, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:16:26', 'tambos', 0),
-(1091, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"1","sector":"Corral 2","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"991.90","y":"12.00","width":"195.40","height":"339.10","id_empleado":"1","date_upd":"2016-11-17 16:16:31","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-17 16:16:31', 'tambos', 0),
-(1092, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:16:31', 'tambos', 0),
-(1093, 4, '{"id_sector":"6","id_tambo":"1","id_tipo":"3","sector":"Maternidad","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"49.09","y":"12.16","width":"334.73","height":"94.85","id_empleado":"2","date_upd":"2016-11-17 16:16:36","user_upd":"1"}', 'update', 'tambos_sectores', '6', '1', '2016-11-17 16:16:36', 'tambos', 0),
-(1094, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:16:36', 'tambos', 0),
-(1095, 4, '{"id_sector":"1","id_tambo":"1","id_tipo":"4","sector":"Oficinas","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"0.00","y":"0.00","width":"0.00","height":"0.00","id_empleado":"1","date_upd":"2016-11-17 16:16:41","user_upd":"1"}', 'update', 'tambos_sectores', '1', '1', '2016-11-17 16:16:41', 'tambos', 0),
-(1096, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:16:41', 'tambos', 0),
-(1097, 4, '{"id_sector":"8","id_tambo":"1","id_tipo":"2","sector":"Sala de ordene 1","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"600.00","y":"12.59","width":"350.14","height":"168.14","id_empleado":"1","date_upd":"2016-11-17 16:16:45","user_upd":"1"}', 'update', 'tambos_sectores', '8', '1', '2016-11-17 16:16:45', 'tambos', 0),
-(1098, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:16:45', 'tambos', 0),
-(1099, 4, '{"id_sector":"7","id_tambo":"1","id_tipo":"2","sector":"Sala de ordene 2","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"600.00","y":"270.00","width":"200.00","height":"230.00","id_empleado":"1","date_upd":"2016-11-17 16:16:49","user_upd":"1"}', 'update', 'tambos_sectores', '7', '1', '2016-11-17 16:16:49', 'tambos', 0),
-(1100, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:16:49', 'tambos', 0),
-(1101, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"3","sector":"Veterinaria","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"49.12","y":"175.57","width":"180.00","height":"135.00","id_empleado":"1","date_upd":"2016-11-17 16:16:53","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-17 16:16:53', 'tambos', 0),
-(1102, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-17 16:16:53', 'tambos', 0),
-(1103, 3, '{"usuario":"admin","ip":"::1","navegador":"Firefox","sistema":"Windows 7"}', 'login', '', '', '1', '2016-11-18 01:06:02', 'tambos', 0),
-(1104, 4, 'animales/table', 'access', '', '', '1', '2016-11-18 01:06:02', 'tambos', 0),
-(1105, 4, 'empleados/table', 'access', '', '', '1', '2016-11-18 01:06:39', 'tambos', 0),
-(1106, 4, 'empleados/abm', 'access', '', '', '1', '2016-11-18 01:06:42', 'tambos', 0),
-(1107, 4, '{"id_empleado":"1","empleado":"Diego Nieto","id_puesto":"1","dni":"31246501","telefono":"","telefono_alternativo":"","email":"","id_provincia":"","id_localidad":"","calle":"","calle_numero":"0","date_upd":"2016-11-18 01:06:51","user_upd":"1"}', 'update', 'empleados', '1', '1', '2016-11-18 01:06:51', 'tambos', 0),
-(1108, 4, 'empleados/table', 'access', '', '', '1', '2016-11-18 01:06:51', 'tambos', 0),
-(1109, 4, 'menus/table', 'access', '', '', '1', '2016-11-18 01:06:58', 'tambos', 0),
-(1110, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2016-11-18 01:07:06', 'tambos', 0),
-(1111, 4, 'usuarios/table', 'access', '', '', '1', '2016-11-18 01:07:09', 'tambos', 0),
-(1112, 4, 'usuarios/abm', 'access', '', '', '1', '2016-11-18 01:07:12', 'tambos', 0),
-(1113, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2016-11-18 01:07:19', 'tambos', 0),
-(1114, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2016-11-18 01:07:21', 'tambos', 0),
-(1115, 4, 'animales_tipos/table', 'access', '', '', '1', '2016-11-18 01:07:34', 'tambos', 0),
-(1116, 3, 'logout', 'logout', '', '', '1', '2016-11-18 01:07:56', 'tambos', 0),
-(1117, 3, 'logout', 'logout', '', '', 'end_session', '2016-11-18 01:07:59', 'tambos', 0),
-(1118, 3, 'logout', 'logout', '', '', 'end_session', '2016-11-18 01:08:04', 'tambos', 0),
-(1119, 3, 'logout', 'logout', '', '', 'end_session', '2016-11-18 01:08:07', 'tambos', 0),
-(1120, 3, '{"usuario":"admin","ip":"::1","navegador":"Firefox","sistema":"Windows 7"}', 'login', '', '', '1', '2016-11-18 01:08:16', 'tambos', 0),
-(1121, 4, 'animales/table', 'access', '', '', '1', '2016-11-18 01:08:16', 'tambos', 0),
-(1122, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-18 01:15:19', 'tambos', 0),
-(1123, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-18 01:15:27', 'tambos', 0),
-(1124, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-18 01:15:35', 'tambos', 0),
-(1125, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-11-28 18:40:26', 'tambos', 0),
-(1126, 4, 'animales/table', 'access', '', '', '1', '2016-11-28 18:40:28', 'tambos', 0),
-(1127, 4, 'tambos/table', 'access', '', '', '1', '2016-11-28 18:40:37', 'tambos', 0),
-(1128, 4, 'tambos/table', 'access', '', '', '1', '2016-11-28 18:40:41', 'tambos', 0),
-(1129, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:40:41', 'tambos', 0),
-(1130, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:40:52', 'tambos', 0),
-(1131, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"1","sector":"1 Corral 1","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"854.08","y":"425.00","width":"180.00","height":"360.00","id_empleado":"1","date_upd":"2016-11-28 18:41:00","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-11-28 18:41:00', 'tambos', 0),
-(1132, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:41:00', 'tambos', 0),
-(1133, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:41:06', 'tambos', 0),
-(1134, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"1","sector":"3 Corral 2","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"991.90","y":"12.00","width":"195.40","height":"339.10","id_empleado":"1","date_upd":"2016-11-28 18:41:12","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-28 18:41:12', 'tambos', 0),
-(1135, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:41:12', 'tambos', 0),
-(1136, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:41:16', 'tambos', 0);
-INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `registro`, `user_add`, `date_add`, `programa`, `eliminado`) VALUES
-(1137, 4, '{"id_sector":"5","id_tambo":"1","id_tipo":"2","sector":"2 Alimentacion","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"10.00","y":"360.00","width":"500.00","height":"100.00","id_empleado":"2","date_upd":"2016-11-28 18:41:21","user_upd":"1"}', 'update', 'tambos_sectores', '5', '1', '2016-11-28 18:41:21', 'tambos', 0),
-(1138, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:41:21', 'tambos', 0),
-(1139, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:41:24', 'tambos', 0),
-(1140, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"1","sector":"4 Corral 2","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"991.90","y":"12.00","width":"195.40","height":"339.10","id_empleado":"1","date_upd":"2016-11-28 18:41:28","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-28 18:41:28', 'tambos', 0),
-(1141, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:41:29', 'tambos', 0),
-(1142, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:41:36', 'tambos', 0),
-(1143, 4, '{"id_sector":"6","id_tambo":"1","id_tipo":"3","sector":"5 Maternidad","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"49.09","y":"12.16","width":"334.73","height":"94.85","id_empleado":"2","date_upd":"2016-11-28 18:41:42","user_upd":"1"}', 'update', 'tambos_sectores', '6', '1', '2016-11-28 18:41:42', 'tambos', 0),
-(1144, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:41:42', 'tambos', 0),
-(1145, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:42:14', 'tambos', 0),
-(1146, 4, '{"id_sector":"8","id_tambo":"1","id_tipo":"2","sector":"4 Sala de ordene","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"600.00","y":"12.59","width":"350.14","height":"168.14","id_empleado":"1","date_upd":"2016-11-28 18:42:21","user_upd":"1"}', 'update', 'tambos_sectores', '8', '1', '2016-11-28 18:42:21', 'tambos', 0),
-(1147, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:42:21', 'tambos', 0),
-(1148, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:42:29', 'tambos', 0),
-(1149, 4, '{"id_sector":"3","id_tambo":"1","id_tipo":"1","sector":"4 Corral 2","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"991.90","y":"12.00","width":"195.40","height":"339.10","id_empleado":"1","date_upd":"2016-11-28 18:42:43","user_upd":"1"}', 'update', 'tambos_sectores', '3', '1', '2016-11-28 18:42:43', 'tambos', 0),
-(1150, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:42:43', 'tambos', 0),
-(1151, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:42:56', 'tambos', 0),
-(1152, 4, '{"id_sector":"2","id_tambo":"1","id_tipo":"3","sector":"6 Veterinaria","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"49.12","y":"175.57","width":"180.00","height":"135.00","id_empleado":"1","date_upd":"2016-11-28 18:43:02","user_upd":"1"}', 'update', 'tambos_sectores', '2', '1', '2016-11-28 18:43:02', 'tambos', 0),
-(1153, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:43:02', 'tambos', 0),
-(1154, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:43:55', 'tambos', 0),
-(1155, 4, '{"id_sector":"4","id_tambo":"1","id_tipo":"1","sector":"1 Corral","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"854.08","y":"425.00","width":"180.00","height":"360.00","id_empleado":"1","date_upd":"2016-11-28 18:44:00","user_upd":"1"}', 'update', 'tambos_sectores', '4', '1', '2016-11-28 18:44:00', 'tambos', 0),
-(1156, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:44:00', 'tambos', 0),
-(1157, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 18:44:18', 'tambos', 0),
-(1158, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 18:44:20', 'tambos', 0),
-(1159, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 18:44:57', 'tambos', 0),
-(1160, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 18:45:24', 'tambos', 0),
-(1161, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 18:45:26', 'tambos', 0),
-(1162, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 18:46:46', 'tambos', 0),
-(1163, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:46:50', 'tambos', 0),
-(1164, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:46:52', 'tambos', 0),
-(1165, 4, '{"id_compuerta":"0","compuerta":"Corral","comentario":"","id_sector":"4","id_proveedor":"1","date_add":"2016-11-28 18:47:13","date_upd":"2016-11-28 18:47:13","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '1', '1', '2016-11-28 18:47:13', 'tambos', 0),
-(1166, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:47:13', 'tambos', 0),
-(1167, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:47:16', 'tambos', 0),
-(1168, 4, '{"id_compuerta":"0","compuerta":"Alimentacion","comentario":"","id_sector":"5","id_proveedor":"1","date_add":"2016-11-28 18:47:38","date_upd":"2016-11-28 18:47:38","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '2', '1', '2016-11-28 18:47:39', 'tambos', 0),
-(1169, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:47:39', 'tambos', 0),
-(1170, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:47:42', 'tambos', 0),
-(1171, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:48:04', 'tambos', 0),
-(1172, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:48:30', 'tambos', 0),
-(1173, 4, '{"id_sector":"8","id_tambo":"1","id_tipo":"2","sector":"3 Sala de ordene","comentario":"<p><strong>Horario apertura:<\\/strong> 6:30AM<strong> Horario cierre:<\\/strong> 20:30PM<\\/p>\\r\\n\\r\\n<p><strong>Encargado:<\\/strong> Diego Nieto<\\/p>\\r\\n","x":"600.00","y":"12.59","width":"350.14","height":"168.14","id_empleado":"1","date_upd":"2016-11-28 18:48:35","user_upd":"1"}', 'update', 'tambos_sectores', '8', '1', '2016-11-28 18:48:35', 'tambos', 0),
-(1174, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:48:35', 'tambos', 0),
-(1175, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2016-11-28 18:48:38', 'tambos', 0),
-(1176, 4, '{"id_sector":"0","id_tambo":"1","id_tipo":"1","sector":"4 Corral 2","comentario":"","x":"","y":"","width":"","height":"","id_empleado":"1","date_add":"2016-11-28 18:48:51","date_upd":"2016-11-28 18:48:51","user_add":"1","user_upd":"1"}', 'insert', 'tambos_sectores', '9', '1', '2016-11-28 18:48:51', 'tambos', 0),
-(1177, 4, 'tambos_sectores/table', 'access', '', '', '1', '2016-11-28 18:48:51', 'tambos', 0),
-(1178, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:49:24', 'tambos', 0),
-(1179, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:49:27', 'tambos', 0),
-(1180, 4, '{"id_compuerta":"0","compuerta":"3 Sala de ordene","comentario":"","id_sector":"8","id_proveedor":"1","date_add":"2016-11-28 18:49:49","date_upd":"2016-11-28 18:49:49","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '3', '1', '2016-11-28 18:49:49', 'tambos', 0),
-(1181, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:49:49', 'tambos', 0),
-(1182, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:49:54', 'tambos', 0),
-(1183, 4, '{"id_compuerta":"0","compuerta":"4 Corral 2","comentario":"","id_sector":"9","id_proveedor":"1","date_add":"2016-11-28 18:50:10","date_upd":"2016-11-28 18:50:10","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '4', '1', '2016-11-28 18:50:10', 'tambos', 0),
-(1184, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:50:11', 'tambos', 0),
-(1185, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:50:18', 'tambos', 0),
-(1186, 4, '{"id_compuerta":"4","compuerta":"4 Corral 2","comentario":"","id_sector":"9","id_proveedor":"1","date_upd":"2016-11-28 18:50:20","user_upd":"1"}', 'update', 'tambos_compuertas', '4', '1', '2016-11-28 18:50:20', 'tambos', 0),
-(1187, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:50:20', 'tambos', 0),
-(1188, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:50:22', 'tambos', 0),
-(1189, 4, '{"id_compuerta":"2","compuerta":"2 Alimentacion","comentario":"","id_sector":"5","id_proveedor":"1","date_upd":"2016-11-28 18:50:27","user_upd":"1"}', 'update', 'tambos_compuertas', '2', '1', '2016-11-28 18:50:27', 'tambos', 0),
-(1190, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:50:27', 'tambos', 0),
-(1191, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:50:30', 'tambos', 0),
-(1192, 4, '{"id_compuerta":"1","compuerta":"1 Corral","comentario":"","id_sector":"4","id_proveedor":"1","date_upd":"2016-11-28 18:50:34","user_upd":"1"}', 'update', 'tambos_compuertas', '1', '1', '2016-11-28 18:50:34', 'tambos', 0),
-(1193, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:50:34', 'tambos', 0),
-(1194, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:51:03', 'tambos', 0),
-(1195, 4, '{"id_compuerta":"0","compuerta":"5 Maternidad","comentario":"","id_sector":"6","id_proveedor":"1","date_add":"2016-11-28 18:51:17","date_upd":"2016-11-28 18:51:17","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '5', '1', '2016-11-28 18:51:17', 'tambos', 0),
-(1196, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:51:18', 'tambos', 0),
-(1197, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:51:20', 'tambos', 0),
-(1198, 4, '{"id_compuerta":"0","compuerta":"6 Veterinaria","comentario":"","id_sector":"2","id_proveedor":"1","date_add":"2016-11-28 18:51:35","date_upd":"2016-11-28 18:51:35","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '6', '1', '2016-11-28 18:51:35', 'tambos', 0),
-(1199, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:51:35', 'tambos', 0),
-(1200, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:51:55', 'tambos', 0),
-(1201, 4, '{"id_compuerta":"0","compuerta":"Servo 1","comentario":"","id_sector":"","id_proveedor":"","date_add":"2016-11-28 18:52:02","date_upd":"2016-11-28 18:52:02","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '7', '1', '2016-11-28 18:52:02', 'tambos', 0),
-(1202, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:52:03', 'tambos', 0),
-(1203, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2016-11-28 18:52:05', 'tambos', 0),
-(1204, 4, '{"id_compuerta":"0","compuerta":"Servo 2","comentario":"","id_sector":"","id_proveedor":"","date_add":"2016-11-28 18:52:11","date_upd":"2016-11-28 18:52:11","user_add":"1","user_upd":"1"}', 'insert', 'tambos_compuertas', '8', '1', '2016-11-28 18:52:12', 'tambos', 0),
-(1205, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2016-11-28 18:52:12', 'tambos', 0),
-(1206, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 18:52:24', 'tambos', 0),
-(1207, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 18:52:26', 'tambos', 0),
-(1208, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 18:54:19', 'tambos', 0),
-(1209, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 18:56:56', 'tambos', 0),
-(1210, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 18:57:44', 'tambos', 0),
-(1211, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 19:00:45', 'tambos', 0),
-(1212, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 19:03:07', 'tambos', 0),
-(1213, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 19:04:12', 'tambos', 0),
-(1214, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 19:05:23', 'tambos', 0),
-(1215, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 19:06:11', 'tambos', 0),
-(1216, 4, '{"camino":"de corral 1 a alimentacion","inicio":"1","final":"2","servo_uno":"45","servo_dos":"0","date_add":"2016-11-28 19:06:22","date_upd":"2016-11-28 19:06:22","user_add":"1","user_upd":"1"}', 'insert', 'tambos_caminos', '2', '1', '2016-11-28 19:06:22', 'tambos', 0),
-(1217, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 19:06:22', 'tambos', 0),
-(1218, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 19:07:20', 'tambos', 0),
-(1219, 4, '{"camino":"de corral 1 a sala de ordene","inicio":"1","final":"3","servo_uno":"0","servo_dos":"45","date_add":"2016-11-28 19:07:44","date_upd":"2016-11-28 19:07:44","user_add":"1","user_upd":"1"}', 'insert', 'tambos_caminos', '3', '1', '2016-11-28 19:07:45', 'tambos', 0),
-(1220, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 19:07:45', 'tambos', 0),
-(1221, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 19:08:35', 'tambos', 0),
-(1222, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 19:08:45', 'tambos', 0),
-(1223, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 19:08:54', 'tambos', 0),
-(1224, 4, '{"camino":"de corral 1 a corral 2","inicio":"1","final":"4","servo_uno":"0","servo_dos":"0","date_add":"2016-11-28 19:09:21","date_upd":"2016-11-28 19:09:21","user_add":"1","user_upd":"1"}', 'insert', 'tambos_caminos', '4', '1', '2016-11-28 19:09:21', 'tambos', 0),
-(1225, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 19:09:21', 'tambos', 0),
-(1226, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 19:09:28', 'tambos', 0),
-(1227, 4, '{"camino":"de corral 1 a maternidad","inicio":"1","final":"5","servo_uno":"0","servo_dos":"135","date_add":"2016-11-28 19:10:01","date_upd":"2016-11-28 19:10:01","user_add":"1","user_upd":"1"}', 'insert', 'tambos_caminos', '5', '1', '2016-11-28 19:10:01', 'tambos', 0),
-(1228, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 19:10:02', 'tambos', 0),
-(1229, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2016-11-28 19:10:03', 'tambos', 0),
-(1230, 4, '{"camino":"de corral 1 a veterinaria","inicio":"1","final":"6","servo_uno":"135","servo_dos":"0","date_add":"2016-11-28 19:10:30","date_upd":"2016-11-28 19:10:30","user_add":"1","user_upd":"1"}', 'insert', 'tambos_caminos', '6', '1', '2016-11-28 19:10:30', 'tambos', 0),
-(1231, 4, 'tambos_caminos/table', 'access', '', '', '1', '2016-11-28 19:10:30', 'tambos', 0),
-(1232, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-12-09 19:12:35', 'tambos', 0),
-(1233, 4, 'animales/table', 'access', '', '', '1', '2016-12-09 19:12:37', 'tambos', 0),
-(1234, 4, 'menus/table', 'access', '', '', '1', '2016-12-09 19:12:45', 'tambos', 0),
-(1235, 4, 'menus/abm', 'access', '', '', '1', '2016-12-09 19:14:20', 'tambos', 0),
-(1236, 4, 'menus/abm', 'access', '', '', '1', '2016-12-09 19:16:55', 'tambos', 0),
-(1237, 3, 'logout', 'logout', '', '', 'end_session', '2016-12-09 19:29:00', 'tambos', 0),
-(1238, 3, 'logout', 'logout', '', '', 'end_session', '2016-12-09 19:29:23', 'tambos', 0),
-(1239, 3, 'logout', 'logout', '', '', 'end_session', '2016-12-09 19:29:30', 'tambos', 0),
-(1240, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2016-12-09 19:34:05', 'tambos', 0),
-(1241, 4, 'animales/table', 'access', '', '', '1', '2016-12-09 19:34:05', 'tambos', 0),
-(1242, 4, 'animales/abm', 'access', '', '', '1', '2016-12-09 19:34:07', 'tambos', 0),
-(1243, 4, 'animales/abm', 'access', '', '', '1', '2016-12-09 19:34:26', 'tambos', 0),
-(1244, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-02-18 22:09:42', 'tambos', 0),
-(1245, 4, 'animales/table', 'access', '', '', '1', '2017-02-18 22:09:45', 'tambos', 0),
-(1246, 3, 'logout', 'logout', '', '', '1', '2017-02-18 22:09:49', 'tambos', 0),
-(1247, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-02-18 22:16:47', 'tambos', 0),
-(1248, 4, 'animales/table', 'access', '', '', '1', '2017-02-18 22:16:47', 'tambos', 0),
-(1249, 3, 'logout', 'logout', '', '', '1', '2017-02-18 22:18:24', 'tambos', 0),
-(1250, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-02-18 22:19:45', 'tambos', 0),
-(1251, 4, 'animales/table', 'access', '', '', '1', '2017-02-18 22:19:46', 'tambos', 0),
-(1252, 4, 'animales/abm', 'access', '', '', '1', '2017-02-18 22:20:29', 'tambos', 0),
-(1253, 4, 'ingresos/table', 'access', '', '', '1', '2017-02-18 22:21:13', 'tambos', 0),
-(1254, 4, 'ingresos/abm', 'access', '', '', '1', '2017-02-18 22:21:50', 'tambos', 0),
-(1255, 4, 'ordenes/table', 'access', '', '', '1', '2017-02-18 22:22:25', 'tambos', 0),
-(1256, 4, 'ordenes/abm', 'access', '', '', '1', '2017-02-18 22:22:54', 'tambos', 0),
-(1257, 4, 'animales_permisos/table', 'access', '', '', '1', '2017-02-18 22:25:12', 'tambos', 0),
-(1258, 4, 'animales_permisos/abm', 'access', '', '', '1', '2017-02-18 22:25:37', 'tambos', 0),
-(1259, 4, 'animales_rutinas/table', 'access', '', '', '1', '2017-02-18 22:26:03', 'tambos', 0),
-(1260, 4, 'animales_rutinas/abm', 'access', '', '', '1', '2017-02-18 22:26:31', 'tambos', 0),
-(1261, 4, 'seguimientos/table', 'access', '', '', '1', '2017-02-18 22:27:09', 'tambos', 0),
-(1262, 4, 'seguimientos/abm', 'access', '', '', '1', '2017-02-18 22:27:36', 'tambos', 0),
-(1263, 4, 'facturas_proveedores/table', 'access', '', '', '1', '2017-02-18 22:28:03', 'tambos', 0),
-(1264, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2017-02-18 22:28:45', 'tambos', 0),
-(1265, 4, 'pagos_proveedores/table', 'access', '', '', '1', '2017-02-18 22:29:13', 'tambos', 0),
-(1266, 4, 'pagos_proveedores/abm', 'access', '', '', '1', '2017-02-18 22:29:39', 'tambos', 0),
-(1267, 4, 'pedidos_proveedores/table', 'access', '', '', '1', '2017-02-18 22:30:10', 'tambos', 0),
-(1268, 4, 'pedidos_proveedores/abm', 'access', '', '', '1', '2017-02-18 22:30:41', 'tambos', 0),
-(1269, 4, 'proveedores/table', 'access', '', '', '1', '2017-02-18 22:31:03', 'tambos', 0),
-(1270, 4, 'proveedores/abm', 'access', '', '', '1', '2017-02-18 22:31:36', 'tambos', 0),
-(1271, 4, 'animales_estados/table', 'access', '', '', '1', '2017-02-18 22:32:01', 'tambos', 0),
-(1272, 4, 'animales_estados/abm', 'access', '', '', '1', '2017-02-18 22:32:40', 'tambos', 0),
-(1273, 4, 'animales_tipos/table', 'access', '', '', '1', '2017-02-18 22:33:03', 'tambos', 0),
-(1274, 4, 'animales_tipos/abm', 'access', '', '', '1', '2017-02-18 22:33:46', 'tambos', 0),
-(1275, 4, 'clientes_tipos/table', 'access', '', '', '1', '2017-02-18 22:34:10', 'tambos', 0),
-(1276, 4, 'clientes_tipos/abm', 'access', '', '', '1', '2017-02-18 22:34:33', 'tambos', 0),
-(1277, 4, 'condiciones_pagos/table', 'access', '', '', '1', '2017-02-18 22:34:55', 'tambos', 0),
-(1278, 4, 'condiciones_pagos/abm', 'access', '', '', '1', '2017-02-18 22:35:32', 'tambos', 0),
-(1279, 4, 'empleados_puestos/table', 'access', '', '', '1', '2017-02-18 22:36:00', 'tambos', 0),
-(1280, 4, 'empleados_puestos/abm', 'access', '', '', '1', '2017-02-18 22:36:24', 'tambos', 0),
-(1281, 4, 'empleados_puestos/abm', 'access', '', '', '1', '2017-02-18 22:37:28', 'tambos', 0),
-(1282, 4, 'envios/table', 'access', '', '', '1', '2017-02-18 22:37:53', 'tambos', 0),
-(1283, 4, 'envios/abm', 'access', '', '', '1', '2017-02-18 22:38:20', 'tambos', 0),
-(1284, 4, 'facturas_estados/table', 'access', '', '', '1', '2017-02-18 22:38:43', 'tambos', 0),
-(1285, 4, 'formas_juridicas/table', 'access', '', '', '1', '2017-02-18 22:38:55', 'tambos', 0),
-(1286, 4, 'formas_juridicas/abm', 'access', '', '', '1', '2017-02-18 22:39:22', 'tambos', 0),
-(1287, 4, 'formas_pagos/table', 'access', '', '', '1', '2017-02-18 22:39:48', 'tambos', 0),
-(1288, 4, 'formas_pagos/abm', 'access', '', '', '1', '2017-02-18 22:40:12', 'tambos', 0),
-(1289, 4, 'Localidades/table', 'access', '', '', '1', '2017-02-18 22:40:42', 'tambos', 0),
-(1290, 4, 'Localidades/abm', 'access', '', '', '1', '2017-02-18 22:41:08', 'tambos', 0),
-(1291, 4, 'origenes/table', 'access', '', '', '1', '2017-02-18 22:41:35', 'tambos', 0),
-(1292, 4, 'origenes/abm', 'access', '', '', '1', '2017-02-18 22:42:01', 'tambos', 0),
-(1293, 4, 'pedidos_estados/table', 'access', '', '', '1', '2017-02-18 22:42:24', 'tambos', 0),
-(1294, 4, 'proveedores_tipos/table', 'access', '', '', '1', '2017-02-18 22:42:28', 'tambos', 0),
-(1295, 4, 'proveedores_tipos/abm', 'access', '', '', '1', '2017-02-18 22:42:57', 'tambos', 0),
-(1296, 4, 'provincias/table', 'access', '', '', '1', '2017-02-18 22:43:21', 'tambos', 0),
-(1297, 4, 'provincias/abm', 'access', '', '', '1', '2017-02-18 22:43:42', 'tambos', 0),
-(1298, 4, 'seguimientos_estados/table', 'access', '', '', '1', '2017-02-18 22:44:06', 'tambos', 0),
-(1299, 4, 'seguimientos_estados/abm', 'access', '', '', '1', '2017-02-18 22:44:28', 'tambos', 0),
-(1300, 4, 'tambos_sectores_tipos/table', 'access', '', '', '1', '2017-02-18 22:44:55', 'tambos', 0),
-(1301, 4, 'tambos_sectores_tipos/abm', 'access', '', '', '1', '2017-02-18 22:45:35', 'tambos', 0),
-(1302, 4, 'empleados/table', 'access', '', '', '1', '2017-02-18 22:46:04', 'tambos', 0),
-(1303, 4, 'empleados/abm', 'access', '', '', '1', '2017-02-18 22:46:38', 'tambos', 0),
-(1304, 4, 'empleados_marcaciones/table', 'access', '', '', '1', '2017-02-18 22:47:01', 'tambos', 0),
-(1305, 4, 'empleados_marcaciones/abm', 'access', '', '', '1', '2017-02-18 22:47:21', 'tambos', 0),
-(1306, 4, 'empleados_turnos/table', 'access', '', '', '1', '2017-02-18 22:47:47', 'tambos', 0),
-(1307, 4, 'empleados_turnos/abm', 'access', '', '', '1', '2017-02-18 22:48:10', 'tambos', 0),
-(1308, 4, 'tambos_caminos/table', 'access', '', '', '1', '2017-02-18 22:48:34', 'tambos', 0),
-(1309, 4, 'tambos_caminos/abm', 'access', '', '', '1', '2017-02-18 22:49:18', 'tambos', 0),
-(1310, 4, 'tambos_compuertas/table', 'access', '', '', '1', '2017-02-18 22:49:41', 'tambos', 0),
-(1311, 4, 'tambos_compuertas/abm', 'access', '', '', '1', '2017-02-18 22:50:08', 'tambos', 0),
-(1312, 4, 'tambos_lectores/table', 'access', '', '', '1', '2017-02-18 22:50:30', 'tambos', 0),
-(1313, 4, 'tambos_lectores/abm', 'access', '', '', '1', '2017-02-18 22:50:55', 'tambos', 0),
-(1314, 4, 'tambos/table', 'access', '', '', '1', '2017-02-18 22:51:19', 'tambos', 0),
-(1315, 4, 'tambos/abm', 'access', '', '', '1', '2017-02-18 22:51:44', 'tambos', 0),
-(1316, 4, 'tambos_sectores/table', 'access', '', '', '1', '2017-02-18 22:52:10', 'tambos', 0),
-(1317, 4, 'tambos_sectores/abm', 'access', '', '', '1', '2017-02-18 22:52:32', 'tambos', 0),
-(1318, 4, 'logs_usuarios/table', 'access', '', '', '1', '2017-02-18 22:52:55', 'tambos', 0),
-(1319, 4, 'logs_usuarios/table', 'access', '', '', '1', '2017-02-18 22:53:33', 'tambos', 0),
-(1320, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2017-02-18 22:54:10', 'tambos', 0),
-(1321, 4, 'menus/table', 'access', '', '', '1', '2017-02-18 22:54:11', 'tambos', 0),
-(1322, 4, 'menus/abm', 'access', '', '', '1', '2017-02-18 22:54:33', 'tambos', 0),
-(1323, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2017-02-18 22:55:17', 'tambos', 0),
-(1324, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2017-02-18 22:55:39', 'tambos', 0),
-(1325, 4, 'usuarios/table', 'access', '', '', '1', '2017-02-18 22:56:02', 'tambos', 0),
-(1326, 4, 'usuarios/abm', 'access', '', '', '1', '2017-02-18 22:56:30', 'tambos', 0),
-(1327, 4, 'clientes/table', 'access', '', '', '1', '2017-02-18 22:56:54', 'tambos', 0),
-(1328, 4, 'clientes/abm', 'access', '', '', '1', '2017-02-18 22:57:31', 'tambos', 0),
-(1329, 4, 'facturas/table', 'access', '', '', '1', '2017-02-18 22:57:50', 'tambos', 0),
-(1330, 4, 'facturas/abm', 'access', '', '', '1', '2017-02-18 22:58:08', 'tambos', 0),
-(1331, 4, 'pagos/table', 'access', '', '', '1', '2017-02-18 22:58:30', 'tambos', 0),
-(1332, 4, 'pagos/abm', 'access', '', '', '1', '2017-02-18 22:58:51', 'tambos', 0),
-(1333, 4, 'pedidos/table', 'access', '', '', '1', '2017-02-18 22:59:18', 'tambos', 0),
-(1334, 4, 'pedidos/abm', 'access', '', '', '1', '2017-02-18 22:59:39', 'tambos', 0),
-(1335, 4, 'logs_usuarios/table', 'access', '', '', '1', '2017-02-18 23:01:05', 'colegio-notarial', 0),
-(1336, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-02-27 23:03:29', 'colegio-notarial', 0),
-(1337, 4, 'animales/table', 'access', '', '', '1', '2017-02-27 23:03:31', 'colegio-notarial', 0),
-(1338, 4, 'usuarios/table', 'access', '', '', '1', '2017-02-27 23:12:39', 'colegio-notarial', 0),
-(1339, 3, 'logout', 'logout', '', '', '1', '2017-02-27 23:12:44', 'colegio-notarial', 0),
-(1340, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-02-27 23:19:56', 'colegio-notarial', 0),
-(1341, 4, 'animales/table', 'access', '', '', '1', '2017-02-27 23:19:57', 'colegio-notarial', 0),
-(1342, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-02-28 12:43:44', 'colegio-notarial', 0),
-(1343, 4, 'animales/table', 'access', '', '', '1', '2017-02-28 12:43:44', 'colegio-notarial', 0),
-(1344, 4, 'animales/abm', 'access', '', '', '1', '2017-02-28 12:43:53', 'colegio-notarial', 0),
-(1345, 4, '{"id_animal":"0","animal":"3","tarjeta":"2","id_tipo":"1","fecha_ingreso":"2017-02-15 00:00","fecha_nacimiento":"2017-02-09","id_padre":"0","id_madre":"","id_proveedor":"1","peso":"27","altura":"2.4","id_estado":"","comentario":"","date_add":"2017-02-28 12:44:29","date_upd":"2017-02-28 12:44:29","user_add":"1","user_upd":"1"}', 'insert', 'animales', '2', '1', '2017-02-28 12:44:29', 'colegio-notarial', 0),
-(1346, 4, 'animales/table', 'access', '', '', '1', '2017-02-28 12:44:29', 'colegio-notarial', 0),
-(1347, 4, 'facturas_proveedores/table', 'access', '', '', '1', '2017-02-28 12:44:59', 'colegio-notarial', 0),
-(1348, 4, 'facturas_proveedores/abm', 'access', '', '', '1', '2017-02-28 12:45:02', 'colegio-notarial', 0),
-(1349, 4, '{"id_factura":"0","id_proveedor":"1","id_pedido":"1","nro_factura":"9868","fecha_entrega":"","id_condicion_pago":"1","id_forma_pago":"1","id_origen":"3","id_envio":"2","comentario":"","date_add":"2017-02-28 12:45:21","date_upd":"2017-02-28 12:45:21","user_add":"1","user_upd":"1"}', 'insert', 'facturas_proveedores', '2', '1', '2017-02-28 12:45:21', 'colegio-notarial', 0),
-(1350, 4, 'facturas_proveedores/table', 'access', '', '', '1', '2017-02-28 12:45:21', 'colegio-notarial', 0),
-(1351, 4, 'facturas/table', 'access', '', '', '1', '2017-02-28 12:46:20', 'colegio-notarial', 0),
-(1352, 4, 'facturas/abm', 'access', '', '', '1', '2017-02-28 12:46:22', 'colegio-notarial', 0),
-(1353, 4, '{"id_factura":"0","id_cliente":"1","id_pedido":"1","fecha_entrega":"2017-02-02","id_condicion_pago":"1","id_forma_pago":"1","id_origen":"1","id_envio":"2","comentario_publico":"","comentario_privado":"","date_add":"2017-02-28 12:46:35","date_upd":"2017-02-28 12:46:35","user_add":"1","user_upd":"1"}', 'insert', 'facturas', '2', '1', '2017-02-28 12:46:35', 'colegio-notarial', 0),
-(1354, 4, 'facturas/table', 'access', '', '', '1', '2017-02-28 12:46:36', 'colegio-notarial', 0);
+(1, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:13:01', 'colegio-notarial', 0),
+(2, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:13:06', 'colegio-notarial', 0),
+(3, 4, '{"id_menu":"0","menu":"Clientes","icon":"","id_padre":"0","date_add":"2017-04-17 23:13:19","date_upd":"2017-04-17 23:13:19","user_add":"1","user_upd":"1"}', 'insert', 'menus', '1', '1', '2017-04-17 23:13:19', 'colegio-notarial', 0),
+(4, 4, '{"id_perfil":"1","id_menu":1,"ver":1,"editar":1,"date_add":"2017-04-17 23:13:19","date_upd":"2017-04-17 23:13:19","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '1', '1', '2017-04-17 23:13:20', 'colegio-notarial', 0),
+(5, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:13:20', 'colegio-notarial', 0),
+(6, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:13:22', 'colegio-notarial', 0),
+(7, 4, '{"id_menu":"0","url":"clientes\\/table\\/","menu":"Clientes","icon":"","id_padre":"1","date_add":"2017-04-17 23:13:36","date_upd":"2017-04-17 23:13:36","user_add":"1","user_upd":"1"}', 'insert', 'menus', '2', '1', '2017-04-17 23:13:36', 'colegio-notarial', 0),
+(8, 4, '{"id_perfil":"1","id_menu":2,"ver":1,"editar":1,"date_add":"2017-04-17 23:13:36","date_upd":"2017-04-17 23:13:36","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '2', '1', '2017-04-17 23:13:36', 'colegio-notarial', 0),
+(9, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:13:36', 'colegio-notarial', 0),
+(10, 4, 'clientes/table', 'access', '', '', '1', '2017-04-17 23:14:08', 'colegio-notarial', 0),
+(11, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-17 23:14:11', 'colegio-notarial', 0),
+(12, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-17 23:15:05', 'colegio-notarial', 0),
+(13, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:15:27', 'colegio-notarial', 0),
+(14, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:15:29', 'colegio-notarial', 0),
+(15, 4, '{"id_menu":"0","menu":"Diccionarios","icon":"","id_padre":"0","date_add":"2017-04-17 23:15:36","date_upd":"2017-04-17 23:15:36","user_add":"1","user_upd":"1"}', 'insert', 'menus', '3', '1', '2017-04-17 23:15:36', 'colegio-notarial', 0),
+(16, 4, '{"id_perfil":"1","id_menu":3,"ver":1,"editar":1,"date_add":"2017-04-17 23:15:36","date_upd":"2017-04-17 23:15:36","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '3', '1', '2017-04-17 23:15:37', 'colegio-notarial', 0),
+(17, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:15:37', 'colegio-notarial', 0),
+(18, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:15:39', 'colegio-notarial', 0),
+(19, 4, '{"id_menu":"0","url":"clientes_tipos\\/table\\/","menu":"Clientes Tipos","icon":"","id_padre":"3","date_add":"2017-04-17 23:16:02","date_upd":"2017-04-17 23:16:02","user_add":"1","user_upd":"1"}', 'insert', 'menus', '4', '1', '2017-04-17 23:16:02', 'colegio-notarial', 0),
+(20, 4, '{"id_perfil":"1","id_menu":4,"ver":1,"editar":1,"date_add":"2017-04-17 23:16:02","date_upd":"2017-04-17 23:16:02","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '4', '1', '2017-04-17 23:16:02', 'colegio-notarial', 0),
+(21, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:16:02', 'colegio-notarial', 0),
+(22, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:16:12', 'colegio-notarial', 0),
+(23, 4, '{"id_menu":"0","url":"formas_juridicas\\/table\\/","menu":"Formas Juridicas","icon":"","id_padre":"3","date_add":"2017-04-17 23:16:29","date_upd":"2017-04-17 23:16:29","user_add":"1","user_upd":"1"}', 'insert', 'menus', '5', '1', '2017-04-17 23:16:29', 'colegio-notarial', 0),
+(24, 4, '{"id_perfil":"1","id_menu":5,"ver":1,"editar":1,"date_add":"2017-04-17 23:16:29","date_upd":"2017-04-17 23:16:29","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '5', '1', '2017-04-17 23:16:29', 'colegio-notarial', 0),
+(25, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:16:29', 'colegio-notarial', 0),
+(26, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:16:43', 'colegio-notarial', 0),
+(27, 4, '{"id_menu":"5","url":"formas_juridicas\\/table\\/","menu":"Formas Jurid\\u00edcas","icon":"","id_padre":"3","date_upd":"2017-04-17 23:16:48","user_upd":"1"}', 'update', 'menus', '5', '1', '2017-04-17 23:16:48', 'colegio-notarial', 0),
+(28, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:16:49', 'colegio-notarial', 0),
+(29, 4, 'clientes/table', 'access', '', '', '1', '2017-04-17 23:17:00', 'colegio-notarial', 0),
+(30, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-17 23:17:03', 'colegio-notarial', 0),
+(31, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:18:19', 'colegio-notarial', 0),
+(32, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:18:41', 'colegio-notarial', 0),
+(33, 4, '{"id_menu":"0","menu":"Inmobiliaria","icon":"","id_padre":"0","date_add":"2017-04-17 23:18:48","date_upd":"2017-04-17 23:18:48","user_add":"1","user_upd":"1"}', 'insert', 'menus', '6', '1', '2017-04-17 23:18:48', 'colegio-notarial', 0),
+(34, 4, '{"id_perfil":"1","id_menu":6,"ver":1,"editar":1,"date_add":"2017-04-17 23:18:49","date_upd":"2017-04-17 23:18:49","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '6', '1', '2017-04-17 23:18:49', 'colegio-notarial', 0),
+(35, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:18:49', 'colegio-notarial', 0),
+(36, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:18:51', 'colegio-notarial', 0),
+(37, 4, '{"id_menu":"0","url":"proyectos\\/table\\/","menu":"Proyectos","icon":"","id_padre":"6","date_add":"2017-04-17 23:19:05","date_upd":"2017-04-17 23:19:05","user_add":"1","user_upd":"1"}', 'insert', 'menus', '7', '1', '2017-04-17 23:19:05', 'colegio-notarial', 0),
+(38, 4, '{"id_perfil":"1","id_menu":7,"ver":1,"editar":1,"date_add":"2017-04-17 23:19:05","date_upd":"2017-04-17 23:19:05","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '7', '1', '2017-04-17 23:19:05', 'colegio-notarial', 0),
+(39, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:19:05', 'colegio-notarial', 0),
+(40, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:19:09', 'colegio-notarial', 0),
+(41, 4, '{"id_menu":"0","url":"inmuebles","menu":"Inmuebles","icon":"","id_padre":"6","date_add":"2017-04-17 23:19:22","date_upd":"2017-04-17 23:19:22","user_add":"1","user_upd":"1"}', 'insert', 'menus', '8', '1', '2017-04-17 23:19:22', 'colegio-notarial', 0),
+(42, 4, '{"id_perfil":"1","id_menu":8,"ver":1,"editar":1,"date_add":"2017-04-17 23:19:23","date_upd":"2017-04-17 23:19:23","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '8', '1', '2017-04-17 23:19:23', 'colegio-notarial', 0),
+(43, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:19:23', 'colegio-notarial', 0),
+(44, 4, 'menus/abm', 'access', '', '', '1', '2017-04-17 23:20:11', 'colegio-notarial', 0),
+(45, 4, '{"id_menu":"0","url":"cuotas\\/table\\/","menu":"Cuotas","icon":"","id_padre":"1","date_add":"2017-04-17 23:20:25","date_upd":"2017-04-17 23:20:25","user_add":"1","user_upd":"1"}', 'insert', 'menus', '9', '1', '2017-04-17 23:20:25', 'colegio-notarial', 0),
+(46, 4, '{"id_perfil":"1","id_menu":9,"ver":1,"editar":1,"date_add":"2017-04-17 23:20:25","date_upd":"2017-04-17 23:20:25","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '9', '1', '2017-04-17 23:20:25', 'colegio-notarial', 0),
+(47, 4, 'menus/table', 'access', '', '', '1', '2017-04-17 23:20:25', 'colegio-notarial', 0),
+(48, 3, 'logout', 'logout', '', '', '1', '2017-04-17 23:20:40', 'colegio-notarial', 0),
+(49, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-04-17 23:20:45', 'colegio-notarial', 0),
+(50, 4, 'clientes/table', 'access', '', '', '1', '2017-04-17 23:20:46', 'colegio-notarial', 0),
+(51, 4, 'clientes/table', 'access', '', '', '1', '2017-04-17 23:23:31', 'colegio-notarial', 0),
+(52, 4, 'clientes/table', 'access', '', '', '1', '2017-04-17 23:24:28', 'colegio-notarial', 0),
+(53, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 00:17:26', 'colegio-notarial', 0),
+(54, 4, 'proyectos/abm', 'access', '', '', '1', '2017-04-18 00:17:32', 'colegio-notarial', 0),
+(55, 4, 'proyectos_estados/abm/', 'denied_access', '', '', '1', '2017-04-18 00:18:20', 'colegio-notarial', 0),
+(56, 3, 'logout', 'logout', '', '', '1', '2017-04-18 00:18:21', 'colegio-notarial', 0),
+(57, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-04-18 00:18:23', 'colegio-notarial', 0),
+(58, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 00:18:23', 'colegio-notarial', 0),
+(59, 4, 'menus/table/', 'denied_access', '', '', '1', '2017-04-18 00:18:45', 'colegio-notarial', 0),
+(60, 3, 'logout', 'logout', '', '', '1', '2017-04-18 00:18:45', 'colegio-notarial', 0),
+(61, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-04-18 00:20:41', 'colegio-notarial', 0),
+(62, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 00:20:42', 'colegio-notarial', 0),
+(63, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 00:21:50', 'colegio-notarial', 0),
+(64, 3, 'logout', 'logout', '', '', '1', '2017-04-18 00:21:56', 'colegio-notarial', 0),
+(65, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-04-18 00:21:57', 'colegio-notarial', 0),
+(66, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 00:21:58', 'colegio-notarial', 0),
+(67, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 00:22:00', 'colegio-notarial', 0),
+(68, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 00:22:06', 'colegio-notarial', 0),
+(69, 4, '{"id_menu":"0","url":"proyectos_estados\\/table\\/","menu":"Proyectos estados","icon":"","id_padre":"3","date_add":"2017-04-18 00:22:30","date_upd":"2017-04-18 00:22:30","user_add":"1","user_upd":"1"}', 'insert', 'menus', '12', '1', '2017-04-18 00:22:30', 'colegio-notarial', 0),
+(70, 4, '{"id_perfil":"1","id_menu":12,"ver":1,"editar":1,"date_add":"2017-04-18 00:22:30","date_upd":"2017-04-18 00:22:30","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '12', '1', '2017-04-18 00:22:30', 'colegio-notarial', 0),
+(71, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 00:22:30', 'colegio-notarial', 0),
+(72, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 00:22:35', 'colegio-notarial', 0),
+(73, 4, '{"id_menu":"0","url":"proyectos_tipos\\/table\\/","menu":"Proyectos tipos","icon":"","id_padre":"3","date_add":"2017-04-18 00:22:58","date_upd":"2017-04-18 00:22:58","user_add":"1","user_upd":"1"}', 'insert', 'menus', '13', '1', '2017-04-18 00:22:58', 'colegio-notarial', 0),
+(74, 4, '{"id_perfil":"1","id_menu":13,"ver":1,"editar":1,"date_add":"2017-04-18 00:22:58","date_upd":"2017-04-18 00:22:58","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '13', '1', '2017-04-18 00:22:58', 'colegio-notarial', 0),
+(75, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 00:22:58', 'colegio-notarial', 0),
+(76, 3, 'logout', 'logout', '', '', '1', '2017-04-18 00:23:02', 'colegio-notarial', 0),
+(77, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-04-18 00:23:04', 'colegio-notarial', 0),
+(78, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 00:23:04', 'colegio-notarial', 0),
+(79, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 00:23:10', 'colegio-notarial', 0),
+(80, 4, 'proyectos_tipos/table', 'access', '', '', '1', '2017-04-18 00:23:12', 'colegio-notarial', 0),
+(81, 4, 'proyectos_tipos/table', 'access', '', '', '1', '2017-04-18 00:23:40', 'colegio-notarial', 0),
+(82, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 00:24:02', 'colegio-notarial', 0),
+(83, 4, 'inmuebles/table/', 'denied_access', '', '', '1', '2017-04-18 00:38:00', 'colegio-notarial', 0),
+(84, 3, 'logout', 'logout', '', '', '1', '2017-04-18 00:38:01', 'colegio-notarial', 0),
+(85, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-04-18 00:38:03', 'colegio-notarial', 0),
+(86, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 00:38:03', 'colegio-notarial', 0),
+(87, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 00:38:05', 'colegio-notarial', 0),
+(88, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 00:38:07', 'colegio-notarial', 0),
+(89, 4, '{"id_menu":"8","url":"inmuebles\\/table\\/","menu":"Inmuebles","icon":"","id_padre":"6","date_upd":"2017-04-18 00:38:13","user_upd":"1"}', 'update', 'menus', '8', '1', '2017-04-18 00:38:13', 'colegio-notarial', 0),
+(90, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 00:38:13', 'colegio-notarial', 0),
+(91, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 00:38:15', 'colegio-notarial', 0),
+(92, 4, '{"id_menu":"0","url":"inmuebles_estados\\/table\\/","menu":"Inmuebles estados","icon":"","id_padre":"3","date_add":"2017-04-18 00:38:35","date_upd":"2017-04-18 00:38:35","user_add":"1","user_upd":"1"}', 'insert', 'menus', '14', '1', '2017-04-18 00:38:35', 'colegio-notarial', 0),
+(93, 4, '{"id_perfil":"1","id_menu":14,"ver":1,"editar":1,"date_add":"2017-04-18 00:38:35","date_upd":"2017-04-18 00:38:35","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '14', '1', '2017-04-18 00:38:35', 'colegio-notarial', 0),
+(94, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 00:38:35', 'colegio-notarial', 0),
+(95, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 00:38:37', 'colegio-notarial', 0),
+(96, 4, '{"id_menu":"0","url":"inmuebles_tipos\\/table\\/","menu":"Inmuebles tipos","icon":"","id_padre":"3","date_add":"2017-04-18 00:38:56","date_upd":"2017-04-18 00:38:56","user_add":"1","user_upd":"1"}', 'insert', 'menus', '15', '1', '2017-04-18 00:38:56', 'colegio-notarial', 0),
+(97, 4, '{"id_perfil":"1","id_menu":15,"ver":1,"editar":1,"date_add":"2017-04-18 00:38:56","date_upd":"2017-04-18 00:38:56","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '15', '1', '2017-04-18 00:38:56', 'colegio-notarial', 0),
+(98, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 00:38:56', 'colegio-notarial', 0),
+(99, 3, 'logout', 'logout', '', '', '1', '2017-04-18 00:38:59', 'colegio-notarial', 0),
+(100, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 7"}', 'login', '', '', '1', '2017-04-18 00:39:00', 'colegio-notarial', 0),
+(101, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 00:39:01', 'colegio-notarial', 0),
+(102, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:39:05', 'colegio-notarial', 0),
+(103, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 00:39:08', 'colegio-notarial', 0),
+(104, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 00:39:12', 'colegio-notarial', 0),
+(105, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:39:14', 'colegio-notarial', 0),
+(106, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:39:51', 'colegio-notarial', 0),
+(107, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:40:04', 'colegio-notarial', 0),
+(108, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:40:32', 'colegio-notarial', 0),
+(109, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:40:57', 'colegio-notarial', 0),
+(110, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:41:29', 'colegio-notarial', 0),
+(111, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 00:41:35', 'colegio-notarial', 0),
+(112, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 00:41:38', 'colegio-notarial', 0),
+(113, 4, 'proyectos/abm', 'access', '', '', '1', '2017-04-18 00:41:40', 'colegio-notarial', 0),
+(114, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 00:41:45', 'colegio-notarial', 0),
+(115, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 00:41:58', 'colegio-notarial', 0),
+(116, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:42:00', 'colegio-notarial', 0),
+(117, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:46:31', 'colegio-notarial', 0),
+(118, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:47:25', 'colegio-notarial', 0),
+(119, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:47:49', 'colegio-notarial', 0),
+(120, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:47:58', 'colegio-notarial', 0),
+(121, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:48:27', 'colegio-notarial', 0),
+(122, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 00:48:41', 'colegio-notarial', 0),
+(123, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 00:49:36', 'colegio-notarial', 0),
+(124, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 00:50:04', 'colegio-notarial', 0),
+(125, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:50:06', 'colegio-notarial', 0),
+(126, 4, 'inmuebles_estados/abm', 'access', '', '', '1', '2017-04-18 00:50:08', 'colegio-notarial', 0),
+(127, 4, '{"id_estado":"0","estado":"Libre","date_add":"2017-04-18 00:50:20","date_upd":"2017-04-18 00:50:20","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_estados', '0', '1', '2017-04-18 00:50:20', 'colegio-notarial', 0),
+(128, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:50:20', 'colegio-notarial', 0),
+(129, 4, 'inmuebles_estados/abm', 'access', '', '', '1', '2017-04-18 00:50:23', 'colegio-notarial', 0),
+(130, 4, '{"id_estado":"0","estado":"Ocupado","date_add":"2017-04-18 00:50:33","date_upd":"2017-04-18 00:50:33","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_estados', '0', '1', '2017-04-18 00:50:34', 'colegio-notarial', 0),
+(131, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:50:34', 'colegio-notarial', 0),
+(132, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:50:49', 'colegio-notarial', 0),
+(133, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 00:50:51', 'colegio-notarial', 0),
+(134, 4, 'inmuebles_tipos/abm', 'access', '', '', '1', '2017-04-18 00:50:54', 'colegio-notarial', 0),
+(135, 4, 'inmuebles_tipos/abm', 'access', '', '', '1', '2017-04-18 00:51:29', 'colegio-notarial', 0),
+(136, 4, '{"id_tipo":"0","tipo":"Lote","date_add":"2017-04-18 00:51:34","date_upd":"2017-04-18 00:51:34","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_tipos', '0', '1', '2017-04-18 00:51:35', 'colegio-notarial', 0),
+(137, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 00:51:35', 'colegio-notarial', 0),
+(138, 4, 'inmuebles_tipos/abm', 'access', '', '', '1', '2017-04-18 00:51:36', 'colegio-notarial', 0),
+(139, 4, '{"id_tipo":"0","tipo":"Casa","date_add":"2017-04-18 00:51:41","date_upd":"2017-04-18 00:51:41","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_tipos', '0', '1', '2017-04-18 00:51:41', 'colegio-notarial', 0),
+(140, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 00:51:41', 'colegio-notarial', 0),
+(141, 4, 'inmuebles_tipos/abm', 'access', '', '', '1', '2017-04-18 00:51:44', 'colegio-notarial', 0),
+(142, 4, '{"id_tipo":"0","tipo":"Departamento","date_add":"2017-04-18 00:51:49","date_upd":"2017-04-18 00:51:49","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_tipos', '0', '1', '2017-04-18 00:51:49', 'colegio-notarial', 0),
+(143, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 00:51:49', 'colegio-notarial', 0),
+(144, 4, 'formas_juridicas/table', 'access', '', '', '1', '2017-04-18 00:51:55', 'colegio-notarial', 0),
+(145, 4, 'clientes_tipos/table', 'access', '', '', '1', '2017-04-18 00:51:57', 'colegio-notarial', 0),
+(146, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:52:01', 'colegio-notarial', 0),
+(147, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 00:52:03', 'colegio-notarial', 0),
+(148, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 00:52:06', 'colegio-notarial', 0),
+(149, 4, 'proyectos_estados/abm', 'access', '', '', '1', '2017-04-18 00:52:10', 'colegio-notarial', 0),
+(150, 4, '{"id_estado":"0","estado":"En venta","date_add":"2017-04-18 00:52:18","date_upd":"2017-04-18 00:52:18","user_add":"1","user_upd":"1"}', 'insert', 'proyectos_estados', '1', '1', '2017-04-18 00:52:18', 'colegio-notarial', 0),
+(151, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 00:52:18', 'colegio-notarial', 0),
+(152, 4, 'proyectos_estados/abm', 'access', '', '', '1', '2017-04-18 00:52:19', 'colegio-notarial', 0),
+(153, 4, '{"id_estado":"0","estado":"Finalizado","date_add":"2017-04-18 00:52:26","date_upd":"2017-04-18 00:52:26","user_add":"1","user_upd":"1"}', 'insert', 'proyectos_estados', '2', '1', '2017-04-18 00:52:26', 'colegio-notarial', 0),
+(154, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 00:52:27', 'colegio-notarial', 0),
+(155, 4, 'proyectos_tipos/table', 'access', '', '', '1', '2017-04-18 00:52:33', 'colegio-notarial', 0),
+(156, 4, 'proyectos_tipos/abm', 'access', '', '', '1', '2017-04-18 00:52:36', 'colegio-notarial', 0),
+(157, 4, 'proyectos_tipos/abm', 'access', '', '', '1', '2017-04-18 00:52:47', 'colegio-notarial', 0),
+(158, 4, '{"id_tipo":"0","tipo":"Venta de lotes","date_add":"2017-04-18 00:52:53","date_upd":"2017-04-18 00:52:53","user_add":"1","user_upd":"1"}', 'insert', 'proyectos_tipos', '1', '1', '2017-04-18 00:52:53', 'colegio-notarial', 0),
+(159, 4, 'proyectos_tipos/table', 'access', '', '', '1', '2017-04-18 00:52:53', 'colegio-notarial', 0),
+(160, 4, 'proyectos_tipos/abm', 'access', '', '', '1', '2017-04-18 00:52:55', 'colegio-notarial', 0),
+(161, 4, '{"id_tipo":"0","tipo":"Venta de departamentos","date_add":"2017-04-18 00:53:02","date_upd":"2017-04-18 00:53:02","user_add":"1","user_upd":"1"}', 'insert', 'proyectos_tipos', '2', '1', '2017-04-18 00:53:03', 'colegio-notarial', 0),
+(162, 4, 'proyectos_tipos/table', 'access', '', '', '1', '2017-04-18 00:53:03', 'colegio-notarial', 0),
+(163, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 00:53:07', 'colegio-notarial', 0),
+(164, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 00:53:09', 'colegio-notarial', 0),
+(165, 4, 'proyectos/abm', 'access', '', '', '1', '2017-04-18 00:53:11', 'colegio-notarial', 0),
+(166, 4, '{"id_proyecto":"0","proyecto":"Venta de lotes prueba","id_tipo":"1","nro_referencia":"55023","dimension":"1000 x 1000","id_localidad":"5496","id_provincia":"13","comentario":"<p>Proyecto de venta de lotes con todos los servicios<\\/p>\\r\\n","id_estado":"1","date_add":"2017-04-18 00:55:10","date_upd":"2017-04-18 00:55:10","user_add":"1","user_upd":"1"}', 'insert', 'proyectos', '1', '1', '2017-04-18 00:55:10', 'colegio-notarial', 0),
+(167, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 00:55:10', 'colegio-notarial', 0),
+(168, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 00:55:14', 'colegio-notarial', 0),
+(169, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 00:55:16', 'colegio-notarial', 0),
+(170, 4, '{"id_inmueble":"0","inmueble":"Lote 01","id_proyecto":"1","id_tipo":"0","precio":"400.000","nro_referencia":"","dimension":"","calle":"","calle_numero":"","comentario":"","date_add":"2017-04-18 00:55:48","date_upd":"2017-04-18 00:55:48","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles', '0', '1', '2017-04-18 00:55:48', 'colegio-notarial', 0),
+(171, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 00:55:48', 'colegio-notarial', 0),
+(172, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 00:59:04', 'colegio-notarial', 0),
+(173, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:59:12', 'colegio-notarial', 0),
+(174, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:59:22', 'colegio-notarial', 0),
+(175, 4, 'inmuebles_estados/abm', 'access', '', '', '1', '2017-04-18 00:59:24', 'colegio-notarial', 0),
+(176, 4, '{"id_estado":"0","estado":"Libre","date_add":"2017-04-18 00:59:29","date_upd":"2017-04-18 00:59:29","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_estados', '1', '1', '2017-04-18 00:59:29', 'colegio-notarial', 0),
+(177, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:59:29', 'colegio-notarial', 0),
+(178, 4, 'inmuebles_estados/abm', 'access', '', '', '1', '2017-04-18 00:59:31', 'colegio-notarial', 0),
+(179, 4, '{"id_estado":"0","estado":"Ocupado","date_add":"2017-04-18 00:59:35","date_upd":"2017-04-18 00:59:35","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_estados', '2', '1', '2017-04-18 00:59:36', 'colegio-notarial', 0),
+(180, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 00:59:36', 'colegio-notarial', 0),
+(181, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 00:59:46', 'colegio-notarial', 0),
+(182, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 01:00:19', 'colegio-notarial', 0),
+(183, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 01:00:22', 'colegio-notarial', 0),
+(184, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 01:00:26', 'colegio-notarial', 0),
+(185, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 01:00:28', 'colegio-notarial', 0),
+(186, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 01:00:51', 'colegio-notarial', 0),
+(187, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 01:00:53', 'colegio-notarial', 0),
+(188, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 01:01:05', 'colegio-notarial', 0),
+(189, 4, 'inmuebles_tipos/abm', 'access', '', '', '1', '2017-04-18 01:01:07', 'colegio-notarial', 0),
+(190, 4, '{"id_tipo":"0","tipo":"Lote","date_add":"2017-04-18 01:01:10","date_upd":"2017-04-18 01:01:10","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_tipos', '1', '1', '2017-04-18 01:01:10', 'colegio-notarial', 0),
+(191, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 01:01:10', 'colegio-notarial', 0),
+(192, 4, 'inmuebles_tipos/abm', 'access', '', '', '1', '2017-04-18 01:01:12', 'colegio-notarial', 0),
+(193, 4, '{"id_tipo":"0","tipo":"Casa","date_add":"2017-04-18 01:01:15","date_upd":"2017-04-18 01:01:15","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_tipos', '2', '1', '2017-04-18 01:01:15', 'colegio-notarial', 0),
+(194, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 01:01:16', 'colegio-notarial', 0),
+(195, 4, 'inmuebles_tipos/abm', 'access', '', '', '1', '2017-04-18 01:01:20', 'colegio-notarial', 0),
+(196, 4, '{"id_tipo":"0","tipo":"Departamento","date_add":"2017-04-18 01:01:25","date_upd":"2017-04-18 01:01:25","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles_tipos', '3', '1', '2017-04-18 01:01:25', 'colegio-notarial', 0),
+(197, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 01:01:25', 'colegio-notarial', 0),
+(198, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 01:01:35', 'colegio-notarial', 0),
+(199, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 01:01:36', 'colegio-notarial', 0),
+(200, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 01:01:38', 'colegio-notarial', 0),
+(201, 4, '{"id_inmueble":"0","inmueble":"Lote 01","id_proyecto":"1","id_tipo":"1","precio":"400.000","nro_referencia":"55023","dimension":"1000 x 1000","calle":"","calle_numero":"","comentario":"","date_add":"2017-04-18 01:01:57","date_upd":"2017-04-18 01:01:57","user_add":"1","user_upd":"1"}', 'insert', 'inmuebles', '0', '1', '2017-04-18 01:01:57', 'colegio-notarial', 0),
+(202, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 01:01:57', 'colegio-notarial', 0),
+(203, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 01:03:38', 'colegio-notarial', 0),
+(204, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 01:03:43', 'colegio-notarial', 0),
+(205, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 01:03:48', 'colegio-notarial', 0),
+(206, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 01:04:37', 'colegio-notarial', 0),
+(207, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 01:04:39', 'colegio-notarial', 0),
+(208, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 01:05:18', 'colegio-notarial', 0),
+(209, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 01:05:35', 'colegio-notarial', 0),
+(210, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 01:05:38', 'colegio-notarial', 0),
+(211, 4, 'clientes_tipos/table', 'access', '', '', '1', '2017-04-18 01:05:44', 'colegio-notarial', 0),
+(212, 3, 'logout', 'logout', '', '', '1', '2017-04-18 01:06:02', 'colegio-notarial', 0);
 
 -- --------------------------------------------------------
 
@@ -24751,87 +23475,28 @@ CREATE TABLE IF NOT EXISTS `menus` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Volcado de datos para la tabla `menus`
 --
 
 INSERT INTO `menus` (`id_menu`, `url`, `menu`, `icon`, `id_padre`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, '', 'Animales', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
-(2, '', 'Usuarios', '', 0, '0000-00-00 00:00:00', '2016-10-05 15:12:02', 0, 1, 0),
-(3, 'animales/table/', 'Animales', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
-(4, 'menus/table/', 'Menu', '', 2, '2016-10-05 15:09:42', '2016-10-05 15:11:51', 1, 1, 0),
-(5, 'usuarios/table/', 'Usuarios', '', 2, '2016-10-05 15:12:20', '2016-10-05 15:12:20', 1, 1, 0),
-(6, 'usuarios_perfiles/table/', 'Perfiles', '', 2, '2016-10-05 15:21:19', '2016-10-05 15:21:19', 1, 1, 0),
-(7, 'logs_usuarios/table/', 'Log', '', 2, '2016-10-05 16:18:38', '2016-10-05 16:18:38', 1, 1, 0),
-(8, 'animales_estados/table/', 'Animales Estados', '', 13, '2016-10-05 16:20:13', '2016-10-05 16:22:16', 1, 1, 0),
-(9, '', 'Empleados', '', 0, '2016-10-05 16:20:26', '2016-10-05 16:20:26', 1, 1, 0),
-(10, 'empleados/table/', 'Empleados', '', 9, '2016-10-05 16:20:45', '2016-10-05 16:20:45', 1, 1, 0),
-(11, 'empleados_puestos/table/', 'Empleados Puestos', '', 13, '2016-10-05 16:21:07', '2016-10-05 16:22:41', 1, 1, 0),
-(12, 'empleados_turnos/table/', 'Turnos', '', 9, '2016-10-05 16:21:34', '2016-10-05 16:21:34', 1, 1, 0),
-(13, '', 'Diccionario', '', 0, '2016-10-05 16:22:00', '2016-10-05 16:22:00', 1, 1, 0),
-(14, 'animales_tipos/table/', 'Animales Tipos', '', 13, '2016-10-05 16:23:11', '2016-10-05 16:23:11', 1, 1, 0),
-(15, '', 'Tambos', '', 0, '2016-10-05 16:25:41', '2016-10-05 16:25:41', 1, 1, 0),
-(16, 'tambos/table/', 'Tambos', '', 15, '2016-10-05 16:26:06', '2016-10-05 16:26:06', 1, 1, 0),
-(17, 'tambos_sectores/table/', 'Tambos Sectores', '', 15, '2016-10-05 16:26:33', '2016-10-05 16:26:33', 1, 1, 0),
-(18, 'tambos_sectores_tipos/table/', 'Tambos Sectores Tipos', '', 13, '2016-10-05 16:27:04', '2016-10-05 16:27:04', 1, 1, 0),
-(19, 'seguimientos/table/', 'Seguimientos', '', 1, '2016-10-05 16:27:36', '2016-10-05 16:27:36', 1, 1, 0),
-(20, 'seguimientos_estados/table/', 'Seguimientos Estados', '', 13, '2016-10-05 16:28:21', '2016-10-05 18:04:12', 1, 1, 0),
-(21, 'localidades/table/', 'Localidades', '', 13, '2016-10-05 16:29:16', '2016-10-05 16:29:16', 1, 1, 0),
-(22, 'provincias/table/', 'Provincias', '', 13, '2016-10-05 16:29:31', '2016-10-05 16:29:31', 1, 1, 0),
-(23, 'ingresos/table/', 'Ingresos', '', 1, '2016-10-05 16:37:52', '2016-10-05 16:37:52', 1, 1, 0),
-(24, 'ordenes/table/', 'Ordeñes', '', 1, '2016-10-06 20:53:35', '2016-10-06 21:01:24', 1, 1, 0),
-(25, 'empleados_marcaciones/table/', 'Marcaciones', '', 9, '2016-10-11 17:13:40', '2016-10-11 17:14:17', 1, 1, 0),
-(26, '', 'Compras', '', 0, '2016-10-11 21:09:13', '2016-10-11 21:09:13', 1, 1, 0),
-(27, '', 'Ventas', '', 0, '2016-10-11 21:09:19', '2016-10-11 21:09:19', 1, 1, 0),
-(28, 'clientes/table/', 'Clientes', '', 27, '2016-10-11 21:09:42', '2016-10-11 21:10:33', 1, 1, 0),
-(29, 'pedidos/table/', 'Pedidos', '', 27, '2016-10-11 21:10:08', '2016-10-12 17:39:29', 1, 1, 0),
-(30, 'facturas/table/', 'Facturas', '', 27, '2016-10-11 21:10:24', '2016-10-12 19:58:37', 1, 1, 0),
-(31, 'proveedores/table/', 'Proveedores', '', 26, '2016-10-11 21:10:53', '2016-10-11 21:10:53', 1, 1, 0),
-(32, 'pedidos_proveedores/table/', 'Pedidos', '', 26, '2016-10-11 21:11:12', '2016-10-11 21:11:12', 1, 1, 0),
-(33, 'facturas_proveedores/table/', 'Facturas', '', 26, '2016-10-11 21:11:28', '2016-10-11 21:11:28', 1, 1, 0),
-(34, 'pagos_proveedores/table/', 'Pagos', '', 26, '2016-10-11 21:12:40', '2016-10-11 21:12:40', 1, 1, 0),
-(35, 'pagos/table/', 'Pagos', '', 27, '2016-10-11 21:12:57', '2016-10-12 17:39:36', 1, 1, 0),
-(36, 'formas_juridicas/table/', 'Formas Juridicas', '', 13, '2016-10-12 17:19:30', '2016-10-12 17:19:30', 1, 1, 0),
-(37, 'clientes_tipos/table/', 'Clientes Tipos', '', 13, '2016-10-12 17:23:50', '2016-10-12 17:30:27', 1, 1, 0),
-(38, 'proveedores_tipos/table/', 'Proveedores Tipos', '', 13, '2016-10-12 17:30:47', '2016-10-12 17:30:47', 1, 1, 0),
-(39, 'condiciones_pagos/table/', 'Condiciones Pagos', '', 13, '2016-10-12 19:45:32', '2016-10-12 19:45:32', 1, 1, 0),
-(40, 'formas_pagos/table/', 'Formas Pagos', '', 13, '2016-10-12 19:47:07', '2016-10-12 19:47:07', 1, 1, 0),
-(41, 'origenes/table/', 'Origenes', '', 13, '2016-10-12 19:49:19', '2016-10-12 19:49:19', 1, 1, 0),
-(42, 'envios/table/', 'Envios', '', 13, '2016-10-12 19:49:34', '2016-10-12 19:49:34', 1, 1, 0),
-(43, 'pedidos_estados/table/', 'Pedidos Estados', '', 13, '2016-10-12 20:09:38', '2016-10-12 20:09:38', 1, 1, 0),
-(44, 'facturas_estados/table/', 'Facturas Estados', '', 13, '2016-10-12 20:13:41', '2016-10-12 20:13:41', 1, 1, 0),
-(45, 'animales_rutinas/table/', 'Rutinas', '', 1, '2016-10-13 20:39:12', '2016-10-13 20:39:12', 1, 1, 0),
-(46, 'animales_permisos/table/', 'Permisos', '', 1, '2016-10-13 20:52:11', '2016-10-13 20:52:11', 1, 1, 0),
-(47, 'tambos_compuertas/table/', 'Compuertas', '', 15, '2016-10-28 21:17:16', '2016-10-28 21:17:16', 1, 1, 0),
-(48, 'tambos_lectores/table/', 'Lectores', '', 15, '2016-10-28 21:17:34', '2016-10-28 21:17:34', 1, 1, 0),
-(49, 'tambos_caminos/table/', 'Caminos', '', 15, '2016-11-09 00:00:23', '2016-11-09 00:00:23', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ordenes`
---
-
-CREATE TABLE IF NOT EXISTS `ordenes` (
-`id_ordene` int(11) NOT NULL,
-  `id_sector` int(11) NOT NULL,
-  `id_animal` int(11) NOT NULL,
-  `cantidad` decimal(10,2) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `ordenes`
---
-
-INSERT INTO `ordenes` (`id_ordene`, `id_sector`, `id_animal`, `cantidad`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 1, 1, '80.00', '2016-10-13 20:28:36', '2016-10-13 20:28:36', 1, 1, 0);
+(1, '', 'Clientes', '', 0, '2017-04-17 23:13:19', '2017-04-17 23:13:19', 1, 1, 0),
+(2, 'clientes/table/', 'Clientes', '', 1, '2017-04-17 23:13:36', '2017-04-17 23:13:36', 1, 1, 0),
+(3, '', 'Diccionarios', '', 0, '2017-04-17 23:15:36', '2017-04-17 23:15:36', 1, 1, 0),
+(4, 'clientes_tipos/table/', 'Clientes Tipos', '', 3, '2017-04-17 23:16:02', '2017-04-17 23:16:02', 1, 1, 0),
+(5, 'formas_juridicas/table/', 'Formas Juridícas', '', 3, '2017-04-17 23:16:29', '2017-04-17 23:16:48', 1, 1, 0),
+(6, '', 'Inmobiliaria', '', 0, '2017-04-17 23:18:48', '2017-04-17 23:18:48', 1, 1, 0),
+(7, 'proyectos/table/', 'Proyectos', '', 6, '2017-04-17 23:19:05', '2017-04-17 23:19:05', 1, 1, 0),
+(8, 'inmuebles/table/', 'Inmuebles', '', 6, '2017-04-17 23:19:22', '2017-04-18 00:38:13', 1, 1, 0),
+(9, 'cuotas/table/', 'Cuotas', '', 1, '2017-04-17 23:20:25', '2017-04-17 23:20:25', 1, 1, 0),
+(10, '', 'Usuario', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
+(11, 'menus/table/', 'Menus', '', 10, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
+(12, 'proyectos_estados/table/', 'Proyectos estados', '', 3, '2017-04-18 00:22:30', '2017-04-18 00:22:30', 1, 1, 0),
+(13, 'proyectos_tipos/table/', 'Proyectos tipos', '', 3, '2017-04-18 00:22:58', '2017-04-18 00:22:58', 1, 1, 0),
+(14, 'inmuebles_estados/table/', 'Inmuebles estados', '', 3, '2017-04-18 00:38:35', '2017-04-18 00:38:35', 1, 1, 0),
+(15, 'inmuebles_tipos/table/', 'Inmuebles tipos', '', 3, '2017-04-18 00:38:56', '2017-04-18 00:38:56', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -24875,14 +23540,7 @@ CREATE TABLE IF NOT EXISTS `pagos` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `pagos`
---
-
-INSERT INTO `pagos` (`id_pago`, `id_factura`, `id_forma_pago`, `total`, `comentario`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 1, 1, '60.50', '', 1, 1, '2016-10-12 20:35:04', '2016-10-12 20:35:04', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -24901,14 +23559,7 @@ CREATE TABLE IF NOT EXISTS `pagos_proveedores` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `pagos_proveedores`
---
-
-INSERT INTO `pagos_proveedores` (`id_pago`, `id_factura`, `id_forma_pago`, `total`, `comentario`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 1, 1, '8562.00', '', 1, 1, '2016-10-13 17:30:03', '2016-10-13 17:30:03', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -24937,14 +23588,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`id_pedido`, `id_cliente`, `id_empleado`, `fecha_entrega`, `validez`, `id_condicion_pago`, `id_forma_pago`, `id_origen`, `id_envio`, `comentario_publico`, `comentario_privado`, `id_estado`, `total`, `total_sin_iva`, `total_iva`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 1, 1, '0000-00-00', '0000-00-00', 1, 2, 1, 1, '', '', 0, '0.00', '0.00', '0.00', 1, 1, '2016-10-12 20:22:18', '2016-10-12 20:22:18', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -25026,14 +23670,7 @@ CREATE TABLE IF NOT EXISTS `pedidos_proveedores` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `pedidos_proveedores`
---
-
-INSERT INTO `pedidos_proveedores` (`id_pedido`, `id_proveedor`, `nro_proveedor`, `fecha_entrega`, `validez`, `id_condicion_pago`, `id_forma_pago`, `id_origen`, `id_envio`, `comentario`, `id_estado`, `total`, `total_sin_iva`, `total_iva`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 1, '8595', '2016-10-13', '2016-10-14', 1, 1, 3, 1, '', 0, '0.00', '0.00', '0.00', 1, 1, '2016-10-12 20:38:46', '2016-10-13 17:53:30', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -25128,14 +23765,7 @@ CREATE TABLE IF NOT EXISTS `proveedores` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `proveedores`
---
-
-INSERT INTO `proveedores` (`id_proveedor`, `proveedor`, `id_tipo`, `email`, `telefono`, `telefono_alternativo`, `web`, `id_forma_juridica`, `id_empleado`, `calle`, `calle_numero`, `id_localidad`, `id_provincia`, `comentario`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 'Vendedor vacuno', 1, '', '', '', '', 1, 0, '', 0, 0, 5, '', 1, 1, '2016-10-12 20:35:44', '2016-10-12 20:35:44', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -25206,13 +23836,17 @@ INSERT INTO `provincias` (`id_provincia`, `provincia`, `eliminado`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `seguimientos`
+-- Estructura de tabla para la tabla `proyectos`
 --
 
-CREATE TABLE IF NOT EXISTS `seguimientos` (
-`id_seguimiento` int(11) NOT NULL,
-  `id_animal` int(11) NOT NULL,
-  `titulo` varchar(128) NOT NULL,
+CREATE TABLE IF NOT EXISTS `proyectos` (
+`id_proyecto` int(11) NOT NULL,
+  `proyecto` varchar(128) NOT NULL,
+  `id_tipo` int(11) NOT NULL,
+  `nro_referencia` int(11) NOT NULL,
+  `dimension` varchar(64) NOT NULL,
+  `id_localidad` int(11) NOT NULL,
+  `id_provincia` int(11) NOT NULL,
   `comentario` text NOT NULL,
   `id_estado` int(11) NOT NULL,
   `date_add` datetime NOT NULL,
@@ -25223,259 +23857,59 @@ CREATE TABLE IF NOT EXISTS `seguimientos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Volcado de datos para la tabla `seguimientos`
+-- Volcado de datos para la tabla `proyectos`
 --
 
-INSERT INTO `seguimientos` (`id_seguimiento`, `id_animal`, `titulo`, `comentario`, `id_estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 1, 'Perdida de peso', '<p>Se comienza observaci&oacute;n por perdida de peso del animal</p>\r\n', 1, '2016-10-13 20:27:27', '2016-10-13 20:27:27', 1, 1, 0);
+INSERT INTO `proyectos` (`id_proyecto`, `proyecto`, `id_tipo`, `nro_referencia`, `dimension`, `id_localidad`, `id_provincia`, `comentario`, `id_estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 'Venta de lotes prueba', 1, 55023, '1000 x 1000', 5496, 13, '<p>Proyecto de venta de lotes con todos los servicios</p>\r\n', 1, '2017-04-18 00:55:10', '2017-04-18 00:55:10', 1, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `seguimientos_controles`
+-- Estructura de tabla para la tabla `proyectos_estados`
 --
 
-CREATE TABLE IF NOT EXISTS `seguimientos_controles` (
-`id_control` int(11) NOT NULL,
-  `id_seguimiento` int(11) NOT NULL,
-  `descripcion` text NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `seguimientos_estados`
---
-
-CREATE TABLE IF NOT EXISTS `seguimientos_estados` (
+CREATE TABLE IF NOT EXISTS `proyectos_estados` (
 `id_estado` int(11) NOT NULL,
   `estado` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Volcado de datos para la tabla `seguimientos_estados`
---
-
-INSERT INTO `seguimientos_estados` (`id_estado`, `estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Observación', '2016-10-13 20:23:19', '2016-10-13 20:23:19', 1, 1, 0),
-(2, 'Tratamiento con medicamento', '2016-10-13 20:23:30', '2016-10-13 20:23:46', 1, 1, 0),
-(3, 'Rehabilitación ', '2016-10-13 20:24:03', '2016-10-13 20:24:03', 1, 1, 0),
-(4, 'Finalizado', '2016-10-13 20:27:53', '2016-10-13 20:27:53', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tambos`
---
-
-CREATE TABLE IF NOT EXISTS `tambos` (
-`id_tambo` int(11) NOT NULL,
-  `tambo` varchar(128) NOT NULL,
-  `id_provincia` int(11) NOT NULL,
-  `id_localidad` int(11) NOT NULL,
-  `calle` varchar(128) NOT NULL,
-  `calle_numero` int(11) NOT NULL,
-  `telefono` varchar(64) NOT NULL,
-  `telefono_alternativo` varchar(64) NOT NULL,
-  `web` varchar(128) NOT NULL,
-  `id_empleado` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `tambos`
---
-
-INSERT INTO `tambos` (`id_tambo`, `tambo`, `id_provincia`, `id_localidad`, `calle`, `calle_numero`, `telefono`, `telefono_alternativo`, `web`, `id_empleado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Tambo tesis', 13, 0, 'San Martin', 888, '4-223344', '4223345', 'www.tambosweb.com.ar', 1, '2016-10-06 17:42:22', '2016-10-06 17:55:36', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tambos_caminos`
---
-
-CREATE TABLE IF NOT EXISTS `tambos_caminos` (
-`id_camino` int(11) NOT NULL,
-  `camino` varchar(64) NOT NULL,
-  `inicio` int(11) NOT NULL,
-  `final` int(11) NOT NULL,
-  `servo_uno` int(11) NOT NULL,
-  `servo_dos` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Volcado de datos para la tabla `tambos_caminos`
---
-
-INSERT INTO `tambos_caminos` (`id_camino`, `camino`, `inicio`, `final`, `servo_uno`, `servo_dos`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(2, 'de corral 1 a alimentacion', 1, 2, 45, 0, '2016-11-28 19:06:22', '2016-11-28 19:06:22', 1, 1, 0),
-(3, 'de corral 1 a sala de ordene', 1, 3, 0, 45, '2016-11-28 19:07:44', '2016-11-28 19:07:44', 1, 1, 0),
-(4, 'de corral 1 a corral 2', 1, 4, 0, 0, '2016-11-28 19:09:21', '2016-11-28 19:09:21', 1, 1, 0),
-(5, 'de corral 1 a maternidad', 1, 5, 0, 135, '2016-11-28 19:10:01', '2016-11-28 19:10:01', 1, 1, 0),
-(6, 'de corral 1 a veterinaria', 1, 6, 135, 0, '2016-11-28 19:10:30', '2016-11-28 19:10:30', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tambos_caminos_detalles`
---
-
-CREATE TABLE IF NOT EXISTS `tambos_caminos_detalles` (
-`id_detalle` int(11) NOT NULL,
-  `id_camino` int(11) NOT NULL,
-  `id_compuerta` int(11) NOT NULL,
-  `angulo` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tambos_compuertas`
---
-
-CREATE TABLE IF NOT EXISTS `tambos_compuertas` (
-`id_compuerta` int(11) NOT NULL,
-  `compuerta` varchar(64) NOT NULL,
-  `comentario` text NOT NULL,
-  `id_sector` int(11) NOT NULL,
-  `id_proveedor` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
-
---
--- Volcado de datos para la tabla `tambos_compuertas`
---
-
-INSERT INTO `tambos_compuertas` (`id_compuerta`, `compuerta`, `comentario`, `id_sector`, `id_proveedor`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, '1 Corral', '', 4, 1, '2016-11-28 18:47:13', '2016-11-28 18:50:34', 1, 1, 0),
-(2, '2 Alimentacion', '', 5, 1, '2016-11-28 18:47:38', '2016-11-28 18:50:27', 1, 1, 0),
-(3, '3 Sala de ordene', '', 8, 1, '2016-11-28 18:49:49', '2016-11-28 18:49:49', 1, 1, 0),
-(4, '4 Corral 2', '', 9, 1, '2016-11-28 18:50:10', '2016-11-28 18:50:20', 1, 1, 0),
-(5, '5 Maternidad', '', 6, 1, '2016-11-28 18:51:17', '2016-11-28 18:51:17', 1, 1, 0),
-(6, '6 Veterinaria', '', 2, 1, '2016-11-28 18:51:35', '2016-11-28 18:51:35', 1, 1, 0),
-(7, 'Servo 1', '', 0, 0, '2016-11-28 18:52:02', '2016-11-28 18:52:02', 1, 1, 0),
-(8, 'Servo 2', '', 0, 0, '2016-11-28 18:52:11', '2016-11-28 18:52:11', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tambos_lectores`
---
-
-CREATE TABLE IF NOT EXISTS `tambos_lectores` (
-`id_lector` int(11) NOT NULL,
-  `lector` varchar(64) NOT NULL,
-  `id_compuerta` int(11) NOT NULL,
-  `in_out` tinyint(4) NOT NULL,
-  `comentario` text NOT NULL,
-  `id_proveedor` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
+  `eliminado` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `tambos_lectores`
+-- Volcado de datos para la tabla `proyectos_estados`
 --
 
-INSERT INTO `tambos_lectores` (`id_lector`, `lector`, `id_compuerta`, `in_out`, `comentario`, `id_proveedor`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Abre 7G', 1, 1, '<p>Lector marca ACME</p>\r\n', 1, '2016-10-28 21:23:22', '2016-10-28 21:23:22', 1, 1, 0),
-(2, 'Cierra 7G', 1, 0, '<p>Lector marca ACME</p>\r\n', 1, '2016-10-28 21:23:38', '2016-10-28 21:24:23', 1, 1, 0);
+INSERT INTO `proyectos_estados` (`id_estado`, `estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, '<span class="label label-success">En venta</span>', '2017-04-18 00:52:18', '2017-04-18 00:52:18', 1, 1, 0),
+(2, '<span class="label label-default">Finalizado</span>', '2017-04-18 00:52:26', '2017-04-18 00:52:26', 1, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tambos_sectores`
+-- Estructura de tabla para la tabla `proyectos_tipos`
 --
 
-CREATE TABLE IF NOT EXISTS `tambos_sectores` (
-`id_sector` int(11) NOT NULL,
-  `id_tambo` int(11) NOT NULL,
-  `id_tipo` int(11) NOT NULL,
-  `sector` varchar(64) NOT NULL,
-  `comentario` text NOT NULL,
-  `x` decimal(6,2) NOT NULL,
-  `y` decimal(6,2) NOT NULL,
-  `width` decimal(6,2) NOT NULL,
-  `height` decimal(6,2) NOT NULL,
-  `points` varchar(128) NOT NULL,
-  `id_empleado` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
-
---
--- Volcado de datos para la tabla `tambos_sectores`
---
-
-INSERT INTO `tambos_sectores` (`id_sector`, `id_tambo`, `id_tipo`, `sector`, `comentario`, `x`, `y`, `width`, `height`, `points`, `id_empleado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 1, 4, 'Oficinas', '<p><strong>Horario apertura:</strong> 6:30AM<strong> Horario cierre:</strong> 20:30PM</p>\r\n\r\n<p><strong>Encargado:</strong> Diego Nieto</p>\r\n', '0.00', '0.00', '0.00', '0.00', '12.72 685.56 153.78 685.56 153.78 747.64 215.44 747.64 215.44 712.85 263.89 712.85 263.89 787.41 12.72 787.41 12.72 685.56', 1, '2016-11-01 23:23:48', '2016-11-17 16:16:41', 1, 1, 0),
-(2, 1, 3, '6 Veterinaria', '<p><strong>Horario apertura:</strong> 6:30AM<strong> Horario cierre:</strong> 20:30PM</p>\r\n\r\n<p><strong>Encargado:</strong> Diego Nieto</p>\r\n', '49.12', '175.57', '180.00', '135.00', '', 1, '2016-11-01 23:23:20', '2016-11-28 18:43:02', 1, 1, 0),
-(4, 1, 1, '1 Corral', '<p><strong>Horario apertura:</strong> 6:30AM<strong> Horario cierre:</strong> 20:30PM</p>\r\n\r\n<p><strong>Encargado:</strong> Diego Nieto</p>\r\n', '854.08', '425.00', '180.00', '360.00', '', 1, '2016-10-06 17:48:01', '2016-11-28 18:44:00', 1, 1, 0),
-(5, 1, 2, '2 Alimentacion', '<p><strong>Horario apertura:</strong> 6:30AM<strong> Horario cierre:</strong> 20:30PM</p>\r\n\r\n<p><strong>Encargado:</strong> Diego Nieto</p>\r\n', '10.00', '360.00', '500.00', '100.00', '', 2, '2016-10-06 17:48:38', '2016-11-28 18:41:21', 1, 1, 0),
-(6, 1, 3, '5 Maternidad', '<p><strong>Horario apertura:</strong> 6:30AM<strong> Horario cierre:</strong> 20:30PM</p>\r\n\r\n<p><strong>Encargado:</strong> Diego Nieto</p>\r\n', '49.09', '12.16', '334.73', '94.85', '', 2, '2016-11-01 23:23:00', '2016-11-28 18:41:42', 1, 1, 0),
-(8, 1, 2, '3 Sala de ordene', '<p><strong>Horario apertura:</strong> 6:30AM<strong> Horario cierre:</strong> 20:30PM</p>\r\n\r\n<p><strong>Encargado:</strong> Diego Nieto</p>\r\n', '600.00', '12.59', '350.14', '168.14', '', 1, '2016-10-06 17:48:55', '2016-11-28 18:48:35', 1, 1, 0),
-(9, 1, 1, '4 Corral 2', '', '0.00', '0.00', '0.00', '0.00', '', 1, '2016-11-28 18:48:51', '2016-11-28 18:48:51', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tambos_sectores_tipos`
---
-
-CREATE TABLE IF NOT EXISTS `tambos_sectores_tipos` (
+CREATE TABLE IF NOT EXISTS `proyectos_tipos` (
 `id_tipo` int(11) NOT NULL,
   `tipo` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `eliminado` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Volcado de datos para la tabla `tambos_sectores_tipos`
+-- Volcado de datos para la tabla `proyectos_tipos`
 --
 
-INSERT INTO `tambos_sectores_tipos` (`id_tipo`, `tipo`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Corrales', '2016-10-06 17:44:49', '2016-11-01 23:19:05', 1, 1, 0),
-(2, 'Procesos', '2016-10-06 17:44:59', '2016-10-06 17:44:59', 1, 1, 0),
-(3, 'Controles', '2016-10-06 17:46:44', '2016-10-06 17:46:44', 1, 1, 0),
-(4, 'Otros', '2016-10-06 17:46:56', '2016-10-06 17:46:56', 1, 1, 0);
+INSERT INTO `proyectos_tipos` (`id_tipo`, `tipo`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 'Venta de lotes', '2017-04-18 00:52:53', '2017-04-18 00:52:53', 1, 1, 0),
+(2, 'Venta de departamentos', '2017-04-18 00:53:02', '2017-04-18 00:53:02', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -25548,62 +23982,28 @@ CREATE TABLE IF NOT EXISTS `usuarios_permisos` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Volcado de datos para la tabla `usuarios_permisos`
 --
 
 INSERT INTO `usuarios_permisos` (`id_permiso`, `id_perfil`, `id_menu`, `ver`, `editar`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 1, 1, 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
-(2, 1, 2, 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
-(3, 1, 3, 1, 1, '2016-10-05 15:06:36', '2016-10-05 15:06:36', 1, 1, 0),
-(4, 1, 4, 1, 1, '2016-10-05 15:09:42', '2016-10-05 15:09:42', 1, 1, 0),
-(5, 1, 5, 1, 1, '2016-10-05 15:12:20', '2016-10-05 15:12:20', 1, 1, 0),
-(6, 1, 6, 1, 1, '2016-10-05 15:21:19', '2016-10-05 15:21:19', 1, 1, 0),
-(7, 1, 7, 1, 1, '2016-10-05 16:18:38', '2016-10-05 16:18:38', 1, 1, 0),
-(8, 1, 8, 1, 1, '2016-10-05 16:20:13', '2016-10-05 16:20:13', 1, 1, 0),
-(9, 1, 9, 1, 1, '2016-10-05 16:20:26', '2016-10-05 16:20:26', 1, 1, 0),
-(10, 1, 10, 1, 1, '2016-10-05 16:20:45', '2016-10-05 16:20:45', 1, 1, 0),
-(11, 1, 11, 1, 1, '2016-10-05 16:21:07', '2016-10-05 16:21:07', 1, 1, 0),
-(12, 1, 12, 1, 1, '2016-10-05 16:21:34', '2016-10-05 16:21:34', 1, 1, 0),
-(13, 1, 13, 1, 1, '2016-10-05 16:22:00', '2016-10-05 16:22:00', 1, 1, 0),
-(14, 1, 14, 1, 1, '2016-10-05 16:23:11', '2016-10-05 16:23:11', 1, 1, 0),
-(15, 1, 15, 1, 1, '2016-10-05 16:25:41', '2016-10-05 16:25:41', 1, 1, 0),
-(16, 1, 16, 1, 1, '2016-10-05 16:26:06', '2016-10-05 16:26:06', 1, 1, 0),
-(17, 1, 17, 1, 1, '2016-10-05 16:26:33', '2016-10-05 16:26:33', 1, 1, 0),
-(18, 1, 18, 1, 1, '2016-10-05 16:27:04', '2016-10-05 16:27:04', 1, 1, 0),
-(19, 1, 19, 1, 1, '2016-10-05 16:27:36', '2016-10-05 16:27:36', 1, 1, 0),
-(20, 1, 20, 1, 1, '2016-10-05 16:28:21', '2016-10-05 16:28:21', 1, 1, 0),
-(21, 1, 21, 1, 1, '2016-10-05 16:29:17', '2016-10-05 16:29:17', 1, 1, 0),
-(22, 1, 22, 1, 1, '2016-10-05 16:29:31', '2016-10-05 16:29:31', 1, 1, 0),
-(23, 1, 23, 1, 1, '2016-10-05 16:37:53', '2016-10-05 16:37:53', 1, 1, 0),
-(24, 1, 24, 1, 1, '2016-10-06 20:53:35', '2016-10-06 20:53:35', 1, 1, 0),
-(25, 1, 25, 1, 1, '2016-10-11 17:13:40', '2016-10-11 17:13:40', 1, 1, 0),
-(26, 1, 26, 1, 1, '2016-10-11 21:09:13', '2016-10-11 21:09:13', 1, 1, 0),
-(27, 1, 27, 1, 1, '2016-10-11 21:09:20', '2016-10-11 21:09:20', 1, 1, 0),
-(28, 1, 28, 1, 1, '2016-10-11 21:09:42', '2016-10-11 21:09:42', 1, 1, 0),
-(29, 1, 29, 1, 1, '2016-10-11 21:10:08', '2016-10-11 21:10:08', 1, 1, 0),
-(30, 1, 30, 1, 1, '2016-10-11 21:10:25', '2016-10-11 21:10:25', 1, 1, 0),
-(31, 1, 31, 1, 1, '2016-10-11 21:10:53', '2016-10-11 21:10:53', 1, 1, 0),
-(32, 1, 32, 1, 1, '2016-10-11 21:11:12', '2016-10-11 21:11:12', 1, 1, 0),
-(33, 1, 33, 1, 1, '2016-10-11 21:11:28', '2016-10-11 21:11:28', 1, 1, 0),
-(34, 1, 34, 1, 1, '2016-10-11 21:12:40', '2016-10-11 21:12:40', 1, 1, 0),
-(35, 1, 35, 1, 1, '2016-10-11 21:12:57', '2016-10-11 21:12:57', 1, 1, 0),
-(36, 1, 36, 1, 1, '2016-10-12 17:19:30', '2016-10-12 17:19:30', 1, 1, 0),
-(37, 1, 37, 1, 1, '2016-10-12 17:23:50', '2016-10-12 17:23:50', 1, 1, 0),
-(38, 1, 38, 1, 1, '2016-10-12 17:30:47', '2016-10-12 17:30:47', 1, 1, 0),
-(39, 1, 39, 1, 1, '2016-10-12 19:45:32', '2016-10-12 19:45:32', 1, 1, 0),
-(40, 1, 40, 1, 1, '2016-10-12 19:47:07', '2016-10-12 19:47:07', 1, 1, 0),
-(41, 1, 41, 1, 1, '2016-10-12 19:49:19', '2016-10-12 19:49:19', 1, 1, 0),
-(42, 1, 42, 1, 1, '2016-10-12 19:49:34', '2016-10-12 19:49:34', 1, 1, 0),
-(43, 1, 43, 1, 1, '2016-10-12 20:09:38', '2016-10-12 20:09:38', 1, 1, 0),
-(44, 1, 44, 1, 1, '2016-10-12 20:13:41', '2016-10-12 20:13:41', 1, 1, 0),
-(45, 1, 45, 1, 1, '2016-10-13 20:39:12', '2016-10-13 20:39:12', 1, 1, 0),
-(46, 1, 46, 1, 1, '2016-10-13 20:52:11', '2016-10-13 20:52:11', 1, 1, 0),
-(47, 1, 47, 1, 1, '2016-10-28 21:17:16', '2016-10-28 21:17:16', 1, 1, 0),
-(48, 1, 48, 1, 1, '2016-10-28 21:17:34', '2016-10-28 21:17:34', 1, 1, 0),
-(49, 1, 49, 1, 1, '2016-11-09 00:00:25', '2016-11-09 00:00:25', 1, 1, 0);
+(1, 1, 1, 1, 1, '2017-04-17 23:13:19', '2017-04-17 23:13:19', 1, 1, 0),
+(2, 1, 2, 1, 1, '2017-04-17 23:13:36', '2017-04-17 23:13:36', 1, 1, 0),
+(3, 1, 3, 1, 1, '2017-04-17 23:15:36', '2017-04-17 23:15:36', 1, 1, 0),
+(4, 1, 4, 1, 1, '2017-04-17 23:16:02', '2017-04-17 23:16:02', 1, 1, 0),
+(5, 1, 5, 1, 1, '2017-04-17 23:16:29', '2017-04-17 23:16:29', 1, 1, 0),
+(6, 1, 6, 1, 1, '2017-04-17 23:18:49', '2017-04-17 23:18:49', 1, 1, 0),
+(7, 1, 7, 1, 1, '2017-04-17 23:19:05', '2017-04-17 23:19:05', 1, 1, 0),
+(8, 1, 8, 1, 1, '2017-04-17 23:19:23', '2017-04-17 23:19:23', 1, 1, 0),
+(9, 1, 9, 1, 1, '2017-04-17 23:20:25', '2017-04-17 23:20:25', 1, 1, 0),
+(10, 1, 10, 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
+(11, 1, 11, 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
+(12, 1, 12, 1, 1, '2017-04-18 00:22:30', '2017-04-18 00:22:30', 1, 1, 0),
+(13, 1, 13, 1, 1, '2017-04-18 00:22:58', '2017-04-18 00:22:58', 1, 1, 0),
+(14, 1, 14, 1, 1, '2017-04-18 00:38:35', '2017-04-18 00:38:35', 1, 1, 0),
+(15, 1, 15, 1, 1, '2017-04-18 00:38:56', '2017-04-18 00:38:56', 1, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -25620,36 +24020,6 @@ ALTER TABLE `alertas`
 --
 ALTER TABLE `alertas_estado`
  ADD PRIMARY KEY (`id_estado`);
-
---
--- Indices de la tabla `animales`
---
-ALTER TABLE `animales`
- ADD PRIMARY KEY (`id_animal`);
-
---
--- Indices de la tabla `animales_estados`
---
-ALTER TABLE `animales_estados`
- ADD PRIMARY KEY (`id_estado`);
-
---
--- Indices de la tabla `animales_permisos`
---
-ALTER TABLE `animales_permisos`
- ADD PRIMARY KEY (`id_permiso`);
-
---
--- Indices de la tabla `animales_rutinas`
---
-ALTER TABLE `animales_rutinas`
- ADD PRIMARY KEY (`id_rutina`);
-
---
--- Indices de la tabla `animales_tipos`
---
-ALTER TABLE `animales_tipos`
- ADD PRIMARY KEY (`id_tipo`);
 
 --
 -- Indices de la tabla `clientes`
@@ -25760,10 +24130,22 @@ ALTER TABLE `formas_pagos`
  ADD PRIMARY KEY (`id_forma_pago`);
 
 --
--- Indices de la tabla `ingresos`
+-- Indices de la tabla `inmuebles`
 --
-ALTER TABLE `ingresos`
- ADD PRIMARY KEY (`id_ingreso`);
+ALTER TABLE `inmuebles`
+ ADD PRIMARY KEY (`id_inmueble`);
+
+--
+-- Indices de la tabla `inmuebles_estados`
+--
+ALTER TABLE `inmuebles_estados`
+ ADD PRIMARY KEY (`id_estado`), ADD KEY `id_estado` (`id_estado`), ADD KEY `id_estado_2` (`id_estado`);
+
+--
+-- Indices de la tabla `inmuebles_tipos`
+--
+ALTER TABLE `inmuebles_tipos`
+ ADD PRIMARY KEY (`id_tipo`);
 
 --
 -- Indices de la tabla `ivas`
@@ -25794,12 +24176,6 @@ ALTER TABLE `logs_usuarios`
 --
 ALTER TABLE `menus`
  ADD PRIMARY KEY (`id_menu`);
-
---
--- Indices de la tabla `ordenes`
---
-ALTER TABLE `ordenes`
- ADD PRIMARY KEY (`id_ordene`);
 
 --
 -- Indices de la tabla `origenes`
@@ -25886,63 +24262,21 @@ ALTER TABLE `provincias`
  ADD PRIMARY KEY (`id_provincia`);
 
 --
--- Indices de la tabla `seguimientos`
+-- Indices de la tabla `proyectos`
 --
-ALTER TABLE `seguimientos`
- ADD PRIMARY KEY (`id_seguimiento`);
+ALTER TABLE `proyectos`
+ ADD PRIMARY KEY (`id_proyecto`);
 
 --
--- Indices de la tabla `seguimientos_controles`
+-- Indices de la tabla `proyectos_estados`
 --
-ALTER TABLE `seguimientos_controles`
- ADD PRIMARY KEY (`id_control`);
-
---
--- Indices de la tabla `seguimientos_estados`
---
-ALTER TABLE `seguimientos_estados`
+ALTER TABLE `proyectos_estados`
  ADD PRIMARY KEY (`id_estado`);
 
 --
--- Indices de la tabla `tambos`
+-- Indices de la tabla `proyectos_tipos`
 --
-ALTER TABLE `tambos`
- ADD PRIMARY KEY (`id_tambo`);
-
---
--- Indices de la tabla `tambos_caminos`
---
-ALTER TABLE `tambos_caminos`
- ADD PRIMARY KEY (`id_camino`);
-
---
--- Indices de la tabla `tambos_caminos_detalles`
---
-ALTER TABLE `tambos_caminos_detalles`
- ADD PRIMARY KEY (`id_detalle`);
-
---
--- Indices de la tabla `tambos_compuertas`
---
-ALTER TABLE `tambos_compuertas`
- ADD PRIMARY KEY (`id_compuerta`);
-
---
--- Indices de la tabla `tambos_lectores`
---
-ALTER TABLE `tambos_lectores`
- ADD PRIMARY KEY (`id_lector`);
-
---
--- Indices de la tabla `tambos_sectores`
---
-ALTER TABLE `tambos_sectores`
- ADD PRIMARY KEY (`id_sector`);
-
---
--- Indices de la tabla `tambos_sectores_tipos`
---
-ALTER TABLE `tambos_sectores_tipos`
+ALTER TABLE `proyectos_tipos`
  ADD PRIMARY KEY (`id_tipo`);
 
 --
@@ -25978,35 +24312,10 @@ MODIFY `id_alerta` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `alertas_estado`
 MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `animales`
---
-ALTER TABLE `animales`
-MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `animales_estados`
---
-ALTER TABLE `animales_estados`
-MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `animales_permisos`
---
-ALTER TABLE `animales_permisos`
-MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT de la tabla `animales_rutinas`
---
-ALTER TABLE `animales_rutinas`
-MODIFY `id_rutina` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT de la tabla `animales_tipos`
---
-ALTER TABLE `animales_tipos`
-MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `clientes_tipos`
 --
@@ -26026,12 +24335,12 @@ MODIFY `id_dia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `empleados_marcaciones`
 --
 ALTER TABLE `empleados_marcaciones`
-MODIFY `id_marcacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_marcacion` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `empleados_marcaciones_tipos`
 --
@@ -26041,12 +24350,12 @@ MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `empleados_puestos`
 --
 ALTER TABLE `empleados_puestos`
-MODIFY `id_puesto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_puesto` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `empleados_turnos`
 --
 ALTER TABLE `empleados_turnos`
-MODIFY `id_turno` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_turno` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `envios`
 --
@@ -26056,7 +24365,7 @@ MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `facturas_estados`
 --
@@ -26076,7 +24385,7 @@ MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `facturas_proveedores`
 --
 ALTER TABLE `facturas_proveedores`
-MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `facturas_proveedores_lineas`
 --
@@ -26093,10 +24402,15 @@ MODIFY `id_forma_juridica` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 ALTER TABLE `formas_pagos`
 MODIFY `id_forma_pago` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `ingresos`
+-- AUTO_INCREMENT de la tabla `inmuebles_estados`
 --
-ALTER TABLE `ingresos`
-MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `inmuebles_estados`
+MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `inmuebles_tipos`
+--
+ALTER TABLE `inmuebles_tipos`
+MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `ivas`
 --
@@ -26106,17 +24420,12 @@ MODIFY `id_iva` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
-MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1355;
+MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=213;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --
 ALTER TABLE `menus`
-MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
---
--- AUTO_INCREMENT de la tabla `ordenes`
---
-ALTER TABLE `ordenes`
-MODIFY `id_ordene` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `origenes`
 --
@@ -26126,17 +24435,17 @@ MODIFY `id_origen` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `pagos_proveedores`
 --
 ALTER TABLE `pagos_proveedores`
-MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `pedidos_lineas`
 --
@@ -26146,7 +24455,7 @@ MODIFY `id_linea` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `pedidos_proveedores`
 --
 ALTER TABLE `pedidos_proveedores`
-MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
@@ -26156,62 +24465,27 @@ MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `proveedores_tipos`
 --
 ALTER TABLE `proveedores_tipos`
 MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `seguimientos`
+-- AUTO_INCREMENT de la tabla `proyectos`
 --
-ALTER TABLE `seguimientos`
-MODIFY `id_seguimiento` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `proyectos`
+MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `seguimientos_controles`
+-- AUTO_INCREMENT de la tabla `proyectos_estados`
 --
-ALTER TABLE `seguimientos_controles`
-MODIFY `id_control` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `proyectos_estados`
+MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `seguimientos_estados`
+-- AUTO_INCREMENT de la tabla `proyectos_tipos`
 --
-ALTER TABLE `seguimientos_estados`
-MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `tambos`
---
-ALTER TABLE `tambos`
-MODIFY `id_tambo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT de la tabla `tambos_caminos`
---
-ALTER TABLE `tambos_caminos`
-MODIFY `id_camino` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT de la tabla `tambos_caminos_detalles`
---
-ALTER TABLE `tambos_caminos_detalles`
-MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `tambos_compuertas`
---
-ALTER TABLE `tambos_compuertas`
-MODIFY `id_compuerta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT de la tabla `tambos_lectores`
---
-ALTER TABLE `tambos_lectores`
-MODIFY `id_lector` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `tambos_sectores`
---
-ALTER TABLE `tambos_sectores`
-MODIFY `id_sector` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT de la tabla `tambos_sectores_tipos`
---
-ALTER TABLE `tambos_sectores_tipos`
-MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+ALTER TABLE `proyectos_tipos`
+MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
@@ -26226,7 +24500,7 @@ MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT de la tabla `usuarios_permisos`
 --
 ALTER TABLE `usuarios_permisos`
-MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
+MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
