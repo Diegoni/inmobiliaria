@@ -39,35 +39,35 @@ class Contratos extends MY_Controller
             $db['inmuebles']    = $this->m_inmuebles->getRegistros('1', 'id_estado');   
             
             $db['campos']   = array(
-            array('contrato', '', 'required'),
-            array('select', 'id_cliente',  'cliente', $db['clientes'], 'required'),
-            array('select', 'id_inmueble',  'inmueble', $db['inmuebles'], 'required'),
-            array('monto', 'onlyFloat', ''),
-            array('monto_anticipo', 'onlyFloat', ''),
-            array('select', 'id_forma_pago',  'forma_pago', $db['formas_pagos']),
-            array('cuotas', 'onlyInt', ''),
-            array('monto_cuota','onlyFloat', 'readonly'),
-            array('inicio_cuota', '[99]', ''),
-            array('vencimiento_cuota', '[99]', ''),
-            array('comentario', '', ''),
-        ); 
+                array('contrato', '', 'required'),
+                array('select', 'id_cliente',  'cliente', $db['clientes'], 'required'),
+                array('select', 'id_inmueble',  'inmueble', $db['inmuebles'], 'required'),
+                array('monto', 'onlyFloat', ''),
+                array('monto_anticipo', 'onlyFloat', ''),
+                array('select', 'id_forma_pago',  'forma_pago', $db['formas_pagos']),
+                array('cuotas', 'onlyInt', ''),
+                array('monto_cuota','onlyFloat', 'readonly'),
+                array('inicio_cuota', '[99]', ''),
+                array('vencimiento_cuota', '[99]', ''),
+                array('comentario', '', ''),
+            ); 
         }else
         {
             $db['inmuebles']    = $this->m_inmuebles->getRegistros();
             
             $db['campos']   = array(
-            array('contrato', '', 'disabled'),
-            array('select', 'id_cliente',  'cliente', $db['clientes'], 'disabled'),
-            array('select', 'id_inmueble',  'inmueble', $db['inmuebles'], 'disabled'),
-            array('monto', 'onlyFloat', 'disabled'),
-            array('monto_anticipo', 'onlyFloat', 'disabled'),
-            array('select', 'id_forma_pago',  'forma_pago', $db['formas_pagos'], 'disabled'),
-            array('cuotas', 'onlyInt', 'disabled'),
-            array('monto_cuota','onlyFloat', 'disabled'),
-            array('inicio_cuota', '[99]', 'disabled'),
-            array('vencimiento_cuota', '[99]', 'disabled'),
-            array('comentario', '', 'disabled'),
-        );
+                array('contrato', '', 'disabled'),
+                array('select', 'id_cliente',  'cliente', $db['clientes'], 'disabled'),
+                array('select', 'id_inmueble',  'inmueble', $db['inmuebles'], 'disabled'),
+                array('monto', 'onlyFloat', 'disabled'),
+                array('monto_anticipo', 'onlyFloat', 'disabled'),
+                array('select', 'id_forma_pago',  'forma_pago', $db['formas_pagos'], 'disabled'),
+                array('cuotas', 'onlyInt', 'disabled'),
+                array('monto_cuota','onlyFloat', 'disabled'),
+                array('inicio_cuota', '[99]', 'disabled'),
+                array('vencimiento_cuota', '[99]', 'disabled'),
+                array('comentario', '', 'disabled'),
+            );
         }
         
         
