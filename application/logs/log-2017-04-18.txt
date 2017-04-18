@@ -706,3 +706,8 @@ DEBUG - 2017-04-18 01:06:02 --> UTF-8 Support Enabled
 DEBUG - 2017-04-18 01:06:02 --> Global POST, GET and COOKIE data sanitized
 DEBUG - 2017-04-18 01:06:02 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
 DEBUG - 2017-04-18 01:06:02 --> Total execution time: 0.1450
+DEBUG - 2017-04-18 01:09:50 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 01:09:50 --> No URI present. Default controller set.
+DEBUG - 2017-04-18 01:09:50 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 01:09:50 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 01:09:50 --> Total execution time: 0.0650
