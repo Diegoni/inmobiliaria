@@ -99,6 +99,7 @@ $lang['formato']            = "Formato";
 $lang['forma_juridica']     = "Forma juridica";
 $lang['forma_pago']         = "Forma pago";
 $lang['factura']            = "Factura";
+$lang['fecha_pago']         = "Fecha pago";
 
 /*--------------------------------------------------------------------------------  
     G
