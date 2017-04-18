@@ -71,4 +71,4 @@ function provincias_activas(){
         }
     })  
 };
-</script>;
+</script>
