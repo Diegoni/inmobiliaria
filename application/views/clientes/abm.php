@@ -62,7 +62,7 @@ function provincias_activas(){
     var provincia = $('select#id_provincia').val(); //Obtenemos el id de la provincia seleccionada en la lista
     $.ajax({
         type: 'POST',
-        url: '<?php echo base_url(); ?>index.php/Localidades/getLocalidades/', //Realizaremos la petición al metodo prueba del controlador direcciones
+        url: '<?php echo base_url(); ?>index.php/localidades/getLocalidades/', //Realizaremos la petición al metodo prueba del controlador direcciones
         data: { provincia: provincia }, //Pasaremos por parámetro POST el id de la provincia
         success: function(resp) { //Cuando se procese con éxito la petición se ejecutará esta función
             //Activar y Rellenar el select de departamentos
