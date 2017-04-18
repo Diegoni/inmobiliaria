@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-04-2017 a las 19:54:22
+-- Tiempo de generación: 18-04-2017 a las 20:47:21
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -131,6 +131,15 @@ CREATE TABLE `contratos` (
   `eliminado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `contratos`
+--
+
+INSERT INTO `contratos` (`id_contrato`, `contrato`, `id_cliente`, `id_inmueble`, `monto`, `monto_anticipo`, `id_forma_pago`, `cuotas`, `monto_cuota`, `inicio_cuota`, `vencimiento_cuota`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, '8596', 1, 1, '400.00', '25.00', 1, 20, '0.00', 1, 10, '<p>Test comentario</p>\r\n', '2017-04-18 20:25:01', '2017-04-18 20:25:01', 1, 1, 0),
+(2, '8596', 1, 1, '400.00', '20.00', 1, 20, '19.00', 1, 10, '', '2017-04-18 20:26:30', '2017-04-18 20:26:30', 1, 1, 0),
+(3, '8956', 1, 1, '400.00', '20.00', 1, 20, '19.00', 1, 10, '<p>Segundo teset</p>\r\n', '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +148,8 @@ CREATE TABLE `contratos` (
 
 CREATE TABLE `cuotas` (
   `id_cuota` bigint(20) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_inmueble` int(11) NOT NULL,
   `id_contrato` int(11) NOT NULL,
   `monto` decimal(14,2) NOT NULL,
   `fecha_inicio` date NOT NULL,
@@ -146,6 +157,68 @@ CREATE TABLE `cuotas` (
   `id_estado` int(11) NOT NULL,
   `fecha_pago` date NOT NULL,
   `id_forma_pago` int(11) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cuotas`
+--
+
+INSERT INTO `cuotas` (`id_cuota`, `id_cliente`, `id_inmueble`, `id_contrato`, `monto`, `fecha_inicio`, `fecha_vencimiento`, `id_estado`, `fecha_pago`, `id_forma_pago`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 1, 1, 2, '19.00', '2017-04-01', '2017-04-10', 1, '0000-00-00', 0, '2017-04-18 20:26:30', '2017-04-18 20:26:30', 1, 1, 0),
+(2, 1, 1, 2, '19.00', '2017-05-01', '2017-05-10', 1, '0000-00-00', 0, '2017-04-18 20:26:30', '2017-04-18 20:26:30', 1, 1, 0),
+(3, 1, 1, 2, '19.00', '2017-06-01', '2017-06-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(4, 1, 1, 2, '19.00', '2017-07-01', '2017-07-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(5, 1, 1, 2, '19.00', '2017-08-01', '2017-08-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(6, 1, 1, 2, '19.00', '2017-09-01', '2017-09-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(7, 1, 1, 2, '19.00', '2017-10-01', '2017-10-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(8, 1, 1, 2, '19.00', '2017-11-01', '2017-11-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(9, 1, 1, 2, '19.00', '2017-12-01', '2017-12-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(10, 1, 1, 2, '19.00', '2018-01-01', '2018-01-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(11, 1, 1, 2, '19.00', '2018-02-01', '2018-02-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(12, 1, 1, 2, '19.00', '2018-03-01', '2018-03-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(13, 1, 1, 2, '19.00', '2018-04-01', '2018-04-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(14, 1, 1, 2, '19.00', '2018-05-01', '2018-05-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(15, 1, 1, 2, '19.00', '2018-06-01', '2018-06-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(16, 1, 1, 2, '19.00', '2018-07-01', '2018-07-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(17, 1, 1, 2, '19.00', '2018-08-01', '2018-08-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(18, 1, 1, 2, '19.00', '2018-09-01', '2018-09-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(19, 1, 1, 2, '19.00', '2018-10-01', '2018-10-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(20, 1, 1, 2, '19.00', '2018-11-01', '2018-11-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(21, 1, 1, 3, '19.00', '2017-04-01', '2017-04-10', 1, '0000-00-00', 0, '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0),
+(22, 1, 1, 3, '19.00', '2017-05-01', '2017-05-10', 1, '0000-00-00', 0, '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0),
+(23, 1, 1, 3, '19.00', '2017-06-01', '2017-06-12', 1, '0000-00-00', 0, '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0),
+(24, 1, 1, 3, '19.00', '2017-07-01', '2017-07-10', 1, '0000-00-00', 0, '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0),
+(25, 1, 1, 3, '19.00', '2017-08-01', '2017-08-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(26, 1, 1, 3, '19.00', '2017-09-01', '2017-09-11', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(27, 1, 1, 3, '19.00', '2017-10-01', '2017-10-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(28, 1, 1, 3, '19.00', '2017-11-01', '2017-11-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(29, 1, 1, 3, '19.00', '2017-12-01', '2017-12-11', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(30, 1, 1, 3, '19.00', '2018-01-01', '2018-01-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(31, 1, 1, 3, '19.00', '2018-02-01', '2018-02-12', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(32, 1, 1, 3, '19.00', '2018-03-01', '2018-03-12', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(33, 1, 1, 3, '19.00', '2018-04-01', '2018-04-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(34, 1, 1, 3, '19.00', '2018-05-01', '2018-05-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(35, 1, 1, 3, '19.00', '2018-06-01', '2018-06-11', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(36, 1, 1, 3, '19.00', '2018-07-01', '2018-07-10', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(37, 1, 1, 3, '19.00', '2018-08-01', '2018-08-10', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(38, 1, 1, 3, '19.00', '2018-09-01', '2018-09-10', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(39, 1, 1, 3, '19.00', '2018-10-01', '2018-10-10', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(40, 1, 1, 3, '19.00', '2018-11-01', '2018-11-12', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cuotas_estados`
+--
+
+CREATE TABLE `cuotas_estados` (
+  `id_estado` int(11) NOT NULL,
+  `estado` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
@@ -233,7 +306,7 @@ CREATE TABLE `inmuebles` (
 --
 
 INSERT INTO `inmuebles` (`id_inmueble`, `inmueble`, `id_proyecto`, `id_tipo`, `precio`, `nro_referencia`, `dimension`, `calle`, `calle_numero`, `comentario`, `id_estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Lote 01', '1', 1, 400.00, 55023, '1000 x 1000', '', 0, '', 1, '2017-04-18 01:01:57', '2017-04-18 01:01:57', 1, 1, 0);
+(1, 'Lote 01', '1', 1, 400.00, 55023, '1000 x 1000', '', 0, '', 2, '2017-04-18 01:01:57', '2017-04-18 20:38:33', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -23402,7 +23475,85 @@ INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `re
 (432, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 19:36:33', 'colegio-notarial', 0),
 (433, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 19:38:56', 'colegio-notarial', 0),
 (434, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 19:47:24', 'colegio-notarial', 0),
-(435, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:47:26', 'colegio-notarial', 0);
+(435, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:47:26', 'colegio-notarial', 0),
+(436, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:00:45', 'colegio-notarial', 0),
+(437, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:00:47', 'colegio-notarial', 0),
+(438, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:00:54', 'colegio-notarial', 0),
+(439, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 20:00:55', 'colegio-notarial', 0),
+(440, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:00:57', 'colegio-notarial', 0),
+(441, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:01:03', 'colegio-notarial', 0),
+(442, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:01:16', 'colegio-notarial', 0),
+(443, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:06:34', 'colegio-notarial', 0),
+(444, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:06:36', 'colegio-notarial', 0),
+(445, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:07:13', 'colegio-notarial', 0),
+(446, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:24:27', 'colegio-notarial', 0),
+(447, 4, '{"contrato":"8596","id_cliente":"1","id_inmueble":"1","monto":"400.00","monto_anticipo":"25","id_forma_pago":"1","cuotas":"20","inicio_cuota":"1","vencimiento_cuota":"10","comentario":"<p>Test comentario<\\/p>\\r\\n","date_add":"2017-04-18 20:25:01","date_upd":"2017-04-18 20:25:01","user_add":"1","user_upd":"1"}', 'insert', 'contratos', '1', '1', '2017-04-18 20:25:01', 'colegio-notarial', 0),
+(448, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:25:22', 'colegio-notarial', 0),
+(449, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:26:08', 'colegio-notarial', 0),
+(450, 4, '{"contrato":"8596","id_cliente":"1","id_inmueble":"1","monto":"400.00","monto_anticipo":"20","id_forma_pago":"1","cuotas":"20","monto_cuota":"19.00","inicio_cuota":"1","vencimiento_cuota":"10","comentario":"","date_add":"2017-04-18 20:26:30","date_upd":"2017-04-18 20:26:30","user_add":"1","user_upd":"1"}', 'insert', 'contratos', '2', '1', '2017-04-18 20:26:30', 'colegio-notarial', 0),
+(451, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-04-1","fecha_vencimiento":"2017-04-10","id_estado":"1","date_add":"2017-04-18 20:26:30","date_upd":"2017-04-18 20:26:30","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '1', '1', '2017-04-18 20:26:30', 'colegio-notarial', 0),
+(452, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-05-1","fecha_vencimiento":"2017-05-10","id_estado":"1","date_add":"2017-04-18 20:26:30","date_upd":"2017-04-18 20:26:30","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '2', '1', '2017-04-18 20:26:30', 'colegio-notarial', 0),
+(453, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-06-1","fecha_vencimiento":"2017-06-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '3', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(454, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-07-1","fecha_vencimiento":"2017-07-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '4', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(455, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-08-1","fecha_vencimiento":"2017-08-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '5', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(456, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-09-1","fecha_vencimiento":"2017-09-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '6', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(457, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-10-1","fecha_vencimiento":"2017-10-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '7', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(458, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-11-1","fecha_vencimiento":"2017-11-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '8', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(459, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-12-1","fecha_vencimiento":"2017-12-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '9', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(460, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-01-1","fecha_vencimiento":"2018-01-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '10', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(461, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-02-1","fecha_vencimiento":"2018-02-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '11', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(462, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-03-1","fecha_vencimiento":"2018-03-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '12', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(463, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-04-1","fecha_vencimiento":"2018-04-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '13', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(464, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-05-1","fecha_vencimiento":"2018-05-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '14', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(465, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-06-1","fecha_vencimiento":"2018-06-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '15', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(466, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-07-1","fecha_vencimiento":"2018-07-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '16', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(467, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-08-1","fecha_vencimiento":"2018-08-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '17', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(468, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-09-1","fecha_vencimiento":"2018-09-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '18', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(469, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-10-1","fecha_vencimiento":"2018-10-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '19', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(470, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-11-1","fecha_vencimiento":"2018-11-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '20', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(471, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:27:20', 'colegio-notarial', 0),
+(472, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:27:23', 'colegio-notarial', 0),
+(473, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 20:37:58', 'colegio-notarial', 0),
+(474, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:38:00', 'colegio-notarial', 0),
+(475, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:38:02', 'colegio-notarial', 0),
+(476, 4, '{"id_contrato":"0","contrato":"8956","id_cliente":"1","id_inmueble":"1","monto":"400.00","monto_anticipo":"20","id_forma_pago":"1","cuotas":"20","monto_cuota":"19.00","inicio_cuota":"1","vencimiento_cuota":"10","comentario":"<p>Segundo teset<\\/p>\\r\\n","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'contratos', '3', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(477, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-04-1","fecha_vencimiento":"2017-04-10","id_estado":"1","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '21', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(478, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-05-1","fecha_vencimiento":"2017-05-10","id_estado":"1","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '22', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(479, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-06-1","fecha_vencimiento":"2017-06-12","id_estado":"1","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '23', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(480, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-07-1","fecha_vencimiento":"2017-07-10","id_estado":"1","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '24', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(481, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-08-1","fecha_vencimiento":"2017-08-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '25', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(482, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-09-1","fecha_vencimiento":"2017-09-11","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '26', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(483, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-10-1","fecha_vencimiento":"2017-10-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '27', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(484, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-11-1","fecha_vencimiento":"2017-11-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '28', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(485, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-12-1","fecha_vencimiento":"2017-12-11","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '29', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(486, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-01-1","fecha_vencimiento":"2018-01-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '30', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(487, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-02-1","fecha_vencimiento":"2018-02-12","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '31', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(488, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-03-1","fecha_vencimiento":"2018-03-12","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '32', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(489, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-04-1","fecha_vencimiento":"2018-04-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '33', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(490, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-05-1","fecha_vencimiento":"2018-05-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '34', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(491, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-06-1","fecha_vencimiento":"2018-06-11","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '35', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(492, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-07-1","fecha_vencimiento":"2018-07-10","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '36', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(493, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-08-1","fecha_vencimiento":"2018-08-10","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '37', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(494, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-09-1","fecha_vencimiento":"2018-09-10","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '38', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(495, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-10-1","fecha_vencimiento":"2018-10-10","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '39', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(496, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-11-1","fecha_vencimiento":"2018-11-12","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '40', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(497, 4, '{"id_estado":2,"date_upd":"2017-04-18 20:38:33","user_upd":"1"}', 'update', 'inmuebles', '{"id_inmueble":"1"}', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(498, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(499, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:39:57', 'colegio-notarial', 0),
+(500, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 20:40:00', 'colegio-notarial', 0),
+(501, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:40:11', 'colegio-notarial', 0),
+(502, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:40:13', 'colegio-notarial', 0),
+(503, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:41:01', 'colegio-notarial', 0),
+(504, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:42:05', 'colegio-notarial', 0),
+(505, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:42:14', 'colegio-notarial', 0),
+(506, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:43:09', 'colegio-notarial', 0),
+(507, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:44:47', 'colegio-notarial', 0),
+(508, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:44:58', 'colegio-notarial', 0),
+(509, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:45:48', 'colegio-notarial', 0),
+(510, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:46:16', 'colegio-notarial', 0),
+(511, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:46:40', 'colegio-notarial', 0),
+(512, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:46:56', 'colegio-notarial', 0),
+(513, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:46:57', 'colegio-notarial', 0);
 
 -- --------------------------------------------------------
 
@@ -23722,6 +23873,12 @@ ALTER TABLE `cuotas`
   ADD PRIMARY KEY (`id_cuota`);
 
 --
+-- Indices de la tabla `cuotas_estados`
+--
+ALTER TABLE `cuotas_estados`
+  ADD PRIMARY KEY (`id_estado`);
+
+--
 -- Indices de la tabla `formas_juridicas`
 --
 ALTER TABLE `formas_juridicas`
@@ -23843,12 +24000,17 @@ ALTER TABLE `condiciones_pagos`
 -- AUTO_INCREMENT de la tabla `contratos`
 --
 ALTER TABLE `contratos`
-  MODIFY `id_contrato` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_contrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `cuotas`
 --
 ALTER TABLE `cuotas`
-  MODIFY `id_cuota` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cuota` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+--
+-- AUTO_INCREMENT de la tabla `cuotas_estados`
+--
+ALTER TABLE `cuotas_estados`
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `formas_juridicas`
 --
@@ -23873,7 +24035,7 @@ ALTER TABLE `inmuebles_tipos`
 -- AUTO_INCREMENT de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=436;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=514;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --

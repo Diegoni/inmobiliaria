@@ -1,10 +1,14 @@
 <?php 
-class m_contratos extends MY_Model 
+class m_cuotas extends MY_Model 
 {		
-	protected $_tablename	= 'contratos';
-	protected $_id_table	= 'id_contrato';
-	protected $_order		= 'contrato';
+	protected $_tablename	= 'cuotas';
+	protected $_id_table	= 'id_cuota';
+	protected $_order		= 'id_cuota';
 	protected $_relation    =  array(
+        'id_contrato' => array(
+            'table'     => 'contratos',
+            'subjet'    => 'contrato'
+        ),
         'id_cliente' => array(
             'table'     => 'clientes',
             'subjet'    => 'cliente'
@@ -13,10 +17,14 @@ class m_contratos extends MY_Model
             'table'     => 'inmuebles',
             'subjet'    => 'inmueble'
         ),
+        'id_estado' => array(
+            'table'     => 'cuotas_estados',
+            'subjet'    => 'estado'
+        ),
         'id_forma_pago' => array(
             'table'     => 'formas_pagos',
             'subjet'    => 'forma_pago'
-        )
+        ),
     );
 		
 	function __construct()

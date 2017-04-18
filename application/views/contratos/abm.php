@@ -58,6 +58,8 @@ $(".checkbox").bootstrapSwitch();
 
 <script>
 $(function() {
+    $("#modificar").hide();
+    
     $("#id_inmueble").change(function () 
     {
         var id_inmueble = $('select#id_inmueble').val();
