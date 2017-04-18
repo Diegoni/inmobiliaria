@@ -35,7 +35,7 @@ class Clientes extends MY_Controller
         $db['tipos']        = $this->m_clientes_tipos->getRegistros();
         $db['formas']       = $this->m_formas_juridicas->getRegistros();
         //$db['empleados']    = $this->m_empleados->getRegistros();
-        $db['localidades']  = $this->m_localidades->getRegistros();
+        //$db['localidades']  = $this->m_localidades->getRegistros();
         $db['provincias']   = $this->m_provincias->getRegistros();
         
         $db['campos']   = array(
@@ -49,7 +49,8 @@ class Clientes extends MY_Controller
             //array('select',   'id_empleado',  'empleado', $db['empleados']),
             array('calle',    '', ''),
             array('calle_numero',    '', ''),
-            array('select',   'id_provincia',  'provincia', $db['provincias']),
+            array('select',   'id_provincia',  'provincia', $db['provincias'], 'onchange="provincias_activas()"'),
+            array('select',   'id_localidad',  'localidad', ''),
             array('comentario',    '', ''),
         );
         

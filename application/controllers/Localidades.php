@@ -37,5 +37,30 @@ class Localidades extends MY_Controller
         
         $this->armarAbm($id, $db);
     }
+    
+/*--------------------------------------------------------------------------------  
+            Funciones para ajax: localidades de una provincia
+ --------------------------------------------------------------------------------*/
+
+    public function getLocalidades(){
+        if($this->input->post('provincia'))
+        {
+            $id_provincia = $this->input->post('provincia');
+            $id_localidad = $this->input->post('id_localidad');             
+            $departamentos  = $this->m_localidades->getRegistros($id_provincia, 'id_provincia');
+            
+            echo '<option value="" disabled selected style="display:none;">Seleccione una opcion...</option>';
+            foreach ($departamentos  as $row) 
+            {
+                if($id_localidad == $row->id_localidad)
+                {
+                    echo '<option value="'.$row->id_localidad.'" selected>'.$row->localidad.'</option>';
+                }else
+                {
+                    echo '<option value="'.$row->id_localidad.'">'.$row->localidad.'</option>';
+                }
+            }
+        }
+    }
 }
 ?>

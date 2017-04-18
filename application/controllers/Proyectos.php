@@ -41,8 +41,8 @@ class Proyectos extends MY_Controller
             array('select',   'id_tipo',  'tipo', $db['tipos']),
             array('nro_referencia',    '', ''),
            	array('dimension',    '', ''),
-           	array('select',   'id_localidad',  'localidad', $db['localidades']),
-           	array('select',   'id_provincia',  'provincia', $db['provincias']),
+           	array('select',   'id_provincia',  'provincia', $db['provincias'], 'onchange="provincias_activas()"'),
+           	array('select',   'id_localidad',  'localidad', ''),
            	array('select',   'id_estado',  'estado', $db['estados']),
             array('comentario',    '', ''),
         );
