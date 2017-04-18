@@ -49,5 +49,23 @@ class Inmuebles extends MY_Controller
         
         $this->armarAbm($id, $db);
     }
+    
+/*--------------------------------------------------------------------------------  
+            Funciones para ajax: localidades de una provincia
+ --------------------------------------------------------------------------------*/
+
+    public function getMonto()
+    {
+        if($this->input->post('id_inmueble'))
+        {
+            $id_inmueble = $this->input->post('id_inmueble');
+            $inmueble  = $this->model->getRegistros($id_inmueble);
+            
+            foreach ($inmueble  as $row) 
+            {
+                echo $row->precio;
+            }
+        }
+    }
 }
 ?>

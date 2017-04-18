@@ -50,6 +50,8 @@ $lang['calle']              = "Calle";
 $lang['calle_numero']       = "Calle nro";
 $lang['cliente']            = "Cliente";
 $lang['condicion_pago']     = "Condición pago";
+$lang['contrato']           = "Contrato";
+$lang['cuotas']             = "Cuotas";
 
 /*--------------------------------------------------------------------------------  
     D
@@ -97,6 +99,7 @@ $lang['formato']            = "Formato";
 $lang['forma_juridica']     = "Forma juridica";
 $lang['forma_pago']         = "Forma pago";
 $lang['factura']            = "Factura";
+$lang['fecha_pago']         = "Fecha pago";
 
 /*--------------------------------------------------------------------------------  
     G
@@ -128,6 +131,7 @@ $lang['id_pedido']          = "ID Pedido";
 $lang['id_factura']         = "ID Factura";
 $lang['inmueble']         	= "Inmueble";
 $lang['inmuebles']         	= "Inmuebles";
+$lang['inicio_cuota']       = "Inicio cuota";
 
 /*--------------------------------------------------------------------------------  
     L
@@ -145,6 +149,8 @@ $lang['log']                = "Log";
 
 $lang['modificar']          = "Modificar";
 $lang['monto']              = "Monto";
+$lang['monto_cuota']        = "Monto cuota";
+$lang['monto_anticipo']     = "Monto anticipo";
 $lang['menu']               = "Menu";
 $lang['marcacion']          = "Marcación";
 
@@ -249,6 +255,7 @@ $lang['valor']              = "Valor";
 $lang['ver']                = "Ver";
 $lang['version']            = "Versión";
 $lang['validez']            = "Validez";
+$lang['vencimiento_cuota']  = "Vencimiento cuota";
 
 /*--------------------------------------------------------------------------------  
     W

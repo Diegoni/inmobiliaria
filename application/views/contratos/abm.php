@@ -57,17 +57,51 @@ $(".checkbox").bootstrapSwitch();
 </script>
 
 <script>
-function provincias_activas(){
-    var provincia = $('select#id_provincia').val(); //Obtenemos el id de la provincia seleccionada en la lista
-    $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url(); ?>index.php/Localidades/getLocalidades/', //Realizaremos la petición al metodo prueba del controlador direcciones
-        data: { provincia: provincia }, //Pasaremos por parámetro POST el id de la provincia
-        success: function(resp) { //Cuando se procese con éxito la petición se ejecutará esta función
-            //Activar y Rellenar el select de departamentos
-            $('select#id_localidad').attr('disabled',false).html(resp); //Con el método ".html()" incluimos el código html devuelto por AJAX en la lista de provincias
-            $('select#id_localidad').focus();
-        }
-    })  
-};
+$(function() {
+    $("#modificar").hide();
+    
+    $("#id_inmueble").change(function () 
+    {
+        var id_inmueble = $('select#id_inmueble').val();
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>index.php/inmuebles/getMonto/',
+            data: { id_inmueble: id_inmueble },
+            success: function(resp) 
+            {
+                $('#monto').val(resp);
+                $('#monto').focus();
+            }
+        })  
+    });
+    
+    $("#monto").change(function () 
+    {
+        calculoCouta();
+    });
+    
+    $("#monto_anticipo").change(function () 
+    {
+        calculoCouta();
+    });
+    
+    $("#cuotas").change(function () 
+    {
+        calculoCouta();
+    });
+});
+
+function calculoCouta()
+{
+    var monto = $('#monto').val();
+    var monto_anticipo = $('#monto_anticipo').val();
+    var cuotas = $('#cuotas').val();
+    
+    if(cuotas > 0)
+    {
+        var monto_real = monto - monto_anticipo;
+        var monto_cuota = monto_real/cuotas;
+        $('#monto_cuota').val(monto_cuota.toFixed(2));    
+    }
+}
 </script>

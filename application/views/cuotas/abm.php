@@ -36,7 +36,10 @@ if(isset($mensaje))
 /*--------------------------------------------------------------------------------  
             Formulario
  --------------------------------------------------------------------------------*/ 
+
+$registro_values['fecha_pago'] = date('Y-m-d');
  
+  
 $html .= '<form action="#" method="post" class="form-horizontal">';
 $html .= setForm($campos, $registro_values, $registro, $id_table);
 $html .= '</form>';
@@ -54,20 +57,9 @@ echo $html;
 <script>
 $("[data-inputmask]").inputmask();
 $(".checkbox").bootstrapSwitch();
+
+$(function() {
+    $('#fecha_pago').datepicker({maxDate: '0'});
+});    
 </script>
 
-<script>
-function provincias_activas(){
-    var provincia = $('select#id_provincia').val(); //Obtenemos el id de la provincia seleccionada en la lista
-    $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url(); ?>index.php/Localidades/getLocalidades/', //Realizaremos la petición al metodo prueba del controlador direcciones
-        data: { provincia: provincia }, //Pasaremos por parámetro POST el id de la provincia
-        success: function(resp) { //Cuando se procese con éxito la petición se ejecutará esta función
-            //Activar y Rellenar el select de departamentos
-            $('select#id_localidad').attr('disabled',false).html(resp); //Con el método ".html()" incluimos el código html devuelto por AJAX en la lista de provincias
-            $('select#id_localidad').focus();
-        }
-    })  
-};
-</script>

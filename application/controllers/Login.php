@@ -163,6 +163,7 @@ class Login extends CI_Controller
                             'ver'       => $row_menu->ver,
                             'editar'    => $row_menu->editar,
                             'icon'      => $row_menu->icon,
+                            'id_menu'   => $row_menu->id_menu,
                             'id_padre'  => $row_menu->id_padre,
                             'id_permiso'=> $row_menu->id_permiso,
                         );

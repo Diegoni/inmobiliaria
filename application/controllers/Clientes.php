@@ -15,7 +15,7 @@ class Clientes extends MY_Controller
         $this->load->model($this->_model, 'model');  
         $this->load->model('m_clientes_tipos');
         $this->load->model('m_formas_juridicas');
-        $this->load->model('m_empleados');
+        //$this->load->model('m_empleados');
         $this->load->model('m_localidades');
         $this->load->model('m_provincias');
     } 
@@ -31,11 +31,26 @@ class Clientes extends MY_Controller
     
     
     function abm($id = NULL)
-    {                           
+    {
+        if($id != NULL)
+        {
+            $registros = $this->model->getRegistros($id);
+            foreach ($registros as $registro) 
+            {
+                $id_provincia = $registro->id_provincia;    
+            }
+            
+            $db['localidades'] = $this->m_localidades->getRegistros($id_provincia, 'id_provincia');
+        }else
+        {
+            $db['localidades'] = '';
+        }
+       
+                                   
         $db['tipos']        = $this->m_clientes_tipos->getRegistros();
         $db['formas']       = $this->m_formas_juridicas->getRegistros();
         //$db['empleados']    = $this->m_empleados->getRegistros();
-        $db['localidades']  = $this->m_localidades->getRegistros();
+       
         $db['provincias']   = $this->m_provincias->getRegistros();
         
         $db['campos']   = array(
@@ -49,7 +64,8 @@ class Clientes extends MY_Controller
             //array('select',   'id_empleado',  'empleado', $db['empleados']),
             array('calle',    '', ''),
             array('calle_numero',    '', ''),
-            array('select',   'id_provincia',  'provincia', $db['provincias']),
+            array('select',   'id_provincia',  'provincia', $db['provincias'], 'onchange="provincias_activas()"'),
+            array('select',   'id_localidad',  'localidad', $db['localidades']),
             array('comentario',    '', ''),
         );
         

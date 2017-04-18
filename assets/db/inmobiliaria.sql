@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-04-2017 a las 01:08:10
--- Versión del servidor: 5.6.20
--- Versión de PHP: 5.5.15
+-- Tiempo de generación: 18-04-2017 a las 21:44:36
+-- Versión del servidor: 10.1.9-MariaDB
+-- Versión de PHP: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `inmobiliaria`
@@ -23,47 +23,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alertas`
---
-
-CREATE TABLE IF NOT EXISTS `alertas` (
-`id_alerta` int(11) NOT NULL,
-  `alerta` text NOT NULL,
-  `id_emisor` int(11) NOT NULL,
-  `id_remitente` int(11) NOT NULL,
-  `fecha_envio` datetime NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `alertas_estado`
---
-
-CREATE TABLE IF NOT EXISTS `alertas_estado` (
-`id_estado` int(11) NOT NULL,
-  `estado` varchar(128) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `clientes`
 --
 
-CREATE TABLE IF NOT EXISTS `clientes` (
-`id_cliente` int(11) NOT NULL,
+CREATE TABLE `clientes` (
+  `id_cliente` int(11) NOT NULL,
   `cliente` varchar(128) NOT NULL,
   `id_tipo` int(11) NOT NULL,
   `email` varchar(128) NOT NULL,
@@ -82,7 +46,14 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `cliente`, `id_tipo`, `email`, `telefono`, `telefono_alternativo`, `web`, `id_forma_juridica`, `id_empleado`, `calle`, `calle_numero`, `id_localidad`, `id_provincia`, `comentario`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
+(1, 'Diego Nieto', 0, '', '', '', '', 0, 0, '', 0, 5496, 13, '', 1, 1, '2017-04-18 17:35:21', '2017-04-18 17:35:21', 0);
 
 -- --------------------------------------------------------
 
@@ -90,15 +61,15 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 -- Estructura de tabla para la tabla `clientes_tipos`
 --
 
-CREATE TABLE IF NOT EXISTS `clientes_tipos` (
-`id_tipo` int(11) NOT NULL,
+CREATE TABLE `clientes_tipos` (
+  `id_tipo` int(11) NOT NULL,
   `tipo` varchar(64) NOT NULL,
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `clientes_tipos`
@@ -115,8 +86,8 @@ INSERT INTO `clientes_tipos` (`id_tipo`, `tipo`, `user_add`, `user_upd`, `date_a
 -- Estructura de tabla para la tabla `condiciones_pagos`
 --
 
-CREATE TABLE IF NOT EXISTS `condiciones_pagos` (
-`id_condicion_pago` int(11) NOT NULL,
+CREATE TABLE `condiciones_pagos` (
+  `id_condicion_pago` int(11) NOT NULL,
   `condicion_pago` varchar(128) NOT NULL,
   `dias` int(11) NOT NULL,
   `user_add` int(11) NOT NULL,
@@ -124,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `condiciones_pagos` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `condiciones_pagos`
@@ -137,282 +108,133 @@ INSERT INTO `condiciones_pagos` (`id_condicion_pago`, `condicion_pago`, `dias`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `dias`
+-- Estructura de tabla para la tabla `contratos`
 --
 
-CREATE TABLE IF NOT EXISTS `dias` (
-`id_dia` int(11) NOT NULL,
-  `dia` varchar(64) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Volcado de datos para la tabla `dias`
---
-
-INSERT INTO `dias` (`id_dia`, `dia`, `eliminado`) VALUES
-(1, 'Lunes', 0),
-(2, 'Martes', 0),
-(3, 'Miercoles', 0),
-(4, 'Jueves', 0),
-(5, 'Viernes', 0),
-(6, 'Sabado', 0),
-(7, 'Domingo', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empleados`
---
-
-CREATE TABLE IF NOT EXISTS `empleados` (
-`id_empleado` int(11) NOT NULL,
-  `empleado` varchar(128) NOT NULL,
-  `id_puesto` int(11) NOT NULL,
-  `id_encargado` int(11) NOT NULL,
-  `dni` varchar(32) NOT NULL,
-  `fecha_ingreso` date NOT NULL,
-  `telefono` varchar(64) NOT NULL,
-  `telefono_alternativo` varchar(64) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `id_provincia` int(11) NOT NULL,
-  `id_localidad` int(11) NOT NULL,
-  `calle` varchar(64) NOT NULL,
-  `calle_numero` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empleados_marcaciones`
---
-
-CREATE TABLE IF NOT EXISTS `empleados_marcaciones` (
-`id_marcacion` int(11) NOT NULL,
-  `id_empleado` int(11) NOT NULL,
-  `id_sector` int(11) NOT NULL,
-  `marcacion` datetime NOT NULL,
-  `id_tipo` tinyint(4) NOT NULL,
-  `comentario` text NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empleados_marcaciones_tipos`
---
-
-CREATE TABLE IF NOT EXISTS `empleados_marcaciones_tipos` (
-`id_tipo` int(11) NOT NULL,
-  `tipo` varchar(64) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `empleados_marcaciones_tipos`
---
-
-INSERT INTO `empleados_marcaciones_tipos` (`id_tipo`, `tipo`, `eliminado`) VALUES
-(1, 'Entrada', 0),
-(2, 'Salida', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empleados_puestos`
---
-
-CREATE TABLE IF NOT EXISTS `empleados_puestos` (
-`id_puesto` int(11) NOT NULL,
-  `puesto` varchar(64) NOT NULL,
-  `comentario` text NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empleados_turnos`
---
-
-CREATE TABLE IF NOT EXISTS `empleados_turnos` (
-`id_turno` int(11) NOT NULL,
-  `id_puesto` int(11) NOT NULL,
-  `id_sector` int(11) NOT NULL,
-  `id_dia` tinyint(4) NOT NULL,
-  `ingreso` time NOT NULL,
-  `egreso` time NOT NULL,
-  `comentario` text NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `envios`
---
-
-CREATE TABLE IF NOT EXISTS `envios` (
-`id_envio` int(11) NOT NULL,
-  `envio` varchar(64) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `envios`
---
-
-INSERT INTO `envios` (`id_envio`, `envio`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 'Recepción', 1, 1, '2016-10-12 19:53:00', '2016-10-12 19:53:00', 0),
-(2, 'Transporte Fido', 1, 1, '2016-10-12 19:53:13', '2016-10-12 19:53:13', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `facturas`
---
-
-CREATE TABLE IF NOT EXISTS `facturas` (
-`id_factura` int(11) NOT NULL,
+CREATE TABLE `contratos` (
+  `id_contrato` int(11) NOT NULL,
+  `contrato` varchar(64) NOT NULL,
   `id_cliente` int(11) NOT NULL,
-  `id_pedido` int(11) NOT NULL,
-  `fecha_entrega` date NOT NULL,
-  `id_condicion_pago` int(11) NOT NULL,
+  `id_inmueble` int(11) NOT NULL,
+  `monto` decimal(14,2) NOT NULL,
+  `monto_anticipo` decimal(14,2) NOT NULL,
   `id_forma_pago` int(11) NOT NULL,
-  `id_origen` int(11) NOT NULL,
-  `id_envio` int(11) NOT NULL,
-  `comentario_publico` text NOT NULL,
-  `comentario_privado` text NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `total_sin_iva` decimal(10,2) NOT NULL,
-  `total_iva` decimal(10,2) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `facturas_estados`
---
-
-CREATE TABLE IF NOT EXISTS `facturas_estados` (
-`id_estado` int(11) NOT NULL,
-  `estado` varchar(64) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `facturas_lineas`
---
-
-CREATE TABLE IF NOT EXISTS `facturas_lineas` (
-`id_linea` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `cantidad` decimal(10,2) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
-  `iva` decimal(10,2) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `facturas_lineas_estados`
---
-
-CREATE TABLE IF NOT EXISTS `facturas_lineas_estados` (
-`id_estado` int(11) NOT NULL,
-  `estado` varchar(64) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `facturas_proveedores`
---
-
-CREATE TABLE IF NOT EXISTS `facturas_proveedores` (
-`id_factura` int(11) NOT NULL,
-  `id_proveedor` int(11) NOT NULL,
-  `id_pedido` int(11) NOT NULL,
-  `nro_factura` int(11) NOT NULL,
-  `fecha_entrega` date NOT NULL,
-  `id_condicion_pago` int(11) NOT NULL,
-  `id_forma_pago` int(11) NOT NULL,
-  `id_origen` int(11) NOT NULL,
-  `id_envio` int(11) NOT NULL,
+  `cuotas` int(11) NOT NULL,
+  `monto_cuota` decimal(14,2) NOT NULL,
+  `inicio_cuota` int(11) NOT NULL,
+  `vencimiento_cuota` int(11) NOT NULL,
   `comentario` text NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `total_sin_iva` decimal(10,2) NOT NULL,
-  `total_iva` decimal(10,2) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `contratos`
+--
+
+INSERT INTO `contratos` (`id_contrato`, `contrato`, `id_cliente`, `id_inmueble`, `monto`, `monto_anticipo`, `id_forma_pago`, `cuotas`, `monto_cuota`, `inicio_cuota`, `vencimiento_cuota`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, '8596', 1, 1, '400.00', '25.00', 1, 20, '0.00', 1, 10, '<p>Test comentario</p>\r\n', '2017-04-18 20:25:01', '2017-04-18 20:25:01', 1, 1, 0),
+(2, '8596', 1, 1, '400.00', '20.00', 1, 20, '19.00', 1, 10, '', '2017-04-18 20:26:30', '2017-04-18 20:26:30', 1, 1, 0),
+(3, '8956', 1, 1, '400.00', '20.00', 1, 20, '19.00', 1, 10, '<p>Segundo teset</p>\r\n', '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `facturas_proveedores_lineas`
+-- Estructura de tabla para la tabla `cuotas`
 --
 
-CREATE TABLE IF NOT EXISTS `facturas_proveedores_lineas` (
-`id_linea` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `cantidad` decimal(10,2) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
-  `iva` decimal(10,2) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
+CREATE TABLE `cuotas` (
+  `id_cuota` bigint(20) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_inmueble` int(11) NOT NULL,
+  `id_contrato` int(11) NOT NULL,
+  `monto` decimal(14,2) NOT NULL,
+  `fecha_inicio` date NOT NULL,
+  `fecha_vencimiento` date NOT NULL,
+  `id_estado` int(11) NOT NULL,
+  `fecha_pago` date NOT NULL,
+  `id_forma_pago` int(11) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cuotas`
+--
+
+INSERT INTO `cuotas` (`id_cuota`, `id_cliente`, `id_inmueble`, `id_contrato`, `monto`, `fecha_inicio`, `fecha_vencimiento`, `id_estado`, `fecha_pago`, `id_forma_pago`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 1, 1, 2, '19.00', '2017-04-01', '2017-04-10', 1, '0000-00-00', 0, '2017-04-18 20:26:30', '2017-04-18 20:26:30', 1, 1, 0),
+(2, 1, 1, 2, '19.00', '2017-05-01', '2017-05-10', 1, '0000-00-00', 0, '2017-04-18 20:26:30', '2017-04-18 20:26:30', 1, 1, 0),
+(3, 1, 1, 2, '19.00', '2017-06-01', '2017-06-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(4, 1, 1, 2, '19.00', '2017-07-01', '2017-07-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(5, 1, 1, 2, '19.00', '2017-08-01', '2017-08-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(6, 1, 1, 2, '19.00', '2017-09-01', '2017-09-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(7, 1, 1, 2, '19.00', '2017-10-01', '2017-10-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(8, 1, 1, 2, '19.00', '2017-11-01', '2017-11-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(9, 1, 1, 2, '19.00', '2017-12-01', '2017-12-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(10, 1, 1, 2, '19.00', '2018-01-01', '2018-01-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(11, 1, 1, 2, '19.00', '2018-02-01', '2018-02-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(12, 1, 1, 2, '19.00', '2018-03-01', '2018-03-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(13, 1, 1, 2, '19.00', '2018-04-01', '2018-04-10', 1, '0000-00-00', 0, '2017-04-18 20:26:31', '2017-04-18 20:26:31', 1, 1, 0),
+(14, 1, 1, 2, '19.00', '2018-05-01', '2018-05-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(15, 1, 1, 2, '19.00', '2018-06-01', '2018-06-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(16, 1, 1, 2, '19.00', '2018-07-01', '2018-07-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(17, 1, 1, 2, '19.00', '2018-08-01', '2018-08-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(18, 1, 1, 2, '19.00', '2018-09-01', '2018-09-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(19, 1, 1, 2, '19.00', '2018-10-01', '2018-10-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(20, 1, 1, 2, '19.00', '2018-11-01', '2018-11-10', 1, '0000-00-00', 0, '2017-04-18 20:26:32', '2017-04-18 20:26:32', 1, 1, 0),
+(21, 1, 1, 3, '19.00', '2017-04-01', '2017-04-10', 1, '0000-00-00', 0, '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0),
+(22, 1, 1, 3, '19.00', '2017-05-01', '2017-05-10', 1, '0000-00-00', 0, '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0),
+(23, 1, 1, 3, '19.00', '2017-06-01', '2017-06-12', 1, '0000-00-00', 0, '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0),
+(24, 1, 1, 3, '19.00', '2017-07-01', '2017-07-10', 1, '0000-00-00', 0, '2017-04-18 20:38:31', '2017-04-18 20:38:31', 1, 1, 0),
+(25, 1, 1, 3, '19.00', '2017-08-01', '2017-08-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(26, 1, 1, 3, '19.00', '2017-09-01', '2017-09-11', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(27, 1, 1, 3, '19.00', '2017-10-01', '2017-10-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(28, 1, 1, 3, '19.00', '2017-11-01', '2017-11-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(29, 1, 1, 3, '19.00', '2017-12-01', '2017-12-11', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(30, 1, 1, 3, '19.00', '2018-01-01', '2018-01-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(31, 1, 1, 3, '19.00', '2018-02-01', '2018-02-12', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(32, 1, 1, 3, '19.00', '2018-03-01', '2018-03-12', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(33, 1, 1, 3, '19.00', '2018-04-01', '2018-04-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(34, 1, 1, 3, '19.00', '2018-05-01', '2018-05-10', 1, '0000-00-00', 0, '2017-04-18 20:38:32', '2017-04-18 20:38:32', 1, 1, 0),
+(35, 1, 1, 3, '19.00', '2018-06-01', '2018-06-11', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(36, 1, 1, 3, '19.00', '2018-07-01', '2018-07-10', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(37, 1, 1, 3, '19.00', '2018-08-01', '2018-08-10', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(38, 1, 1, 3, '19.00', '2018-09-01', '2018-09-10', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(39, 1, 1, 3, '19.00', '2018-10-01', '2018-10-10', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0),
+(40, 1, 1, 3, '19.00', '2018-11-01', '2018-11-12', 1, '0000-00-00', 0, '2017-04-18 20:38:33', '2017-04-18 20:38:33', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cuotas_estados`
+--
+
+CREATE TABLE `cuotas_estados` (
+  `id_estado` int(11) NOT NULL,
+  `estado` varchar(64) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cuotas_estados`
+--
+
+INSERT INTO `cuotas_estados` (`id_estado`, `estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, '<span class="label label-default">Impaga</span>', '2017-04-18 21:03:28', '2017-04-18 21:03:28', 1, 1, 0),
+(2, '<span class="label label-success">Paga</span>', '2017-04-18 21:03:58', '2017-04-18 21:03:58', 1, 1, 0),
+(3, '<span class="label label-danger">Vencida</span>', '2017-04-18 21:04:18', '2017-04-18 21:04:18', 1, 1, 0),
+(4, '<span class="label label-primary">Emitida</span>', '2017-04-18 21:24:05', '2017-04-18 21:24:05', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -420,8 +242,8 @@ CREATE TABLE IF NOT EXISTS `facturas_proveedores_lineas` (
 -- Estructura de tabla para la tabla `formas_juridicas`
 --
 
-CREATE TABLE IF NOT EXISTS `formas_juridicas` (
-`id_forma_juridica` int(11) NOT NULL,
+CREATE TABLE `formas_juridicas` (
+  `id_forma_juridica` int(11) NOT NULL,
   `forma_juridica` varchar(64) NOT NULL,
   `monto` decimal(10,2) NOT NULL,
   `user_add` int(11) NOT NULL,
@@ -429,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `formas_juridicas` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `formas_juridicas`
@@ -446,15 +268,15 @@ INSERT INTO `formas_juridicas` (`id_forma_juridica`, `forma_juridica`, `monto`, 
 -- Estructura de tabla para la tabla `formas_pagos`
 --
 
-CREATE TABLE IF NOT EXISTS `formas_pagos` (
-`id_forma_pago` int(11) NOT NULL,
+CREATE TABLE `formas_pagos` (
+  `id_forma_pago` int(11) NOT NULL,
   `forma_pago` varchar(64) NOT NULL,
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `formas_pagos`
@@ -470,7 +292,7 @@ INSERT INTO `formas_pagos` (`id_forma_pago`, `forma_pago`, `user_add`, `user_upd
 -- Estructura de tabla para la tabla `inmuebles`
 --
 
-CREATE TABLE IF NOT EXISTS `inmuebles` (
+CREATE TABLE `inmuebles` (
   `id_inmueble` int(11) NOT NULL,
   `inmueble` varchar(128) NOT NULL,
   `id_proyecto` varchar(128) NOT NULL,
@@ -494,7 +316,7 @@ CREATE TABLE IF NOT EXISTS `inmuebles` (
 --
 
 INSERT INTO `inmuebles` (`id_inmueble`, `inmueble`, `id_proyecto`, `id_tipo`, `precio`, `nro_referencia`, `dimension`, `calle`, `calle_numero`, `comentario`, `id_estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(0, 'Lote 01', '1', 1, 400.00, 55023, '1000 x 1000', '', 0, '', 1, '2017-04-18 01:01:57', '2017-04-18 01:01:57', 1, 1, 0);
+(1, 'Lote 01', '1', 1, 400.00, 55023, '1000 x 1000', '', 0, '', 2, '2017-04-18 01:01:57', '2017-04-18 20:38:33', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -502,15 +324,15 @@ INSERT INTO `inmuebles` (`id_inmueble`, `inmueble`, `id_proyecto`, `id_tipo`, `p
 -- Estructura de tabla para la tabla `inmuebles_estados`
 --
 
-CREATE TABLE IF NOT EXISTS `inmuebles_estados` (
-`id_estado` int(11) NOT NULL,
+CREATE TABLE `inmuebles_estados` (
+  `id_estado` int(11) NOT NULL,
   `estado` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `inmuebles_estados`
@@ -526,15 +348,15 @@ INSERT INTO `inmuebles_estados` (`id_estado`, `estado`, `date_add`, `date_upd`, 
 -- Estructura de tabla para la tabla `inmuebles_tipos`
 --
 
-CREATE TABLE IF NOT EXISTS `inmuebles_tipos` (
-`id_tipo` int(11) NOT NULL,
+CREATE TABLE `inmuebles_tipos` (
+  `id_tipo` int(11) NOT NULL,
   `tipo` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `inmuebles_tipos`
@@ -548,27 +370,10 @@ INSERT INTO `inmuebles_tipos` (`id_tipo`, `tipo`, `date_add`, `date_upd`, `user_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ivas`
---
-
-CREATE TABLE IF NOT EXISTS `ivas` (
-`id_iva` int(11) NOT NULL,
-  `iva` varchar(64) NOT NULL,
-  `monto` decimal(10,2) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `localidades`
 --
 
-CREATE TABLE IF NOT EXISTS `localidades` (
+CREATE TABLE `localidades` (
   `id_localidad` int(4) NOT NULL,
   `localidad` varchar(60) NOT NULL,
   `codigo_postal` int(4) NOT NULL,
@@ -23202,7 +23007,7 @@ INSERT INTO `localidades` (`id_localidad`, `localidad`, `codigo_postal`, `id_pro
 -- Estructura de tabla para la tabla `logs_niveles`
 --
 
-CREATE TABLE IF NOT EXISTS `logs_niveles` (
+CREATE TABLE `logs_niveles` (
   `id_nivel` int(11) NOT NULL,
   `nivel` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -23227,8 +23032,8 @@ INSERT INTO `logs_niveles` (`id_nivel`, `nivel`) VALUES
 -- Estructura de tabla para la tabla `logs_usuarios`
 --
 
-CREATE TABLE IF NOT EXISTS `logs_usuarios` (
-`id_log` int(11) NOT NULL,
+CREATE TABLE `logs_usuarios` (
+  `id_log` int(11) NOT NULL,
   `id_nivel` tinyint(4) NOT NULL,
   `log` text NOT NULL,
   `accion` varchar(32) NOT NULL,
@@ -23238,7 +23043,7 @@ CREATE TABLE IF NOT EXISTS `logs_usuarios` (
   `date_add` datetime NOT NULL,
   `programa` varchar(32) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=213 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `logs_usuarios`
@@ -23456,7 +23261,376 @@ INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `re
 (209, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 01:05:35', 'colegio-notarial', 0),
 (210, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 01:05:38', 'colegio-notarial', 0),
 (211, 4, 'clientes_tipos/table', 'access', '', '', '1', '2017-04-18 01:05:44', 'colegio-notarial', 0),
-(212, 3, 'logout', 'logout', '', '', '1', '2017-04-18 01:06:02', 'colegio-notarial', 0);
+(212, 3, 'logout', 'logout', '', '', '1', '2017-04-18 01:06:02', 'colegio-notarial', 0),
+(213, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 13:45:18', 'colegio-notarial', 0),
+(214, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 13:47:21', 'colegio-notarial', 0),
+(215, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 13:47:26', 'colegio-notarial', 0),
+(216, 4, 'clientes_tipos/table', 'access', '', '', '1', '2017-04-18 13:47:29', 'colegio-notarial', 0),
+(217, 4, 'formas_juridicas/table', 'access', '', '', '1', '2017-04-18 13:47:30', 'colegio-notarial', 0),
+(218, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 13:47:32', 'colegio-notarial', 0),
+(219, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 13:47:33', 'colegio-notarial', 0),
+(220, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 13:47:34', 'colegio-notarial', 0),
+(221, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 13:47:36', 'colegio-notarial', 0),
+(222, 4, 'proyectos_tipos/table', 'access', '', '', '1', '2017-04-18 13:47:37', 'colegio-notarial', 0),
+(223, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 13:47:39', 'colegio-notarial', 0),
+(224, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 13:47:41', 'colegio-notarial', 0),
+(225, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 13:47:43', 'colegio-notarial', 0),
+(226, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 13:47:46', 'colegio-notarial', 0),
+(227, 4, '{"id_menu":"0","url":"usuarios\\/table\\/","menu":"Usuarios","icon":"","id_padre":"10","date_add":"2017-04-18 13:47:58","date_upd":"2017-04-18 13:47:58","user_add":"1","user_upd":"1"}', 'insert', 'menus', '16', '1', '2017-04-18 13:47:58', 'colegio-notarial', 0),
+(228, 4, '{"id_perfil":"1","id_menu":16,"ver":1,"editar":1,"date_add":"2017-04-18 13:47:58","date_upd":"2017-04-18 13:47:58","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '16', '1', '2017-04-18 13:47:58', 'colegio-notarial', 0),
+(229, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 13:47:58', 'colegio-notarial', 0),
+(230, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 13:48:13', 'colegio-notarial', 0),
+(231, 4, '{"id_menu":"0","url":"usuarios_perfiles\\/table\\/","menu":"Usuarios Perfiles","icon":"","id_padre":"10","date_add":"2017-04-18 13:48:32","date_upd":"2017-04-18 13:48:32","user_add":"1","user_upd":"1"}', 'insert', 'menus', '17', '1', '2017-04-18 13:48:32', 'colegio-notarial', 0),
+(232, 4, '{"id_perfil":"1","id_menu":17,"ver":1,"editar":1,"date_add":"2017-04-18 13:48:32","date_upd":"2017-04-18 13:48:32","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '17', '1', '2017-04-18 13:48:32', 'colegio-notarial', 0),
+(233, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 13:48:32', 'colegio-notarial', 0),
+(234, 3, 'logout', 'logout', '', '', '1', '2017-04-18 13:48:38', 'colegio-notarial', 0),
+(235, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 13:48:45', 'colegio-notarial', 0),
+(236, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 13:48:45', 'colegio-notarial', 0),
+(237, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2017-04-18 13:48:48', 'colegio-notarial', 0),
+(238, 4, 'usuarios/table', 'access', '', '', '1', '2017-04-18 13:48:50', 'colegio-notarial', 0),
+(239, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2017-04-18 13:48:52', 'colegio-notarial', 0),
+(240, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 13:48:54', 'colegio-notarial', 0),
+(241, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 13:49:06', 'colegio-notarial', 0),
+(242, 4, '{"id_menu":"0","url":"usuarios_permisos\\/table\\/","menu":"Usuarios Permisos","icon":"","id_padre":"10","date_add":"2017-04-18 13:49:20","date_upd":"2017-04-18 13:49:20","user_add":"1","user_upd":"1"}', 'insert', 'menus', '18', '1', '2017-04-18 13:49:20', 'colegio-notarial', 0),
+(243, 4, '{"id_perfil":"1","id_menu":18,"ver":1,"editar":1,"date_add":"2017-04-18 13:49:20","date_upd":"2017-04-18 13:49:20","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '18', '1', '2017-04-18 13:49:20', 'colegio-notarial', 0),
+(244, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 13:49:20', 'colegio-notarial', 0),
+(245, 3, 'logout', 'logout', '', '', '1', '2017-04-18 13:49:23', 'colegio-notarial', 0),
+(246, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 13:49:25', 'colegio-notarial', 0),
+(247, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 13:49:25', 'colegio-notarial', 0),
+(248, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 13:49:30', 'colegio-notarial', 0),
+(249, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 13:49:35', 'colegio-notarial', 0),
+(250, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 13:49:37', 'colegio-notarial', 0),
+(251, 4, '{"id_menu":"18","url":"logs_usuarios\\/table\\/","menu":"Usuarios Logs","icon":"","id_padre":"10","date_upd":"2017-04-18 13:50:00","user_upd":"1"}', 'update', 'menus', '18', '1', '2017-04-18 13:50:00', 'colegio-notarial', 0),
+(252, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 13:50:00', 'colegio-notarial', 0),
+(253, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 13:50:03', 'colegio-notarial', 0),
+(254, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2017-04-18 13:50:29', 'colegio-notarial', 0),
+(255, 4, 'usuarios_perfiles/abm', 'access', '', '', '1', '2017-04-18 13:50:33', 'colegio-notarial', 0),
+(256, 4, '{"id_perfil":"0","perfil":"Inmobiliaria empleado","date_add":"2017-04-18 13:50:48","date_upd":"2017-04-18 13:50:48","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_perfiles', '2', '1', '2017-04-18 13:50:48', 'colegio-notarial', 0),
+(257, 4, '{"id_menu":"1","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:48","date_upd":"2017-04-18 13:50:48","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '19', '1', '2017-04-18 13:50:48', 'colegio-notarial', 0),
+(258, 4, '{"id_menu":"2","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:48","date_upd":"2017-04-18 13:50:48","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '20', '1', '2017-04-18 13:50:48', 'colegio-notarial', 0),
+(259, 4, '{"id_menu":"3","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:48","date_upd":"2017-04-18 13:50:48","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '21', '1', '2017-04-18 13:50:48', 'colegio-notarial', 0),
+(260, 4, '{"id_menu":"4","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:48","date_upd":"2017-04-18 13:50:48","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '22', '1', '2017-04-18 13:50:48', 'colegio-notarial', 0),
+(261, 4, '{"id_menu":"5","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:48","date_upd":"2017-04-18 13:50:48","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '23', '1', '2017-04-18 13:50:48', 'colegio-notarial', 0),
+(262, 4, '{"id_menu":"6","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:48","date_upd":"2017-04-18 13:50:48","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '24', '1', '2017-04-18 13:50:48', 'colegio-notarial', 0),
+(263, 4, '{"id_menu":"7","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:48","date_upd":"2017-04-18 13:50:48","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '25', '1', '2017-04-18 13:50:49', 'colegio-notarial', 0),
+(264, 4, '{"id_menu":"8","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:49","date_upd":"2017-04-18 13:50:49","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '26', '1', '2017-04-18 13:50:49', 'colegio-notarial', 0),
+(265, 4, '{"id_menu":"9","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:49","date_upd":"2017-04-18 13:50:49","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '27', '1', '2017-04-18 13:50:49', 'colegio-notarial', 0),
+(266, 4, '{"id_menu":"10","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:49","date_upd":"2017-04-18 13:50:49","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '28', '1', '2017-04-18 13:50:49', 'colegio-notarial', 0),
+(267, 4, '{"id_menu":"11","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:49","date_upd":"2017-04-18 13:50:49","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '29', '1', '2017-04-18 13:50:49', 'colegio-notarial', 0),
+(268, 4, '{"id_menu":"12","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:49","date_upd":"2017-04-18 13:50:49","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '30', '1', '2017-04-18 13:50:49', 'colegio-notarial', 0),
+(269, 4, '{"id_menu":"13","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:49","date_upd":"2017-04-18 13:50:49","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '31', '1', '2017-04-18 13:50:49', 'colegio-notarial', 0),
+(270, 4, '{"id_menu":"14","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:50","date_upd":"2017-04-18 13:50:50","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '32', '1', '2017-04-18 13:50:50', 'colegio-notarial', 0),
+(271, 4, '{"id_menu":"15","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:50","date_upd":"2017-04-18 13:50:50","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '33', '1', '2017-04-18 13:50:50', 'colegio-notarial', 0),
+(272, 4, '{"id_menu":"16","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:50","date_upd":"2017-04-18 13:50:50","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '34', '1', '2017-04-18 13:50:50', 'colegio-notarial', 0),
+(273, 4, '{"id_menu":"17","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:50","date_upd":"2017-04-18 13:50:50","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '35', '1', '2017-04-18 13:50:50', 'colegio-notarial', 0),
+(274, 4, '{"id_menu":"18","id_perfil":2,"ver":1,"editar":1,"date_add":"2017-04-18 13:50:50","date_upd":"2017-04-18 13:50:50","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '36', '1', '2017-04-18 13:50:50', 'colegio-notarial', 0),
+(275, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2017-04-18 13:50:50', 'colegio-notarial', 0),
+(276, 4, 'usuarios/table', 'access', '', '', '1', '2017-04-18 13:50:56', 'colegio-notarial', 0),
+(277, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 13:50:58', 'colegio-notarial', 0),
+(278, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 13:51:00', 'colegio-notarial', 0),
+(279, 4, 'usuarios/table', 'access', '', '', '1', '2017-04-18 13:56:31', 'colegio-notarial', 0),
+(280, 4, 'usuarios/abm', 'access', '', '', '1', '2017-04-18 13:56:34', 'colegio-notarial', 0),
+(281, 4, '{"id_usuario":"0","usuario":"fernando","id_perfil":"2","nombre":"Fernando ","apellido":"Schweizer","date_add":"2017-04-18 13:57:18","date_upd":"2017-04-18 13:57:18","user_add":"1","user_upd":"1"}', 'insert', 'usuarios', '2', '1', '2017-04-18 13:57:18', 'colegio-notarial', 0),
+(282, 4, 'usuarios/table', 'access', '', '', '1', '2017-04-18 13:57:18', 'colegio-notarial', 0),
+(283, 3, 'logout', 'logout', '', '', '1', '2017-04-18 13:57:59', 'colegio-notarial', 0),
+(284, 3, '{"usuario":"fernando","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '2', '2017-04-18 13:58:06', 'colegio-notarial', 0),
+(285, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 13:58:06', 'colegio-notarial', 0),
+(286, 3, 'logout', 'logout', '', '', '2', '2017-04-18 14:00:09', 'colegio-notarial', 0),
+(287, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 14:00:12', 'colegio-notarial', 0),
+(288, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 14:00:12', 'colegio-notarial', 0),
+(289, 3, 'logout', 'logout', '', '', '1', '2017-04-18 14:00:18', 'colegio-notarial', 0),
+(290, 3, '{"usuario":"fernando","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '2', '2017-04-18 14:00:25', 'colegio-notarial', 0),
+(291, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:00:25', 'colegio-notarial', 0),
+(292, 3, 'logout', 'logout', '', '', '2', '2017-04-18 14:01:35', 'colegio-notarial', 0),
+(293, 3, '{"usuario":"fernando","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '2', '2017-04-18 14:01:49', 'colegio-notarial', 0),
+(294, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:01:49', 'colegio-notarial', 0),
+(295, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:02:48', 'colegio-notarial', 0),
+(296, 3, 'logout', 'logout', '', '', '2', '2017-04-18 14:02:52', 'colegio-notarial', 0),
+(297, 3, '{"usuario":"fernando","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '2', '2017-04-18 14:02:59', 'colegio-notarial', 0),
+(298, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:03:00', 'colegio-notarial', 0),
+(299, 3, 'logout', 'logout', '', '', '2', '2017-04-18 14:03:37', 'colegio-notarial', 0),
+(300, 3, 'logout', 'logout', '', '', 'end_session', '2017-04-18 14:03:55', 'colegio-notarial', 0),
+(301, 3, '{"usuario":"fernando","ip":"::1","navegador":"Firefox","sistema":"Windows 10"}', 'login', '', '', '2', '2017-04-18 14:04:06', 'colegio-notarial', 0),
+(302, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:04:07', 'colegio-notarial', 0),
+(303, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:05:09', 'colegio-notarial', 0),
+(304, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:08:16', 'colegio-notarial', 0),
+(305, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:08:37', 'colegio-notarial', 0),
+(306, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:09:22', 'colegio-notarial', 0),
+(307, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:10:57', 'colegio-notarial', 0),
+(308, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:12:51', 'colegio-notarial', 0),
+(309, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:13:59', 'colegio-notarial', 0),
+(310, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:15:35', 'colegio-notarial', 0),
+(311, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:16:17', 'colegio-notarial', 0),
+(312, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:16:26', 'colegio-notarial', 0),
+(313, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:16:55', 'colegio-notarial', 0),
+(314, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:17:10', 'colegio-notarial', 0),
+(315, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:19:07', 'colegio-notarial', 0),
+(316, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:19:29', 'colegio-notarial', 0),
+(317, 3, 'logout', 'logout', '', '', '2', '2017-04-18 14:21:41', 'colegio-notarial', 0),
+(318, 3, '{"usuario":"fernando","ip":"::1","navegador":"Firefox","sistema":"Windows 10"}', 'login', '', '', '2', '2017-04-18 14:21:44', 'colegio-notarial', 0),
+(319, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:21:45', 'colegio-notarial', 0),
+(320, 3, 'logout', 'logout', '', '', '2', '2017-04-18 14:22:11', 'colegio-notarial', 0),
+(321, 3, '{"usuario":"fernando","ip":"::1","navegador":"Firefox","sistema":"Windows 10"}', 'login', '', '', '2', '2017-04-18 14:22:13', 'colegio-notarial', 0),
+(322, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:22:13', 'colegio-notarial', 0),
+(323, 4, 'clientes/table', 'access', '', '', '2', '2017-04-18 14:22:18', 'colegio-notarial', 0),
+(324, 4, 'clientes_tipos/table', 'access', '', '', '2', '2017-04-18 14:22:20', 'colegio-notarial', 0),
+(325, 4, 'formas_juridicas/table', 'access', '', '', '2', '2017-04-18 14:22:22', 'colegio-notarial', 0),
+(326, 4, 'inmuebles_estados/table', 'access', '', '', '2', '2017-04-18 14:22:23', 'colegio-notarial', 0),
+(327, 4, 'inmuebles_tipos/table', 'access', '', '', '2', '2017-04-18 14:22:25', 'colegio-notarial', 0),
+(328, 4, 'inmuebles/table', 'access', '', '', '2', '2017-04-18 14:22:28', 'colegio-notarial', 0),
+(329, 4, 'proyectos/table', 'access', '', '', '2', '2017-04-18 14:22:30', 'colegio-notarial', 0),
+(330, 3, 'logout', 'logout', '', '', '2', '2017-04-18 14:22:35', 'colegio-notarial', 0),
+(331, 3, '{"usuario":"admin","ip":"::1","navegador":"Firefox","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 14:22:41', 'colegio-notarial', 0),
+(332, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 14:22:41', 'colegio-notarial', 0),
+(333, 4, 'usuarios/table', 'access', '', '', '1', '2017-04-18 14:22:45', 'colegio-notarial', 0),
+(334, 4, 'usuarios/abm', 'access', '', '', '1', '2017-04-18 14:22:49', 'colegio-notarial', 0),
+(335, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 14:22:53', 'colegio-notarial', 0),
+(336, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 14:22:58', 'colegio-notarial', 0),
+(337, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 14:28:20', 'colegio-notarial', 0),
+(338, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 14:29:07', 'colegio-notarial', 0),
+(339, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 14:29:11', 'colegio-notarial', 0),
+(340, 4, 'clientes_tipos/table', 'access', '', '', '1', '2017-04-18 14:29:13', 'colegio-notarial', 0),
+(341, 4, 'formas_juridicas/table', 'access', '', '', '1', '2017-04-18 14:29:14', 'colegio-notarial', 0),
+(342, 4, 'inmuebles_estados/table', 'access', '', '', '1', '2017-04-18 14:29:15', 'colegio-notarial', 0),
+(343, 4, 'inmuebles_tipos/table', 'access', '', '', '1', '2017-04-18 14:29:17', 'colegio-notarial', 0),
+(344, 4, 'proyectos_estados/table', 'access', '', '', '1', '2017-04-18 14:29:18', 'colegio-notarial', 0),
+(345, 4, 'proyectos_tipos/table', 'access', '', '', '1', '2017-04-18 14:29:19', 'colegio-notarial', 0),
+(346, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 14:29:21', 'colegio-notarial', 0),
+(347, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 14:29:22', 'colegio-notarial', 0),
+(348, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 14:29:25', 'colegio-notarial', 0),
+(349, 4, 'usuarios/table', 'access', '', '', '1', '2017-04-18 14:29:26', 'colegio-notarial', 0),
+(350, 4, 'logs_usuarios/table', 'access', '', '', '1', '2017-04-18 14:29:27', 'colegio-notarial', 0),
+(351, 4, 'usuarios_perfiles/table', 'access', '', '', '1', '2017-04-18 14:29:28', 'colegio-notarial', 0),
+(352, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 14:29:31', 'colegio-notarial', 0),
+(353, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 14:29:34', 'colegio-notarial', 0),
+(354, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 14:29:41', 'colegio-notarial', 0),
+(355, 4, 'proyectos/abm', 'access', '', '', '1', '2017-04-18 14:29:43', 'colegio-notarial', 0),
+(356, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 14:29:49', 'colegio-notarial', 0),
+(357, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 14:29:51', 'colegio-notarial', 0),
+(358, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 16:53:01', 'colegio-notarial', 0),
+(359, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 16:53:01', 'colegio-notarial', 0),
+(360, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:53:04', 'colegio-notarial', 0),
+(361, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:53:16', 'colegio-notarial', 0),
+(362, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:53:42', 'colegio-notarial', 0),
+(363, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:54:14', 'colegio-notarial', 0),
+(364, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:55:41', 'colegio-notarial', 0),
+(365, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:56:03', 'colegio-notarial', 0),
+(366, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:56:18', 'colegio-notarial', 0),
+(367, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:56:31', 'colegio-notarial', 0),
+(368, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:58:04', 'colegio-notarial', 0),
+(369, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 16:58:24', 'colegio-notarial', 0),
+(370, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 17:31:54', 'colegio-notarial', 0),
+(371, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 17:31:54', 'colegio-notarial', 0),
+(372, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:31:57', 'colegio-notarial', 0),
+(373, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:33:56', 'colegio-notarial', 0),
+(374, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:34:53', 'colegio-notarial', 0),
+(375, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:35:03', 'colegio-notarial', 0),
+(376, 4, '{"id_cliente":"0","cliente":"Diego Nieto","id_tipo":"","email":"","telefono":"","telefono_alternativo":"","web":"","id_forma_juridica":"","calle":"","calle_numero":"","id_localidad":"5496","id_provincia":"13","comentario":"","date_add":"2017-04-18 17:35:21","date_upd":"2017-04-18 17:35:21","user_add":"1","user_upd":"1"}', 'insert', 'clientes', '1', '1', '2017-04-18 17:35:21', 'colegio-notarial', 0),
+(377, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 17:35:21', 'colegio-notarial', 0),
+(378, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:35:24', 'colegio-notarial', 0),
+(379, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:36:08', 'colegio-notarial', 0),
+(380, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 17:36:12', 'colegio-notarial', 0),
+(381, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:36:54', 'colegio-notarial', 0),
+(382, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:40:40', 'colegio-notarial', 0),
+(383, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:40:44', 'colegio-notarial', 0),
+(384, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 17:40:56', 'colegio-notarial', 0),
+(385, 4, 'clientes/abm', 'access', '', '', '1', '2017-04-18 17:40:59', 'colegio-notarial', 0),
+(386, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 18:41:51', 'colegio-notarial', 0);
+INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `registro`, `user_add`, `date_add`, `programa`, `eliminado`) VALUES
+(387, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 18:41:56', 'colegio-notarial', 0),
+(388, 4, '{"id_menu":"0","url":"contratos\\/table\\/","menu":"Contratos","icon":"","id_padre":"6","date_add":"2017-04-18 18:42:09","date_upd":"2017-04-18 18:42:09","user_add":"1","user_upd":"1"}', 'insert', 'menus', '19', '1', '2017-04-18 18:42:09', 'colegio-notarial', 0),
+(389, 4, '{"id_perfil":"1","id_menu":19,"ver":1,"editar":1,"date_add":"2017-04-18 18:42:09","date_upd":"2017-04-18 18:42:09","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '37', '1', '2017-04-18 18:42:09', 'colegio-notarial', 0),
+(390, 4, '{"id_perfil":"2","id_menu":19,"ver":1,"editar":1,"date_add":"2017-04-18 18:42:10","date_upd":"2017-04-18 18:42:10","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '38', '1', '2017-04-18 18:42:10', 'colegio-notarial', 0),
+(391, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 18:42:10', 'colegio-notarial', 0),
+(392, 3, 'logout', 'logout', '', '', '1', '2017-04-18 18:42:39', 'colegio-notarial', 0),
+(393, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 18:42:41', 'colegio-notarial', 0),
+(394, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 18:42:42', 'colegio-notarial', 0),
+(395, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 18:55:06', 'colegio-notarial', 0),
+(396, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 18:55:13', 'colegio-notarial', 0),
+(397, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 18:55:52', 'colegio-notarial', 0),
+(398, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 18:56:41', 'colegio-notarial', 0),
+(399, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 18:57:10', 'colegio-notarial', 0),
+(400, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 18:57:43', 'colegio-notarial', 0),
+(401, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 18:58:18', 'colegio-notarial', 0),
+(402, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 18:59:41', 'colegio-notarial', 0),
+(403, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:01:48', 'colegio-notarial', 0),
+(404, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:09:41', 'colegio-notarial', 0),
+(405, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:10:26', 'colegio-notarial', 0),
+(406, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:11:08', 'colegio-notarial', 0),
+(407, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:11:23', 'colegio-notarial', 0),
+(408, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:13:03', 'colegio-notarial', 0),
+(409, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:13:17', 'colegio-notarial', 0),
+(410, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:13:35', 'colegio-notarial', 0),
+(411, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:14:55', 'colegio-notarial', 0),
+(412, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:15:25', 'colegio-notarial', 0),
+(413, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:15:49', 'colegio-notarial', 0),
+(414, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:16:52', 'colegio-notarial', 0),
+(415, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:17:15', 'colegio-notarial', 0),
+(416, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:18:42', 'colegio-notarial', 0),
+(417, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:19:25', 'colegio-notarial', 0),
+(418, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:19:54', 'colegio-notarial', 0),
+(419, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:20:12', 'colegio-notarial', 0),
+(420, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:20:21', 'colegio-notarial', 0),
+(421, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:24:55', 'colegio-notarial', 0),
+(422, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:26:08', 'colegio-notarial', 0),
+(423, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:27:28', 'colegio-notarial', 0),
+(424, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:29:02', 'colegio-notarial', 0),
+(425, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:31:21', 'colegio-notarial', 0),
+(426, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:32:25', 'colegio-notarial', 0),
+(427, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:32:51', 'colegio-notarial', 0),
+(428, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 19:35:37', 'colegio-notarial', 0),
+(429, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 19:36:12', 'colegio-notarial', 0),
+(430, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:36:14', 'colegio-notarial', 0),
+(431, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:36:28', 'colegio-notarial', 0),
+(432, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 19:36:33', 'colegio-notarial', 0),
+(433, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 19:38:56', 'colegio-notarial', 0),
+(434, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 19:47:24', 'colegio-notarial', 0),
+(435, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 19:47:26', 'colegio-notarial', 0),
+(436, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:00:45', 'colegio-notarial', 0),
+(437, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:00:47', 'colegio-notarial', 0),
+(438, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:00:54', 'colegio-notarial', 0),
+(439, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 20:00:55', 'colegio-notarial', 0),
+(440, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:00:57', 'colegio-notarial', 0),
+(441, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:01:03', 'colegio-notarial', 0),
+(442, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:01:16', 'colegio-notarial', 0),
+(443, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:06:34', 'colegio-notarial', 0),
+(444, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:06:36', 'colegio-notarial', 0),
+(445, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:07:13', 'colegio-notarial', 0),
+(446, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:24:27', 'colegio-notarial', 0),
+(447, 4, '{"contrato":"8596","id_cliente":"1","id_inmueble":"1","monto":"400.00","monto_anticipo":"25","id_forma_pago":"1","cuotas":"20","inicio_cuota":"1","vencimiento_cuota":"10","comentario":"<p>Test comentario<\\/p>\\r\\n","date_add":"2017-04-18 20:25:01","date_upd":"2017-04-18 20:25:01","user_add":"1","user_upd":"1"}', 'insert', 'contratos', '1', '1', '2017-04-18 20:25:01', 'colegio-notarial', 0),
+(448, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:25:22', 'colegio-notarial', 0),
+(449, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:26:08', 'colegio-notarial', 0),
+(450, 4, '{"contrato":"8596","id_cliente":"1","id_inmueble":"1","monto":"400.00","monto_anticipo":"20","id_forma_pago":"1","cuotas":"20","monto_cuota":"19.00","inicio_cuota":"1","vencimiento_cuota":"10","comentario":"","date_add":"2017-04-18 20:26:30","date_upd":"2017-04-18 20:26:30","user_add":"1","user_upd":"1"}', 'insert', 'contratos', '2', '1', '2017-04-18 20:26:30', 'colegio-notarial', 0),
+(451, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-04-1","fecha_vencimiento":"2017-04-10","id_estado":"1","date_add":"2017-04-18 20:26:30","date_upd":"2017-04-18 20:26:30","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '1', '1', '2017-04-18 20:26:30', 'colegio-notarial', 0),
+(452, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-05-1","fecha_vencimiento":"2017-05-10","id_estado":"1","date_add":"2017-04-18 20:26:30","date_upd":"2017-04-18 20:26:30","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '2', '1', '2017-04-18 20:26:30', 'colegio-notarial', 0),
+(453, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-06-1","fecha_vencimiento":"2017-06-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '3', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(454, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-07-1","fecha_vencimiento":"2017-07-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '4', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(455, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-08-1","fecha_vencimiento":"2017-08-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '5', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(456, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-09-1","fecha_vencimiento":"2017-09-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '6', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(457, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-10-1","fecha_vencimiento":"2017-10-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '7', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(458, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-11-1","fecha_vencimiento":"2017-11-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '8', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(459, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2017-12-1","fecha_vencimiento":"2017-12-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '9', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(460, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-01-1","fecha_vencimiento":"2018-01-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '10', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(461, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-02-1","fecha_vencimiento":"2018-02-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '11', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(462, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-03-1","fecha_vencimiento":"2018-03-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '12', '1', '2017-04-18 20:26:31', 'colegio-notarial', 0),
+(463, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-04-1","fecha_vencimiento":"2018-04-10","id_estado":"1","date_add":"2017-04-18 20:26:31","date_upd":"2017-04-18 20:26:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '13', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(464, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-05-1","fecha_vencimiento":"2018-05-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '14', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(465, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-06-1","fecha_vencimiento":"2018-06-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '15', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(466, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-07-1","fecha_vencimiento":"2018-07-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '16', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(467, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-08-1","fecha_vencimiento":"2018-08-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '17', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(468, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-09-1","fecha_vencimiento":"2018-09-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '18', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(469, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-10-1","fecha_vencimiento":"2018-10-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '19', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(470, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":2,"monto":"19.00","fecha_inicio":"2018-11-1","fecha_vencimiento":"2018-11-10","id_estado":"1","date_add":"2017-04-18 20:26:32","date_upd":"2017-04-18 20:26:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '20', '1', '2017-04-18 20:26:32', 'colegio-notarial', 0),
+(471, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:27:20', 'colegio-notarial', 0),
+(472, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:27:23', 'colegio-notarial', 0),
+(473, 4, 'proyectos/table', 'access', '', '', '1', '2017-04-18 20:37:58', 'colegio-notarial', 0),
+(474, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:38:00', 'colegio-notarial', 0),
+(475, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:38:02', 'colegio-notarial', 0),
+(476, 4, '{"id_contrato":"0","contrato":"8956","id_cliente":"1","id_inmueble":"1","monto":"400.00","monto_anticipo":"20","id_forma_pago":"1","cuotas":"20","monto_cuota":"19.00","inicio_cuota":"1","vencimiento_cuota":"10","comentario":"<p>Segundo teset<\\/p>\\r\\n","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'contratos', '3', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(477, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-04-1","fecha_vencimiento":"2017-04-10","id_estado":"1","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '21', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(478, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-05-1","fecha_vencimiento":"2017-05-10","id_estado":"1","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '22', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(479, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-06-1","fecha_vencimiento":"2017-06-12","id_estado":"1","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '23', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(480, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-07-1","fecha_vencimiento":"2017-07-10","id_estado":"1","date_add":"2017-04-18 20:38:31","date_upd":"2017-04-18 20:38:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '24', '1', '2017-04-18 20:38:31', 'colegio-notarial', 0),
+(481, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-08-1","fecha_vencimiento":"2017-08-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '25', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(482, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-09-1","fecha_vencimiento":"2017-09-11","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '26', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(483, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-10-1","fecha_vencimiento":"2017-10-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '27', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(484, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-11-1","fecha_vencimiento":"2017-11-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '28', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(485, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2017-12-1","fecha_vencimiento":"2017-12-11","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '29', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(486, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-01-1","fecha_vencimiento":"2018-01-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '30', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(487, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-02-1","fecha_vencimiento":"2018-02-12","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '31', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(488, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-03-1","fecha_vencimiento":"2018-03-12","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '32', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(489, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-04-1","fecha_vencimiento":"2018-04-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '33', '1', '2017-04-18 20:38:32', 'colegio-notarial', 0),
+(490, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-05-1","fecha_vencimiento":"2018-05-10","id_estado":"1","date_add":"2017-04-18 20:38:32","date_upd":"2017-04-18 20:38:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '34', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(491, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-06-1","fecha_vencimiento":"2018-06-11","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '35', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(492, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-07-1","fecha_vencimiento":"2018-07-10","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '36', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(493, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-08-1","fecha_vencimiento":"2018-08-10","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '37', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(494, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-09-1","fecha_vencimiento":"2018-09-10","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '38', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(495, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-10-1","fecha_vencimiento":"2018-10-10","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '39', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(496, 4, '{"id_cliente":"1","id_inmueble":"1","id_contrato":3,"monto":"19.00","fecha_inicio":"2018-11-1","fecha_vencimiento":"2018-11-12","id_estado":"1","date_add":"2017-04-18 20:38:33","date_upd":"2017-04-18 20:38:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '40', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(497, 4, '{"id_estado":2,"date_upd":"2017-04-18 20:38:33","user_upd":"1"}', 'update', 'inmuebles', '{"id_inmueble":"1"}', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(498, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:38:33', 'colegio-notarial', 0),
+(499, 4, 'inmuebles/table', 'access', '', '', '1', '2017-04-18 20:39:57', 'colegio-notarial', 0),
+(500, 4, 'inmuebles/abm', 'access', '', '', '1', '2017-04-18 20:40:00', 'colegio-notarial', 0),
+(501, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:40:11', 'colegio-notarial', 0),
+(502, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:40:13', 'colegio-notarial', 0),
+(503, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:41:01', 'colegio-notarial', 0),
+(504, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:42:05', 'colegio-notarial', 0),
+(505, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:42:14', 'colegio-notarial', 0),
+(506, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:43:09', 'colegio-notarial', 0),
+(507, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:44:47', 'colegio-notarial', 0),
+(508, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:44:58', 'colegio-notarial', 0),
+(509, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:45:48', 'colegio-notarial', 0),
+(510, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:46:16', 'colegio-notarial', 0),
+(511, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:46:40', 'colegio-notarial', 0),
+(512, 4, 'contratos/table', 'access', '', '', '1', '2017-04-18 20:46:56', 'colegio-notarial', 0),
+(513, 4, 'contratos/abm', 'access', '', '', '1', '2017-04-18 20:46:57', 'colegio-notarial', 0),
+(514, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 21:00:31', 'colegio-notarial', 0),
+(515, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 21:00:35', 'colegio-notarial', 0),
+(516, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:00:38', 'colegio-notarial', 0),
+(517, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:01:37', 'colegio-notarial', 0),
+(518, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 21:01:49', 'colegio-notarial', 0),
+(519, 4, 'menus/abm', 'access', '', '', '1', '2017-04-18 21:01:52', 'colegio-notarial', 0),
+(520, 4, '{"id_menu":"0","url":"cuotas_estados\\/table\\/","menu":"Cuotas Estados","icon":"","id_padre":"3","date_add":"2017-04-18 21:02:06","date_upd":"2017-04-18 21:02:06","user_add":"1","user_upd":"1"}', 'insert', 'menus', '20', '1', '2017-04-18 21:02:06', 'colegio-notarial', 0),
+(521, 4, '{"id_perfil":"1","id_menu":20,"ver":1,"editar":1,"date_add":"2017-04-18 21:02:06","date_upd":"2017-04-18 21:02:06","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '39', '1', '2017-04-18 21:02:06', 'colegio-notarial', 0),
+(522, 4, '{"id_perfil":"2","id_menu":20,"ver":1,"editar":1,"date_add":"2017-04-18 21:02:06","date_upd":"2017-04-18 21:02:06","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '40', '1', '2017-04-18 21:02:06', 'colegio-notarial', 0),
+(523, 4, 'menus/table', 'access', '', '', '1', '2017-04-18 21:02:06', 'colegio-notarial', 0),
+(524, 3, 'logout', 'logout', '', '', '1', '2017-04-18 21:02:10', 'colegio-notarial', 0),
+(525, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-18 21:02:12', 'colegio-notarial', 0),
+(526, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 21:02:12', 'colegio-notarial', 0),
+(527, 4, 'cuotas_estados/table', 'access', '', '', '1', '2017-04-18 21:02:16', 'colegio-notarial', 0),
+(528, 4, 'cuotas_estados/abm', 'access', '', '', '1', '2017-04-18 21:02:19', 'colegio-notarial', 0),
+(529, 4, '{"id_estado":"0","estado":"Impaga","date_add":"2017-04-18 21:03:28","date_upd":"2017-04-18 21:03:28","user_add":"1","user_upd":"1"}', 'insert', 'cuotas_estados', '1', '1', '2017-04-18 21:03:28', 'colegio-notarial', 0),
+(530, 4, 'cuotas_estados/table', 'access', '', '', '1', '2017-04-18 21:03:28', 'colegio-notarial', 0),
+(531, 4, 'cuotas_estados/abm', 'access', '', '', '1', '2017-04-18 21:03:52', 'colegio-notarial', 0),
+(532, 4, '{"id_estado":"0","estado":"Paga","date_add":"2017-04-18 21:03:58","date_upd":"2017-04-18 21:03:58","user_add":"1","user_upd":"1"}', 'insert', 'cuotas_estados', '2', '1', '2017-04-18 21:03:58', 'colegio-notarial', 0),
+(533, 4, 'cuotas_estados/table', 'access', '', '', '1', '2017-04-18 21:03:58', 'colegio-notarial', 0),
+(534, 4, 'cuotas_estados/abm', 'access', '', '', '1', '2017-04-18 21:04:11', 'colegio-notarial', 0),
+(535, 4, '{"id_estado":"0","estado":"Vencida","date_add":"2017-04-18 21:04:18","date_upd":"2017-04-18 21:04:18","user_add":"1","user_upd":"1"}', 'insert', 'cuotas_estados', '3', '1', '2017-04-18 21:04:18', 'colegio-notarial', 0),
+(536, 4, 'cuotas_estados/table', 'access', '', '', '1', '2017-04-18 21:04:18', 'colegio-notarial', 0),
+(537, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:05:59', 'colegio-notarial', 0),
+(538, 4, 'clientes/table', 'access', '', '', '1', '2017-04-18 21:06:17', 'colegio-notarial', 0),
+(539, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:06:20', 'colegio-notarial', 0),
+(540, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:12:11', 'colegio-notarial', 0),
+(541, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:12:26', 'colegio-notarial', 0),
+(542, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:12:29', 'colegio-notarial', 0),
+(543, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:12:30', 'colegio-notarial', 0),
+(544, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:12:51', 'colegio-notarial', 0),
+(545, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:13:31', 'colegio-notarial', 0),
+(546, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:13:48', 'colegio-notarial', 0),
+(547, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:14:23', 'colegio-notarial', 0),
+(548, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:15:38', 'colegio-notarial', 0),
+(549, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:16:49', 'colegio-notarial', 0),
+(550, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:18:01', 'colegio-notarial', 0),
+(551, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:19:21', 'colegio-notarial', 0),
+(552, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:19:51', 'colegio-notarial', 0),
+(553, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:19:58', 'colegio-notarial', 0),
+(554, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:21:42', 'colegio-notarial', 0),
+(555, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:22:21', 'colegio-notarial', 0),
+(556, 4, 'cuotas/abm', 'access', '', '', '1', '2017-04-18 21:22:55', 'colegio-notarial', 0),
+(557, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:23:26', 'colegio-notarial', 0),
+(558, 4, 'cuotas_estados/table', 'access', '', '', '1', '2017-04-18 21:23:52', 'colegio-notarial', 0),
+(559, 4, 'cuotas_estados/abm', 'access', '', '', '1', '2017-04-18 21:23:58', 'colegio-notarial', 0),
+(560, 4, '{"id_estado":"0","estado":"Emitida","date_add":"2017-04-18 21:24:05","date_upd":"2017-04-18 21:24:05","user_add":"1","user_upd":"1"}', 'insert', 'cuotas_estados', '4', '1', '2017-04-18 21:24:05', 'colegio-notarial', 0),
+(561, 4, 'cuotas_estados/table', 'access', '', '', '1', '2017-04-18 21:24:05', 'colegio-notarial', 0),
+(562, 4, 'clientes_tipos/table', 'access', '', '', '1', '2017-04-18 21:24:37', 'colegio-notarial', 0),
+(563, 4, 'cuotas_estados/table', 'access', '', '', '1', '2017-04-18 21:24:40', 'colegio-notarial', 0),
+(564, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:24:53', 'colegio-notarial', 0),
+(565, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:25:34', 'colegio-notarial', 0),
+(566, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:26:43', 'colegio-notarial', 0),
+(567, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:27:02', 'colegio-notarial', 0),
+(568, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:27:09', 'colegio-notarial', 0),
+(569, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:27:37', 'colegio-notarial', 0),
+(570, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:27:52', 'colegio-notarial', 0),
+(571, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:28:11', 'colegio-notarial', 0),
+(572, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:28:18', 'colegio-notarial', 0),
+(573, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:28:24', 'colegio-notarial', 0),
+(574, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:28:31', 'colegio-notarial', 0),
+(575, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:28:42', 'colegio-notarial', 0),
+(576, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:29:09', 'colegio-notarial', 0),
+(577, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:29:35', 'colegio-notarial', 0),
+(578, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:29:57', 'colegio-notarial', 0),
+(579, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:31:13', 'colegio-notarial', 0),
+(580, 4, 'cuotas/table', 'access', '', '', '1', '2017-04-18 21:43:41', 'colegio-notarial', 0);
 
 -- --------------------------------------------------------
 
@@ -23464,8 +23638,8 @@ INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `re
 -- Estructura de tabla para la tabla `menus`
 --
 
-CREATE TABLE IF NOT EXISTS `menus` (
-`id_menu` int(11) NOT NULL,
+CREATE TABLE `menus` (
+  `id_menu` int(11) NOT NULL,
   `url` varchar(255) NOT NULL,
   `menu` varchar(128) NOT NULL,
   `icon` varchar(255) NOT NULL,
@@ -23475,7 +23649,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `menus`
@@ -23496,300 +23670,12 @@ INSERT INTO `menus` (`id_menu`, `url`, `menu`, `icon`, `id_padre`, `date_add`, `
 (12, 'proyectos_estados/table/', 'Proyectos estados', '', 3, '2017-04-18 00:22:30', '2017-04-18 00:22:30', 1, 1, 0),
 (13, 'proyectos_tipos/table/', 'Proyectos tipos', '', 3, '2017-04-18 00:22:58', '2017-04-18 00:22:58', 1, 1, 0),
 (14, 'inmuebles_estados/table/', 'Inmuebles estados', '', 3, '2017-04-18 00:38:35', '2017-04-18 00:38:35', 1, 1, 0),
-(15, 'inmuebles_tipos/table/', 'Inmuebles tipos', '', 3, '2017-04-18 00:38:56', '2017-04-18 00:38:56', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `origenes`
---
-
-CREATE TABLE IF NOT EXISTS `origenes` (
-`id_origen` int(11) NOT NULL,
-  `origen` varchar(64) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Volcado de datos para la tabla `origenes`
---
-
-INSERT INTO `origenes` (`id_origen`, `origen`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 'Llamado telefónico', 1, 1, '2016-10-12 19:55:07', '2016-10-12 19:55:07', 0),
-(2, 'Visita vendedor', 1, 1, '2016-10-12 19:55:52', '2016-10-12 19:56:04', 0),
-(3, 'Local comercial', 1, 1, '2016-10-12 19:56:18', '2016-10-12 19:56:18', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pagos`
---
-
-CREATE TABLE IF NOT EXISTS `pagos` (
-`id_pago` int(11) NOT NULL,
-  `id_factura` int(11) NOT NULL,
-  `id_forma_pago` int(11) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `comentario` text NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pagos_proveedores`
---
-
-CREATE TABLE IF NOT EXISTS `pagos_proveedores` (
-`id_pago` int(11) NOT NULL,
-  `id_factura` int(11) NOT NULL,
-  `id_forma_pago` int(11) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `comentario` text NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pedidos`
---
-
-CREATE TABLE IF NOT EXISTS `pedidos` (
-`id_pedido` int(11) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `id_empleado` int(11) NOT NULL,
-  `fecha_entrega` date NOT NULL,
-  `validez` date NOT NULL,
-  `id_condicion_pago` int(11) NOT NULL,
-  `id_forma_pago` int(11) NOT NULL,
-  `id_origen` int(11) NOT NULL,
-  `id_envio` int(11) NOT NULL,
-  `comentario_publico` text NOT NULL,
-  `comentario_privado` text NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `total_sin_iva` decimal(10,2) NOT NULL,
-  `total_iva` decimal(10,2) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pedidos_estados`
---
-
-CREATE TABLE IF NOT EXISTS `pedidos_estados` (
-  `id_estado` int(11) NOT NULL,
-  `estado` varchar(64) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pedidos_lineas`
---
-
-CREATE TABLE IF NOT EXISTS `pedidos_lineas` (
-`id_linea` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `cantidad` decimal(10,2) NOT NULL,
-  `descuento` decimal(10,2) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
-  `iva` decimal(10,2) NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `comentario` text NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pedidos_lineas_estados`
---
-
-CREATE TABLE IF NOT EXISTS `pedidos_lineas_estados` (
-  `id_estado` int(11) NOT NULL,
-  `estado` varchar(64) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pedidos_proveedores`
---
-
-CREATE TABLE IF NOT EXISTS `pedidos_proveedores` (
-`id_pedido` int(11) NOT NULL,
-  `id_proveedor` int(11) NOT NULL,
-  `nro_proveedor` varchar(64) NOT NULL,
-  `fecha_entrega` date NOT NULL,
-  `validez` date NOT NULL,
-  `id_condicion_pago` int(11) NOT NULL,
-  `id_forma_pago` int(11) NOT NULL,
-  `id_origen` int(11) NOT NULL,
-  `id_envio` int(11) NOT NULL,
-  `comentario` text NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `total_sin_iva` decimal(10,2) NOT NULL,
-  `total_iva` decimal(10,2) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pedidos_proveedores_lineas`
---
-
-CREATE TABLE IF NOT EXISTS `pedidos_proveedores_lineas` (
-  `id_linea` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `cantidad` decimal(10,2) NOT NULL,
-  `descuento` decimal(10,2) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
-  `iva` decimal(10,2) NOT NULL,
-  `id_estado` int(11) NOT NULL,
-  `comentario` text NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `productos`
---
-
-CREATE TABLE IF NOT EXISTS `productos` (
-`id_producto` int(11) NOT NULL,
-  `producto` varchar(128) NOT NULL,
-  `codigo_barra` varchar(128) NOT NULL,
-  `comentario` text NOT NULL,
-  `stock` decimal(10,2) NOT NULL,
-  `stock_minimo` decimal(10,2) NOT NULL,
-  `stock_deseado` decimal(10,2) NOT NULL,
-  `id_tipo` int(11) NOT NULL,
-  `peso` decimal(10,2) NOT NULL,
-  `longitud` decimal(10,2) NOT NULL,
-  `superficie` decimal(10,2) NOT NULL,
-  `volumen` decimal(10,2) NOT NULL,
-  `precio_venta` decimal(10,2) NOT NULL,
-  `precio_compra` decimal(10,2) NOT NULL,
-  `id_iva` int(11) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `productos_tipos`
---
-
-CREATE TABLE IF NOT EXISTS `productos_tipos` (
-  `id_tipo` int(11) NOT NULL,
-  `tipo` varchar(64) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedores`
---
-
-CREATE TABLE IF NOT EXISTS `proveedores` (
-`id_proveedor` int(11) NOT NULL,
-  `proveedor` varchar(128) NOT NULL,
-  `id_tipo` int(11) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `telefono` varchar(64) NOT NULL,
-  `telefono_alternativo` varchar(64) NOT NULL,
-  `web` varchar(128) NOT NULL,
-  `id_forma_juridica` int(11) NOT NULL,
-  `id_empleado` int(11) NOT NULL,
-  `calle` varchar(64) NOT NULL,
-  `calle_numero` int(11) NOT NULL,
-  `id_localidad` int(11) NOT NULL,
-  `id_provincia` int(11) NOT NULL,
-  `comentario` text NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedores_tipos`
---
-
-CREATE TABLE IF NOT EXISTS `proveedores_tipos` (
-`id_tipo` int(11) NOT NULL,
-  `tipo` varchar(64) NOT NULL,
-  `user_add` int(11) NOT NULL,
-  `user_upd` int(11) NOT NULL,
-  `date_add` datetime NOT NULL,
-  `date_upd` datetime NOT NULL,
-  `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `proveedores_tipos`
---
-
-INSERT INTO `proveedores_tipos` (`id_tipo`, `tipo`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 'Principal', 1, 1, '2016-10-12 17:34:02', '2016-10-12 17:34:02', 0),
-(2, 'Secundario', 1, 1, '2016-10-12 17:34:26', '2016-10-12 17:34:26', 0);
+(15, 'inmuebles_tipos/table/', 'Inmuebles tipos', '', 3, '2017-04-18 00:38:56', '2017-04-18 00:38:56', 1, 1, 0),
+(16, 'usuarios/table/', 'Usuarios', '', 10, '2017-04-18 13:47:58', '2017-04-18 13:47:58', 1, 1, 0),
+(17, 'usuarios_perfiles/table/', 'Usuarios Perfiles', '', 10, '2017-04-18 13:48:32', '2017-04-18 13:48:32', 1, 1, 0),
+(18, 'logs_usuarios/table/', 'Usuarios Logs', '', 10, '2017-04-18 13:49:20', '2017-04-18 13:50:00', 1, 1, 0),
+(19, 'contratos/table/', 'Contratos', '', 6, '2017-04-18 18:42:09', '2017-04-18 18:42:09', 1, 1, 0),
+(20, 'cuotas_estados/table/', 'Cuotas Estados', '', 3, '2017-04-18 21:02:06', '2017-04-18 21:02:06', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -23797,7 +23683,7 @@ INSERT INTO `proveedores_tipos` (`id_tipo`, `tipo`, `user_add`, `user_upd`, `dat
 -- Estructura de tabla para la tabla `provincias`
 --
 
-CREATE TABLE IF NOT EXISTS `provincias` (
+CREATE TABLE `provincias` (
   `id_provincia` smallint(2) NOT NULL,
   `provincia` varchar(50) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
@@ -23839,8 +23725,8 @@ INSERT INTO `provincias` (`id_provincia`, `provincia`, `eliminado`) VALUES
 -- Estructura de tabla para la tabla `proyectos`
 --
 
-CREATE TABLE IF NOT EXISTS `proyectos` (
-`id_proyecto` int(11) NOT NULL,
+CREATE TABLE `proyectos` (
+  `id_proyecto` int(11) NOT NULL,
   `proyecto` varchar(128) NOT NULL,
   `id_tipo` int(11) NOT NULL,
   `nro_referencia` int(11) NOT NULL,
@@ -23854,7 +23740,7 @@ CREATE TABLE IF NOT EXISTS `proyectos` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `proyectos`
@@ -23869,15 +23755,15 @@ INSERT INTO `proyectos` (`id_proyecto`, `proyecto`, `id_tipo`, `nro_referencia`,
 -- Estructura de tabla para la tabla `proyectos_estados`
 --
 
-CREATE TABLE IF NOT EXISTS `proyectos_estados` (
-`id_estado` int(11) NOT NULL,
+CREATE TABLE `proyectos_estados` (
+  `id_estado` int(11) NOT NULL,
   `estado` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `proyectos_estados`
@@ -23893,15 +23779,15 @@ INSERT INTO `proyectos_estados` (`id_estado`, `estado`, `date_add`, `date_upd`, 
 -- Estructura de tabla para la tabla `proyectos_tipos`
 --
 
-CREATE TABLE IF NOT EXISTS `proyectos_tipos` (
-`id_tipo` int(11) NOT NULL,
+CREATE TABLE `proyectos_tipos` (
+  `id_tipo` int(11) NOT NULL,
   `tipo` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `proyectos_tipos`
@@ -23917,8 +23803,8 @@ INSERT INTO `proyectos_tipos` (`id_tipo`, `tipo`, `date_add`, `date_upd`, `user_
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE IF NOT EXISTS `usuarios` (
-`id_usuario` int(11) NOT NULL,
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
   `usuario` varchar(64) NOT NULL,
   `password` varchar(128) NOT NULL,
   `id_perfil` int(11) NOT NULL,
@@ -23933,14 +23819,15 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `usuario`, `password`, `id_perfil`, `last_login`, `ip_login`, `navegador`, `sistema_operativo`, `nombre`, `apellido`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'admin', '405e28906322882c5be9b4b27f4c35fd', 1, '0000-00-00 00:00:00', '', '', '', '', 0, 0, 0, 0, 0, 0);
+(1, 'admin', '405e28906322882c5be9b4b27f4c35fd', 1, '0000-00-00 00:00:00', '', '', '', '', 0, 0, 0, 0, 0, 0),
+(2, 'fernando', '7417744a2bac776fabe5a09b21c707a2', 2, '0000-00-00 00:00:00', '', '', '', 'Fernando ', 0, 2017, 2017, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -23948,22 +23835,23 @@ INSERT INTO `usuarios` (`id_usuario`, `usuario`, `password`, `id_perfil`, `last_
 -- Estructura de tabla para la tabla `usuarios_perfiles`
 --
 
-CREATE TABLE IF NOT EXISTS `usuarios_perfiles` (
-`id_perfil` int(11) NOT NULL,
+CREATE TABLE `usuarios_perfiles` (
+  `id_perfil` int(11) NOT NULL,
   `perfil` varchar(64) NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios_perfiles`
 --
 
 INSERT INTO `usuarios_perfiles` (`id_perfil`, `perfil`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Administrador', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0);
+(1, 'Administrador', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
+(2, 'Inmobiliaria empleado', '2017-04-18 13:50:48', '2017-04-18 13:50:48', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -23971,8 +23859,8 @@ INSERT INTO `usuarios_perfiles` (`id_perfil`, `perfil`, `date_add`, `date_upd`, 
 -- Estructura de tabla para la tabla `usuarios_permisos`
 --
 
-CREATE TABLE IF NOT EXISTS `usuarios_permisos` (
-`id_permiso` int(11) NOT NULL,
+CREATE TABLE `usuarios_permisos` (
+  `id_permiso` int(11) NOT NULL,
   `id_perfil` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL,
   `ver` tinyint(4) NOT NULL,
@@ -23982,7 +23870,7 @@ CREATE TABLE IF NOT EXISTS `usuarios_permisos` (
   `user_add` int(11) NOT NULL,
   `user_upd` int(11) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios_permisos`
@@ -24003,504 +23891,266 @@ INSERT INTO `usuarios_permisos` (`id_permiso`, `id_perfil`, `id_menu`, `ver`, `e
 (12, 1, 12, 1, 1, '2017-04-18 00:22:30', '2017-04-18 00:22:30', 1, 1, 0),
 (13, 1, 13, 1, 1, '2017-04-18 00:22:58', '2017-04-18 00:22:58', 1, 1, 0),
 (14, 1, 14, 1, 1, '2017-04-18 00:38:35', '2017-04-18 00:38:35', 1, 1, 0),
-(15, 1, 15, 1, 1, '2017-04-18 00:38:56', '2017-04-18 00:38:56', 1, 1, 0);
+(15, 1, 15, 1, 1, '2017-04-18 00:38:56', '2017-04-18 00:38:56', 1, 1, 0),
+(16, 1, 16, 1, 1, '2017-04-18 13:47:58', '2017-04-18 13:47:58', 1, 1, 0),
+(17, 1, 17, 1, 1, '2017-04-18 13:48:32', '2017-04-18 13:48:32', 1, 1, 0),
+(18, 1, 18, 1, 1, '2017-04-18 13:49:20', '2017-04-18 13:49:20', 1, 1, 0),
+(19, 2, 1, 1, 1, '2017-04-18 13:50:48', '2017-04-18 13:50:48', 1, 1, 0),
+(20, 2, 2, 1, 1, '2017-04-18 13:50:48', '2017-04-18 13:50:48', 1, 1, 0),
+(21, 2, 3, 1, 1, '2017-04-18 13:50:48', '2017-04-18 13:50:48', 1, 1, 0),
+(22, 2, 4, 1, 1, '2017-04-18 13:50:48', '2017-04-18 13:50:48', 1, 1, 0),
+(23, 2, 5, 1, 1, '2017-04-18 13:50:48', '2017-04-18 13:50:48', 1, 1, 0),
+(24, 2, 6, 1, 1, '2017-04-18 13:50:48', '2017-04-18 13:50:48', 1, 1, 0),
+(25, 2, 7, 1, 1, '2017-04-18 13:50:48', '2017-04-18 13:50:48', 1, 1, 0),
+(26, 2, 8, 1, 1, '2017-04-18 13:50:49', '2017-04-18 13:50:49', 1, 1, 0),
+(27, 2, 9, 1, 1, '2017-04-18 13:50:49', '2017-04-18 13:50:49', 1, 1, 0),
+(28, 2, 10, 0, 0, '2017-04-18 13:50:49', '2017-04-18 13:50:49', 1, 1, 0),
+(29, 2, 11, 0, 0, '2017-04-18 13:50:49', '2017-04-18 13:50:49', 1, 1, 0),
+(30, 2, 12, 1, 1, '2017-04-18 13:50:49', '2017-04-18 13:50:49', 1, 1, 0),
+(31, 2, 13, 1, 1, '2017-04-18 13:50:49', '2017-04-18 13:50:49', 1, 1, 0),
+(32, 2, 14, 1, 1, '2017-04-18 13:50:50', '2017-04-18 13:50:50', 1, 1, 0),
+(33, 2, 15, 1, 1, '2017-04-18 13:50:50', '2017-04-18 13:50:50', 1, 1, 0),
+(34, 2, 16, 0, 0, '2017-04-18 13:50:50', '2017-04-18 13:50:50', 1, 1, 0),
+(35, 2, 17, 0, 0, '2017-04-18 13:50:50', '2017-04-18 13:50:50', 1, 1, 0),
+(36, 2, 18, 0, 0, '2017-04-18 13:50:50', '2017-04-18 13:50:50', 1, 1, 0),
+(37, 1, 19, 1, 1, '2017-04-18 18:42:09', '2017-04-18 18:42:09', 1, 1, 0),
+(38, 2, 19, 1, 1, '2017-04-18 18:42:10', '2017-04-18 18:42:10', 1, 1, 0),
+(39, 1, 20, 1, 1, '2017-04-18 21:02:06', '2017-04-18 21:02:06', 1, 1, 0),
+(40, 2, 20, 1, 1, '2017-04-18 21:02:06', '2017-04-18 21:02:06', 1, 1, 0);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `alertas`
---
-ALTER TABLE `alertas`
- ADD PRIMARY KEY (`id_alerta`);
-
---
--- Indices de la tabla `alertas_estado`
---
-ALTER TABLE `alertas_estado`
- ADD PRIMARY KEY (`id_estado`);
-
---
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
- ADD PRIMARY KEY (`id_cliente`);
+  ADD PRIMARY KEY (`id_cliente`);
 
 --
 -- Indices de la tabla `clientes_tipos`
 --
 ALTER TABLE `clientes_tipos`
- ADD PRIMARY KEY (`id_tipo`);
+  ADD PRIMARY KEY (`id_tipo`);
 
 --
 -- Indices de la tabla `condiciones_pagos`
 --
 ALTER TABLE `condiciones_pagos`
- ADD PRIMARY KEY (`id_condicion_pago`);
+  ADD PRIMARY KEY (`id_condicion_pago`);
 
 --
--- Indices de la tabla `dias`
+-- Indices de la tabla `contratos`
 --
-ALTER TABLE `dias`
- ADD PRIMARY KEY (`id_dia`);
+ALTER TABLE `contratos`
+  ADD PRIMARY KEY (`id_contrato`);
 
 --
--- Indices de la tabla `empleados`
+-- Indices de la tabla `cuotas`
 --
-ALTER TABLE `empleados`
- ADD PRIMARY KEY (`id_empleado`);
+ALTER TABLE `cuotas`
+  ADD PRIMARY KEY (`id_cuota`);
 
 --
--- Indices de la tabla `empleados_marcaciones`
+-- Indices de la tabla `cuotas_estados`
 --
-ALTER TABLE `empleados_marcaciones`
- ADD PRIMARY KEY (`id_marcacion`);
-
---
--- Indices de la tabla `empleados_marcaciones_tipos`
---
-ALTER TABLE `empleados_marcaciones_tipos`
- ADD PRIMARY KEY (`id_tipo`);
-
---
--- Indices de la tabla `empleados_puestos`
---
-ALTER TABLE `empleados_puestos`
- ADD PRIMARY KEY (`id_puesto`);
-
---
--- Indices de la tabla `empleados_turnos`
---
-ALTER TABLE `empleados_turnos`
- ADD PRIMARY KEY (`id_turno`);
-
---
--- Indices de la tabla `envios`
---
-ALTER TABLE `envios`
- ADD PRIMARY KEY (`id_envio`);
-
---
--- Indices de la tabla `facturas`
---
-ALTER TABLE `facturas`
- ADD PRIMARY KEY (`id_factura`);
-
---
--- Indices de la tabla `facturas_estados`
---
-ALTER TABLE `facturas_estados`
- ADD PRIMARY KEY (`id_estado`);
-
---
--- Indices de la tabla `facturas_lineas`
---
-ALTER TABLE `facturas_lineas`
- ADD PRIMARY KEY (`id_linea`);
-
---
--- Indices de la tabla `facturas_lineas_estados`
---
-ALTER TABLE `facturas_lineas_estados`
- ADD PRIMARY KEY (`id_estado`);
-
---
--- Indices de la tabla `facturas_proveedores`
---
-ALTER TABLE `facturas_proveedores`
- ADD PRIMARY KEY (`id_factura`);
-
---
--- Indices de la tabla `facturas_proveedores_lineas`
---
-ALTER TABLE `facturas_proveedores_lineas`
- ADD PRIMARY KEY (`id_linea`);
+ALTER TABLE `cuotas_estados`
+  ADD PRIMARY KEY (`id_estado`);
 
 --
 -- Indices de la tabla `formas_juridicas`
 --
 ALTER TABLE `formas_juridicas`
- ADD PRIMARY KEY (`id_forma_juridica`);
+  ADD PRIMARY KEY (`id_forma_juridica`);
 
 --
 -- Indices de la tabla `formas_pagos`
 --
 ALTER TABLE `formas_pagos`
- ADD PRIMARY KEY (`id_forma_pago`);
+  ADD PRIMARY KEY (`id_forma_pago`);
 
 --
 -- Indices de la tabla `inmuebles`
 --
 ALTER TABLE `inmuebles`
- ADD PRIMARY KEY (`id_inmueble`);
+  ADD PRIMARY KEY (`id_inmueble`);
 
 --
 -- Indices de la tabla `inmuebles_estados`
 --
 ALTER TABLE `inmuebles_estados`
- ADD PRIMARY KEY (`id_estado`), ADD KEY `id_estado` (`id_estado`), ADD KEY `id_estado_2` (`id_estado`);
+  ADD PRIMARY KEY (`id_estado`),
+  ADD KEY `id_estado` (`id_estado`),
+  ADD KEY `id_estado_2` (`id_estado`);
 
 --
 -- Indices de la tabla `inmuebles_tipos`
 --
 ALTER TABLE `inmuebles_tipos`
- ADD PRIMARY KEY (`id_tipo`);
-
---
--- Indices de la tabla `ivas`
---
-ALTER TABLE `ivas`
- ADD PRIMARY KEY (`id_iva`);
+  ADD PRIMARY KEY (`id_tipo`);
 
 --
 -- Indices de la tabla `localidades`
 --
 ALTER TABLE `localidades`
- ADD PRIMARY KEY (`id_localidad`), ADD KEY `cp` (`codigo_postal`);
+  ADD PRIMARY KEY (`id_localidad`),
+  ADD KEY `cp` (`codigo_postal`);
 
 --
 -- Indices de la tabla `logs_niveles`
 --
 ALTER TABLE `logs_niveles`
- ADD PRIMARY KEY (`id_nivel`);
+  ADD PRIMARY KEY (`id_nivel`);
 
 --
 -- Indices de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
- ADD PRIMARY KEY (`id_log`);
+  ADD PRIMARY KEY (`id_log`);
 
 --
 -- Indices de la tabla `menus`
 --
 ALTER TABLE `menus`
- ADD PRIMARY KEY (`id_menu`);
-
---
--- Indices de la tabla `origenes`
---
-ALTER TABLE `origenes`
- ADD PRIMARY KEY (`id_origen`);
-
---
--- Indices de la tabla `pagos`
---
-ALTER TABLE `pagos`
- ADD PRIMARY KEY (`id_pago`);
-
---
--- Indices de la tabla `pagos_proveedores`
---
-ALTER TABLE `pagos_proveedores`
- ADD PRIMARY KEY (`id_pago`);
-
---
--- Indices de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
- ADD PRIMARY KEY (`id_pedido`);
-
---
--- Indices de la tabla `pedidos_estados`
---
-ALTER TABLE `pedidos_estados`
- ADD PRIMARY KEY (`id_estado`);
-
---
--- Indices de la tabla `pedidos_lineas`
---
-ALTER TABLE `pedidos_lineas`
- ADD PRIMARY KEY (`id_linea`);
-
---
--- Indices de la tabla `pedidos_lineas_estados`
---
-ALTER TABLE `pedidos_lineas_estados`
- ADD PRIMARY KEY (`id_estado`);
-
---
--- Indices de la tabla `pedidos_proveedores`
---
-ALTER TABLE `pedidos_proveedores`
- ADD PRIMARY KEY (`id_pedido`);
-
---
--- Indices de la tabla `pedidos_proveedores_lineas`
---
-ALTER TABLE `pedidos_proveedores_lineas`
- ADD PRIMARY KEY (`id_linea`);
-
---
--- Indices de la tabla `productos`
---
-ALTER TABLE `productos`
- ADD PRIMARY KEY (`id_producto`);
-
---
--- Indices de la tabla `productos_tipos`
---
-ALTER TABLE `productos_tipos`
- ADD PRIMARY KEY (`id_tipo`);
-
---
--- Indices de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
- ADD PRIMARY KEY (`id_proveedor`);
-
---
--- Indices de la tabla `proveedores_tipos`
---
-ALTER TABLE `proveedores_tipos`
- ADD PRIMARY KEY (`id_tipo`);
+  ADD PRIMARY KEY (`id_menu`);
 
 --
 -- Indices de la tabla `provincias`
 --
 ALTER TABLE `provincias`
- ADD PRIMARY KEY (`id_provincia`);
+  ADD PRIMARY KEY (`id_provincia`);
 
 --
 -- Indices de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
- ADD PRIMARY KEY (`id_proyecto`);
+  ADD PRIMARY KEY (`id_proyecto`);
 
 --
 -- Indices de la tabla `proyectos_estados`
 --
 ALTER TABLE `proyectos_estados`
- ADD PRIMARY KEY (`id_estado`);
+  ADD PRIMARY KEY (`id_estado`);
 
 --
 -- Indices de la tabla `proyectos_tipos`
 --
 ALTER TABLE `proyectos_tipos`
- ADD PRIMARY KEY (`id_tipo`);
+  ADD PRIMARY KEY (`id_tipo`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
- ADD PRIMARY KEY (`id_usuario`);
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- Indices de la tabla `usuarios_perfiles`
 --
 ALTER TABLE `usuarios_perfiles`
- ADD PRIMARY KEY (`id_perfil`);
+  ADD PRIMARY KEY (`id_perfil`);
 
 --
 -- Indices de la tabla `usuarios_permisos`
 --
 ALTER TABLE `usuarios_permisos`
- ADD PRIMARY KEY (`id_permiso`);
+  ADD PRIMARY KEY (`id_permiso`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `alertas`
---
-ALTER TABLE `alertas`
-MODIFY `id_alerta` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `alertas_estado`
---
-ALTER TABLE `alertas_estado`
-MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `clientes_tipos`
 --
 ALTER TABLE `clientes_tipos`
-MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `condiciones_pagos`
 --
 ALTER TABLE `condiciones_pagos`
-MODIFY `id_condicion_pago` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_condicion_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `dias`
+-- AUTO_INCREMENT de la tabla `contratos`
 --
-ALTER TABLE `dias`
-MODIFY `id_dia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+ALTER TABLE `contratos`
+  MODIFY `id_contrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `empleados`
+-- AUTO_INCREMENT de la tabla `cuotas`
 --
-ALTER TABLE `empleados`
-MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cuotas`
+  MODIFY `id_cuota` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
--- AUTO_INCREMENT de la tabla `empleados_marcaciones`
+-- AUTO_INCREMENT de la tabla `cuotas_estados`
 --
-ALTER TABLE `empleados_marcaciones`
-MODIFY `id_marcacion` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `empleados_marcaciones_tipos`
---
-ALTER TABLE `empleados_marcaciones_tipos`
-MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `empleados_puestos`
---
-ALTER TABLE `empleados_puestos`
-MODIFY `id_puesto` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `empleados_turnos`
---
-ALTER TABLE `empleados_turnos`
-MODIFY `id_turno` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `envios`
---
-ALTER TABLE `envios`
-MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `facturas`
---
-ALTER TABLE `facturas`
-MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `facturas_estados`
---
-ALTER TABLE `facturas_estados`
-MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `facturas_lineas`
---
-ALTER TABLE `facturas_lineas`
-MODIFY `id_linea` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `facturas_lineas_estados`
---
-ALTER TABLE `facturas_lineas_estados`
-MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `facturas_proveedores`
---
-ALTER TABLE `facturas_proveedores`
-MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `facturas_proveedores_lineas`
---
-ALTER TABLE `facturas_proveedores_lineas`
-MODIFY `id_linea` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cuotas_estados`
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `formas_juridicas`
 --
 ALTER TABLE `formas_juridicas`
-MODIFY `id_forma_juridica` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id_forma_juridica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `formas_pagos`
 --
 ALTER TABLE `formas_pagos`
-MODIFY `id_forma_pago` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_forma_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `inmuebles_estados`
 --
 ALTER TABLE `inmuebles_estados`
-MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `inmuebles_tipos`
 --
 ALTER TABLE `inmuebles_tipos`
-MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `ivas`
---
-ALTER TABLE `ivas`
-MODIFY `id_iva` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
-MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=213;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=581;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --
 ALTER TABLE `menus`
-MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT de la tabla `origenes`
---
-ALTER TABLE `origenes`
-MODIFY `id_origen` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `pagos`
---
-ALTER TABLE `pagos`
-MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `pagos_proveedores`
---
-ALTER TABLE `pagos_proveedores`
-MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `pedidos_lineas`
---
-ALTER TABLE `pedidos_lineas`
-MODIFY `id_linea` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `pedidos_proveedores`
---
-ALTER TABLE `pedidos_proveedores`
-MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `productos`
---
-ALTER TABLE `productos`
-MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `proveedores_tipos`
---
-ALTER TABLE `proveedores_tipos`
-MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `proyectos_estados`
 --
 ALTER TABLE `proyectos_estados`
-MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `proyectos_tipos`
 --
 ALTER TABLE `proyectos_tipos`
-MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuarios_perfiles`
 --
 ALTER TABLE `usuarios_perfiles`
-MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuarios_permisos`
 --
 ALTER TABLE `usuarios_permisos`
-MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

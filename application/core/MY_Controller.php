@@ -51,6 +51,12 @@ class MY_Controller extends CI_Controller
         }
         
         $db['registros']   = $this->model->getRegistros();
+        
+        if (method_exists($this, 'alterTable')) 
+        {
+            $db = $this->alterTable($db);
+        }
+        
         $this->armarVista('table', $db);
     }
     
