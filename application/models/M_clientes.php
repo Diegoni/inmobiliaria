@@ -13,10 +13,6 @@ class m_clientes extends MY_Model
             'table'     => 'formas_juridicas',
             'subjet'    => 'forma_juridica'
         ),
-        'id_empleado' => array(
-            'table'     => 'empleados',
-            'subjet'    => 'empleado'
-        ),
         'id_localidad' => array(
             'table'     => 'localidades',
             'subjet'    => 'localidad'

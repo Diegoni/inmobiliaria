@@ -15,19 +15,25 @@
                 {
                     foreach ($session['permisos'] as $row) 
                     {
-                        if($row['ver'] == 1){
-                            if($row['id_padre'] != 0){
-                                if($row['url'] == $url){
+                        if($row['ver'] == 1)
+                        {
+                            if($row['id_padre'] != 0)
+                            {
+                                if($row['url'] == $url)
+                                {
                                     $class = 'class="active"';
                                     $active = $row['id_padre'];
-                                }else{
+                                }else
+                                {
                                     $class = '';
                                 }
                                 
                                 
-                                if($row['icon'] == ''){
+                                if($row['icon'] == '')
+                                {
                                     $icon = 'fa fa-circle-o'; 
-                                }else {
+                                }else 
+                                {
                                     $icon = $row['icon'];
                                 }
                                 
@@ -39,9 +45,10 @@
                                 $array_menus[$row['id_padre']][] = array(
                                     'submenu'   => $submenu,
                                 );    
-                            }else{
+                            }else
+                            {
                                 $categorias[] = array(
-                                    'id_permiso'  => $row['id_permiso'],
+                                    'id_permiso'  => $row['id_menu'],
                                     'menu'      => $row['menu'], 
                                     'icon'      => $row['icon'],
                                 );
@@ -49,8 +56,10 @@
                         }                            
                     }
                     
-                    foreach ($categorias as $row_categoria) {
-                        if($active == $row_categoria['id_permiso']){
+                    foreach ($categorias as $row_categoria) 
+                    {
+                        if($active == $row_categoria['id_permiso'])
+                        {
                             $class = 'active';
                         }else{
                             $class = '';
@@ -59,9 +68,11 @@
                         
                         $comienzo  = '<li class="treeview '.$class.'">'; 
                         
-                        if($row_categoria['icon'] == ''){
+                        if($row_categoria['icon'] == '')
+                        {
                             $icon = 'fa fa-circle-o'; 
-                        }else {
+                        }else 
+                        {
                             $icon = $row_categoria['icon'];
                         }
                         
@@ -77,10 +88,22 @@
                        $final = '</ul></li>';
                        $_submenu   = '';
                         
-                       if(isset($array_menus) && isset($array_menus[$row_categoria['id_permiso']])){
-                            foreach ($array_menus[$row_categoria['id_permiso']] as $grupo => $_menus) {
+                       if(isset($array_menus) && isset($array_menus[$row_categoria['id_permiso']]))
+                       {
+                            foreach ($array_menus[$row_categoria['id_permiso']] as $grupo => $_menus) 
+                            {
                                 $bandera    = 0;
                                 $_submenu .= $_menus['submenu'];
+                            }
+                        }else
+                        {
+                            if(isset($array_menus))
+                            {               
+                                echo "uno ".$row_categoria['id_permiso'];
+                            }
+                            
+                            foreach ($array_menus as $key => $value) {
+                                echo "_".$key;
                             }
                         }
 

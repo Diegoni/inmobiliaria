@@ -15,7 +15,7 @@ class Clientes extends MY_Controller
         $this->load->model($this->_model, 'model');  
         $this->load->model('m_clientes_tipos');
         $this->load->model('m_formas_juridicas');
-        $this->load->model('m_empleados');
+        //$this->load->model('m_empleados');
         $this->load->model('m_localidades');
         $this->load->model('m_provincias');
     } 
