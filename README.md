@@ -1,6 +1,6 @@
 # Inmobiliaria
 
-# Funcionalidades <h1> tag
+## Funcionalidades 
 1. ABM Clientes
 1. ABM Proyectos
 1. ABM Inmuebles
