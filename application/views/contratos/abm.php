@@ -37,7 +37,7 @@ if(isset($mensaje))
             Formulario
  --------------------------------------------------------------------------------*/ 
  
-$html .= '<form action="#" method="post" class="form-horizontal">';
+$html .= '<form action="#" method="post" class="form-horizontal" onsubmit="return controlContrato()">';
 $html .= setForm($campos, $registro_values, $registro, $id_table);
 $html .= '</form>';
 
@@ -103,5 +103,49 @@ function calculoCouta()
         var monto_cuota = monto_real/cuotas;
         $('#monto_cuota').val(monto_cuota.toFixed(2));    
     }
+}
+
+function controlContrato()
+{
+    var inicio_cuota = $("#inicio_cuota").val();
+    var vencimiento_cuota = $("#vencimiento_cuota").val();
+    var monto = $("#monto").val();
+    var monto_anticipo = $("#monto_anticipo").val();
+    var cuotas = $("#cuotas").val();
+    var error = 1;
+        
+    if(inicio_cuota > 30)
+    {
+        alert("El nro no puede superar a 30");
+        $("#inicio_cuota").focus();
+    }else if(vencimiento_cuota > 30)
+    {
+        alert("El nro no puede superar a 30");
+        $("#vencimiento_cuota").focus();
+    }else if(inicio_cuota > vencimiento_cuota)
+    {
+       alert("El inicio no puede ser mayor al vencimiento");
+        $("#vencimiento_cuota").focus(); 
+    }else if(monto_anticipo > monto)
+    {
+       alert("El anticipo no puede ser mayor a la cuota");
+        $("#monto_anticipo").focus(); 
+    }else if(monto_anticipo != monto && cuotas == '')
+    {
+       alert("Debes ingresar la cantidad de cuotas");
+        $("#cuotas").focus(); 
+    }else{
+        error = 2;
+    }
+    
+    if(error == 1)
+    {
+        $("#agregar").button('reset');
+        return false;    
+    }else
+    {
+        return true;
+    }
+    
 }
 </script>
