@@ -590,3 +590,114 @@ DEBUG - 2017-04-18 21:43:42 --> Global POST, GET and COOKIE data sanitized
 DEBUG - 2017-04-18 21:43:42 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
 DEBUG - 2017-04-18 21:43:42 --> Benchmark class already loaded. Second attempt ignored.
 DEBUG - 2017-04-18 21:43:42 --> Total execution time: 0.1551
+DEBUG - 2017-04-18 21:47:37 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:47:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:47:37 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:47:37 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:47:37 --> Total execution time: 0.0947
+DEBUG - 2017-04-18 21:48:03 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:48:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:48:03 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:48:03 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:48:03 --> Total execution time: 0.1278
+DEBUG - 2017-04-18 21:49:52 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:49:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:49:52 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:49:53 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:49:53 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:49:53 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:49:53 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:49:53 --> Total execution time: 0.1641
+DEBUG - 2017-04-18 21:49:55 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:49:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:49:55 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:49:55 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:49:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:49:55 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:49:55 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:49:56 --> Total execution time: 0.1971
+DEBUG - 2017-04-18 21:50:03 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:03 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:03 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:03 --> Total execution time: 0.1518
+DEBUG - 2017-04-18 21:50:03 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:03 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:04 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:04 --> Total execution time: 0.1142
+DEBUG - 2017-04-18 21:50:06 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:06 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:06 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:06 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:07 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:07 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:07 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:07 --> Total execution time: 0.1228
+DEBUG - 2017-04-18 21:50:14 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:14 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:14 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:14 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:14 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:14 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:14 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:14 --> Total execution time: 0.1691
+DEBUG - 2017-04-18 21:50:17 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:17 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:17 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:17 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:17 --> Total execution time: 0.1505
+DEBUG - 2017-04-18 21:50:18 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:18 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:18 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:18 --> Total execution time: 0.1097
+DEBUG - 2017-04-18 21:50:22 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:22 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:22 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:22 --> Total execution time: 0.1874
+DEBUG - 2017-04-18 21:50:24 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:24 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:24 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:24 --> Benchmark class already loaded. Second attempt ignored.
+ERROR - 2017-04-18 21:50:24 --> Could not find the language line "rol"
+DEBUG - 2017-04-18 21:50:24 --> Total execution time: 0.2253
+DEBUG - 2017-04-18 21:50:26 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:26 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:26 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:27 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:27 --> Total execution time: 0.2619
+DEBUG - 2017-04-18 21:50:28 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:28 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:28 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:28 --> Benchmark class already loaded. Second attempt ignored.
+ERROR - 2017-04-18 21:50:28 --> Could not find the language line "rol"
+DEBUG - 2017-04-18 21:50:28 --> Total execution time: 0.2904
+DEBUG - 2017-04-18 21:50:35 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:35 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:35 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:35 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:35 --> Total execution time: 0.3371
+DEBUG - 2017-04-18 21:50:40 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:40 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:40 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:41 --> Total execution time: 0.1182
+DEBUG - 2017-04-18 21:50:42 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:42 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:42 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:42 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:42 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:42 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:42 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:43 --> Total execution time: 0.2534
+DEBUG - 2017-04-18 21:50:44 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:44 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:44 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:44 --> Total execution time: 0.2193
+DEBUG - 2017-04-18 21:50:44 --> UTF-8 Support Enabled
+DEBUG - 2017-04-18 21:50:45 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-18 21:50:45 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-18 21:50:45 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-18 21:50:45 --> Total execution time: 0.1093
