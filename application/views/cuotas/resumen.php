@@ -21,7 +21,12 @@ foreach ($cuotas_estados as $row_cuota_estado)
 {
 	$html .= '<div class="col-sm-1">';
 	$html .= '<div class="checkbox">';
-	$html .= '<label><input type="checkbox" value="'.$row_cuota_estado->id_estado.'">'.$row_cuota_estado->estado.'</label>';
+	$html .= '<label><input type="checkbox" onclick="getCuotas()" id="estado_'.$row_cuota_estado->id_estado.'" value="'.$row_cuota_estado->id_estado.'"';
+	if($row_cuota_estado->id_estado == 4)
+	{
+	    $html .= ' checked ';
+	}
+	$html .= '>'.$row_cuota_estado->estado.'</label>';
 	$html .= '</div>';
 	$html .= '</div>';
 }
@@ -80,11 +85,28 @@ function getInmuebles(){
 
 function getCuotas(){
     var id_inmueble = $('select#id_inmueble').val();
-    var id_cliente = $('select#id_cliente').val();
+    var id_cliente  = $('select#id_cliente').val();
+    var impaga = 0;
+    var emitida = 0;
+    var paga = 0;
+    var vencida = 0;
+    
+    if ($('#estado_1').prop('checked')) { impaga = 1; };
+    if ($('#estado_2').prop('checked')) { paga = 1; };
+    if ($('#estado_3').prop('checked')) { vencida = 1; };
+    if ($('#estado_4').prop('checked')) { emitida = 1; };
+    
     $.ajax({
         type: 'POST',
         url: '<?php echo base_url(); ?>index.php/cuotas/getCuotas/',
-        data: { id_cliente: id_cliente, id_inmueble: id_inmueble },
+        data: { 
+            id_cliente: id_cliente, 
+            id_inmueble: id_inmueble,
+            impaga: impaga,
+            emitida: emitida,
+            paga: paga,
+            vencida: vencida 
+        },
         success: function(resp) {
             $('div#div_cuotas').empty();
             $('div#div_cuotas').attr('disabled',false).html(resp);

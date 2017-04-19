@@ -106,15 +106,15 @@ class Cuotas extends MY_Controller
     {
         if($this->input->post('id_cliente'))
         {
-            $id_cliente = $this->input->post('id_cliente');
-            $id_inmueble = $this->input->post('id_inmueble');   
-            
             $where = array(
-                'cuotas.id_cliente' => $id_cliente,
-                'cuotas.id_inmueble' => $id_inmueble,
-            );
-                          
-            $coutas  = $this->model->getRegistros($where);
+                'id_cliente' => $this->input->post('id_cliente'),
+                'id_inmueble' => $this->input->post('id_inmueble'),  
+                'impaga' => $this->input->post('impaga'),
+                'emitida' => $this->input->post('emitida'),
+                'paga' => $this->input->post('paga'),
+                'vencida' => $this->input->post('vencida'),
+            );              
+            $coutas  = $this->model->getCuotas($where);
             if($coutas)
             {
                 $table = '<table class="table table-hover table-responsive dataTable" id="table_cuotas">';
@@ -132,9 +132,9 @@ class Cuotas extends MY_Controller
                 {
                     $table .= '<tr>';
                     $table .= '<td><input type="checkbox"></td>';
-                    $table .= '<td>'.$row->monto.'</td>';
-                    $table .= '<td>'.date('d-m-Y', strtotime($row->fecha_inicio)).'</td>';
-                    $table .= '<td>'.date('d-m-Y', strtotime($row->fecha_vencimiento)).'</td>';
+                    $table .= '<td>'.formatImporte($row->monto).'</td>';
+                    $table .= '<td>'.formatDate($row->fecha_inicio).'</td>';
+                    $table .= '<td>'.formatDate($row->fecha_vencimiento).'</td>';
                     $table .= '<td>'.$row->estado.'</td>';
                     $table .= '</tr>';
                 }   
