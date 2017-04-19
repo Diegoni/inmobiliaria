@@ -192,5 +192,46 @@ class Cuotas extends MY_Controller
          $this->armarVista('imprimir', $db);
     }
     
+/*--------------------------------------------------------------------------------  
+            Administración de Afiliados: Ajax para armar la tabla
+ --------------------------------------------------------------------------------*/     
+    
+    public function actualizar()
+    {
+        $set        = array();
+        $impagas    = $this->model->getRegistros('1', 'id_estado');
+        $emitidas   = $this->model->getRegistros('4', 'id_estado');
+        $fecha_actua = date('Y-m-d'); 
+        //3vencida
+        if($impagas)
+        {
+            foreach ($impagas as $row_impagas) 
+            {
+                if($row_impagas->fecha_inicio <= $fecha_actua)
+                {
+                    $set[] = array(
+                        'id_cuota'        => $row_impagas->id_cuota,
+                        'id_estado'       => '4',
+                    );
+                }
+            }   
+        }
+        
+        if($emitidas)
+        {
+            foreach ($emitidas as $row_emitidas) 
+            {
+                if($row_emitidas->fecha_vencimiento <= $fecha_actua)
+                {
+                    $set[] = array(
+                        'id_cuota'        => $row_emitidas->id_cuota,
+                        'id_estado'       => '3',
+                    );
+                }            
+            }
+        }        
+        
+        $this->model->actualizar($set);
+    }    
 }
 ?>

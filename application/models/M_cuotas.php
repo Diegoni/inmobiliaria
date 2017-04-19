@@ -87,5 +87,14 @@ class m_cuotas extends MY_Model
         
         return $this->getQuery($query);
     }
+
+
+    function actualizar($set)
+    {
+        if(!empty($set))
+        {
+            $this->db->update_batch($this->_tablename, $set, 'id_cuota');    
+        }
+    }
 } 
 ?>
