@@ -9,7 +9,7 @@ if($plantillas)
 {
     foreach ($plantillas as $row_plantilla) 
     {
-        $plantilla = $row_plantilla->plantilla;
+        $plantilla = $row_plantilla->comentario;
     }            
 }
 

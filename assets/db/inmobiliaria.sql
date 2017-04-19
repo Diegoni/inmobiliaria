@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2017 a las 17:35:57
+-- Tiempo de generación: 19-04-2017 a las 17:45:03
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -23801,7 +23801,21 @@ INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `re
 (748, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-04-19 17:35:02', 'colegio-notarial', 0),
 (749, 4, '{"id_estado":"2","fecha_pago":"2017-04-19","date_upd":"2017-04-19 17:35:09","user_upd":"1"}', 'update', 'cuotas', '{"id_cuota":"9"}', '1', '2017-04-19 17:35:10', 'colegio-notarial', 0),
 (750, 4, '{"id_estado":"2","fecha_pago":"2017-04-19","date_upd":"2017-04-19 17:35:10","user_upd":"1"}', 'update', 'cuotas', '{"id_cuota":"10"}', '1', '2017-04-19 17:35:10', 'colegio-notarial', 0),
-(751, 4, 'cuotas/imprimir', 'access', '', '', '1', '2017-04-19 17:35:10', 'colegio-notarial', 0);
+(751, 4, 'cuotas/imprimir', 'access', '', '', '1', '2017-04-19 17:35:10', 'colegio-notarial', 0),
+(752, 4, 'menus/table', 'access', '', '', '1', '2017-04-19 17:40:35', 'colegio-notarial', 0),
+(753, 4, 'menus/table', 'access', '', '', '1', '2017-04-19 17:40:56', 'colegio-notarial', 0),
+(754, 4, 'menus/abm', 'access', '', '', '1', '2017-04-19 17:41:00', 'colegio-notarial', 0),
+(755, 4, '{"id_menu":"9","url":"plantillas\\/table\\/","menu":"Plantillas","icon":"","id_padre":"3","date_upd":"2017-04-19 17:41:24","user_upd":"1"}', 'update', 'menus', '9', '1', '2017-04-19 17:41:24', 'colegio-notarial', 0),
+(756, 4, 'menus/table', 'access', '', '', '1', '2017-04-19 17:41:24', 'colegio-notarial', 0);
+INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `registro`, `user_add`, `date_add`, `programa`, `eliminado`) VALUES
+(757, 3, 'logout', 'logout', '', '', '1', '2017-04-19 17:41:29', 'colegio-notarial', 0),
+(758, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-04-19 17:41:31', 'colegio-notarial', 0),
+(759, 4, 'clientes/table', 'access', '', '', '1', '2017-04-19 17:41:31', 'colegio-notarial', 0),
+(760, 4, 'plantillas/table', 'access', '', '', '1', '2017-04-19 17:42:38', 'colegio-notarial', 0),
+(761, 4, 'plantillas/table', 'access', '', '', '1', '2017-04-19 17:43:23', 'colegio-notarial', 0),
+(762, 4, 'plantillas/table', 'access', '', '', '1', '2017-04-19 17:44:05', 'colegio-notarial', 0),
+(763, 4, 'plantillas/abm', 'access', '', '', '1', '2017-04-19 17:44:08', 'colegio-notarial', 0),
+(764, 4, 'plantillas/abm', 'access', '', '', '1', '2017-04-19 17:44:43', 'colegio-notarial', 0);
 
 -- --------------------------------------------------------
 
@@ -23835,7 +23849,7 @@ INSERT INTO `menus` (`id_menu`, `url`, `menu`, `icon`, `id_padre`, `date_add`, `
 (6, '', 'Inmobiliaria', '', 0, '2017-04-17 23:18:48', '2017-04-17 23:18:48', 1, 1, 0),
 (7, 'proyectos/table/', 'Proyectos', '', 6, '2017-04-17 23:19:05', '2017-04-17 23:19:05', 1, 1, 0),
 (8, 'inmuebles/table/', 'Inmuebles', '', 6, '2017-04-17 23:19:22', '2017-04-18 00:38:13', 1, 1, 0),
-(9, 'cuotas/table/', 'Cuotas', '', 1, '2017-04-17 23:20:25', '2017-04-19 13:41:48', 1, 1, 1),
+(9, 'plantillas/table/', 'Plantillas', '', 3, '2017-04-17 23:20:25', '2017-04-19 17:41:24', 1, 1, 0),
 (10, '', 'Usuario', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
 (11, 'menus/table/', 'Menus', '', 10, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
 (12, 'proyectos_estados/table/', 'Proyectos estados', '', 3, '2017-04-18 00:22:30', '2017-04-18 00:22:30', 1, 1, 0),
@@ -23857,8 +23871,8 @@ INSERT INTO `menus` (`id_menu`, `url`, `menu`, `icon`, `id_padre`, `date_add`, `
 
 CREATE TABLE `plantillas` (
   `id_plantilla` int(11) NOT NULL,
-  `plantilla` text NOT NULL,
-  `sector` varchar(64) NOT NULL,
+  `plantilla` varchar(64) NOT NULL,
+  `comentario` text NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
@@ -23870,8 +23884,8 @@ CREATE TABLE `plantillas` (
 -- Volcado de datos para la tabla `plantillas`
 --
 
-INSERT INTO `plantillas` (`id_plantilla`, `plantilla`, `sector`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, '<div>Cliente </div>#cliente#\r\n<div>Inmueble</div>#inmueble#\r\n<div>Monto</div>#monto#\r\n<div>Fecha_pago</div>#fecha_pago#', 'Cuota', '2017-04-19 00:00:00', '2017-04-19 00:00:00', 1, 1, 0);
+INSERT INTO `plantillas` (`id_plantilla`, `plantilla`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 'Cuota', '<div>Cliente </div>#cliente#\r\n<div>Inmueble</div>#inmueble#\r\n<div>Monto</div>#monto#\r\n<div>Fecha_pago</div>#fecha_pago#', '2017-04-19 00:00:00', '2017-04-19 00:00:00', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -24319,7 +24333,7 @@ ALTER TABLE `inmuebles_tipos`
 -- AUTO_INCREMENT de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=752;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=765;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --

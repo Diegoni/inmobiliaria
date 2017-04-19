@@ -203,6 +203,7 @@ $lang['pedido']             = "Pedido";
 $lang['proyecto']           = "Proyecto";
 $lang['proyectos']          = "Proyectos";
 $lang['precio']          	= "Precio";
+$lang['plantilla']          = "Plantilla";
 
 /*--------------------------------------------------------------------------------  
     R
