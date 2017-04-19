@@ -119,19 +119,26 @@ class Cuotas extends MY_Controller
             {
                 $table = '<table class="table table-hover table-responsive dataTable" id="table_cuotas">';
                 $table .= '<thead>';
-                    $table .= '<tr>';
-                    $table .= '<td></td>';
-                    $table .= '<td>'.lang('monto').'</td>';
-                    $table .= '<td>'.lang('inicio').'</td>';
-                    $table .= '<td>'.lang('vencimiento').'</td>';
-                    $table .= '<td>'.lang('estado').'</td>';
+                    $table .= '<tr class="success" role="row">';
+                    $table .= '<th></th>';
+                    $table .= '<th>'.lang('monto').'</th>';
+                    $table .= '<th>'.lang('inicio').'</th>';
+                    $table .= '<th>'.lang('vencimiento').'</th>';
+                    $table .= '<th>'.lang('estado').'</th>';
                     $table .= '</tr>';
                 $table .= '</thead>';                    
                 $table .= '<tbody>';
                 foreach ($coutas  as $row) 
                 {
                     $table .= '<tr>';
-                    $table .= '<td><input type="checkbox"></td>';
+                    if($row->id_estado == 2)
+                    {
+                        $table .= '<td></td>';
+                    }else
+                    {
+                        $table .= '<td><input type="checkbox" class="montos" name="cuota_'.$row->id_cuota.'" value="'.$row->monto.'" onclick="sumarMontos()"></td>';    
+                    }
+                    
                     $table .= '<td>'.formatImporte($row->monto).'</td>';
                     $table .= '<td>'.formatDate($row->fecha_inicio).'</td>';
                     $table .= '<td>'.formatDate($row->fecha_vencimiento).'</td>';

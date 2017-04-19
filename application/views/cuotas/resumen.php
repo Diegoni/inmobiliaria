@@ -40,7 +40,6 @@ $html .= '<div class="form-group">';
 $html .= setLabel(lang('inmueble'), 1);
 $html .= '<div class="col-sm-5">';
 $html .= '<select name="id_inmueble" id="id_inmueble" class="select2 form-control" onchange="getCuotas()">';
-$html .= setOption($clientes, 'id_cliente', 'cliente');
 $html .= '</select>';
 $html .= '</div>';
 
@@ -113,5 +112,21 @@ function getCuotas(){
             $('div#div_cuotas').focus();
         }
     })  
+};
+
+
+function sumarMontos(){
+    var suma = 0;
+    var valor = 0;
+    
+    $('.montos').each(function (index, currentObject) {
+        if ($(currentObject).prop('checked')){ 
+           valor = $(currentObject).val();
+           valor = parseFloat(valor);
+           suma = suma + valor;
+        };
+    });
+    
+    $('#total').val(suma);
 };
 </script>
