@@ -13,25 +13,28 @@ if($plantillas)
     }            
 }
 
-if($tickets)
+if(isset($plantilla))
 {
-    foreach ($tickets as $cuotas) 
+    if($tickets)
     {
-        $_ticket = $plantilla; 
-        foreach ($cuotas as $row_cuota) 
+        foreach ($tickets as $cuotas) 
         {
-            $_ticket = str_replace ('#cliente#', $row_cuota->cliente, $_tickets);
-            $_ticket = str_replace ('#inmueble#', $row_cuota->inmueble, $_tickets);
-            $_ticket = str_replace ('#monto#', formatImporte($row_cuota->monto), $_tickets);
-            $_ticket = str_replace ('#fecha_pago#', formatDate($row_cuota->fecha_pago), $_tickets);
+            $_ticket = $plantilla; 
+            foreach ($cuotas as $row_cuota) 
+            {
+                $_ticket = str_replace ('#cliente#', $row_cuota->cliente, $_ticket);
+                $_ticket = str_replace ('#inmueble#', $row_cuota->inmueble, $_ticket);
+                $_ticket = str_replace ('#monto#', formatImporte($row_cuota->monto), $_ticket);
+                $_ticket = str_replace ('#fecha_pago#', formatDate($row_cuota->fecha_pago), $_ticket);
+            }
+            $_tickets[] = $_ticket.'<hr>';
         }
-        $_tickets[] = $_ticket.'<hr>';
     }
-}
-
-foreach ($_tickets as $_tick) 
-{
-	$html .= $_tick;
+    
+    foreach ($_tickets as $_tick) 
+    {
+        $html .= $_tick;
+    }
 }
  
 $html .= endContent();
