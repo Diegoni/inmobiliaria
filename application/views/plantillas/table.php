@@ -10,7 +10,8 @@ $cabeceras = array(
 
 $html = startContent();
 
-if(isset($mensaje)){
+if(isset($mensaje))
+{
     $html .= setMensaje($mensaje);
 }
 
@@ -18,14 +19,7 @@ if(isset($mensaje)){
             Tabla
  --------------------------------------------------------------------------------*/
 
-if($permiso_editar == 1)
-{
-    $html .= getExportsButtons($cabeceras, tableAdd($subjet));    
-}else
-{
-    $html .= getExportsButtons($cabeceras);
-}
-
+$html .= getExportsButtons($cabeceras);
 $html .= startTable($cabeceras);
 
 if($registros)

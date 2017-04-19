@@ -15,7 +15,7 @@ if($plantillas)
 
 if(isset($plantilla))
 {
-    if($tickets)
+    if(isset($tickets))
     {
         foreach ($tickets as $cuotas) 
         {
@@ -30,20 +30,27 @@ if(isset($plantilla))
             $_tickets[] = $_ticket.'<hr>';
         }
     }
-    
-    $html .= '<div class="print">';
-    foreach ($_tickets as $_tick) 
+        
+    if(isset($_tickets))
     {
-        $html .= $_tick;
+        $html .= '<div class="print">';
+        foreach ($_tickets as $_tick) 
+        {
+            $html .= $_tick;
+        }
+        $html .= '</div>';
+        
+        $html .= '<center>';
+        $html .= '<button type="button" class="printer btn btn-app hide" value="Imprimir" id="imprimir">';
+        $html .= '<i class="fa fa-print"></i> '.$this->lang->line('imprimir');
+        $html .= '</button>';
+        $html .= '<img src="'.base_url().'assets/image_crud/loading_small.gif" class="image divider" id="loading" height= "45px;" style="margin-bottom: 15px;">';       
+        $html .= '</center>';
+    }else
+    {
+        $mensaje = 'No hay cuotas para imprimir';
+        $html .= setMensaje($mensaje);
     }
-    $html .= '</div>';
-    
-    $html .= '<center>';
-    $html .= '<button type="button" class="printer btn btn-app hide" value="Imprimir" id="imprimir">';
-    $html .= '<i class="fa fa-print"></i> '.$this->lang->line('imprimir');
-    $html .= '</button>';
-    $html .= '<img src="'.base_url().'assets/image_crud/loading_small.gif" class="image divider" id="loading" height= "45px;" style="margin-bottom: 15px;">';       
-    $html .= '</center>';
 }
  
 $html .= endContent();
