@@ -15,7 +15,6 @@ $html .= setOption($clientes, 'id_cliente', 'cliente');
 $html .= '</select>';
 $html .= '</div>';
 
-
 $html .= setLabel(lang('cuotas').' '.lang('estado'), 2);
 foreach ($cuotas_estados as $row_cuota_estado) 
 {
@@ -32,9 +31,6 @@ foreach ($cuotas_estados as $row_cuota_estado)
 }
 $html .= '</div>';
 
-
-
-
 $html .= '<div class="form-group">'; 
 // Inmuebles
 $html .= setLabel(lang('inmueble'), 1);
@@ -48,22 +44,18 @@ $html .= '<div class="col-sm-4">';
 $html .= '<input name="total" id="total" class="form-control" readonly>';
 $html .= '</div>';
 
-
-
-
 $html .= '</div>';
-
-
 $html .= '</form>';
 
 
+$html .= '<form action="'.base_url().'index.php/cuotas/setPagos/" method="post" class="form-horizontal">';
+$html .='<hr>';
 $html .='<div class="row">';
 $html .='<div class="col-sm-12" id="div_cuotas">';
-
 $html .= '</div>';
 $html .= '</div>';
-
-
+$html .= '</form>';
+ 
 $html .= endContent();
 
 echo $html;
@@ -85,10 +77,10 @@ function getInmuebles(){
 function getCuotas(){
     var id_inmueble = $('select#id_inmueble').val();
     var id_cliente  = $('select#id_cliente').val();
-    var impaga = 0;
-    var emitida = 0;
-    var paga = 0;
-    var vencida = 0;
+    var impaga      = 0;
+    var emitida     = 0;
+    var paga        = 0;
+    var vencida     = 0;
     
     if ($('#estado_1').prop('checked')) { impaga = 1; };
     if ($('#estado_2').prop('checked')) { paga = 1; };

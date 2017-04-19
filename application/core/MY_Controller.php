@@ -51,7 +51,6 @@ class MY_Controller extends CI_Controller
         }
         
         $db['registros']   = $this->model->getRegistros();
-            
         $this->armarVista('table', $db);
     }
     
@@ -266,7 +265,7 @@ class MY_Controller extends CI_Controller
 	        $db['session'] = $this->session->userdata('logged_in');
             $db['subjet']  = ucwords($this->_subject);
             
-            if($vista == 'abm')
+            if($vista == 'abm' || $vista == 'imprimir')
             {
                 $_vista = 'table';
             }else

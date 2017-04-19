@@ -2382,3 +2382,1062 @@ DEBUG - 2017-04-19 16:08:24 --> query
             cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
         WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
 DEBUG - 2017-04-19 16:08:24 --> Total execution time: 0.0788
+DEBUG - 2017-04-19 16:19:00 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:00 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:00 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:00 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:00 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:00 --> Total execution time: 0.0813
+DEBUG - 2017-04-19 16:19:07 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:07 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:07 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:07 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:07 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:07 --> Total execution time: 0.0782
+DEBUG - 2017-04-19 16:19:08 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:08 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:08 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:08 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:08 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:08 --> Total execution time: 0.0797
+DEBUG - 2017-04-19 16:19:08 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:08 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:08 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:08 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:08 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:08 --> Total execution time: 0.0793
+DEBUG - 2017-04-19 16:19:09 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:09 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:09 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:09 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:09 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:09 --> Total execution time: 0.0873
+DEBUG - 2017-04-19 16:19:23 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:23 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:23 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:23 --> Total execution time: 0.1628
+DEBUG - 2017-04-19 16:19:25 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:25 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:25 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:25 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:25 --> Total execution time: 0.0791
+DEBUG - 2017-04-19 16:19:26 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:26 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:26 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:26 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:26 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:26 --> Total execution time: 0.0914
+DEBUG - 2017-04-19 16:19:29 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:29 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:29 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:29 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:29 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:29 --> Total execution time: 0.1063
+DEBUG - 2017-04-19 16:19:35 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:35 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:35 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:35 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:35 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:35 --> Total execution time: 0.0757
+DEBUG - 2017-04-19 16:19:42 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:42 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:42 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:43 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:43 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:43 --> Total execution time: 0.0821
+DEBUG - 2017-04-19 16:19:47 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:47 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:47 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:47 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:47 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:47 --> Total execution time: 0.0781
+DEBUG - 2017-04-19 16:19:48 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:48 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:48 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:48 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:48 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:48 --> Total execution time: 0.0781
+DEBUG - 2017-04-19 16:19:52 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:19:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:19:52 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:19:52 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:19:52 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:19:52 --> Total execution time: 0.0899
+DEBUG - 2017-04-19 16:20:15 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:20:15 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:20:15 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:20:15 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:20:15 --> Total execution time: 0.2003
+DEBUG - 2017-04-19 16:20:17 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:20:17 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:20:17 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:20:17 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:20:17 --> Total execution time: 0.0807
+DEBUG - 2017-04-19 16:20:18 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:20:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:20:18 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:20:18 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:20:18 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:20:18 --> Total execution time: 0.0930
+DEBUG - 2017-04-19 16:20:19 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:20:19 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:20:19 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:20:19 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:20:19 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:20:19 --> Total execution time: 0.0801
+DEBUG - 2017-04-19 16:21:59 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:21:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:21:59 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:21:59 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:22:00 --> Total execution time: 0.1886
+DEBUG - 2017-04-19 16:22:02 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:22:02 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:22:02 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:22:02 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:22:02 --> Total execution time: 0.0956
+DEBUG - 2017-04-19 16:22:03 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:22:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:22:03 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:22:03 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:22:03 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:22:03 --> Total execution time: 0.0846
+DEBUG - 2017-04-19 16:22:05 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:22:05 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:22:05 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:22:05 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:22:05 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:22:05 --> Total execution time: 0.0947
+DEBUG - 2017-04-19 16:22:35 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:22:35 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:22:35 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:22:35 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:22:35 --> Total execution time: 0.3152
+DEBUG - 2017-04-19 16:22:38 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:22:38 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:22:38 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:22:38 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:22:38 --> Total execution time: 0.0920
+DEBUG - 2017-04-19 16:22:39 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:22:39 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:22:39 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:22:39 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:22:39 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:22:39 --> Total execution time: 0.0870
+DEBUG - 2017-04-19 16:22:40 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:22:40 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:22:40 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:22:40 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:22:40 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:22:40 --> Total execution time: 0.0957
+DEBUG - 2017-04-19 16:23:15 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:15 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:15 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:15 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:15 --> Total execution time: 0.1797
+DEBUG - 2017-04-19 16:23:17 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:17 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:17 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:17 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:17 --> Total execution time: 0.0881
+DEBUG - 2017-04-19 16:23:18 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:18 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:18 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:18 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:23:18 --> Total execution time: 0.0762
+DEBUG - 2017-04-19 16:23:20 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:20 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:20 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:20 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:20 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:23:20 --> Total execution time: 0.0874
+DEBUG - 2017-04-19 16:23:32 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:32 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:32 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:32 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:32 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:23:32 --> Total execution time: 0.0907
+DEBUG - 2017-04-19 16:23:32 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:33 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:33 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:33 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:33 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:23:33 --> Total execution time: 0.0810
+DEBUG - 2017-04-19 16:23:50 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:50 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:50 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:50 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:50 --> Total execution time: 0.1804
+DEBUG - 2017-04-19 16:23:52 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:52 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:52 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:52 --> Total execution time: 0.0805
+DEBUG - 2017-04-19 16:23:53 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:53 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:53 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:53 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:53 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:23:53 --> Total execution time: 0.0791
+DEBUG - 2017-04-19 16:23:54 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:23:54 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:23:54 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:23:54 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:23:54 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:23:54 --> Total execution time: 0.0786
+DEBUG - 2017-04-19 16:24:17 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:24:17 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:24:17 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:24:17 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:24:17 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:24:17 --> Total execution time: 0.0812
+DEBUG - 2017-04-19 16:24:18 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:24:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:24:18 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:24:18 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:24:18 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:24:18 --> Total execution time: 0.0785
+DEBUG - 2017-04-19 16:24:27 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:24:27 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:24:27 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:24:27 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:24:27 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:24:27 --> Total execution time: 0.0895
+DEBUG - 2017-04-19 16:24:28 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:24:28 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:24:28 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:24:29 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:24:29 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:24:29 --> Total execution time: 0.1108
+DEBUG - 2017-04-19 16:25:10 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:25:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:25:10 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:25:10 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:25:10 --> Total execution time: 0.1424
+DEBUG - 2017-04-19 16:25:12 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:25:12 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:25:12 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:25:12 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:25:12 --> Total execution time: 0.1028
+DEBUG - 2017-04-19 16:25:13 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:25:13 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:25:13 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:25:13 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:25:13 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:25:13 --> Total execution time: 0.0793
+DEBUG - 2017-04-19 16:25:14 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:25:14 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:25:14 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:25:14 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:25:14 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:25:14 --> Total execution time: 0.0905
+DEBUG - 2017-04-19 16:26:04 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:26:04 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:26:04 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:26:04 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:26:04 --> Total execution time: 0.1578
+DEBUG - 2017-04-19 16:26:09 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:26:09 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:26:09 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:26:10 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:26:10 --> Total execution time: 0.1055
+DEBUG - 2017-04-19 16:26:11 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:26:11 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:26:11 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:26:11 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:26:11 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:26:11 --> Total execution time: 0.0867
+DEBUG - 2017-04-19 16:26:12 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:26:12 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:26:12 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:26:12 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:26:12 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:26:12 --> Total execution time: 0.0887
+DEBUG - 2017-04-19 16:26:38 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:26:38 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:26:38 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:26:38 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:26:38 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:26:38 --> Total execution time: 0.0974
+DEBUG - 2017-04-19 16:26:38 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:26:38 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:26:38 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:26:38 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:26:38 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:26:38 --> Total execution time: 0.0944
+DEBUG - 2017-04-19 16:27:07 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:27:07 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:27:08 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:27:08 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:27:08 --> Total execution time: 0.2935
+DEBUG - 2017-04-19 16:27:11 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:27:11 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:27:11 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:27:11 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:27:11 --> Total execution time: 0.1130
+DEBUG - 2017-04-19 16:27:12 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:27:12 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:27:12 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:27:12 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:27:12 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:27:12 --> Total execution time: 0.0944
+DEBUG - 2017-04-19 16:27:13 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:27:13 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:27:13 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:27:13 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:27:13 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:27:13 --> Total execution time: 0.1145
+DEBUG - 2017-04-19 16:32:16 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:32:16 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:32:16 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:32:16 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:32:16 --> Total execution time: 0.1751
+DEBUG - 2017-04-19 16:32:18 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:32:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:32:18 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:32:18 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:32:18 --> Total execution time: 0.0785
+DEBUG - 2017-04-19 16:32:19 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:32:19 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:32:19 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:32:19 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:32:19 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:32:19 --> Total execution time: 0.0922
+DEBUG - 2017-04-19 16:32:20 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:32:20 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:32:20 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:32:20 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:32:20 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:32:20 --> Total execution time: 0.0909
+DEBUG - 2017-04-19 16:32:24 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:32:24 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:32:24 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:32:24 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:32:24 --> Total execution time: 0.0739
+DEBUG - 2017-04-19 16:32:53 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:32:53 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:32:53 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:32:53 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:32:54 --> Total execution time: 0.1723
+DEBUG - 2017-04-19 16:33:00 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:33:00 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:33:00 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:33:01 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:33:01 --> Total execution time: 0.1755
+DEBUG - 2017-04-19 16:33:02 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:33:02 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:33:02 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:33:02 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:33:02 --> Total execution time: 0.0939
+DEBUG - 2017-04-19 16:33:03 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:33:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:33:03 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:33:03 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:33:03 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:33:03 --> Total execution time: 0.0781
+DEBUG - 2017-04-19 16:33:04 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:33:04 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:33:04 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:33:04 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:33:04 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:33:04 --> Total execution time: 0.0914
+DEBUG - 2017-04-19 16:33:10 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:33:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:33:10 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:33:11 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:33:11 --> Total execution time: 0.0733
+DEBUG - 2017-04-19 16:35:41 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:35:41 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:35:41 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:35:41 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:35:41 --> Total execution time: 0.1755
+DEBUG - 2017-04-19 16:35:44 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:35:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:35:44 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:35:44 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:35:44 --> Total execution time: 0.1766
+DEBUG - 2017-04-19 16:35:46 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:35:46 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:35:46 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:35:46 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:35:46 --> Total execution time: 0.0903
+DEBUG - 2017-04-19 16:35:47 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:35:47 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:35:47 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:35:47 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:35:47 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:35:47 --> Total execution time: 0.1039
+DEBUG - 2017-04-19 16:35:48 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:35:48 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:35:48 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:35:48 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:35:48 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:35:48 --> Total execution time: 0.0814
+DEBUG - 2017-04-19 16:35:53 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:35:53 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:35:53 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:35:53 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:35:53 --> Total execution time: 0.0830
+DEBUG - 2017-04-19 16:39:05 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:05 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:05 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:05 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:05 --> Total execution time: 0.2392
+DEBUG - 2017-04-19 16:39:06 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:06 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:06 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:06 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:06 --> Total execution time: 0.2717
+DEBUG - 2017-04-19 16:39:07 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:07 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:07 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:07 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:07 --> Total execution time: 0.0868
+DEBUG - 2017-04-19 16:39:09 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:09 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:09 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:09 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:09 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:39:09 --> Total execution time: 0.0897
+DEBUG - 2017-04-19 16:39:10 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:10 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:10 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:10 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:39:10 --> Total execution time: 0.0974
+DEBUG - 2017-04-19 16:39:15 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:15 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:15 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:15 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:15 --> Total execution time: 0.3546
+DEBUG - 2017-04-19 16:39:17 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:17 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:17 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:17 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:17 --> Total execution time: 0.1987
+DEBUG - 2017-04-19 16:39:18 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:18 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:18 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:18 --> Total execution time: 0.2379
+DEBUG - 2017-04-19 16:39:20 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:20 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:20 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:20 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:20 --> Total execution time: 0.0932
+DEBUG - 2017-04-19 16:39:21 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:21 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:21 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:21 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:21 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:39:21 --> Total execution time: 0.0754
+DEBUG - 2017-04-19 16:39:23 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:23 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:23 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:23 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:39:23 --> Total execution time: 0.0864
+DEBUG - 2017-04-19 16:39:24 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:39:24 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:39:24 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:39:24 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:39:24 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:39:24 --> Total execution time: 0.0907
+DEBUG - 2017-04-19 16:40:12 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:40:12 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:40:12 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:40:12 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:40:12 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:40:12 --> Total execution time: 0.0780
+DEBUG - 2017-04-19 16:40:13 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 16:40:13 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 16:40:13 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 16:40:13 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 16:40:13 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 16:40:13 --> Total execution time: 0.0908
+DEBUG - 2017-04-19 17:01:31 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:01:31 --> No URI present. Default controller set.
+DEBUG - 2017-04-19 17:01:31 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:01:31 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:01:31 --> Total execution time: 0.0633
+DEBUG - 2017-04-19 17:01:33 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:01:33 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:01:33 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:01:34 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:01:34 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:01:34 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:01:34 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:01:34 --> Total execution time: 0.1561
+DEBUG - 2017-04-19 17:01:52 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:01:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:01:52 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:01:52 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:01:52 --> Total execution time: 0.1595
+DEBUG - 2017-04-19 17:01:55 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:01:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:01:55 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:01:55 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:01:55 --> Total execution time: 0.1080
+DEBUG - 2017-04-19 17:01:56 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:01:56 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:01:56 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:01:57 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:01:57 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:01:57 --> Total execution time: 0.1172
+DEBUG - 2017-04-19 17:01:58 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:01:58 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:01:58 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:01:58 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:01:58 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:01:58 --> Total execution time: 0.0758
+DEBUG - 2017-04-19 17:01:59 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:01:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:01:59 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:01:59 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:02:00 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:02:00 --> Total execution time: 0.0867
+DEBUG - 2017-04-19 17:02:00 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:02:00 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:02:01 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:02:01 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:02:01 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:02:01 --> Total execution time: 0.0773
+DEBUG - 2017-04-19 17:11:56 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:11:56 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:11:56 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:11:56 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:11:56 --> Total execution time: 0.2243
+DEBUG - 2017-04-19 17:11:58 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:11:58 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:11:58 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:11:58 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:11:58 --> Total execution time: 0.0779
+DEBUG - 2017-04-19 17:11:59 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:11:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:11:59 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:11:59 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:11:59 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:11:59 --> Total execution time: 0.0899
+DEBUG - 2017-04-19 17:12:00 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:12:00 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:12:00 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:12:00 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:12:00 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:12:00 --> Total execution time: 0.1150
+DEBUG - 2017-04-19 17:12:03 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:12:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:12:03 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:12:03 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:12:03 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:12:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:12:03 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:12:03 --> Total execution time: 0.1305
+DEBUG - 2017-04-19 17:15:44 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:15:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:15:44 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:15:44 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:15:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:15:44 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:15:45 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:15:45 --> Total execution time: 0.1836
+DEBUG - 2017-04-19 17:15:47 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:15:47 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:15:47 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:15:47 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:15:48 --> Total execution time: 0.1841
+DEBUG - 2017-04-19 17:15:50 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:15:50 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:15:50 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:15:50 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:15:50 --> Total execution time: 0.0908
+DEBUG - 2017-04-19 17:15:51 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:15:51 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:15:51 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:15:51 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:15:51 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:15:51 --> Total execution time: 0.0836
+DEBUG - 2017-04-19 17:15:52 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:15:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:15:52 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:15:52 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:15:52 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:15:52 --> Total execution time: 0.0934
+DEBUG - 2017-04-19 17:15:56 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:15:56 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:15:56 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:15:56 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:15:56 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:15:56 --> Total execution time: 0.0917
+DEBUG - 2017-04-19 17:15:59 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:15:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:15:59 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:15:59 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:15:59 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:15:59 --> Total execution time: 0.0925
+DEBUG - 2017-04-19 17:16:01 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:16:01 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:16:01 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:16:01 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:16:01 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '2'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:16:01 --> Total execution time: 0.0819
+DEBUG - 2017-04-19 17:16:02 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:16:02 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:16:02 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:16:02 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:16:02 --> query 
+        SELECT 
+            * 
+        FROM 
+            cuotas 
+        INNER JOIN 
+            cuotas_estados ON(cuotas_estados.id_estado = cuotas.id_estado)
+        WHERE  id_cliente = '1'  AND id_inmueble = '1'  AND ( cuotas.id_estado = '1'  OR  cuotas.id_estado = '4'   )
+DEBUG - 2017-04-19 17:16:02 --> Total execution time: 0.0955
+DEBUG - 2017-04-19 17:16:05 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:16:05 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:16:05 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:16:05 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:16:05 --> Total execution time: 0.3298
+DEBUG - 2017-04-19 17:20:57 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:20:57 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:20:57 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:20:57 --> Total execution time: 0.1338
+DEBUG - 2017-04-19 17:20:59 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:20:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:20:59 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:20:59 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:20:59 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:20:59 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:20:59 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:20:59 --> Total execution time: 0.2024
+DEBUG - 2017-04-19 17:21:46 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:21:46 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:21:46 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:21:46 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:21:46 --> Total execution time: 0.2108
+DEBUG - 2017-04-19 17:21:48 --> UTF-8 Support Enabled
+DEBUG - 2017-04-19 17:21:48 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-04-19 17:21:48 --> Config file loaded: C:\xampp\htdocs\inmobiliaria\application\config/my_config.php
+DEBUG - 2017-04-19 17:21:48 --> Benchmark class already loaded. Second attempt ignored.
+DEBUG - 2017-04-19 17:21:48 --> Total execution time: 0.0777

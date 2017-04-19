@@ -17,6 +17,7 @@ class Cuotas extends MY_Controller
         $this->load->model('m_contratos');
         $this->load->model('m_cuotas_estados');
         $this->load->model('m_formas_pagos');
+        $this->load->model('m_plantillas');
     } 
     
     
@@ -148,11 +149,43 @@ class Cuotas extends MY_Controller
                 $table .= '</tbody>'; 
                 $table .= '</table>';
                 
-                $table .= '<center><button class="btn btn-primary btn-lg">'.lang('pagar').'</center>';
+                $table .= '<center><button type="submit" class="btn btn-primary btn-lg">'.lang('pagar').'</center>';
                 
                 echo $table;
             }        
         }
+    }
+
+/*--------------------------------------------------------------------------------  
+            Administración de Afiliados: Ajax para armar la tabla
+ --------------------------------------------------------------------------------*/     
+    
+    public function setPagos()
+    {
+         foreach ($_POST as $key => $value) 
+         {
+            if(substr($key, 0, 6) == 'cuota_')
+            {
+                $id_cuota = substr($key, 6);
+                
+                $update = array(
+                    'id_estado' => '2',
+                    'fecha_pago' => date('Y-m-d'),
+                );
+                
+                $where = array(
+                    'id_cuota'  => $id_cuota,
+                );
+                
+                $this->model->update($update, $where);  
+                
+                $db['tickets'][] = $this->model->getRegistros($id_cuota);
+            }
+         }
+         
+         $db['plantillas'] = $this->m_plantillas->getRegistros(1);
+         
+         $this->armarVista('imprimir', $db);
     }
     
 }
