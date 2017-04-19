@@ -260,8 +260,8 @@ class MY_Controller extends CI_Controller
 	{
 	    $permiso = 0;
         
-	    if($this->session->userdata('logged_in'))
-	    {
+	    //if($this->session->userdata('logged_in'))
+	    //{
 	        $db['session'] = $this->session->userdata('logged_in');
             $db['subjet']  = ucwords($this->_subject);
             
@@ -287,8 +287,8 @@ class MY_Controller extends CI_Controller
                 }    
             }
             
-            if($permiso == 1)
-            {
+            //if($permiso == 1)
+            //{
                 if(strtolower($this->_subject.'/'.$vista) != 'logs_usuarios/abm')
                 {
                      $this->setLog(4, $this->_subject.'/'.$vista, 'access');
@@ -301,15 +301,15 @@ class MY_Controller extends CI_Controller
                 $this->load->view('plantilla/menu-left');
                 $this->load->view($this->_subject.'/'.$vista);
                 $this->load->view('plantilla/footer'); 
-            }else 
-            {
-               $this->setLog(4, $this->_subject.'/'.$vista.'/', 'denied_access');
-               redirect($this->logout, 'refresh'); 
-            }
-        }else  
-        {
-            redirect($this->logout, 'refresh');
-        }
+            //}else 
+            //{
+            //   $this->setLog(4, $this->_subject.'/'.$vista.'/', 'denied_access');
+            //   redirect($this->logout, 'refresh'); 
+            //}
+        //}else  
+        //{
+        //    redirect($this->logout, 'refresh');
+        //}
 	}
 
 

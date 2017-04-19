@@ -149,7 +149,11 @@ class Cuotas extends MY_Controller
                 $table .= '</tbody>'; 
                 $table .= '</table>';
                 
-                $table .= '<center><button type="submit" class="btn btn-primary btn-lg">'.lang('pagar').'</center>';
+                $table .= '<center>';
+                $table .= '<button type="submit" class="btn btn-app">';
+                $table .= '<i class="fa fa-credit-card"></i> '.$this->lang->line('pagar');
+                $table .= '</button>';
+                '</center>';
                 
                 echo $table;
             }        

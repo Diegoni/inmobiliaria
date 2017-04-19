@@ -132,6 +132,7 @@ $lang['id_factura']         = "ID Factura";
 $lang['inmueble']         	= "Inmueble";
 $lang['inmuebles']         	= "Inmuebles";
 $lang['inicio_cuota']       = "Inicio cuota";
+$lang['imprimir']           = "Imprimir";
 
 /*--------------------------------------------------------------------------------  
     L
