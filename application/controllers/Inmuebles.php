@@ -16,6 +16,7 @@ class Inmuebles extends MY_Controller
         $this->load->model('m_inmuebles_estados');
 		$this->load->model('m_inmuebles_tipos');
         $this->load->model('m_proyectos');
+        $this->load->model('m_contratos');
     } 
     
     
@@ -64,6 +65,25 @@ class Inmuebles extends MY_Controller
             foreach ($inmueble  as $row) 
             {
                 echo $row->precio;
+            }
+        }
+    }
+    
+/*--------------------------------------------------------------------------------  
+            Funciones para ajax: localidades de una provincia
+ --------------------------------------------------------------------------------*/
+
+    public function getInmuebles()
+    {
+        if($this->input->post('id_cliente'))
+        {
+            $id_cliente = $this->input->post('id_cliente');             
+            $contratos  = $this->m_contratos->getRegistros($id_cliente, 'id_cliente');
+            
+            echo '<option value="" disabled selected style="display:none;">Seleccione una opcion...</option>';
+            foreach ($contratos  as $row) 
+            {
+                echo '<option value="'.$row->id_inmueble.'">'.$row->inmueble.'</option>';
             }
         }
     }

@@ -184,6 +184,7 @@ $lang['origen']             = "Origen";
     P
  --------------------------------------------------------------------------------*/ 
 
+$lang['pagar']              = "Pagar";
 $lang['pais']               = "Pais";
 $lang['padre']              = "Padre";
 $lang['provincia']          = "Provincia";
@@ -256,6 +257,7 @@ $lang['ver']                = "Ver";
 $lang['version']            = "Versión";
 $lang['validez']            = "Validez";
 $lang['vencimiento_cuota']  = "Vencimiento cuota";
+$lang['vencimiento']        = "Vencimiento";
 
 /*--------------------------------------------------------------------------------  
     W

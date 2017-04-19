@@ -1,8 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class Cuotas extends MY_Controller 
 {
-	protected $_subject = 'cuotas';
+    protected $_subject = 'cuotas';
     protected $_model   = 'm_cuotas';
     
     function __construct()
@@ -14,7 +13,7 @@ class Cuotas extends MY_Controller
         
         $this->load->model($this->_model, 'model');  
         $this->load->model('m_clientes');
-		$this->load->model('m_inmuebles');
+        $this->load->model('m_inmuebles');
         $this->load->model('m_contratos');
         $this->load->model('m_cuotas_estados');
         $this->load->model('m_formas_pagos');
@@ -32,12 +31,11 @@ class Cuotas extends MY_Controller
     
     function abm($id = NULL)
     {                           
-        $db['clientes']    	= $this->m_clientes->getRegistros();
+        $db['clientes']     = $this->m_clientes->getRegistros();
         $db['inmuebles']    = $this->m_inmuebles->getRegistros();
         $db['contratos']    = $this->m_contratos->getRegistros();
         $db['cuotas_estados'] = $this->m_cuotas_estados->getRegistros();
         $db['formas_pagos'] = $this->m_formas_pagos->getRegistros();
-
         $db['campos']   = array(
             array('select',   'id_cliente',  'cliente', $db['clientes'], 'disabled'),
             array('select',   'id_inmueble', 'inmueble', $db['inmuebles'], 'disabled'),
@@ -88,20 +86,66 @@ class Cuotas extends MY_Controller
         } 
         echo '{ "data": ['.$json.' ]  }';
     }
-
-/*--------------------------------------------------------------------------------- 
------------------------------------------------------------------------------------  
-            
-       Ejemplo de abm
-  
------------------------------------------------------------------------------------ 
----------------------------------------------------------------------------------*/   
+/*--------------------------------------------------------------------------------  
+            Administración de Afiliados: Ajax para armar la tabla
+ --------------------------------------------------------------------------------*/     
     
-    
-    function registros()
+    public function resumen()
     {
-        $db['clientes']     = $this->m_clientes->getRegistros();
-        $this->armarVista('registros', $db);
+         $db['clientes']        = $this->m_clientes->getRegistros();
+         $db['cuotas_estados']      = $this->m_cuotas_estados->getRegistros();
+         
+         $this->armarVista('resumen', $db);
+    }
+    
+/*--------------------------------------------------------------------------------  
+            Funciones para ajax: localidades de una provincia
+ --------------------------------------------------------------------------------*/
+
+    public function getCuotas()
+    {
+        if($this->input->post('id_cliente'))
+        {
+            $id_cliente = $this->input->post('id_cliente');
+            $id_inmueble = $this->input->post('id_inmueble');   
+            
+            $where = array(
+                'cuotas.id_cliente' => $id_cliente,
+                'cuotas.id_inmueble' => $id_inmueble,
+            );
+                          
+            $coutas  = $this->model->getRegistros($where);
+            if($coutas)
+            {
+                $table = '<table class="table table-hover table-responsive dataTable" id="table_cuotas">';
+                $table .= '<thead>';
+                    $table .= '<tr>';
+                    $table .= '<td></td>';
+                    $table .= '<td>'.lang('monto').'</td>';
+                    $table .= '<td>'.lang('inicio').'</td>';
+                    $table .= '<td>'.lang('vencimiento').'</td>';
+                    $table .= '<td>'.lang('estado').'</td>';
+                    $table .= '</tr>';
+                $table .= '</thead>';                    
+                $table .= '<tbody>';
+                foreach ($coutas  as $row) 
+                {
+                    $table .= '<tr>';
+                    $table .= '<td><input type="checkbox"></td>';
+                    $table .= '<td>'.$row->monto.'</td>';
+                    $table .= '<td>'.date('d-m-Y', strtotime($row->fecha_inicio)).'</td>';
+                    $table .= '<td>'.date('d-m-Y', strtotime($row->fecha_vencimiento)).'</td>';
+                    $table .= '<td>'.$row->estado.'</td>';
+                    $table .= '</tr>';
+                }   
+                $table .= '</tbody>'; 
+                $table .= '</table>';
+                
+                $table .= '<center><button class="btn btn-primary btn-lg">'.lang('pagar').'</center>';
+                
+                echo $table;
+            }        
+        }
     }
     
 }
