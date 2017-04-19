@@ -15,6 +15,7 @@ class Cuotas extends MY_Controller
         $this->load->model('m_clientes');
         $this->load->model('m_inmuebles');
         $this->load->model('m_contratos');
+		$this->load->model('m_cuotas_actualizaciones');
         $this->load->model('m_cuotas_estados');
         $this->load->model('m_formas_pagos');
         $this->load->model('m_plantillas');
@@ -202,13 +203,16 @@ class Cuotas extends MY_Controller
         $impagas    = $this->model->getRegistros('1', 'id_estado');
         $emitidas   = $this->model->getRegistros('4', 'id_estado');
         $fecha_actua = date('Y-m-d'); 
-        //3vencida
+		$cat_imp	= 0;
+		$cat_ven	= 0;
+		
         if($impagas)
         {
             foreach ($impagas as $row_impagas) 
             {
                 if($row_impagas->fecha_inicio <= $fecha_actua)
                 {
+                	$cat_imp = $cat_imp + 1;
                     $set[] = array(
                         'id_cuota'        => $row_impagas->id_cuota,
                         'id_estado'       => '4',
@@ -223,6 +227,7 @@ class Cuotas extends MY_Controller
             {
                 if($row_emitidas->fecha_vencimiento <= $fecha_actua)
                 {
+                	$cat_ven = $cat_ven + 1;
                     $set[] = array(
                         'id_cuota'        => $row_emitidas->id_cuota,
                         'id_estado'       => '3',
@@ -232,6 +237,13 @@ class Cuotas extends MY_Controller
         }        
         
         $this->model->actualizar($set);
+		
+		$actualiacion = array(
+			'emitidas'	=> $cat_imp,
+			'vencidas'	=> $cat_ven
+		);
+		
+		$this->m_cuotas_actualizaciones->insert($actualiacion);
     }    
 }
 ?>

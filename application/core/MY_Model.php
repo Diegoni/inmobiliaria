@@ -446,6 +446,7 @@ class MY_Model extends CI_Model
 	function logUsuario($arreglo_campos, $action, $id)
 	{
 		$no_log = array (
+			'cuotas_actualizaciones',
 			'logs_usuarios',
 		);
 		
