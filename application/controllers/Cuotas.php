@@ -136,6 +136,9 @@ class Cuotas extends MY_Controller
                     if($row->id_estado == 2)
                     {
                         $table .= '<td></td>';
+                    }else if($row->id_estado == 3)
+                    {
+                        $table .= '<td><input type="checkbox" class="montos" name="cuota_'.$row->id_cuota.'" value="'.$row->monto_interes.'" onclick="sumarMontos()"></td>';
                     }else
                     {
                         $table .= '<td><input type="checkbox" class="montos" name="cuota_'.$row->id_cuota.'" value="'.$row->monto.'" onclick="sumarMontos()"></td>';    
@@ -174,8 +177,9 @@ class Cuotas extends MY_Controller
                 $id_cuota = substr($key, 6);
                 
                 $update = array(
-                    'id_estado' => '2',
+                    'id_estado'  => '2',
                     'fecha_pago' => date('Y-m-d'),
+                    'monto_pago' => $value, 
                 );
                 
                 $where = array(

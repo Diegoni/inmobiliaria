@@ -110,6 +110,8 @@ function controlContrato()
     var inicio_cuota = $("#inicio_cuota").val();
     var vencimiento_cuota = $("#vencimiento_cuota").val();
     var monto = $("#monto").val();
+    var monto_cuota = $("#monto_cuota").val();
+    var monto_interes = $("#monto_interes").val();
     var monto_anticipo = $("#monto_anticipo").val();
     var cuotas = $("#cuotas").val();
     var error = 1;
@@ -133,7 +135,12 @@ function controlContrato()
     }else if(monto_anticipo != monto && cuotas == '')
     {
        alert("Debes ingresar la cantidad de cuotas");
-        $("#cuotas").focus(); 
+        $("#cuotas").focus();
+    }else if(monto_cuota > monto_interes)
+    {
+       alert("La cuota no puede ser mayor que el interes");
+        $("#monto_interes").focus(); 
+     
     }else{
         error = 2;
     }

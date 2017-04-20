@@ -24,7 +24,7 @@ if(isset($plantilla))
             {
                 $_ticket = str_replace ('#cliente#', $row_cuota->cliente, $_ticket);
                 $_ticket = str_replace ('#inmueble#', $row_cuota->inmueble, $_ticket);
-                $_ticket = str_replace ('#monto#', formatImporte($row_cuota->monto), $_ticket);
+                $_ticket = str_replace ('#monto#', formatImporte($row_cuota->monto_pago), $_ticket);
                 $_ticket = str_replace ('#fecha_pago#', formatDate($row_cuota->fecha_pago), $_ticket);
             }
             $_tickets[] = $_ticket.'<hr>';
