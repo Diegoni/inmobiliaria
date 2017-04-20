@@ -129,6 +129,7 @@ class Cuotas extends MY_Controller
                     $table .= '<tr class="success" role="row">';
                     $table .= '<th></th>';
                     $table .= '<th>'.lang('monto').'</th>';
+                    $table .= '<th>'.lang('monto_interes').'</th>';
                     $table .= '<th>'.lang('inicio').'</th>';
                     $table .= '<th>'.lang('vencimiento').'</th>';
                     $table .= '<th>'.lang('estado').'</th>';
@@ -141,15 +142,21 @@ class Cuotas extends MY_Controller
                     if($row->id_estado == 2)
                     {
                         $table .= '<td></td>';
+                        $table .= '<td>'.formatImporte($row->monto).'</td>';
+                        $table .= '<td>'.formatImporte($row->monto_interes).'</td>';
                     }else if($row->id_estado == 3)
                     {
                         $table .= '<td><input type="checkbox" class="montos" name="cuota_'.$row->id_cuota.'" value="'.$row->monto_interes.'" onclick="sumarMontos()"></td>';
+                        $table .= '<td>'.formatImporte($row->monto).'</td>';
+                        $table .= '<td class="info">'.formatImporte($row->monto_interes).'</td>';
                     }else
                     {
-                        $table .= '<td><input type="checkbox" class="montos" name="cuota_'.$row->id_cuota.'" value="'.$row->monto.'" onclick="sumarMontos()"></td>';    
+                        $table .= '<td><input type="checkbox" class="montos" name="cuota_'.$row->id_cuota.'" value="'.$row->monto.'" onclick="sumarMontos()"></td>';
+                        $table .= '<td class="info">'.formatImporte($row->monto).'</td>';
+                        $table .= '<td>'.formatImporte($row->monto_interes).'</td>';    
                     }
                     
-                    $table .= '<td>'.formatImporte($row->monto).'</td>';
+                   
                     $table .= '<td>'.formatDate($row->fecha_inicio).'</td>';
                     $table .= '<td>'.formatDate($row->fecha_vencimiento).'</td>';
                     $table .= '<td>'.$row->estado.'</td>';

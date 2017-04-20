@@ -21,7 +21,7 @@ foreach ($cuotas_estados as $row_cuota_estado)
 	$html .= '<div class="col-sm-1">';
 	$html .= '<div class="checkbox">';
 	$html .= '<label><input type="checkbox" onclick="getCuotas()" id="estado_'.$row_cuota_estado->id_estado.'" value="'.$row_cuota_estado->id_estado.'"';
-	if($row_cuota_estado->id_estado == 4)
+	if($row_cuota_estado->id_estado == 3 || $row_cuota_estado->id_estado == 4)
 	{
 	    $html .= ' checked ';
 	}
