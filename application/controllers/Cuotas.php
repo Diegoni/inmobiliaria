@@ -37,14 +37,19 @@ class Cuotas extends MY_Controller
         $db['inmuebles']    = $this->m_inmuebles->getRegistros();
         $db['contratos']    = $this->m_contratos->getRegistros();
         $db['cuotas_estados'] = $this->m_cuotas_estados->getRegistros();
-        $db['formas_pagos'] = $this->m_formas_pagos->getRegistros();
+        $db['estados']      = $this->m_cuotas_estados->getRegistros();
+        
         $db['campos']   = array(
             array('select',   'id_cliente',  'cliente', $db['clientes'], 'disabled'),
             array('select',   'id_inmueble', 'inmueble', $db['inmuebles'], 'disabled'),
             array('select',   'id_contrato', 'contrato', $db['contratos'], 'disabled'),
-            array('monto',    'onlyFloat', 'required'),
-            array('fecha_pago',    '', 'required'),
-            array('select',   'id_forma_pago', 'forma_pago', $db['formas_pagos'], 'required'),
+            array('monto',    '', 'disabled'),
+            array('monto_interes',    '', 'disabled'),
+            array('fecha_inicio',    '', 'disabled'),
+            array('fecha_vencimiento',    '', 'disabled'),
+            array('select',   'id_estado', 'estado', $db['estados'], 'disabled'),
+            array('monto_pago',    '', 'disabled'),
+            array('fecha_pago',    '', 'disabled'),
         );
         
         $this->armarAbm($id, $db);

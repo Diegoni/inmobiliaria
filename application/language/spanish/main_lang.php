@@ -100,6 +100,8 @@ $lang['forma_juridica']     = "Forma juridica";
 $lang['forma_pago']         = "Forma pago";
 $lang['factura']            = "Factura";
 $lang['fecha_pago']         = "Fecha pago";
+$lang['fecha_inicio']       = "Fecha inicio";
+$lang['fecha_vencimiento']  = "Fecha vencimiento";
 
 /*--------------------------------------------------------------------------------  
     G
@@ -152,6 +154,8 @@ $lang['modificar']          = "Modificar";
 $lang['monto']              = "Monto";
 $lang['monto_cuota']        = "Monto cuota";
 $lang['monto_anticipo']     = "Monto anticipo";
+$lang['monto_interes']      = "Monto interés";
+$lang['monto_pago']        = "Monto pago";
 $lang['menu']               = "Menu";
 $lang['marcacion']          = "Marcación";
 

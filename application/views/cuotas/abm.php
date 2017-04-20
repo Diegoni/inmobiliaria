@@ -59,7 +59,7 @@ $("[data-inputmask]").inputmask();
 $(".checkbox").bootstrapSwitch();
 
 $(function() {
-    $('#fecha_pago').datepicker({maxDate: '0'});
+    $('#modificar').hide();
 });    
 </script>
 

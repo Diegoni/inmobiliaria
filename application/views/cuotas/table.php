@@ -24,7 +24,7 @@ $modal =
   <i class="fa fa-filter"></i> Filtros especiales
 </button>';
  
-$html .= getExportsButtons($cabeceras, $modal);
+$html .= getExportsButtons($cabeceras);
 
 $html .= startTable($cabeceras);
 $html .= endTable($cabeceras);    
