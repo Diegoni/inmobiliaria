@@ -19,6 +19,7 @@ class Cuotas extends MY_Controller
         $this->load->model('m_cuotas_estados');
         $this->load->model('m_formas_pagos');
         $this->load->model('m_plantillas');
+        $this->load->model('m_proyectos');
     } 
     
     

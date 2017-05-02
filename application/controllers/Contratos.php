@@ -110,6 +110,7 @@ class Contratos extends MY_Controller
             }
 
             $cuota = array(
+                'numero'        => $i+1,
                 'id_cliente'    => $registro['id_cliente'],
                 'id_inmueble'   => $registro['id_inmueble'],
                 'id_contrato'   => $id,

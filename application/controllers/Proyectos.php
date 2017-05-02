@@ -53,6 +53,7 @@ class Proyectos extends MY_Controller
             array('proyecto',    '', 'required'),
             array('select',   'id_tipo',  'tipo', $db['tipos']),
             array('nro_referencia',    '', ''),
+            array('direccion',    '', ''),
            	array('dimension',    '', ''),
            	array('select',   'id_provincia',  'provincia', $db['provincias'], 'onchange="provincias_activas()"'),
            	array('select',   'id_localidad',  'localidad', $db['localidades']),
