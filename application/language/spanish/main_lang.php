@@ -66,6 +66,7 @@ $lang['date_add']           = "Fecha alta";
 $lang['dia']                = "Día";
 $lang['dias']               = "Días";
 $lang['dimension']          = "Dimensión";
+$lang['direccion']          = "Dirección";
 
 /*--------------------------------------------------------------------------------  
     E

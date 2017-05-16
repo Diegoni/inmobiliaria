@@ -5,6 +5,7 @@
  
 $cabeceras = array(
     lang('inmueble'),
+    lang('tipo'),
     lang('proyecto'),
     lang('estado'),
     lang('opciones'),
@@ -36,6 +37,7 @@ if($registros)
     {
         $registro = array(
         	$row->inmueble,
+        	$row->tipo,
             $row->proyecto,
             $row->estado,
             tableUpd($subjet, $row->id_inmueble),

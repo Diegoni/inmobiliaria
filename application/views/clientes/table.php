@@ -5,6 +5,7 @@
  
 $cabeceras = array(
     lang('cliente'),
+    lang('telefono'),
     lang('tipo'),
     lang('opciones'),
 );
@@ -35,6 +36,7 @@ if($registros)
     {
         $registro = array(
             $row->cliente,
+            $row->telefono,
             $row->tipo,
             tableUpd($subjet, $row->id_cliente),
         );

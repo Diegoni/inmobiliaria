@@ -65,7 +65,7 @@ class Contratos extends MY_Controller
                 array('select', 'id_forma_pago',  'forma_pago', $db['formas_pagos'], 'disabled'),
                 array('cuotas', 'onlyInt', 'disabled'),
                 array('monto_cuota','onlyFloat', 'disabled'),
-                array('monto_interes','onlyFloat', ''),
+                array('monto_interes','onlyFloat', 'disabled'),
                 array('inicio_cuota', '[99]', 'disabled'),
                 array('vencimiento_cuota', '[99]', 'disabled'),
                 array('comentario', '', 'disabled'),
