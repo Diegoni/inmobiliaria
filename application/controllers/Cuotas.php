@@ -261,6 +261,8 @@ class Cuotas extends MY_Controller
 		);
 		
 		$this->m_cuotas_actualizaciones->insert($actualiacion);
+        
+        echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
     }    
 }
 ?>

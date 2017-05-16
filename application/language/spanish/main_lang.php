@@ -16,8 +16,8 @@ $lang['advertencia']        = "Advertencia";
 $lang['asunto_warning']     = "Asunto warning";
 $lang['asunto_danger']      = "Asunto danger";
 $lang['archivo']            = "Archivo";
-$lang['animal']             = "Animal";
-$lang['animales']           = "Animales";
+$lang['agua']               = "Agua";
+$lang['ano_construccion']   = "Año construccion";
 $lang['altura']             = "Altura";
 $lang['apellidos']          = "Apellidos";
 
@@ -27,6 +27,7 @@ $lang['apellidos']          = "Apellidos";
 
  $lang['buscar']             = "Buscar";
  $lang['backup']             = "Backup";
+ $lang['banos']              = "Baños"; 
 
 /*--------------------------------------------------------------------------------  
     C
@@ -42,7 +43,7 @@ $lang['confirm_pass']       = "Confirmar Password";
 $lang['comentario']         = "Comentario";
 $lang['comentario_publico'] = "Comentario público";
 $lang['comentario_privado'] = "Comentario privado";
-$lang['compuerta']          = "Compuerta";
+$lang['cloaca']             = "Cloaca";
 $lang['cod_post']           = "Codigo Postal";
 $lang['cuit']               = "Cuit";
 $lang['cargando']           = "Cargando";
@@ -79,7 +80,7 @@ $lang['empresas']           = "Empresas";
 $lang['email_salida']       = "Email salida";
 $lang['eliminar']           = "Eliminar";
 $lang['esquema']            = "Esquema";
-$lang['encargado']          = "Encargado";
+$lang['expensas']           = "Expensas";
 $lang['egreso']             = "Egreso";
 $lang['empleado']           = "Empleado";
 $lang['envio']              = "Envio";
@@ -107,13 +108,15 @@ $lang['fecha_vencimiento']  = "Fecha vencimiento";
     G
  --------------------------------------------------------------------------------*/ 
  
- 
+$lang['garaje']             = "Garaje"; 
+$lang['gas']                = "Gas";
  
  /*--------------------------------------------------------------------------------  
    H
  --------------------------------------------------------------------------------*/ 
 
 $lang['height']             = "height";
+$lang['habitaciones']       = "Habitaciones";
 
 /*--------------------------------------------------------------------------------  
     I
@@ -140,7 +143,7 @@ $lang['imprimir']           = "Imprimir";
     L
  --------------------------------------------------------------------------------*/ 
 
-$lang['lector']             = "Lector";
+$lang['luz']                = "Luz";
 $lang['localidad']          = "Localidad";
 $lang['log_in']             = "Log in";
 $lang['lote']               = "Lote";
@@ -209,6 +212,9 @@ $lang['proyecto']           = "Proyecto";
 $lang['proyectos']          = "Proyectos";
 $lang['precio']          	= "Precio";
 $lang['plantilla']          = "Plantilla";
+$lang['permuta']            = "Permuta";
+$lang['plantas']            = "Plantas";
+$lang['permuta']            = "Permuta";
 
 /*--------------------------------------------------------------------------------  
     R
@@ -227,8 +233,8 @@ $lang['registro']           = "Registro";
 $lang['salir']              = "Salir";
 $lang['siguiente']          = "Siguiente";
 $lang['sector']             = "Sector";
-$lang['servo_uno']          = "Servo uno";
-$lang['servo_dos']          = "Servo dos";
+$lang['superficie_cubierta']= "Superficie cubierta";
+
 
 /*--------------------------------------------------------------------------------  
     T
