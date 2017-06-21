@@ -38,4 +38,5 @@ CKEDITOR.editorConfig = function( config ) {
 	
 	config.extraPlugins='htmlbuttons';
 	config.extraPlugins='justify';
+	config.extraPlugins = 'font';
 };
