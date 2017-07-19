@@ -89,6 +89,13 @@ $(function() {
     {
         calculoCouta();
     });
+    
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    
+    $("#fecha_inicio").val(yyyy+"-"+mm+"-"+dd);
 });
 
 function calculoCouta()
@@ -107,13 +114,13 @@ function calculoCouta()
 
 function controlContrato()
 {
-    var inicio_cuota = $("#inicio_cuota").val();
-    var vencimiento_cuota = $("#vencimiento_cuota").val();
-    var monto = $("#monto").val();
-    var monto_cuota = $("#monto_cuota").val();
-    var monto_interes = $("#monto_interes").val();
-    var monto_anticipo = $("#monto_anticipo").val();
-    var cuotas = $("#cuotas").val();
+    var inicio_cuota = parseInt($("#inicio_cuota").val());
+    var vencimiento_cuota = parseInt($("#vencimiento_cuota").val());
+    var monto =  parseFloat($("#monto").val());
+    var monto_cuota = parseFloat($("#monto_cuota").val());
+    var monto_interes = parseFloat($("#monto_interes").val());
+    var monto_anticipo = parseFloat($("#monto_anticipo").val());
+    var cuotas = parseInt($("#cuotas").val());
     var error = 1;
         
     if(inicio_cuota > 30)
@@ -155,4 +162,5 @@ function controlContrato()
     }
     
 }
+
 </script>

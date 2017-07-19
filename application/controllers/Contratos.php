@@ -45,11 +45,12 @@ class Contratos extends MY_Controller
                 array('monto', 'onlyFloat', ''),
                 array('monto_anticipo', 'onlyFloat', ''),
                 array('select', 'id_forma_pago',  'forma_pago', $db['formas_pagos']),
-                array('cuotas', 'onlyInt', ''),
+                array('cuotas', 'onlyInt', 'readonly'),
                 array('monto_cuota','onlyFloat', 'readonly'),
                 array('monto_interes','onlyFloat', ''),
-                array('inicio_cuota', '[99]', ''),
-                array('vencimiento_cuota', '[99]', ''),
+                array('fecha_inicio','', 'required'),
+                array('inicio_cuota', '[99]', 'required'),
+                array('vencimiento_cuota', '[99]', 'required'),
                 array('comentario', '', ''),
             ); 
         }else
@@ -66,6 +67,7 @@ class Contratos extends MY_Controller
                 array('cuotas', 'onlyInt', 'disabled'),
                 array('monto_cuota','onlyFloat', 'disabled'),
                 array('monto_interes','onlyFloat', 'disabled'),
+                array('fecha_inicio','', 'disabled'),
                 array('inicio_cuota', '[99]', 'disabled'),
                 array('vencimiento_cuota', '[99]', 'disabled'),
                 array('comentario', '', 'disabled'),
@@ -90,9 +92,11 @@ class Contratos extends MY_Controller
     function afterInsert($registro, $id)
     {
         // Generacion de cuotas
+        $fecha_array = explode('-', $registro['fecha_inicio']);
+        $fecha_actual = $fecha_array[0].'-'.$fecha_array[1].'-'.$fecha_array[2];
+        $fecha_actual = date('Y-m-j', strtotime($fecha_actual));
         
-        $fecha_actual = date('Y-m-j');
-        for ($i=0; $i < $registro['cuotas']; $i++) 
+        for ($i=0 ; $i < $registro['cuotas']; $i++) 
         {
             $fecha_nueva  = strtotime( "+$i month" , strtotime($fecha_actual)) ;
             $fecha_inicio = date('Y-m-'.$registro['inicio_cuota'] , $fecha_nueva);
