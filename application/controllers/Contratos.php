@@ -45,7 +45,7 @@ class Contratos extends MY_Controller
                 array('monto', 'onlyFloat', ''),
                 array('monto_anticipo', 'onlyFloat', ''),
                 array('select', 'id_forma_pago',  'forma_pago', $db['formas_pagos']),
-                array('cuotas', 'onlyInt', 'readonly'),
+                array('cuotas', 'onlyInt', 'required'),
                 array('monto_cuota','onlyFloat', 'readonly'),
                 array('monto_interes','onlyFloat', ''),
                 array('fecha_inicio','', 'required'),

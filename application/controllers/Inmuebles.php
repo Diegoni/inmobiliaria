@@ -17,6 +17,7 @@ class Inmuebles extends MY_Controller
 		$this->load->model('m_inmuebles_tipos');
         $this->load->model('m_proyectos');
         $this->load->model('m_contratos');
+        $this->load->model('m_cuotas');
     } 
     
     
@@ -30,10 +31,12 @@ class Inmuebles extends MY_Controller
     
     
     function abm($id = NULL)
-    {                           
+    {
+                                   
         $db['estados']    	= $this->m_inmuebles_estados->getRegistros();
 		$db['tipos']    	= $this->m_inmuebles_tipos->getRegistros();
-        $db['proyectos']  = $this->m_proyectos->getRegistros();
+        $db['proyectos']    = $this->m_proyectos->getRegistros();
+        $db['estado']       = 0;
         
         $db['campos']   = array(
             array('inmueble',    '', 'required'),
@@ -60,6 +63,53 @@ class Inmuebles extends MY_Controller
            	array('select',   'id_estado',  'estado', $db['estados'], 'disabled'),
             array('comentario',    '', ''),
         );
+        
+        if($id != NULL)
+        {
+            $registro = $this->model->getRegistros($id);
+            if($registro)
+            {
+                foreach ($registro as $_row) 
+                {
+                    $estado = $_row->id_estado;    
+                }
+                
+                if($estado == 2)
+                {
+                    $db['campos']   = array(
+                        array('inmueble',    '', 'disabled'),
+                        array('select',   'id_proyecto',  'proyecto', $db['proyectos'], 'disabled'),
+                        array('select',   'id_tipo',  'tipo', $db['tipos'], 'disabled'),
+                        array('precio',    'onlyFloat', 'disabled'),
+                        array('nro_referencia',    '', 'disabled'),
+                        array('dimension',    '', 'disabled'),
+                        array('calle',    '', 'disabled'),
+                        array('calle_numero',    '[9999]', 'disabled'),
+                        array('superficie_cubierta',    '', 'disabled'),
+                        array('habitaciones',    '[99]', 'disabled'),
+                        array('plantas',    '[99]', 'disabled'),
+                        array('banos',    '[99]', 'disabled'),
+                        array('checkbox', 'permuta'),
+                        array('checkbox', 'permuta'),
+                        array('checkbox', 'garaje'),
+                        array('checkbox', 'agua'),
+                        array('checkbox', 'luz'),
+                        array('checkbox', 'gas'),
+                        array('checkbox', 'cloaca'),
+                        array('checkbox', 'expensas'),
+                        array('ano_construccion',    '[9999]', 'disabled'),
+                        array('select',   'id_estado',  'estado', $db['estados'], 'disabled'),
+                        array('comentario',    '', 'disabled'),
+                    );
+                    
+                    $db['contrato'] = $this->m_contratos->getRegistros($id, 'id_inmueble');
+                    $db['cuotas'] = $this->m_cuotas->getRegistros($id, 'id_inmueble');
+                    
+                    $db['estado']       = 2;
+                }
+            }    
+        }
+        
         
         $this->armarAbm($id, $db);
     }
