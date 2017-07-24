@@ -98,6 +98,11 @@ if($estado == 2)
     $html .= '</div>';
     $html .= '<div class="tab-pane" id="tab_3">';
     
+    $datos_v = array(
+        'primer_vencimiento'  => 0,
+        'segundo_vencimiento'  => 0,
+    );
+    
 
     if($cuotas)
     {
@@ -105,6 +110,25 @@ if($estado == 2)
         
         foreach ($cuotas as $_row) 
         {
+            if(isset($datos_n[$_row->estado]))
+            {
+                $datos_n[$_row->estado] = $datos_n[$_row->estado] + 1;
+            }else
+            {
+                $datos_n[$_row->estado] = 1;
+            }
+            
+            if($_row->id_estado == 2)
+            {
+                if($_row->monto_pago == $_row->monto)
+                {
+                    $datos_v['primer_vencimiento'] = $datos_v['primer_vencimiento'] + 1; 
+                }else
+                {
+                    $datos_v['segundo_vencimiento'] = $datos_v['segundo_vencimiento'] + 1;
+                }
+            }
+             
             $_cuotas = (array) $_row;
             
             foreach ($_cuotas as $_row => $_value) 
@@ -119,6 +143,7 @@ if($estado == 2)
                        
                 }
             }
+            
             if($_c == 1)
             {
                 $html .= startTable($cabeceras);    
@@ -134,23 +159,46 @@ if($estado == 2)
         $html .= setDatatables();
     }
     
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '</div>'; 
-    $html .= '</div>';
-    $html .= '</section>';
+    $html .= '<div class="row">';
+    $html .= '<div class="col-md-12">';
+        
+    $html .= setGraficoDiv('id_barra');
+    $html .= setGraficoDiv('id_pagos');
+    
+    $opciones_n = array(
+        'title'     => 'Estado cuotas',
+        'id'        => 'id_barra',
+        'type'      => '3d'
+    );
+    
+    $opciones_v = array(
+        'title'     => 'Tipo Pago',
+        'id'        => 'id_pagos',
+        'type'      => '3d'
+    );
+    
+    $graficos = new Graficos();
+    $html .= $graficos->torta($opciones_n, $datos_n);
+    $html .= $graficos->torta($opciones_v, $datos_v);
+     
+    $html .= '</div>';//<div class="col-md-12">    
+    $html .= '</div>';//<div class="row">
+    $html .= '</div>';//<div class="tab-pane" id="tab_3">
+    
+    $html .= '</div>'; //<div class="nav-tabs-custom">
+    $html .= '</div>'; //<div class="col-md-12">
+    $html .= '</div>'; // <div class="row">
+    
+    $html .= '</section>'; //<section class="content">
     
 }else{
      
-$html .= endContent();
+    $html .= endContent();
 }                   
-
 
 /*--------------------------------------------------------------------------------  
             Fin del contenido y js
- --------------------------------------------------------------------------------*/ 
-
+--------------------------------------------------------------------------------*/ 
 
 if($estado == 2)
 {
@@ -167,4 +215,5 @@ echo $html;
 <script>
 $("[data-inputmask]").inputmask();
 $(".checkbox").bootstrapSwitch();
+
 </script>

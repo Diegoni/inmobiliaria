@@ -102,6 +102,8 @@ class Inmuebles extends MY_Controller
                         array('comentario',    '', 'disabled'),
                     );
                     
+                    $this->load->library('Graficos');
+                    
                     $db['contrato'] = $this->m_contratos->getRegistros($id, 'id_inmueble');
                     $db['cuotas'] = $this->m_cuotas->getRegistros($id, 'id_inmueble');
                     
