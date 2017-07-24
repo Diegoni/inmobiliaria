@@ -696,8 +696,9 @@ function setTableContent($registros, $class = NULL)
 
 function setCheckbox($check, $registro, $checked = NULL)
 {
-	$return = setLabel(lang($check), 2);
-	$return .= '<div class="col-sm-8 text-center">';
+    $size = getSizes();
+	$return = setLabel(lang($check), $size['label']);
+	$return .= '<div class="col-sm-'.$size['input'].' text-center">';
 	$return .= '<input type="checkbox" name="'.$check.'" id="'.$check.'" class="checkbox" value="'.$registro[$check].'"';
 	
 	if($checked === NULL && $registro[$check] == 0){
@@ -1192,10 +1193,31 @@ function setForm($campos, $registro_values, $registro, $id_table)
             }
         }
     }
-     //-- Carga del formulario --
+    
+    $cantidad = 0;
+    $size = getSizes();
+    $suma_size = $size['label'] + $size['input']; 
+    $cantida_x_linea = (int) 12/$suma_size;
+
+    $_div   = 0;
+    $textarea = '';
+        
+    
+    //-- Carga del formulario --
     foreach ($campos as $campo) 
     {
-        $return .= '<div class="form-group">'; 
+        if($_div == 1)
+        {
+           $return .= '</div><div class="form-group">'; 
+           $_div  = 0;
+        }else if($_div == 0 && $cantidad == 0)
+        {
+            $return .= '<div class="form-group">'; 
+        }
+                
+        $cantidad = $cantidad + 1;
+        
+        
         //-- div --
         if($campo[0] == 'div')
         {
@@ -1203,7 +1225,7 @@ function setForm($campos, $registro_values, $registro, $id_table)
         //-- checkbox --
         }else if($campo[0] == 'checkbox')
         {
-            $return .= setCheckbox($campo[1],      $registro_values);
+            $return .= setCheckbox($campo[1],  $registro_values);
         //-- select --       
         }else if($campo[0] == 'select')
         {
@@ -1244,8 +1266,8 @@ function setForm($campos, $registro_values, $registro, $id_table)
             {
                 $_nombre = lang($campo[2]);
             }           
-            $return .= setLabel($_nombre, 2, NULL, $campo[1]);
-            $return .= '<div class="col-sm-8">';
+            $return .= setLabel($_nombre, $size['label'], NULL, $campo[1]);
+            $return .= '<div class="col-sm-'.$size['input'].'">';
             
             if($required == 1){
                  $return .= '<div class="input-group">';                
@@ -1290,10 +1312,26 @@ function setForm($campos, $registro_values, $registro, $id_table)
                         
                     $tags = $campo[2]; 
                 }        
-            }   
+            }
             
-            $return .= setLabel(lang($campo[0]), 2, NULL, $campo[0]);
-            $return .= '<div class="col-sm-8">';
+            $class_input = NULL;
+            
+            foreach ($fields_data as $fdata) 
+            {
+                if($fdata->name == $campo[0])
+                {
+                    if(in_array($fdata->type, $fields_s))
+                    {
+                        $class_input = $fdata->type;   
+                    }
+                }
+            }  
+            
+            if($class_input != 'text')
+            {
+                $return .= setLabel(lang($campo[0]), $size['label'], NULL, $campo[0]);
+                $return .= '<div class="col-sm-'.$size['input'].'">';
+            }
             
             if($required == 1)
             {
@@ -1325,19 +1363,6 @@ function setForm($campos, $registro_values, $registro, $id_table)
                  
             }
             
-            $class_input = NULL;
-            
-            foreach ($fields_data as $fdata) 
-            {
-                if($fdata->name == $campo[0])
-                {
-                    if(in_array($fdata->type, $fields_s))
-                    {
-                        $class_input = $fdata->type;   
-                    }
-                }
-            }
-            
             if(isset($campo[3]))
             {
                 $valor_input =  $campo[3];    
@@ -1364,7 +1389,22 @@ function setForm($campos, $registro_values, $registro, $id_table)
             
             if($class_input == 'text')
             {
-                $return .= '<textarea '.completarTag($campo[0], $valor_input, $campo[1], $class_input).' '.$tags.' rows="5">'.$valor_input.'</textarea>';
+                $_divi = (int) $cantida_x_linea;
+                
+                if($_divi == 1)
+                {
+                    $size_textarea = $size['input'];    
+                }else
+                {
+                    $size_textarea = ($_divi * $size['label']) + ($_divi * $size['input']) - $size['label'];  
+                }
+                
+                $textarea .= '<div class="form-group">'; 
+                $textarea .= setLabel(lang($campo[0]), $size['label'], NULL, $campo[0]);
+                $textarea .= '<div class="col-sm-'.$size_textarea.'">';
+                $textarea .= '<textarea '.completarTag($campo[0], $valor_input, $campo[1], $class_input).' '.$tags.' rows="5">'.$valor_input.'</textarea>';
+                $textarea .= '</div>';
+                $textarea .= '</div>';
             }else
             {
                 $return .= '<input '.completarTag($campo[0], $valor_input, $campo[1], $class_input).' '.$tags.'>';    
@@ -1379,9 +1419,19 @@ function setForm($campos, $registro_values, $registro, $id_table)
             $return .= '</div>';
          }
          
-         $return .= '</div>';     
+        if($cantidad % $cantida_x_linea == 0 )
+        {
+            $_div  = 1;
+        }
     }
 
+    if($textarea != '')
+    {
+        $return .=  $textarea;
+    }else if($_div == 0)
+    {
+        $return .= '</div>';
+    }
 
     $return .= '<div class="row">';
     $return .= '<div class="col-md-6 col-md-offset-3">';
@@ -1573,4 +1623,16 @@ function getBootstrapSwitch($valor, $id, $function, $set_disabled = 1)
     }
     
     return $return;
+}
+
+
+
+function getSizes()
+{
+    $sizes = array(
+        'label'     => 1,
+        'input'     => 5,
+    );
+    
+    return $sizes;
 }
