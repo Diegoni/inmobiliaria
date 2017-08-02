@@ -36,7 +36,8 @@ class Contratos extends MY_Controller
         
         if($id == NULL)
         {
-            $db['inmuebles']    = $this->m_inmuebles->getRegistros('1', 'id_estado');   
+            $db['inmuebles']    = $this->m_inmuebles->getRegistros('1', 'id_estado');
+            $db['id']           = '0';   
             
             $db['campos']   = array(
                 array('contrato', '', 'required'),
@@ -56,6 +57,7 @@ class Contratos extends MY_Controller
         }else
         {
             $db['inmuebles']    = $this->m_inmuebles->getRegistros();
+            $db['id']           = $id;
             
             $db['campos']   = array(
                 array('contrato', '', 'disabled'),
@@ -73,10 +75,6 @@ class Contratos extends MY_Controller
                 array('comentario', '', 'disabled'),
             );
         }
-        
-        
-
-        
         
         $this->armarAbm($id, $db);
     }
@@ -143,6 +141,49 @@ class Contratos extends MY_Controller
         // Retorno del array registro
         
         return $registro;
+    }
+
+
+    function eliminar()
+    {
+        $id = $this->input->post('id');
+        
+        $contratos = $this->model->getRegistros($id);
+        
+        if($contratos)
+        {
+            foreach ($contratos as $row) 
+            {
+                $id_inmueble = $row->id_inmueble;    
+            }
+            
+            // Borramos contrato
+            $this->model->delete($id);
+            
+            // Borramos cuotas
+            $registro = array(
+                'eliminado'     => 1
+            );
+            
+            $where = array(
+                'id_contrato'   => $id
+            );
+            
+            $this->m_cuotas->update($registro, $where);
+            
+            // Cambio estado del inmueble
+            $registro = array(
+                'id_estado'     => 1
+            );
+            
+            $where = array(
+                'id_inmueble'   => $id_inmueble, 
+            );
+            
+            $this->m_inmuebles->update($registro, $where);
+        }
+        
+        redirect('/contratos/table','refresh');
     }
 }
 ?>

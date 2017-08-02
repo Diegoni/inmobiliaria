@@ -53,6 +53,7 @@ $lang['cliente']            = "Cliente";
 $lang['condicion_pago']     = "Condición pago";
 $lang['contrato']           = "Contrato";
 $lang['cuotas']             = "Cuotas";
+$lang['confirma_accion']    = "Confirma Accion";
 
 /*--------------------------------------------------------------------------------  
     D

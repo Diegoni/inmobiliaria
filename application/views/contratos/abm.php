@@ -41,6 +41,16 @@ $html .= '<form action="#" method="post" class="form-horizontal" onsubmit="retur
 $html .= setForm($campos, $registro_values, $registro, $id_table);
 $html .= '</form>';
 
+if($id != 0)
+{
+    $html .= '<center>';
+    $html .= '<form action="'.base_url().'index.php/Contratos/eliminar/" method="post" class="form-horizontal">';
+    $html .= '<input value="'.$id.'"  name="id" type="hidden">';
+    $html .= btnDlt();
+    $html .= '</form>';
+    $html .= '</center>'; 
+}
+
 
 /*--------------------------------------------------------------------------------  
             Fin del contenido y js

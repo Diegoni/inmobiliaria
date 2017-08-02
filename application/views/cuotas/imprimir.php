@@ -23,38 +23,40 @@ if(isset($plantilla))
         foreach ($tickets as $cuotas) 
         {
             $_ticket = $plantilla; 
-            foreach ($cuotas as $row_cuota) 
+            if($cuotas)
             {
-                $ci =&get_instance();
-                $proyecto = $ci->m_proyectos->getProyectos($row_cuota->id_inmueble);
-                
-                if($proyecto)
+                foreach ($cuotas as $row_cuota) 
                 {
-                    foreach ($proyecto as $row_proyecto) 
+                    $ci =&get_instance();
+                    $proyecto = $ci->m_proyectos->getProyectos($row_cuota->id_inmueble);
+                    
+                    if($proyecto)
                     {
-                        $_ticket = str_replace ('#loteo#', $row_proyecto->proyecto, $_ticket);
-                        $_ticket = str_replace ('#direccion_loteo#', $row_proyecto->direccion, $_ticket);
-                        $_ticket = str_replace ('#localidad_loteo#', $row_proyecto->localidad, $_ticket);
-                        $_ticket = str_replace ('#provincia_loteo#', $row_proyecto->provincia, $_ticket);
-                        $_ticket = str_replace ('#tipo_loteo#', $row_proyecto->tipo, $_ticket);
-                    }    
+                        foreach ($proyecto as $row_proyecto) 
+                        {
+                            $_ticket = str_replace ('#loteo#', $row_proyecto->proyecto, $_ticket);
+                            $_ticket = str_replace ('#direccion_loteo#', $row_proyecto->direccion, $_ticket);
+                            $_ticket = str_replace ('#localidad_loteo#', $row_proyecto->localidad, $_ticket);
+                            $_ticket = str_replace ('#provincia_loteo#', $row_proyecto->provincia, $_ticket);
+                            $_ticket = str_replace ('#tipo_loteo#', $row_proyecto->tipo, $_ticket);
+                        }    
+                    }
+                    
+                    //var_dump($row_cuota);
+                    $_ticket = str_replace ('#dia_semana#', $dias[date("w")], $_ticket);
+                    $_ticket = str_replace ('#dia#', date("d"), $_ticket);
+                    $_ticket = str_replace ('#mes#', date("m"), $_ticket);
+                    $_ticket = str_replace ('#ano#', date("Y"), $_ticket);
+                    
+                    $_ticket = str_replace ('#cliente#', $row_cuota->cliente, $_ticket);
+                    $_ticket = str_replace ('#inmueble#', $row_cuota->inmueble, $_ticket);
+                    $_ticket = str_replace ('#cuota_monto#', formatImporte($row_cuota->monto_pago), $_ticket);
+                    $_ticket = str_replace ('#cuota_nro#', $row_cuota->numero, $_ticket);
+                    $_ticket = str_replace ('#cuota_vencimiento#', formatDate($row_cuota->fecha_pago), $_ticket);
+                    $_ticket = str_replace ('#lote#', $row_cuota->inmueble, $_ticket);
                 }
-                
-                //var_dump($row_cuota);
-                $_ticket = str_replace ('#dia_semana#', $dias[date("w")], $_ticket);
-                $_ticket = str_replace ('#dia#', date("d"), $_ticket);
-                $_ticket = str_replace ('#mes#', date("m"), $_ticket);
-                $_ticket = str_replace ('#ano#', date("Y"), $_ticket);
-                
-                $_ticket = str_replace ('#cliente#', $row_cuota->cliente, $_ticket);
-                $_ticket = str_replace ('#inmueble#', $row_cuota->inmueble, $_ticket);
-                $_ticket = str_replace ('#cuota_monto#', formatImporte($row_cuota->monto_pago), $_ticket);
-                $_ticket = str_replace ('#cuota_nro#', $row_cuota->numero, $_ticket);
-                $_ticket = str_replace ('#cuota_vencimiento#', formatDate($row_cuota->fecha_pago), $_ticket);
-                $_ticket = str_replace ('#lote#', $row_cuota->inmueble, $_ticket);
-                
-                
             }
+            
             $_tickets[] = $_ticket.'<hr>';
         }
     }
