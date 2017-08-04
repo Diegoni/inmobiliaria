@@ -13,6 +13,10 @@ class m_vehiculos extends MY_Model
             'table'     => 'vehiculos_marcas',
             'subjet'    => 'marca'
         ),
+		'id_modelo' => array(
+            'table'     => 'vehiculos_modelos',
+            'subjet'    => 'modelo'
+        ),
         'id_version' => array(
             'table'     => 'vehiculos_versiones',
             'subjet'    => 'version'

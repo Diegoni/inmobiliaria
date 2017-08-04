@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-08-2017 a las 21:11:08
+-- Tiempo de generación: 04-08-2017 a las 21:47:15
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -24854,7 +24854,17 @@ INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `re
 (1623, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:03:52', 'colegio-notarial', 0),
 (1624, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:05:35', 'colegio-notarial', 0),
 (1625, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:08:49', 'colegio-notarial', 0),
-(1626, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:09:35', 'colegio-notarial', 0);
+(1626, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:09:35', 'colegio-notarial', 0),
+(1627, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:35:39', 'colegio-notarial', 0),
+(1628, 4, '{"id_vehiculo":"0","vehiculo":"AA022","id_categoria":"1","id_marca":"14","id_version":"451","id_condicion":"1","id_modelo":"75","kilometros":"5126","nro_chasis":"1513513","nro_motor":"16515135","color":"Verde ","precio_toma":"100000","precio_venta":"200000","fecha_ingreso":"2017-08-04","comentario":"","date_add":"2017-08-04 21:36:50","date_upd":"2017-08-04 21:36:50","user_add":"1","user_upd":"1"}', 'insert', 'vehiculos', '1', '1', '2017-08-04 21:36:50', 'colegio-notarial', 0),
+(1629, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-04 21:36:50', 'colegio-notarial', 0),
+(1630, 4, '{"id_vehiculo":"0","vehiculo":"AA022","id_categoria":"1","id_marca":"14","id_version":"451","id_condicion":"1","id_modelo":"75","kilometros":"5126","nro_chasis":"1513513","nro_motor":"16515135","color":"Verde ","precio_toma":"100000","precio_venta":"200000","fecha_ingreso":"2017-08-04","comentario":"","date_add":"2017-08-04 21:39:28","date_upd":"2017-08-04 21:39:28","user_add":"1","user_upd":"1"}', 'insert', 'vehiculos', '2', '1', '2017-08-04 21:39:28', 'colegio-notarial', 0),
+(1631, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-04 21:39:28', 'colegio-notarial', 0),
+(1632, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:41:38', 'colegio-notarial', 0),
+(1633, 4, '{"id_vehiculo":"1","vehiculo":"AA0022GG","id_categoria":"1","id_marca":"3","id_version":"16","id_condicion":"1","id_modelo":"5","ano":"2016","kilometros":"5126","nro_chasis":"1513513","nro_motor":"16515135","color":"Verde ","precio_toma":"100000.00","precio_venta":"200000.00","fecha_ingreso":"2017-08-04","comentario":"","date_upd":"2017-08-04 21:42:03","user_upd":"1"}', 'update', 'vehiculos', '1', '1', '2017-08-04 21:42:03', 'colegio-notarial', 0),
+(1634, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-04 21:42:03', 'colegio-notarial', 0),
+(1635, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:43:39', 'colegio-notarial', 0),
+(1636, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:45:31', 'colegio-notarial', 0);
 
 -- --------------------------------------------------------
 
@@ -25220,7 +25230,7 @@ INSERT INTO `usuarios_permisos` (`id_permiso`, `id_perfil`, `id_menu`, `ver`, `e
 
 CREATE TABLE `vehiculos` (
   `id_vehiculo` int(10) NOT NULL,
-  `vehiculo` int(10) NOT NULL,
+  `vehiculo` varchar(10) NOT NULL,
   `id_categoria` int(10) DEFAULT '0',
   `id_marca` int(10) DEFAULT '0',
   `id_version` int(10) DEFAULT '0',
@@ -25244,6 +25254,14 @@ CREATE TABLE `vehiculos` (
   `user_upd` int(11) NOT NULL,
   `eliminado` tinyint(4) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `vehiculos`
+--
+
+INSERT INTO `vehiculos` (`id_vehiculo`, `vehiculo`, `id_categoria`, `id_marca`, `id_version`, `id_condicion`, `id_modelo`, `ano`, `kilometros`, `nro_chasis`, `nro_motor`, `color`, `precio_toma`, `precio_costo`, `precio_venta`, `fecha_ingreso`, `fecha_venta`, `id_estado`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 'AA0022GG', 1, 3, 16, 1, 5, 2016, 5126, '1513513', '16515135', 'Verde ', '100000.00', NULL, '200000.00', '2017-08-04', NULL, 0, '', '2017-08-04 21:36:50', '2017-08-04 21:42:03', 1, 1, 0),
+(2, '0', 1, 14, 451, 1, 75, NULL, 5126, '1513513', '16515135', 'Verde ', '100000.00', NULL, '200000.00', '2017-08-04', NULL, 0, '', '2017-08-04 21:39:28', '2017-08-04 21:39:28', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -34009,7 +34027,7 @@ ALTER TABLE `inmuebles_tipos`
 -- AUTO_INCREMENT de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1627;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1637;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --
@@ -34054,7 +34072,7 @@ ALTER TABLE `usuarios_permisos`
 -- AUTO_INCREMENT de la tabla `vehiculos`
 --
 ALTER TABLE `vehiculos`
-  MODIFY `id_vehiculo` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_vehiculo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `vehiculos_categorias`
 --

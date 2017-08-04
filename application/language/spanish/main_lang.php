@@ -20,6 +20,7 @@ $lang['agua']               = "Agua";
 $lang['ano_construccion']   = "Año construccion";
 $lang['altura']             = "Altura";
 $lang['apellidos']          = "Apellidos";
+$lang['ano']                = "Año";
 
 /*--------------------------------------------------------------------------------  
     B
