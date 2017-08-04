@@ -18,7 +18,6 @@ class Vehiculos extends MY_Controller
         $this->load->model('m_vehiculos_versiones');        
         $this->load->model('m_vehiculos_modelos');
         $this->load->model('m_vehiculos_condiciones');
-
     } 
     
     
