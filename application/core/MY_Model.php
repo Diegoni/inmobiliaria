@@ -84,14 +84,27 @@ class MY_Model extends CI_Model
 			$sql .= "ORDER BY ";
 			foreach ($this->_order as $order) 
 			{
-				$sql .= " $this->_tablename.$order,";
+			    if(strpos($order, '.') === false)
+			    {
+                    $sql .= " $this->_tablename.$order,";
+			    }else
+			    {
+			        $sql .= " $order,";
+			    }
+				
 			}
-			
 			$sql = substr($sql, 0, -1);
         // Un solo campo para ordenar    
 		}else if($this->_order != '')
 		{
-			$sql .= "ORDER BY $this->_tablename.$this->_order";
+		    if(strpos($this->_order, '.') === false)
+            {
+                $sql .= "ORDER BY $this->_tablename.$this->_order";
+            }else
+            {
+                $sql .= "ORDER BY $this->_order";
+            }
+			
         // No hay campos para ordenar, ordena or id de la tabla            
 		}else
 		{

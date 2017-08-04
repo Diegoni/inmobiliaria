@@ -25,9 +25,9 @@ $lang['apellidos']          = "Apellidos";
     B
  --------------------------------------------------------------------------------*/ 
 
- $lang['buscar']             = "Buscar";
- $lang['backup']             = "Backup";
- $lang['banos']              = "Baños"; 
+$lang['buscar']             = "Buscar";
+$lang['backup']             = "Backup";
+$lang['banos']              = "Baños"; 
 
 /*--------------------------------------------------------------------------------  
     C
@@ -54,6 +54,8 @@ $lang['condicion_pago']     = "Condición pago";
 $lang['contrato']           = "Contrato";
 $lang['cuotas']             = "Cuotas";
 $lang['confirma_accion']    = "Confirma Accion";
+$lang['condicion']          = "Condición";
+$lang['color']              = "Color";
 
 /*--------------------------------------------------------------------------------  
     D
@@ -160,9 +162,11 @@ $lang['monto']              = "Monto";
 $lang['monto_cuota']        = "Monto cuota";
 $lang['monto_anticipo']     = "Monto anticipo";
 $lang['monto_interes']      = "Monto interés";
-$lang['monto_pago']        = "Monto pago";
+$lang['monto_pago']         = "Monto pago";
 $lang['menu']               = "Menu";
 $lang['marcacion']          = "Marcación";
+$lang['marca']              = "Marca";
+$lang['modelo']             = "Modelo";
 
 /*--------------------------------------------------------------------------------  
     N
@@ -177,8 +181,8 @@ $lang['no_encontrada']      = "no encontrada";
 $lang['nro_proveedor']      = "Nro pedido proveedor";
 $lang['nro_factura']        = "Nro factura proveedor";
 $lang['nro_referencia']     = "Nro referencia";
-
-
+$lang['nro_chasis']         = "Nro chasis";
+$lang['nro_motor']          = "Nro motor";
 
 /*--------------------------------------------------------------------------------  
     O
@@ -217,6 +221,15 @@ $lang['plantilla']          = "Plantilla";
 $lang['permuta']            = "Permuta";
 $lang['plantas']            = "Plantas";
 $lang['permuta']            = "Permuta";
+$lang['precio_toma']        = "Precio Toma";
+$lang['precio_costo']       = "Precio Costo";
+$lang['precio_venta']       = "Precio Venta";
+
+/*--------------------------------------------------------------------------------  
+    K
+ --------------------------------------------------------------------------------*/ 
+
+$lang['kilometros']         = "Kilómetros";
 
 /*--------------------------------------------------------------------------------  
     R
@@ -272,6 +285,7 @@ $lang['version']            = "Versión";
 $lang['validez']            = "Validez";
 $lang['vencimiento_cuota']  = "Vencimiento cuota";
 $lang['vencimiento']        = "Vencimiento";
+$lang['vehiculo']           = "Vehículo";
 
 /*--------------------------------------------------------------------------------  
     W
