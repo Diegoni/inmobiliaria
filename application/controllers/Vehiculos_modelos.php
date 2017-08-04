@@ -37,5 +37,35 @@ class Vehiculos_modelos extends MY_Controller
         
         $this->armarAbm($id, $db);
     }
+
+/*--------------------------------------------------------------------------------  
+            Funciones para ajax: localidades de una provincia
+ --------------------------------------------------------------------------------*/
+
+    public function getAjax()
+    {
+        if($this->input->post('id_marca'))
+        {
+            
+            $_id = $this->input->post('id_marca');
+            $_id_model = $this->input->post('id_modelo');
+            $registros  = $this->model->getRegistros($_id, 'id_marca');
+            
+            echo '<option value="" disabled selected style="display:none;">Seleccione una opcion...</option>';
+            if($registros)
+            {
+                foreach ($registros  as $row) 
+                {
+                    if($_id_model == $row->id_modelo)
+                    {
+                        echo '<option value="'.$row->id_modelo.'" selected>'.$row->modelo.'</option>';
+                    }else
+                    {
+                        echo '<option value="'.$row->id_modelo.'">'.$row->modelo.'</option>';
+                    }
+                }    
+            }
+        }
+    }     
 }
 ?>

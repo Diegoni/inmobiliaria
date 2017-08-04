@@ -42,16 +42,12 @@ class Vehiculos_marcas extends MY_Controller
             Funciones para ajax: localidades de una provincia
  --------------------------------------------------------------------------------*/
 
-    public function getMarcas()
+    public function getAjax()
     {
-        log_message('DEBUG', 'function getMarcas');
-        //if($this->input->post('id_categoria'))
-        if(1)
+        if($this->input->post('id_categoria'))
         {
             
-            //$_id = $this->input->post('id_categoria');
-            $_id = 2;
-            log_message('DEBUG', '$_id:'.$_id);
+            $_id = $this->input->post('id_categoria');
             $_id_model = $this->input->post('id_marca');
             $registros  = $this->model->getRegistros($_id, 'id_categoria');
             
@@ -60,8 +56,6 @@ class Vehiculos_marcas extends MY_Controller
             {
                 foreach ($registros  as $row) 
                 {
-                    log_message('DEBUG', $row->id_marca.' '.$row->marca);
-    
                     if($_id_model == $row->id_marca)
                     {
                         echo '<option value="'.$row->id_marca.'" selected>'.$row->marca.'</option>';

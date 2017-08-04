@@ -38,5 +38,34 @@ class Vehiculos_versiones extends MY_Controller
         
         $this->armarAbm($id, $db);
     }
+    
+/*--------------------------------------------------------------------------------  
+            Funciones para ajax: localidades de una provincia
+ --------------------------------------------------------------------------------*/
+
+    public function getAjax()
+    {
+        if($this->input->post('id_modelo'))
+        {
+            $_id = $this->input->post('id_modelo');
+            $_id_model = $this->input->post('id_version');
+            $registros  = $this->model->getRegistros($_id, 'id_modelo');
+            
+            echo '<option value="" disabled selected style="display:none;">Seleccione una opcion...</option>';
+            if($registros)
+            {
+                foreach ($registros  as $row) 
+                {
+                    if($_id_model == $row->id_version)
+                    {
+                        echo '<option value="'.$row->id_version.'" selected>'.$row->version.'</option>';
+                    }else
+                    {
+                        echo '<option value="'.$row->id_version.'">'.$row->version.'</option>';
+                    }
+                }    
+            }
+        }
+    }    
 }
 ?>
