@@ -10,7 +10,7 @@ $html .= '<div class="form-group">';
 // Cliente
 $html .= setLabel(lang('cliente'), 1);
 $html .= '<div class="col-sm-5">';
-$html .= '<select name="id_cliente" id="id_cliente" class="select2 form-control" onchange="getInmuebles()">';
+$html .= '<select name="id_cliente" id="id_cliente" class="select2 form-control" onchange="getRegistros()">';
 $html .= setOption($clientes, 'id_cliente', 'cliente');
 $html .= '</select>';
 $html .= '</div>';
@@ -33,9 +33,9 @@ $html .= '</div>';
 
 $html .= '<div class="form-group">'; 
 // Inmuebles
-$html .= setLabel(lang('inmueble'), 1);
+$html .= setLabel(lang($this->config->item('subjet')), 1);
 $html .= '<div class="col-sm-5">';
-$html .= '<select name="id_inmueble" id="id_inmueble" class="select2 form-control" onchange="getCuotas()">';
+$html .= '<select name="'.$this->config->item('id_table').'" id="'.$this->config->item('id_table').'" class="select2 form-control" onchange="getCuotas()">';
 $html .= '</select>';
 $html .= '</div>';
 
@@ -61,21 +61,21 @@ $html .= endContent();
 echo $html;
 ?>
 <script>
-function getInmuebles(){
+function getRegistros(){
     var id_cliente = $('select#id_cliente').val();
     $.ajax({
         type: 'POST',
-        url: '<?php echo base_url(); ?>index.php/inmuebles/getInmuebles/',
+        url: '<?php echo base_url(); ?>index.php/<?php echo $this->config->item('table'); ?>/getRegistros/',
         data: { id_cliente: id_cliente },
         success: function(resp) {
-            $('select#id_inmueble').attr('disabled',false).html(resp);
-            $('select#id_inmueble').focus();
+            $('select#<?php echo $this->config->item('id_table'); ?>').attr('disabled',false).html(resp);
+            $('select#<?php echo $this->config->item('id_table'); ?>').focus();
         }
     })  
 };
 
 function getCuotas(){
-    var id_inmueble = $('select#id_inmueble').val();
+    var <?php echo $this->config->item('id_table'); ?> = $('select#<?php echo $this->config->item('id_table'); ?>').val();
     var id_cliente  = $('select#id_cliente').val();
     var impaga      = 0;
     var emitida     = 0;
@@ -92,7 +92,7 @@ function getCuotas(){
         url: '<?php echo base_url(); ?>index.php/cuotas/getCuotas/',
         data: { 
             id_cliente: id_cliente, 
-            id_inmueble: id_inmueble,
+            <?php echo $this->config->item('id_table'); ?>: <?php echo $this->config->item('id_table'); ?>,
             impaga: impaga,
             emitida: emitida,
             paga: paga,

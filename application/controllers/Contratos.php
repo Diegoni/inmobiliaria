@@ -4,6 +4,7 @@ class Contratos extends MY_Controller
 {
 	protected $_subject = 'contratos';
     protected $_model   = 'm_contratos';
+    protected $_config  = '';
     
     function __construct()
     {
@@ -16,7 +17,9 @@ class Contratos extends MY_Controller
         $this->load->model('m_clientes');
         $this->load->model('m_cuotas');
         $this->load->model('m_inmuebles');
+        $this->load->model('m_vehiculos');
         $this->load->model('m_formas_pagos');
+       
     } 
     
     
@@ -31,18 +34,20 @@ class Contratos extends MY_Controller
     
     function abm($id = NULL)
     {
+        
         $db['clientes']         = $this->m_clientes->getRegistros();
         $db['formas_pagos']     = $this->m_formas_pagos->getRegistros();
+        $db['_config']          = $this->_config;
         
         if($id == NULL)
         {
-            $db['inmuebles']    = $this->m_inmuebles->getRegistros('1', 'id_estado');
-            $db['id']           = '0';   
+            $db[$this->config->item('table')] = $this->{$this->config->item('model')}->getRegistros('1', 'id_estado');
+            $db['id'] = '0';   
             
             $db['campos']   = array(
                 array('contrato', '', 'required'),
                 array('select', 'id_cliente',  'cliente', $db['clientes'], 'required'),
-                array('select', 'id_inmueble',  'inmueble', $db['inmuebles'], 'required'),
+                array('select', $this->config->item('id_table'),  $this->config->item('subjet'), $db[$this->config->item('table')], 'required'),
                 array('monto', 'onlyFloat', ''),
                 array('monto_anticipo', 'onlyFloat', ''),
                 array('select', 'id_forma_pago',  'forma_pago', $db['formas_pagos']),
@@ -56,13 +61,13 @@ class Contratos extends MY_Controller
             ); 
         }else
         {
-            $db['inmuebles']    = $this->m_inmuebles->getRegistros();
+            $db[$this->config->item('table')]    = $this->{$this->config->item('model')}->getRegistros();
             $db['id']           = $id;
             
             $db['campos']   = array(
                 array('contrato', '', 'disabled'),
                 array('select', 'id_cliente',  'cliente', $db['clientes'], 'disabled'),
-                array('select', 'id_inmueble',  'inmueble', $db['inmuebles'], 'disabled'),
+                array('select', $this->config->item('id_table'),  $this->config->item('subjet'), $db[$this->config->item('table')], 'disabled'),
                 array('monto', 'onlyFloat', 'disabled'),
                 array('monto_anticipo', 'onlyFloat', 'disabled'),
                 array('select', 'id_forma_pago',  'forma_pago', $db['formas_pagos'], 'disabled'),
@@ -114,7 +119,7 @@ class Contratos extends MY_Controller
             $cuota = array(
                 'numero'        => $i+1,
                 'id_cliente'    => $registro['id_cliente'],
-                'id_inmueble'   => $registro['id_inmueble'],
+                $this->config->item('id_table')   => $registro[$this->config->item('id_table')],
                 'id_contrato'   => $id,
                 'monto'         => $registro['monto_cuota'],
                 'monto_interes' => $registro['monto_interes'],
@@ -128,20 +133,29 @@ class Contratos extends MY_Controller
         
         // Cambio de estado del inmueble
         
-        $inmueble = array(
+        $update = array(
             'id_estado' => 2
         );
         
         $where = array(
-            'id_inmueble' => $registro['id_inmueble']
+            $this->config->item('id_table') => $registro[$this->config->item('id_table')]
         );
         
-        $this->m_inmuebles->update($inmueble, $where); 
+        $this->{$this->config->item('model')}->update($update, $where); 
         
         // Retorno del array registro
         
         return $registro;
     }
+
+
+/*--------------------------------------------------------------------------------- 
+-----------------------------------------------------------------------------------  
+            
+       Borrar contratos
+  
+----------------------------------------------------------------------------------- 
+---------------------------------------------------------------------------------*/ 
 
 
     function eliminar()
@@ -154,7 +168,7 @@ class Contratos extends MY_Controller
         {
             foreach ($contratos as $row) 
             {
-                $id_inmueble = $row->id_inmueble;    
+                $id_registro = $row->{$this->config->item('id_table')};    
             }
             
             // Borramos contrato
@@ -177,10 +191,10 @@ class Contratos extends MY_Controller
             );
             
             $where = array(
-                'id_inmueble'   => $id_inmueble, 
+                $this->config->item('id_table')   => $id_registro, 
             );
             
-            $this->m_inmuebles->update($registro, $where);
+            $this->{$this->config->item('model')}->update($registro, $where);
         }
         
         redirect('/contratos/table','refresh');

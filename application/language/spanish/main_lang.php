@@ -21,6 +21,7 @@ $lang['ano_construccion']   = "Año construccion";
 $lang['altura']             = "Altura";
 $lang['apellidos']          = "Apellidos";
 $lang['ano']                = "Año";
+$lang['aumenta_costo']      = "Aumenta Costo";
 
 /*--------------------------------------------------------------------------------  
     B
@@ -115,6 +116,7 @@ $lang['fecha_vencimiento']  = "Fecha vencimiento";
  
 $lang['garaje']             = "Garaje"; 
 $lang['gas']                = "Gas";
+$lang['gasto']              = "Gasto";
  
  /*--------------------------------------------------------------------------------  
    H

@@ -2,10 +2,12 @@
 /*--------------------------------------------------------------------------------  
             Comienzo del contenido
  --------------------------------------------------------------------------------*/
-  
+ 
 $cabeceras = array(
-    lang('cliente'),
-    lang($this->config->item('subjet')),
+    lang('gasto'),
+    lang('vehiculo'),
+    lang('monto'),
+    lang('fecha'),
     lang('opciones'),
 );
 
@@ -34,9 +36,11 @@ if($registros)
     foreach ($registros as $row) 
     {
         $registro = array(
-            $row->cliente,
-            $row->{$this->config->item('subjet')},
-            tableUpd($subjet, $row->id_contrato),
+            $row->gasto,
+            $row->vehiculo,
+            formatImporte($row->monto),
+            formatDate($row->fecha),
+            tableUpd($subjet, $row->id_gasto),
         );
         
         $html .= setTableContent($registro);    

@@ -70,13 +70,13 @@ $(".checkbox").bootstrapSwitch();
 $(function() {
     $("#modificar").hide();
     
-    $("#id_inmueble").change(function () 
+    $("#<?php echo $this->config->item('id_table')?>").change(function () 
     {
-        var id_inmueble = $('select#id_inmueble').val();
+        var <?php echo $this->config->item('id_table')?> = $('select#<?php echo $this->config->item('id_table')?>').val();
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url(); ?>index.php/inmuebles/getMonto/',
-            data: { id_inmueble: id_inmueble },
+            url: '<?php echo base_url(); ?>index.php/<?php echo $this->config->item('table')?>/getMonto/',
+            data: { <?php echo $this->config->item('id_table')?>: <?php echo $this->config->item('id_table')?> },
             success: function(resp) 
             {
                 $('#monto').val(resp);

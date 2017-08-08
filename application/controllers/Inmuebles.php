@@ -138,7 +138,7 @@ class Inmuebles extends MY_Controller
             Funciones para ajax: localidades de una provincia
  --------------------------------------------------------------------------------*/
 
-    public function getInmuebles()
+    public function getRegistros()
     {
         if($this->input->post('id_cliente'))
         {

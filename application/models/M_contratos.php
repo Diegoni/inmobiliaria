@@ -13,6 +13,10 @@ class m_contratos extends MY_Model
             'table'     => 'inmuebles',
             'subjet'    => 'inmueble'
         ),
+        'id_vehiculo' => array(
+            'table'     => 'vehiculos',
+            'subjet'    => 'vehiculo'
+        ),
         'id_forma_pago' => array(
             'table'     => 'formas_pagos',
             'subjet'    => 'forma_pago'

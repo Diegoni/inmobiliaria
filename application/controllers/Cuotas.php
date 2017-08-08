@@ -13,7 +13,7 @@ class Cuotas extends MY_Controller
         
         $this->load->model($this->_model, 'model');  
         $this->load->model('m_clientes');
-        $this->load->model('m_inmuebles');
+        $this->load->model($this->config->item('model'));
         $this->load->model('m_contratos');
 		$this->load->model('m_cuotas_actualizaciones');
         $this->load->model('m_cuotas_estados');
@@ -35,14 +35,14 @@ class Cuotas extends MY_Controller
     function abm($id = NULL)
     {                           
         $db['clientes']     = $this->m_clientes->getRegistros();
-        $db['inmuebles']    = $this->m_inmuebles->getRegistros();
+        $db[$this->config->item('table')]    = $this->{$this->config->item('model')}->getRegistros();
         $db['contratos']    = $this->m_contratos->getRegistros();
         $db['cuotas_estados'] = $this->m_cuotas_estados->getRegistros();
         $db['estados']      = $this->m_cuotas_estados->getRegistros();
         
         $db['campos']   = array(
             array('select',   'id_cliente',  'cliente', $db['clientes'], 'disabled'),
-            array('select',   'id_inmueble', 'inmueble', $db['inmuebles'], 'disabled'),
+            array('select',   $this->config->item('id_table'), $this->config->item('subjet'), $db[$this->config->item('table')], 'disabled'),
             array('select',   'id_contrato', 'contrato', $db['contratos'], 'disabled'),
             array('monto',    '', 'disabled'),
             array('monto_interes',    '', 'disabled'),
@@ -81,7 +81,7 @@ class Cuotas extends MY_Controller
                     
                 $registro = array(
                     $row->cliente,
-                    $row->inmueble,
+                    $row->{$this->config->item('subjet')},
                     $row->estado,
                     $buttons,
                 );
@@ -116,11 +116,11 @@ class Cuotas extends MY_Controller
         {
             $where = array(
                 'id_cliente' => $this->input->post('id_cliente'),
-                'id_inmueble' => $this->input->post('id_inmueble'),  
-                'impaga' => $this->input->post('impaga'),
-                'emitida' => $this->input->post('emitida'),
-                'paga' => $this->input->post('paga'),
-                'vencida' => $this->input->post('vencida'),
+                $this->config->item('id_table') => $this->input->post($this->config->item('id_table')),  
+                'impaga'    => $this->input->post('impaga'),
+                'emitida'   => $this->input->post('emitida'),
+                'paga'      => $this->input->post('paga'),
+                'vencida'   => $this->input->post('vencida'),
             );              
             $coutas  = $this->model->getCuotas($where);
             if($coutas)

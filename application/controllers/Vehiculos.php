@@ -13,6 +13,7 @@ class Vehiculos extends MY_Controller
         );
         
         $this->load->model($this->_model, 'model');  
+        $this->load->model('m_contratos');
         $this->load->model('m_vehiculos_categorias');
         $this->load->model('m_vehiculos_marcas');
         $this->load->model('m_vehiculos_versiones');        
@@ -76,5 +77,42 @@ class Vehiculos extends MY_Controller
         
         $this->armarAbm($id, $db);
     }
+    
+/*--------------------------------------------------------------------------------  
+            Funciones para ajax: localidades de una provincia
+ --------------------------------------------------------------------------------*/
+
+    public function getMonto()
+    {
+        if($this->input->post('id_vehiculo'))
+        {
+            $id_vehiculo    = $this->input->post('id_vehiculo');
+            $registro       = $this->model->getRegistros($id_vehiculo);
+            
+            foreach ($registro  as $row) 
+            {
+                echo $row->precio_venta;
+            }
+        }
+    }
+    
+/*--------------------------------------------------------------------------------  
+            Funciones para ajax: localidades de una provincia
+ --------------------------------------------------------------------------------*/
+
+    public function getRegistros()
+    {
+        if($this->input->post('id_cliente'))
+        {
+            $id_cliente = $this->input->post('id_cliente');             
+            $contratos  = $this->m_contratos->getRegistros($id_cliente, 'id_cliente');
+            
+            echo '<option value="" disabled selected style="display:none;">Seleccione una opcion...</option>';
+            foreach ($contratos  as $row) 
+            {
+                echo '<option value="'.$row->id_vehiculo.'">'.$row->vehiculo.'</option>';
+            }
+        }
+    }    
 }
 ?>

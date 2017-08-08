@@ -17,6 +17,10 @@ class m_cuotas extends MY_Model
             'table'     => 'inmuebles',
             'subjet'    => 'inmueble'
         ),
+        'id_vehiculo' => array(
+            'table'     => 'vehiculos',
+            'subjet'    => 'vehiculo'
+        ),
         'id_estado' => array(
             'table'     => 'cuotas_estados',
             'subjet'    => 'estado'
@@ -40,7 +44,14 @@ class m_cuotas extends MY_Model
     function getCuotas($filtros)
     {
         $where = " id_cliente = '$filtros[id_cliente]' ";
-        $where .= " AND id_inmueble = '$filtros[id_inmueble]' ";
+        if(isset($filtros['id_inmueble']))
+        {
+            $where .= " AND id_inmueble = '$filtros[id_inmueble]' ";    
+        }else
+        {
+            $where .= " AND id_vehiculo = '$filtros[id_vehiculo]' ";
+        }
+        
         
         if($filtros['impaga'] == 1)
         {
