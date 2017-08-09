@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-08-2017 a las 21:47:15
+-- Tiempo de generación: 09-08-2017 a las 17:21:16
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -142,7 +142,9 @@ INSERT INTO `contratos` (`id_contrato`, `contrato`, `id_cliente`, `id_vehiculo`,
 (1, '01', 1, 0, 5, '1000.00', '0.00', 0, 3, '333.33', '2017-08-01', 1, 10, '400.00', '', '2017-07-19 14:57:42', '2017-08-02 18:19:49', 1, 1, 1),
 (2, '01', 1, 0, 6, '1000.00', '0.00', 0, 4, '250.00', '2017-09-01', 1, 10, '300.00', '', '2017-07-19 14:59:38', '2017-08-02 18:22:17', 1, 1, 1),
 (3, '01650', 1, 0, 4, '30.00', '0.00', 0, 10, '3.00', '2017-08-02', 1, 10, '0.00', '', '2017-08-02 18:22:47', '2017-08-02 18:23:30', 1, 1, 1),
-(4, 'asdf', 1, 0, 4, '30.00', '0.00', 0, 10, '3.00', '2017-08-09', 1, 10, '4.00', '', '2017-08-02 18:57:55', '2017-08-02 19:02:28', 1, 1, 1);
+(4, 'asdf', 1, 0, 4, '30.00', '0.00', 0, 10, '3.00', '2017-08-09', 1, 10, '4.00', '', '2017-08-02 18:57:55', '2017-08-02 19:02:28', 1, 1, 1),
+(5, '58955', 1, 1, 0, '200000.00', '5000.00', 1, 10, '19500.00', '2017-08-08', 1, 10, '20000.00', '', '2017-08-08 19:47:31', '2017-08-08 19:47:31', 1, 1, 0),
+(6, '58955', 1, 1, 0, '200000.00', '5000.00', 1, 10, '19500.00', '2017-08-08', 1, 10, '20000.00', '', '2017-08-08 19:50:17', '2017-08-08 19:50:17', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -203,7 +205,27 @@ INSERT INTO `cuotas` (`id_cuota`, `id_cliente`, `id_vehiculo`, `id_inmueble`, `i
 (24, 1, 0, 4, 4, 7, '3.00', '4.00', '2018-02-01', '2018-02-12', 1, '0.00', '0000-00-00', 0, '2017-08-02 18:57:56', '2017-08-02 19:02:28', 1, 1, 1),
 (25, 1, 0, 4, 4, 8, '3.00', '4.00', '2018-03-01', '2018-03-12', 1, '0.00', '0000-00-00', 0, '2017-08-02 18:57:57', '2017-08-02 19:02:28', 1, 1, 1),
 (26, 1, 0, 4, 4, 9, '3.00', '4.00', '2018-04-01', '2018-04-10', 1, '0.00', '0000-00-00', 0, '2017-08-02 18:57:57', '2017-08-02 19:02:28', 1, 1, 1),
-(27, 1, 0, 4, 4, 10, '3.00', '4.00', '2018-05-01', '2018-05-10', 1, '0.00', '0000-00-00', 0, '2017-08-02 18:57:57', '2017-08-02 19:02:28', 1, 1, 1);
+(27, 1, 0, 4, 4, 10, '3.00', '4.00', '2018-05-01', '2018-05-10', 1, '0.00', '0000-00-00', 0, '2017-08-02 18:57:57', '2017-08-02 19:02:28', 1, 1, 1),
+(28, 1, 1, 0, 5, 1, '19500.00', '20000.00', '2017-08-01', '2017-08-10', 2, '19500.00', '2017-08-08', 0, '2017-08-08 19:47:31', '2017-08-08 20:48:29', 1, 1, 0),
+(29, 1, 1, 0, 5, 2, '19500.00', '20000.00', '2017-09-01', '2017-09-11', 2, '19500.00', '2017-08-08', 0, '2017-08-08 19:47:31', '2017-08-08 20:50:24', 1, 1, 0),
+(30, 1, 1, 0, 5, 3, '19500.00', '20000.00', '2017-10-01', '2017-10-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:47:32', '2017-08-08 19:47:32', 1, 1, 0),
+(31, 1, 1, 0, 5, 4, '19500.00', '20000.00', '2017-11-01', '2017-11-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:47:32', '2017-08-08 19:47:32', 1, 1, 0),
+(32, 1, 1, 0, 5, 5, '19500.00', '20000.00', '2017-12-01', '2017-12-11', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:47:32', '2017-08-08 19:47:32', 1, 1, 0),
+(33, 1, 1, 0, 5, 6, '19500.00', '20000.00', '2018-01-01', '2018-01-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:47:32', '2017-08-08 19:47:32', 1, 1, 0),
+(34, 1, 1, 0, 5, 7, '19500.00', '20000.00', '2018-02-01', '2018-02-12', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:47:32', '2017-08-08 19:47:32', 1, 1, 0),
+(35, 1, 1, 0, 5, 8, '19500.00', '20000.00', '2018-03-01', '2018-03-12', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:47:32', '2017-08-08 19:47:32', 1, 1, 0),
+(36, 1, 1, 0, 5, 9, '19500.00', '20000.00', '2018-04-01', '2018-04-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:47:33', '2017-08-08 19:47:33', 1, 1, 0),
+(37, 1, 1, 0, 5, 10, '19500.00', '20000.00', '2018-05-01', '2018-05-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:47:33', '2017-08-08 19:47:33', 1, 1, 0),
+(38, 1, 1, 0, 6, 1, '19500.00', '20000.00', '2017-08-01', '2017-08-10', 2, '19500.00', '2017-08-08', 0, '2017-08-08 19:50:17', '2017-08-08 20:48:29', 1, 1, 0),
+(39, 1, 1, 0, 6, 2, '19500.00', '20000.00', '2017-09-01', '2017-09-11', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:50:17', '2017-08-08 19:50:17', 1, 1, 0),
+(40, 1, 1, 0, 6, 3, '19500.00', '20000.00', '2017-10-01', '2017-10-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:50:17', '2017-08-08 19:50:17', 1, 1, 0),
+(41, 1, 1, 0, 6, 4, '19500.00', '20000.00', '2017-11-01', '2017-11-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:50:17', '2017-08-08 19:50:17', 1, 1, 0),
+(42, 1, 1, 0, 6, 5, '19500.00', '20000.00', '2017-12-01', '2017-12-11', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:50:18', '2017-08-08 19:50:18', 1, 1, 0),
+(43, 1, 1, 0, 6, 6, '19500.00', '20000.00', '2018-01-01', '2018-01-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:50:18', '2017-08-08 19:50:18', 1, 1, 0),
+(44, 1, 1, 0, 6, 7, '19500.00', '20000.00', '2018-02-01', '2018-02-12', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:50:18', '2017-08-08 19:50:18', 1, 1, 0),
+(45, 1, 1, 0, 6, 8, '19500.00', '20000.00', '2018-03-01', '2018-03-12', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:50:18', '2017-08-08 19:50:18', 1, 1, 0),
+(46, 1, 1, 0, 6, 9, '19500.00', '20000.00', '2018-04-01', '2018-04-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:50:18', '2017-08-08 19:50:18', 1, 1, 0),
+(47, 1, 1, 0, 6, 10, '19500.00', '20000.00', '2018-05-01', '2018-05-10', 1, '0.00', '0000-00-00', 0, '2017-08-08 19:50:18', '2017-08-08 19:50:18', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -290,7 +312,9 @@ INSERT INTO `cuotas_actualizaciones` (`id_actualizacion`, `emitidas`, `vencidas`
 (65, 0, 1, '2017-07-17 20:11:03'),
 (66, 0, 0, '2017-08-02 20:11:02'),
 (67, 0, 0, '2017-08-03 20:11:02'),
-(68, 0, 0, '2017-08-04 20:11:02');
+(68, 0, 0, '2017-08-04 20:11:02'),
+(69, 0, 0, '2017-08-07 20:11:02'),
+(70, 2, 0, '2017-08-08 20:11:02');
 
 -- --------------------------------------------------------
 
@@ -424,6 +448,15 @@ CREATE TABLE `gastos` (
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `gastos`
+--
+
+INSERT INTO `gastos` (`id_gasto`, `gasto`, `id_vehiculo`, `id_inmueble`, `id_tipo`, `fecha`, `monto`, `aumenta_costo`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
+(1, 'Test', 2, 0, 0, '2017-08-08', '50.90', 1, 1, 1, '2017-08-08 13:36:25', '2017-08-08 13:36:25', 0),
+(2, 'aumenta gasto', 1, 0, 0, '2017-08-09', '100.00', 1, 1, 1, '2017-08-08 13:48:07', '2017-08-08 13:48:07', 0),
+(3, 'no aumenta costo', 1, 0, 0, '2017-08-09', '500.00', 0, 1, 1, '2017-08-08 13:48:29', '2017-08-08 13:48:29', 0);
 
 -- --------------------------------------------------------
 
@@ -24864,7 +24897,184 @@ INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `re
 (1633, 4, '{"id_vehiculo":"1","vehiculo":"AA0022GG","id_categoria":"1","id_marca":"3","id_version":"16","id_condicion":"1","id_modelo":"5","ano":"2016","kilometros":"5126","nro_chasis":"1513513","nro_motor":"16515135","color":"Verde ","precio_toma":"100000.00","precio_venta":"200000.00","fecha_ingreso":"2017-08-04","comentario":"","date_upd":"2017-08-04 21:42:03","user_upd":"1"}', 'update', 'vehiculos', '1', '1', '2017-08-04 21:42:03', 'colegio-notarial', 0),
 (1634, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-04 21:42:03', 'colegio-notarial', 0),
 (1635, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:43:39', 'colegio-notarial', 0),
-(1636, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:45:31', 'colegio-notarial', 0);
+(1636, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-04 21:45:31', 'colegio-notarial', 0),
+(1637, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-08 13:25:52', 'colegio-notarial', 0),
+(1638, 4, 'clientes/table', 'access', '', '', '1', '2017-08-08 13:25:52', 'colegio-notarial', 0),
+(1639, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-08 13:25:57', 'colegio-notarial', 0),
+(1640, 4, 'gastos/table', 'access', '', '', '1', '2017-08-08 13:34:54', 'colegio-notarial', 0),
+(1641, 4, 'gastos/abm', 'access', '', '', '1', '2017-08-08 13:34:56', 'colegio-notarial', 0),
+(1642, 4, 'gastos/abm', 'access', '', '', '1', '2017-08-08 13:35:23', 'colegio-notarial', 0),
+(1643, 4, 'gastos/abm', 'access', '', '', '1', '2017-08-08 13:36:09', 'colegio-notarial', 0),
+(1644, 4, '{"id_gasto":"0","gasto":"Test","id_vehiculo":"2","id_tipo":"","fecha":"2017-08-08","monto":"50.9","aumenta_costo":1,"date_add":"2017-08-08 13:36:25","date_upd":"2017-08-08 13:36:25","user_add":"1","user_upd":"1"}', 'insert', 'gastos', '1', '1', '2017-08-08 13:36:25', 'colegio-notarial', 0),
+(1645, 4, 'gastos/table', 'access', '', '', '1', '2017-08-08 13:36:25', 'colegio-notarial', 0),
+(1646, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-08 13:37:07', 'colegio-notarial', 0),
+(1647, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-08 13:37:11', 'colegio-notarial', 0),
+(1648, 4, 'gastos/table', 'access', '', '', '1', '2017-08-08 13:47:03', 'colegio-notarial', 0),
+(1649, 4, 'gastos/abm', 'access', '', '', '1', '2017-08-08 13:47:06', 'colegio-notarial', 0),
+(1650, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-08 13:47:17', 'colegio-notarial', 0),
+(1651, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-08 13:47:19', 'colegio-notarial', 0),
+(1652, 4, '{"precio_costo":100,"date_upd":"2017-08-08 13:48:07","user_upd":"1"}', 'update', 'vehiculos', '{"id_vehiculo":"1"}', '1', '2017-08-08 13:48:07', 'colegio-notarial', 0),
+(1653, 4, '{"id_gasto":"0","gasto":"aumenta gasto","id_vehiculo":"1","id_tipo":"","fecha":"2017-08-09","monto":"100","aumenta_costo":1,"date_add":"2017-08-08 13:48:07","date_upd":"2017-08-08 13:48:07","user_add":"1","user_upd":"1"}', 'insert', 'gastos', '2', '1', '2017-08-08 13:48:07', 'colegio-notarial', 0),
+(1654, 4, 'gastos/table', 'access', '', '', '1', '2017-08-08 13:48:07', 'colegio-notarial', 0),
+(1655, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-08 13:48:11', 'colegio-notarial', 0),
+(1656, 4, 'gastos/abm', 'access', '', '', '1', '2017-08-08 13:48:17', 'colegio-notarial', 0),
+(1657, 4, '{"id_gasto":"0","gasto":"no aumenta costo","id_vehiculo":"1","id_tipo":"","fecha":"2017-08-09","monto":"500","aumenta_costo":0,"date_add":"2017-08-08 13:48:29","date_upd":"2017-08-08 13:48:29","user_add":"1","user_upd":"1"}', 'insert', 'gastos', '3', '1', '2017-08-08 13:48:29', 'colegio-notarial', 0),
+(1658, 4, 'gastos/table', 'access', '', '', '1', '2017-08-08 13:48:29', 'colegio-notarial', 0),
+(1659, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-08 13:48:34', 'colegio-notarial', 0),
+(1660, 4, 'gastos/abm', 'access', '', '', '1', '2017-08-08 13:48:40', 'colegio-notarial', 0),
+(1661, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-08 13:49:12', 'colegio-notarial', 0),
+(1662, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 13:49:16', 'colegio-notarial', 0),
+(1663, 4, 'gastos/table', 'access', '', '', '1', '2017-08-08 13:50:46', 'colegio-notarial', 0),
+(1664, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-08 13:50:50', 'colegio-notarial', 0),
+(1665, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 13:50:53', 'colegio-notarial', 0),
+(1666, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 13:51:02', 'colegio-notarial', 0),
+(1667, 4, 'inmuebles/table', 'access', '', '', '1', '2017-08-08 13:51:08', 'colegio-notarial', 0),
+(1668, 4, 'proyectos/table', 'access', '', '', '1', '2017-08-08 13:51:10', 'colegio-notarial', 0),
+(1669, 4, 'proyectos/table', 'access', '', '', '1', '2017-08-08 13:51:16', 'colegio-notarial', 0),
+(1670, 4, 'plantillas/table', 'access', '', '', '1', '2017-08-08 13:51:20', 'colegio-notarial', 0),
+(1671, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 13:57:01', 'colegio-notarial', 0),
+(1672, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 13:57:03', 'colegio-notarial', 0),
+(1673, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 13:57:08', 'colegio-notarial', 0),
+(1674, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 13:57:18', 'colegio-notarial', 0),
+(1675, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 13:57:31', 'colegio-notarial', 0),
+(1676, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 14:01:38', 'colegio-notarial', 0),
+(1677, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 14:04:15', 'colegio-notarial', 0),
+(1678, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 14:08:23', 'colegio-notarial', 0),
+(1679, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-08 19:27:43', 'colegio-notarial', 0),
+(1680, 4, 'clientes/table', 'access', '', '', '1', '2017-08-08 19:27:44', 'colegio-notarial', 0),
+(1681, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:27:48', 'colegio-notarial', 0),
+(1682, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:27:53', 'colegio-notarial', 0),
+(1683, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:28:17', 'colegio-notarial', 0),
+(1684, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:29:29', 'colegio-notarial', 0),
+(1685, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:29:38', 'colegio-notarial', 0),
+(1686, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:29:51', 'colegio-notarial', 0),
+(1687, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:32:15', 'colegio-notarial', 0),
+(1688, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:32:42', 'colegio-notarial', 0),
+(1689, 3, 'logout', 'logout', '', '', '1', '2017-08-08 19:32:46', 'colegio-notarial', 0),
+(1690, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-08 19:32:49', 'colegio-notarial', 0),
+(1691, 4, 'clientes/table', 'access', '', '', '1', '2017-08-08 19:32:49', 'colegio-notarial', 0),
+(1692, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:33:23', 'colegio-notarial', 0);
+INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `registro`, `user_add`, `date_add`, `programa`, `eliminado`) VALUES
+(1693, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:33:23', 'colegio-notarial', 0),
+(1694, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:33:55', 'colegio-notarial', 0),
+(1695, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:34:14', 'colegio-notarial', 0),
+(1696, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:34:22', 'colegio-notarial', 0),
+(1697, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:34:37', 'colegio-notarial', 0),
+(1698, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:34:39', 'colegio-notarial', 0),
+(1699, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:40:44', 'colegio-notarial', 0),
+(1700, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:44:35', 'colegio-notarial', 0),
+(1701, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 19:46:24', 'colegio-notarial', 0),
+(1702, 4, '{"id_contrato":"0","contrato":"58955","id_cliente":"1","id_vehiculo":"1","monto":"200000.00","monto_anticipo":"5000","id_forma_pago":"1","cuotas":"10","monto_cuota":"19500.00","fecha_inicio":"2017-08-08","inicio_cuota":"01","vencimiento_cuota":"10","monto_interes":"20000","comentario":"","date_add":"2017-08-08 19:47:31","date_upd":"2017-08-08 19:47:31","user_add":"1","user_upd":"1"}', 'insert', 'contratos', '5', '1', '2017-08-08 19:47:31', 'colegio-notarial', 0),
+(1703, 4, '{"numero":1,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-08-01","fecha_vencimiento":"2017-08-10","id_estado":"1","date_add":"2017-08-08 19:47:31","date_upd":"2017-08-08 19:47:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '28', '1', '2017-08-08 19:47:31', 'colegio-notarial', 0),
+(1704, 4, '{"numero":2,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-09-01","fecha_vencimiento":"2017-09-11","id_estado":"1","date_add":"2017-08-08 19:47:31","date_upd":"2017-08-08 19:47:31","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '29', '1', '2017-08-08 19:47:31', 'colegio-notarial', 0),
+(1705, 4, '{"numero":3,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-10-01","fecha_vencimiento":"2017-10-10","id_estado":"1","date_add":"2017-08-08 19:47:32","date_upd":"2017-08-08 19:47:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '30', '1', '2017-08-08 19:47:32', 'colegio-notarial', 0),
+(1706, 4, '{"numero":4,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-11-01","fecha_vencimiento":"2017-11-10","id_estado":"1","date_add":"2017-08-08 19:47:32","date_upd":"2017-08-08 19:47:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '31', '1', '2017-08-08 19:47:32', 'colegio-notarial', 0),
+(1707, 4, '{"numero":5,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-12-01","fecha_vencimiento":"2017-12-11","id_estado":"1","date_add":"2017-08-08 19:47:32","date_upd":"2017-08-08 19:47:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '32', '1', '2017-08-08 19:47:32', 'colegio-notarial', 0),
+(1708, 4, '{"numero":6,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-01-01","fecha_vencimiento":"2018-01-10","id_estado":"1","date_add":"2017-08-08 19:47:32","date_upd":"2017-08-08 19:47:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '33', '1', '2017-08-08 19:47:32', 'colegio-notarial', 0),
+(1709, 4, '{"numero":7,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-02-01","fecha_vencimiento":"2018-02-12","id_estado":"1","date_add":"2017-08-08 19:47:32","date_upd":"2017-08-08 19:47:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '34', '1', '2017-08-08 19:47:32', 'colegio-notarial', 0),
+(1710, 4, '{"numero":8,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-03-01","fecha_vencimiento":"2018-03-12","id_estado":"1","date_add":"2017-08-08 19:47:32","date_upd":"2017-08-08 19:47:32","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '35', '1', '2017-08-08 19:47:32', 'colegio-notarial', 0),
+(1711, 4, '{"numero":9,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-04-01","fecha_vencimiento":"2018-04-10","id_estado":"1","date_add":"2017-08-08 19:47:33","date_upd":"2017-08-08 19:47:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '36', '1', '2017-08-08 19:47:33', 'colegio-notarial', 0),
+(1712, 4, '{"numero":10,"id_cliente":"1","id_vehiculo":"1","id_contrato":5,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-05-01","fecha_vencimiento":"2018-05-10","id_estado":"1","date_add":"2017-08-08 19:47:33","date_upd":"2017-08-08 19:47:33","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '37', '1', '2017-08-08 19:47:33', 'colegio-notarial', 0),
+(1713, 4, '{"id_estado":2,"date_upd":"2017-08-08 19:47:33","user_upd":"1"}', 'update', 'vehiculos', '{"id_vehiculo":"1"}', '1', '2017-08-08 19:47:33', 'colegio-notarial', 0),
+(1714, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:47:33', 'colegio-notarial', 0),
+(1715, 4, '{"id_contrato":"0","contrato":"58955","id_cliente":"1","id_vehiculo":"1","monto":"200000.00","monto_anticipo":"5000","id_forma_pago":"1","cuotas":"10","monto_cuota":"19500.00","fecha_inicio":"2017-08-08","inicio_cuota":"01","vencimiento_cuota":"10","monto_interes":"20000","comentario":"","date_add":"2017-08-08 19:50:17","date_upd":"2017-08-08 19:50:17","user_add":"1","user_upd":"1"}', 'insert', 'contratos', '6', '1', '2017-08-08 19:50:17', 'colegio-notarial', 0),
+(1716, 4, '{"numero":1,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-08-01","fecha_vencimiento":"2017-08-10","id_estado":"1","date_add":"2017-08-08 19:50:17","date_upd":"2017-08-08 19:50:17","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '38', '1', '2017-08-08 19:50:17', 'colegio-notarial', 0),
+(1717, 4, '{"numero":2,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-09-01","fecha_vencimiento":"2017-09-11","id_estado":"1","date_add":"2017-08-08 19:50:17","date_upd":"2017-08-08 19:50:17","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '39', '1', '2017-08-08 19:50:17', 'colegio-notarial', 0),
+(1718, 4, '{"numero":3,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-10-01","fecha_vencimiento":"2017-10-10","id_estado":"1","date_add":"2017-08-08 19:50:17","date_upd":"2017-08-08 19:50:17","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '40', '1', '2017-08-08 19:50:17', 'colegio-notarial', 0),
+(1719, 4, '{"numero":4,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-11-01","fecha_vencimiento":"2017-11-10","id_estado":"1","date_add":"2017-08-08 19:50:17","date_upd":"2017-08-08 19:50:17","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '41', '1', '2017-08-08 19:50:18', 'colegio-notarial', 0),
+(1720, 4, '{"numero":5,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2017-12-01","fecha_vencimiento":"2017-12-11","id_estado":"1","date_add":"2017-08-08 19:50:18","date_upd":"2017-08-08 19:50:18","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '42', '1', '2017-08-08 19:50:18', 'colegio-notarial', 0),
+(1721, 4, '{"numero":6,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-01-01","fecha_vencimiento":"2018-01-10","id_estado":"1","date_add":"2017-08-08 19:50:18","date_upd":"2017-08-08 19:50:18","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '43', '1', '2017-08-08 19:50:18', 'colegio-notarial', 0),
+(1722, 4, '{"numero":7,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-02-01","fecha_vencimiento":"2018-02-12","id_estado":"1","date_add":"2017-08-08 19:50:18","date_upd":"2017-08-08 19:50:18","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '44', '1', '2017-08-08 19:50:18', 'colegio-notarial', 0),
+(1723, 4, '{"numero":8,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-03-01","fecha_vencimiento":"2018-03-12","id_estado":"1","date_add":"2017-08-08 19:50:18","date_upd":"2017-08-08 19:50:18","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '45', '1', '2017-08-08 19:50:18', 'colegio-notarial', 0),
+(1724, 4, '{"numero":9,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-04-01","fecha_vencimiento":"2018-04-10","id_estado":"1","date_add":"2017-08-08 19:50:18","date_upd":"2017-08-08 19:50:18","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '46', '1', '2017-08-08 19:50:18', 'colegio-notarial', 0),
+(1725, 4, '{"numero":10,"id_cliente":"1","id_vehiculo":"1","id_contrato":6,"monto":"19500.00","monto_interes":"20000","fecha_inicio":"2018-05-01","fecha_vencimiento":"2018-05-10","id_estado":"1","date_add":"2017-08-08 19:50:18","date_upd":"2017-08-08 19:50:18","user_add":"1","user_upd":"1"}', 'insert', 'cuotas', '47', '1', '2017-08-08 19:50:19', 'colegio-notarial', 0),
+(1726, 4, '{"id_estado":2,"date_upd":"2017-08-08 19:50:19","user_upd":"1"}', 'update', 'vehiculos', '{"id_vehiculo":"1"}', '1', '2017-08-08 19:50:19', 'colegio-notarial', 0),
+(1727, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:50:19', 'colegio-notarial', 0),
+(1728, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:50:29', 'colegio-notarial', 0),
+(1729, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 19:51:16', 'colegio-notarial', 0),
+(1730, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 19:51:30', 'colegio-notarial', 0),
+(1731, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 20:02:28', 'colegio-notarial', 0),
+(1732, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 20:02:50', 'colegio-notarial', 0),
+(1733, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 20:02:56', 'colegio-notarial', 0),
+(1734, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 20:03:29', 'colegio-notarial', 0),
+(1735, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 20:08:37', 'colegio-notarial', 0),
+(1736, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 20:08:49', 'colegio-notarial', 0),
+(1737, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 20:08:51', 'colegio-notarial', 0),
+(1738, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 20:09:27', 'colegio-notarial', 0),
+(1739, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 20:09:38', 'colegio-notarial', 0),
+(1740, 4, 'contratos/abm', 'access', '', '', '1', '2017-08-08 20:10:18', 'colegio-notarial', 0),
+(1741, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:15:36', 'colegio-notarial', 0),
+(1742, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:16:23', 'colegio-notarial', 0),
+(1743, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:16:59', 'colegio-notarial', 0),
+(1744, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:41:21', 'colegio-notarial', 0),
+(1745, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:41:36', 'colegio-notarial', 0),
+(1746, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:42:19', 'colegio-notarial', 0),
+(1747, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:42:40', 'colegio-notarial', 0),
+(1748, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:43:11', 'colegio-notarial', 0),
+(1749, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:43:50', 'colegio-notarial', 0),
+(1750, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:44:06', 'colegio-notarial', 0),
+(1751, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:44:57', 'colegio-notarial', 0),
+(1752, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:45:42', 'colegio-notarial', 0),
+(1753, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:47:16', 'colegio-notarial', 0),
+(1754, 4, '{"id_estado":"2","fecha_pago":"2017-08-08","monto_pago":"19500.00","date_upd":"2017-08-08 20:48:29","user_upd":"1"}', 'update', 'cuotas', '{"id_cuota":"28"}', '1', '2017-08-08 20:48:29', 'colegio-notarial', 0),
+(1755, 4, '{"id_estado":"2","fecha_pago":"2017-08-08","monto_pago":"19500.00","date_upd":"2017-08-08 20:48:29","user_upd":"1"}', 'update', 'cuotas', '{"id_cuota":"38"}', '1', '2017-08-08 20:48:29', 'colegio-notarial', 0),
+(1756, 4, 'cuotas/imprimir', 'access', '', '', '1', '2017-08-08 20:48:29', 'colegio-notarial', 0),
+(1757, 4, 'cuotas/table', 'access', '', '', '1', '2017-08-08 20:48:50', 'colegio-notarial', 0),
+(1758, 4, 'cuotas/abm', 'access', '', '', '1', '2017-08-08 20:48:53', 'colegio-notarial', 0),
+(1759, 4, 'cuotas/abm', 'access', '', '', '1', '2017-08-08 20:49:55', 'colegio-notarial', 0),
+(1760, 4, 'contratos/table', 'access', '', '', '1', '2017-08-08 20:50:09', 'colegio-notarial', 0),
+(1761, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-08 20:50:13', 'colegio-notarial', 0),
+(1762, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-08 20:50:17', 'colegio-notarial', 0),
+(1763, 4, '{"id_estado":"2","fecha_pago":"2017-08-08","monto_pago":"19500.00","date_upd":"2017-08-08 20:50:24","user_upd":"1"}', 'update', 'cuotas', '{"id_cuota":"29"}', '1', '2017-08-08 20:50:25', 'colegio-notarial', 0),
+(1764, 4, 'cuotas/imprimir', 'access', '', '', '1', '2017-08-08 20:50:25', 'colegio-notarial', 0),
+(1765, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-09 13:47:27', 'colegio-notarial', 0),
+(1766, 4, 'clientes/table', 'access', '', '', '1', '2017-08-09 13:47:27', 'colegio-notarial', 0),
+(1767, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-09 13:48:39', 'colegio-notarial', 0),
+(1768, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:48:43', 'colegio-notarial', 0),
+(1769, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:49:23', 'colegio-notarial', 0),
+(1770, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:50:38', 'colegio-notarial', 0),
+(1771, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:52:28', 'colegio-notarial', 0),
+(1772, 4, '{"id_vehiculo":"1","vehiculo":"AA0022GG","id_categoria":"1","id_marca":"3","id_version":"16","id_condicion":"1","id_modelo":"5","ano":"2016","kilometros":"5126","nro_chasis":"1513513","nro_motor":"16515135","color":"Verde ","precio_toma":"100000.00","id_calculo":"","calculo":"0.001","fecha_ingreso":"2017-08-04","comentario":"","date_upd":"2017-08-09 13:52:38","user_upd":"1"}', 'update', 'vehiculos', '1', '1', '2017-08-09 13:52:38', 'colegio-notarial', 0),
+(1773, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-09 13:52:38', 'colegio-notarial', 0),
+(1774, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:52:42', 'colegio-notarial', 0),
+(1775, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:52:47', 'colegio-notarial', 0),
+(1776, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:53:55', 'colegio-notarial', 0),
+(1777, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:55:14', 'colegio-notarial', 0),
+(1778, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:56:30', 'colegio-notarial', 0),
+(1779, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:56:50', 'colegio-notarial', 0),
+(1780, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 13:59:13', 'colegio-notarial', 0),
+(1781, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 14:00:17', 'colegio-notarial', 0),
+(1782, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 14:00:59', 'colegio-notarial', 0),
+(1783, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 14:01:52', 'colegio-notarial', 0),
+(1784, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 14:02:15', 'colegio-notarial', 0),
+(1785, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-09 15:50:15', 'colegio-notarial', 0),
+(1786, 4, 'clientes/table', 'access', '', '', '1', '2017-08-09 15:50:15', 'colegio-notarial', 0),
+(1787, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-09 15:50:20', 'colegio-notarial', 0),
+(1788, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 15:50:22', 'colegio-notarial', 0),
+(1789, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 15:50:27', 'colegio-notarial', 0),
+(1790, 4, '{"id_vehiculo":"1","vehiculo":"AA0022GG","id_categoria":"1","id_marca":"3","id_version":"16","id_condicion":"1","id_modelo":"5","ano":"2016","kilometros":"5126","nro_chasis":"1513513","nro_motor":"16515135","color":"Verde ","precio_toma":"100000.00","id_calculo":"1","calculo":"150","fecha_ingreso":"2017-08-04","comentario":"","date_upd":"2017-08-09 15:50:37","user_upd":"1"}', 'update', 'vehiculos', '1', '1', '2017-08-09 15:50:37', 'colegio-notarial', 0),
+(1791, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-09 15:50:37', 'colegio-notarial', 0),
+(1792, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 15:56:12', 'colegio-notarial', 0),
+(1793, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 15:56:20', 'colegio-notarial', 0),
+(1794, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 15:56:23', 'colegio-notarial', 0),
+(1795, 4, '{"id_vehiculo":"1","vehiculo":"AA0022GG","id_categoria":"1","id_marca":"3","id_version":"16","id_condicion":"1","id_modelo":"5","ano":"2016","kilometros":"5126","nro_chasis":"1513513","nro_motor":"16515135","color":"Verde ","precio_toma":"100000.00","precio_costo":"100.00","id_calculo":"1","calculo":"150.00","precio_venta":"250","fecha_ingreso":"2017-08-04","comentario":"","date_upd":"2017-08-09 15:56:32","user_upd":"1"}', 'update', 'vehiculos', '1', '1', '2017-08-09 15:56:32', 'colegio-notarial', 0),
+(1796, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-09 15:56:32', 'colegio-notarial', 0),
+(1797, 4, '{"id_vehiculo":"1","vehiculo":"AA0022GG","id_categoria":"1","id_marca":"3","id_version":"16","id_condicion":"1","id_modelo":"5","ano":"2016","kilometros":"5126","nro_chasis":"1513513","nro_motor":"16515135","color":"Verde ","precio_toma":"100000.00","precio_costo":"100.00","id_calculo":"1","calculo":"150.00","precio_venta":"250","fecha_ingreso":"2017-08-04","comentario":"","date_upd":"2017-08-09 16:00:23","user_upd":"1"}', 'update', 'vehiculos', '1', '1', '2017-08-09 16:00:23', 'colegio-notarial', 0),
+(1798, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-09 16:00:23', 'colegio-notarial', 0),
+(1799, 4, '{"id_vehiculo":"1","vehiculo":"AA0022GG","id_categoria":"1","id_marca":"3","id_version":"16","id_condicion":"1","id_modelo":"5","ano":"2016","kilometros":"5126","nro_chasis":"1513513","nro_motor":"16515135","color":"Verde ","precio_toma":"100000.00","precio_costo":"100.00","id_calculo":"1","calculo":"150.00","precio_venta":"250","fecha_ingreso":"2017-08-04","comentario":"","date_upd":"2017-08-09 16:01:23","user_upd":"1"}', 'update', 'vehiculos', '1', '1', '2017-08-09 16:01:23', 'colegio-notarial', 0),
+(1800, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-09 16:01:23', 'colegio-notarial', 0),
+(1801, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:06:30', 'colegio-notarial', 0),
+(1802, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:11:12', 'colegio-notarial', 0),
+(1803, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:11:15', 'colegio-notarial', 0),
+(1804, 4, 'vehiculos/table', 'access', '', '', '1', '2017-08-09 17:11:57', 'colegio-notarial', 0),
+(1805, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:11:59', 'colegio-notarial', 0),
+(1806, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:15:23', 'colegio-notarial', 0),
+(1807, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:15:48', 'colegio-notarial', 0),
+(1808, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:16:10', 'colegio-notarial', 0),
+(1809, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:17:23', 'colegio-notarial', 0),
+(1810, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:17:34', 'colegio-notarial', 0),
+(1811, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:18:38', 'colegio-notarial', 0),
+(1812, 4, 'vehiculos/abm', 'access', '', '', '1', '2017-08-09 17:18:45', 'colegio-notarial', 0);
 
 -- --------------------------------------------------------
 
@@ -25243,10 +25453,11 @@ CREATE TABLE `vehiculos` (
   `color` varchar(50) DEFAULT NULL,
   `precio_toma` decimal(15,2) DEFAULT NULL,
   `precio_costo` decimal(15,2) DEFAULT NULL,
-  `precio_venta` decimal(15,2) DEFAULT NULL,
+  `precio_venta` decimal(10,2) DEFAULT NULL,
+  `id_calculo` int(11) NOT NULL,
+  `calculo` decimal(10,2) NOT NULL,
   `fecha_ingreso` date DEFAULT NULL,
-  `fecha_venta` date DEFAULT NULL,
-  `id_estado` int(11) DEFAULT '0',
+  `id_estado` int(11) DEFAULT '1',
   `comentario` text NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
@@ -25259,9 +25470,33 @@ CREATE TABLE `vehiculos` (
 -- Volcado de datos para la tabla `vehiculos`
 --
 
-INSERT INTO `vehiculos` (`id_vehiculo`, `vehiculo`, `id_categoria`, `id_marca`, `id_version`, `id_condicion`, `id_modelo`, `ano`, `kilometros`, `nro_chasis`, `nro_motor`, `color`, `precio_toma`, `precio_costo`, `precio_venta`, `fecha_ingreso`, `fecha_venta`, `id_estado`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'AA0022GG', 1, 3, 16, 1, 5, 2016, 5126, '1513513', '16515135', 'Verde ', '100000.00', NULL, '200000.00', '2017-08-04', NULL, 0, '', '2017-08-04 21:36:50', '2017-08-04 21:42:03', 1, 1, 0),
-(2, '0', 1, 14, 451, 1, 75, NULL, 5126, '1513513', '16515135', 'Verde ', '100000.00', NULL, '200000.00', '2017-08-04', NULL, 0, '', '2017-08-04 21:39:28', '2017-08-04 21:39:28', 1, 1, 0);
+INSERT INTO `vehiculos` (`id_vehiculo`, `vehiculo`, `id_categoria`, `id_marca`, `id_version`, `id_condicion`, `id_modelo`, `ano`, `kilometros`, `nro_chasis`, `nro_motor`, `color`, `precio_toma`, `precio_costo`, `precio_venta`, `id_calculo`, `calculo`, `fecha_ingreso`, `id_estado`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 'AA0022GG', 1, 3, 16, 1, 5, 2016, 5126, '1513513', '16515135', 'Verde ', '100000.00', '100.00', NULL, 1, '150.00', '2017-08-04', 2, '', '2017-08-04 21:36:50', '2017-08-09 16:01:23', 1, 1, 0),
+(2, '0', 1, 14, 451, 1, 75, NULL, 5126, '1513513', '16515135', 'Verde ', '100000.00', NULL, NULL, 0, '0.00', '2017-08-04', 1, '', '2017-08-04 21:39:28', '2017-08-04 21:39:28', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vehiculos_calculos`
+--
+
+CREATE TABLE `vehiculos_calculos` (
+  `id_calculo` int(11) NOT NULL,
+  `calculo` varchar(64) NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `vehiculos_calculos`
+--
+
+INSERT INTO `vehiculos_calculos` (`id_calculo`, `calculo`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
+(1, 'Porcentaje', 1, 1, '2017-08-04 19:59:47', '2017-08-04 19:59:47', 0),
+(2, 'Valor Fijo', 1, 1, '2017-08-04 19:59:47', '2017-08-04 19:59:47', 0);
 
 -- --------------------------------------------------------
 
@@ -25359,7 +25594,8 @@ CREATE TABLE `vehiculos_estados` (
 --
 
 INSERT INTO `vehiculos_estados` (`id_estado`, `estado`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
-(1, 'test', 1, 1, '2017-08-04 19:59:47', '2017-08-04 19:59:47', 0);
+(1, '<span class="label label-success">Libre</span>', 1, 1, '2017-08-04 19:59:47', '2017-08-04 19:59:47', 0),
+(2, '<span class="label label-default">Vendido</span>', 1, 1, '2017-08-09 00:00:00', '2017-08-09 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -33909,6 +34145,12 @@ ALTER TABLE `vehiculos`
   ADD PRIMARY KEY (`id_vehiculo`);
 
 --
+-- Indices de la tabla `vehiculos_calculos`
+--
+ALTER TABLE `vehiculos_calculos`
+  ADD PRIMARY KEY (`id_calculo`);
+
+--
 -- Indices de la tabla `vehiculos_categorias`
 --
 ALTER TABLE `vehiculos_categorias`
@@ -33967,17 +34209,17 @@ ALTER TABLE `condiciones_pagos`
 -- AUTO_INCREMENT de la tabla `contratos`
 --
 ALTER TABLE `contratos`
-  MODIFY `id_contrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_contrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `cuotas`
 --
 ALTER TABLE `cuotas`
-  MODIFY `id_cuota` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_cuota` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT de la tabla `cuotas_actualizaciones`
 --
 ALTER TABLE `cuotas_actualizaciones`
-  MODIFY `id_actualizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_actualizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT de la tabla `cuotas_estados`
 --
@@ -34002,7 +34244,7 @@ ALTER TABLE `formas_pagos`
 -- AUTO_INCREMENT de la tabla `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `gastos_tipos`
 --
@@ -34027,7 +34269,7 @@ ALTER TABLE `inmuebles_tipos`
 -- AUTO_INCREMENT de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1637;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1813;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --
@@ -34074,6 +34316,11 @@ ALTER TABLE `usuarios_permisos`
 ALTER TABLE `vehiculos`
   MODIFY `id_vehiculo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT de la tabla `vehiculos_calculos`
+--
+ALTER TABLE `vehiculos_calculos`
+  MODIFY `id_calculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `vehiculos_categorias`
 --
 ALTER TABLE `vehiculos_categorias`
@@ -34087,7 +34334,7 @@ ALTER TABLE `vehiculos_condiciones`
 -- AUTO_INCREMENT de la tabla `vehiculos_estados`
 --
 ALTER TABLE `vehiculos_estados`
-  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `vehiculos_marcas`
 --

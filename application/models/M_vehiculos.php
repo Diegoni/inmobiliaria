@@ -25,6 +25,10 @@ class m_vehiculos extends MY_Model
             'table'     => 'vehiculos_condiciones',
             'subjet'    => 'condicion'
         ),
+        'id_calculo' => array(
+            'table'     => 'vehiculos_calculos',
+            'subjet'    => 'calculo'
+        ),
         'id_estado' => array(
             'table'     => 'vehiculos_estados',
             'subjet'    => 'estado'

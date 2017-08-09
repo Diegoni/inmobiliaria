@@ -58,6 +58,7 @@ $lang['cuotas']             = "Cuotas";
 $lang['confirma_accion']    = "Confirma Accion";
 $lang['condicion']          = "Condición";
 $lang['color']              = "Color";
+$lang['calculo']            = "Cálculo";
 
 /*--------------------------------------------------------------------------------  
     D

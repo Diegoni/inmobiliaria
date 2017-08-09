@@ -14,6 +14,8 @@ class Vehiculos extends MY_Controller
         
         $this->load->model($this->_model, 'model');  
         $this->load->model('m_contratos');
+        $this->load->model('m_cuotas');
+        $this->load->model('m_vehiculos_calculos');
         $this->load->model('m_vehiculos_categorias');
         $this->load->model('m_vehiculos_marcas');
         $this->load->model('m_vehiculos_versiones');        
@@ -34,6 +36,7 @@ class Vehiculos extends MY_Controller
     function abm($id = NULL)
     {
         $db['vehiculos_categorias']   = $this->m_vehiculos_categorias->getRegistros();
+        $db['vehiculos_calculos']   = $this->m_vehiculos_calculos->getRegistros();
         if($id != NULL)
         {
             $registros = $this->model->getRegistros($id);
@@ -68,12 +71,58 @@ class Vehiculos extends MY_Controller
             array('nro_chasis',    '', ''),
             array('nro_motor',    '', ''),
             array('color',    '', ''),
-            array('precio_toma',    '', ''),
-            array('precio_costo',    '', 'disabled'),
-            array('precio_venta',    '', ''),
+            array('precio_toma',    'onlyFloat', ''),
+            array('select',   'id_calculo',  'calculo', $db['vehiculos_calculos']),
+            array('calculo',    'onlyFloat', ''),
+            array('precio_costo',    '', 'readonly'),
+            array('precio_venta',    '', 'readonly'),
             array('fecha_ingreso',    '', ''),
             array('comentario',    '', ''),
         );
+        
+        
+        if($id != NULL)
+        {
+            $registro = $this->model->getRegistros($id);
+            if($registro)
+            {
+                foreach ($registro as $_row) 
+                {
+                    $estado = $_row->id_estado;    
+                }
+                
+                if($estado == 2)
+                {
+                    $db['campos'] = array(
+                        array('vehiculo',    '', 'disabled'),
+                        array('select',   'id_categoria',  'categoria', $db['vehiculos_categorias'], 'disabled'),
+                        array('select',   'id_marca',  'marca', $db['marcas'], 'disabled'),
+                        array('select',   'id_modelo',  'modelo', $db['modelos'], 'disabled'),
+                        array('select',   'id_version',  'version', $db['versiones'], 'disabled'),
+                        array('select',   'id_condicion',  'condicion', $db['condiciones'],  'disabled'),
+                        array('ano',    '', 'disabled'),
+                        array('kilometros',    '', 'disabled'),
+                        array('nro_chasis',    '', 'disabled'),
+                        array('nro_motor',    '', 'disabled'),
+                        array('color',    '', 'disabled'),
+                        array('precio_toma',    'onlyFloat', 'disabled'),
+                        array('select',   'id_calculo',  'calculo', $db['vehiculos_calculos'],  'disabled'),
+                        array('calculo',    'onlyFloat', 'disabled'),
+                        array('precio_costo',    '', 'disabled'),
+                        array('precio_venta',    '', 'disabled'),
+                        array('fecha_ingreso',    '', 'disabled'),
+                        array('comentario',    '', 'disabled'),
+                    );
+                    
+                    $this->load->library('Graficos');
+                    
+                    $db['contrato'] = $this->m_contratos->getRegistros($id, 'id_vehiculo');
+                    $db['cuotas'] = $this->m_cuotas->getRegistros($id, 'id_vehiculo');
+                    
+                    $db['estado']       = 2;
+                }
+            }    
+        }
         
         $this->armarAbm($id, $db);
     }
