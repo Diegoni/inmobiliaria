@@ -28,7 +28,7 @@ if($registro)
 
 
 
-if($estado == 2)
+if($estado == 2 || $gastos)
 {
     $html .= '
     <section class="content">
@@ -36,10 +36,19 @@ if($estado == 2)
             <div class="col-md-12">
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">'.$this->config->item('subjet').'</a></li>
-            <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Contrato</a></li>
-            <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Cuotas</a></li>
-        </ul>';
+            <li class="active"><a href="#registro" data-toggle="tab" aria-expanded="true">'.$this->config->item('subjet').'</a></li>';
+    if($gastos)
+    {
+        $html .= '<li><a href="#gastos" data-toggle="tab" aria-expanded="true">'.lang('gastos').'</a></li>';
+    }   
+    
+    if($estado == 2)
+    {
+        $html .= '<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Contrato</a></li>
+                  <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Cuotas</a></li>';
+    }         
+            
+    $html .= '</ul>';
 }else{
     $html .= startContent();
 }
@@ -52,10 +61,10 @@ if(isset($mensaje))
 /*--------------------------------------------------------------------------------  
             Formulario
  --------------------------------------------------------------------------------*/ 
-if($estado == 2)
+if($estado == 2 || $gastos)
 {
     $html .= '<div class="tab-content">';
-    $html .= '<div class="tab-pane active" id="tab_1">'; 
+    $html .= '<div class="tab-pane active" id="registro">'; 
 }        
   
 $html .= '<form action="#" method="post" class="form-horizontal">';
@@ -192,14 +201,74 @@ if($estado == 2)
      
     $html .= '</div>';//<div class="col-md-12">    
     $html .= '</div>';//<div class="row">
-    $html .= '</div>';//<div class="tab-pane" id="tab_3">
+   
+}
+
+if($gastos)
+{
+    $html .= '</div>';
+    $html .= '<div class="tab-pane" id="gastos"> ';
+    $cabeceras = array(
+        lang('fecha'),
+        lang('gasto'),
+        lang('tipo'),
+        lang('monto'),
+        lang('aumenta_costo'),
+    );
     
+    $html .= startTable($cabeceras, 'table-gastos');
+   
+    $aumenta = 0;
+    $no_aumenta = 0;
+    $total = 0;
+    
+    foreach ($gastos as $gasto) 
+    {
+        $_table = array(
+            formatDate($gasto->fecha),
+            $gasto->gasto,
+            $gasto->tipo,
+            formatImporte($gasto->monto),
+            setSpan($gasto->aumenta_costo),
+        );
+        
+        if($gasto->aumenta_costo == 1)
+        {
+            $aumenta = $aumenta + $gasto->monto;
+        }else
+        {
+            $no_aumenta = $no_aumenta + $gasto->monto;
+        }
+        
+        $total = $total + $gasto->monto;
+        
+        $html .= setTableContent($_table);
+    }
+    
+    $html .= endTable(); 
+    
+    $html .= '<div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                <div class="box-footer no-padding">
+                  <ul class="nav nav-stacked">
+                    <li><a href="#">Total gastos en costo <span class="pull-right badge bg-green">'.formatImporte($aumenta).'</span></a></li>
+                    <li><a href="#">Total gastos sin costo <span class="pull-right badge bg-red">'.formatImporte($no_aumenta).'</span></a></li>
+                    <li><a href="#">Total gastos <span class="pull-right badge bg-blue">'.formatImporte($total).'</span></a></li>
+                  </ul>
+                </div>
+                </div>
+                </div>';
+
+}  
+
+if($estado == 2 || $gastos)
+{
+    $html .= '</div>';//<div class="tab-pane" id="tab_3">   
     $html .= '</div>'; //<div class="nav-tabs-custom">
     $html .= '</div>'; //<div class="col-md-12">
     $html .= '</div>'; // <div class="row">
     
     $html .= '</section>'; //<section class="content">
-    
 }else{
      
     $html .= endContent();

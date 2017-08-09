@@ -15,6 +15,7 @@ class Vehiculos extends MY_Controller
         $this->load->model($this->_model, 'model');  
         $this->load->model('m_contratos');
         $this->load->model('m_cuotas');
+        $this->load->model('m_gastos');
         $this->load->model('m_vehiculos_calculos');
         $this->load->model('m_vehiculos_categorias');
         $this->load->model('m_vehiculos_marcas');
@@ -35,6 +36,7 @@ class Vehiculos extends MY_Controller
     
     function abm($id = NULL)
     {
+        $db['estado']       = 1;
         $db['vehiculos_categorias']   = $this->m_vehiculos_categorias->getRegistros();
         $db['vehiculos_calculos']   = $this->m_vehiculos_calculos->getRegistros();
         if($id != NULL)
@@ -50,11 +52,13 @@ class Vehiculos extends MY_Controller
             $db['marcas']       = $this->m_vehiculos_marcas->getRegistros($id_marca, 'id_marca');
             $db['versiones']    = $this->m_vehiculos_versiones->getRegistros($id_version, 'id_version');
             $db['modelos']      = $this->m_vehiculos_modelos->getRegistros($id_modelo, 'id_modelo');
+            $db['gastos']       = $this->m_gastos->getRegistros($id, 'id_vehiculo');
         }else
         {
             $db['marcas']       = '';
             $db['versiones']    = '';
             $db['modelos']      = '';
+            $db['gastos']       = FALSE;
         }
         
         $db['condiciones']  = $this->m_vehiculos_condiciones->getRegistros();

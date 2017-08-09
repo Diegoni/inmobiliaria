@@ -118,6 +118,7 @@ $lang['fecha_vencimiento']  = "Fecha vencimiento";
 $lang['garaje']             = "Garaje"; 
 $lang['gas']                = "Gas";
 $lang['gasto']              = "Gasto";
+$lang['gastos']             = "Gastos";
  
  /*--------------------------------------------------------------------------------  
    H
