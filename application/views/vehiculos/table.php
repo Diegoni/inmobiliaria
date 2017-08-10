@@ -7,6 +7,7 @@ $cabeceras = array(
     lang('vehiculo'),
     lang('marca'),
     lang('modelo'),
+    lang('precio_venta'),
     lang('estado'),
     lang('opciones'),
 );
@@ -39,6 +40,7 @@ if($registros)
             $row->vehiculo,
             $row->marca,
             $row->modelo,
+            formatImporte($row->precio_venta),
             $row->estado,
             tableUpd($subjet, $row->id_vehiculo),
         );

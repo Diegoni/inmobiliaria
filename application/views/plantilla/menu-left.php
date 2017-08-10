@@ -122,7 +122,13 @@
         <?php 
         $titulo     = str_replace("_", " ", $subjet);
         $subtitulo  = str_replace("_", " ", $this->uri->segment(2));
-        echo $titulo; 
+        
+        echo $titulo;
+        if($subtitulo == 'abm')
+        {
+            echo ' <a href="'.base_url().'index.php/'.$subjet.'/table" title="lista" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>';
+        }
+         
         echo '<small>'.$subtitulo.'</small>';
         ?>
         </h1>

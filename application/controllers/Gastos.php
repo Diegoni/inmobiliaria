@@ -47,42 +47,21 @@ class Gastos extends MY_Controller
 /*--------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------  
             
-       Aumentar el costo del vehiculo
+       Acualizar el costo del vehiculo despues de insert
   
 ----------------------------------------------------------------------------------- 
 ---------------------------------------------------------------------------------*/  
     
     
-   function beforeInsert($registro)
+   function afterInsert($registro)
    {
-       if($registro['id_vehiculo'] > 0 && $registro['aumenta_costo'] == 1) 
-       {
-            $vehiculos    = $this->m_vehiculos->getRegistros($registro['id_vehiculo']);
-           
-            if($vehiculos)
-            {
-                foreach ($vehiculos as $_vehiculo) 
-                {
-                    $_update = array(
-                        'precio_costo' => $_vehiculo->precio_costo + $registro['monto'],
-                    );
-                }    
-                
-                $_where = array(
-                    'id_vehiculo' => $registro['id_vehiculo'],
-                );
-                
-                $this->m_vehiculos->update($_update, $_where);
-            }           
-       }
-       
-       return $registro;
+       $this->m_vehiculos->actualizarCostos($registro['id_vehiculo']);
    }
    
 /*--------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------  
             
-       Aumentar el costo del vehiculo
+       Acualizar el costo del vehiculo despues de update
   
 ----------------------------------------------------------------------------------- 
 ---------------------------------------------------------------------------------*/  

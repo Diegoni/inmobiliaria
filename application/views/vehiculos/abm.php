@@ -214,6 +214,7 @@ if($gastos)
         lang('tipo'),
         lang('monto'),
         lang('aumenta_costo'),
+        lang('opciones'),
     );
     
     $html .= startTable($cabeceras, 'table-gastos');
@@ -230,6 +231,7 @@ if($gastos)
             $gasto->tipo,
             formatImporte($gasto->monto),
             setSpan($gasto->aumenta_costo),
+            tableUpd('Gastos', $gasto->id_gasto),
         );
         
         if($gasto->aumenta_costo == 1)
