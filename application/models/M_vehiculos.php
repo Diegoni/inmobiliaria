@@ -44,5 +44,66 @@ class m_vehiculos extends MY_Model
 			$relation		= $this->_relation
 		);
 	}
+    
+/*--------------------------------------------------------------------------------- 
+-----------------------------------------------------------------------------------  
+            
+       Actualiza los precios de los vehiculos
+  
+----------------------------------------------------------------------------------- 
+---------------------------------------------------------------------------------*/    
+        
+    function actualizarCostos($id_vehiculo)
+    {
+        $sql = "
+        SELECT 
+            *
+        FROM
+            gastos
+        WHERE 
+            id_vehiculo = '$id_vehiculo' AND
+            eliminado = '0'           
+        ";
+        
+        $gastos = $this->getQuery($sql);
+        $vehiculos = $this->getRegistros($id_vehiculo);
+        
+        foreach ($vehiculos as $row) 
+        {
+            $_registro = array(
+                'precio_costo'  => $row->precio_toma,
+                'id_calculo'    => $row->id_calculo, 
+                'calculo'    => $row->calculo,
+            );
+        }
+        
+        // Suma Costo del Vehiculo
+        if($gastos)
+        {
+            foreach ($gastos as $gasto) 
+            {
+                if($gasto->aumenta_costo == 1)
+                {
+                    $_registro['precio_costo'] = $_registro['precio_costo'] + $gasto->monto;
+                }
+            }    
+        }
+        
+        // Cambio de costos del vehiculo
+        if($_registro['id_calculo'] == 1)
+        {
+            $porcentaje = $_registro['calculo'] * $_registro['precio_costo'] / 100;
+            $_registro['precio_venta'] = $_registro['precio_costo'] + $porcentaje; 
+        }else if($_registro['id_calculo'] == 2)
+        {
+            $_registro['precio_venta'] = $_registro['precio_costo'] + $_registro['calculo'];
+        }
+        
+        $where = array(
+            'id_vehiculo' => $id_vehiculo,
+        );  
+        
+        $this->update($_registro, $where);
+    }
 } 
 ?>

@@ -294,4 +294,19 @@ echo $html;
 $("[data-inputmask]").inputmask();
 $(".checkbox").bootstrapSwitch();
 
+
+$('#calculo').keyup(function() {
+    if($('#id_calculo').val() == '')
+    {
+        alert("Seleccione un tipo de cálculo");
+        $('#id_calculo').focus();
+    }else if($('#id_calculo').val() == 1)
+    {
+        var porcentaje = parseFloat($('#calculo').val())* parseFloat($('#precio_costo').val())/100;
+        $('#precio_venta').val( parseFloat($('#precio_costo').val()) + porcentaje ); 
+    }else if($('#id_calculo').val() == 2){
+        $('#precio_venta').val( parseFloat($('#calculo').val())+ parseFloat($('#precio_costo').val()) );
+    }    
+});
+
 </script>
