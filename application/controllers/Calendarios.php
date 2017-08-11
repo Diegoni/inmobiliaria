@@ -14,6 +14,7 @@ class Calendarios extends MY_Controller
         
         $this->load->model($this->_model, 'model');  
 		$this->load->model('m_colores');
+		$this->load->library('l_calendarios');
     } 
     
     
@@ -33,8 +34,7 @@ class Calendarios extends MY_Controller
         $db['campos']   = array(
             array('calendario',    'onlyChar', 'required'),
             array('select',    'id_color', 'color', $db['colores']),
-            array('fecha_inicio',    '', 'required'),
-            array('fecha_final',    '', ''),
+            array('fecha',    '', 'required'),
         );
         
         $this->armarAbm($id, $db);

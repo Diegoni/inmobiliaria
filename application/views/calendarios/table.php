@@ -18,37 +18,40 @@ if(isset($mensaje)){
             Tabla
  --------------------------------------------------------------------------------*/
 
-if($permiso_editar == 1)
-{
-    $html .= getExportsButtons($cabeceras, tableAdd($subjet));    
-}else
-{
-    $html .= getExportsButtons($cabeceras);
-}
+$html .= tableAdd($subjet);
+$html .= '</div>';
+$html .= '<div class="box-header ui-sortable-handle" style="cursor: move;">';
+$html .= '<h3 class="box-title">Feriados</h3>';
+$html .= '<div class="box-tools pull-right" data-toggle="tooltip" title="" data-original-title="Status">';
+$html .= '</div>';
+$html .= '<div id="calendar"></div>';
 
-$html .= startTable($cabeceras);
-
-if($registros)
-{
-    foreach ($registros as $row) 
-    {
-        $registro = array(
-            $row->calendario,
-            tableUpd($subjet, $row->id_calendario),
-        );
-        
-        $html .= setTableContent($registro);    
-    }
-}
-            
-$html .= endTable($cabeceras);         
-$html .= setDatatables();           
 
 /*--------------------------------------------------------------------------------  
             Fin del contenido
  --------------------------------------------------------------------------------*/
  
 $html .= endContent();
+	
+/*--------------------------------------------------------------------------------	
+ --------------------------------------------------------------------------------
+ 			Datos Calendario
+ --------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------*/
+
+$calendario = new l_calendarios();
+
+$array = array();
+if($registros){
+	foreach ($registros as $row) 
+	{
+		$array[$row->calendario] = $row->fecha;
+	}	
+}
+
+$script = $calendario->script('calendar', $array);
+
+$html .= $script;
 
 echo $html;
 ?>

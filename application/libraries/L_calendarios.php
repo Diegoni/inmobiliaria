@@ -1,5 +1,5 @@
 <?php 
-class Calendarios {
+class L_calendarios {
 	var $css;
 	var $js;
 	var $default_color = 'f56954';

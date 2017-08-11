@@ -383,8 +383,15 @@ class MY_Controller extends CI_Controller
 	
 	function getAlertas()
 	{
-		$logged = $this->session->userdata('logged_in') ;
-		$db['alertas_user'] = $this->m_alertas->getAlertas($logged['id_usuario']);
+		if($this->session->userdata('logged_in'))
+		{
+			$logged = $this->session->userdata('logged_in') ;
+			$db['alertas_user'] = $this->m_alertas->getAlertas($logged['id_usuario']);	
+		}else
+		{
+			$db['alertas_user'] = FALSE;
+		}
+		
 		
 		return $db['alertas_user'];	
 	}

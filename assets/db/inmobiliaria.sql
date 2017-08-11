@@ -56,8 +56,7 @@ CREATE TABLE `calendarios` (
   `id_calendario` int(11) NOT NULL,
   `calendario` varchar(128) NOT NULL,
   `id_color` int(11) NOT NULL,
-  `fecha_inicio` date NOT NULL,
-  `fecha_final` date NOT NULL,
+  `fecha` date NOT NULL,
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   `user_add` int(11) NOT NULL,
@@ -68,9 +67,6 @@ CREATE TABLE `calendarios` (
 --
 -- Volcado de datos para la tabla `calendarios`
 --
-
-INSERT INTO `calendarios` (`id_calendario`, `calendario`, `id_color`, `fecha_inicio`, `fecha_final`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, 'Test', 0, '2017-08-04', '0000-00-00', '2017-08-11 20:59:16', '2017-08-11 20:59:16', 1, 1, 0);
 
 -- --------------------------------------------------------
 
