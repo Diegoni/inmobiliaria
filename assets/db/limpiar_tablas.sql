@@ -1,0 +1,10 @@
+TRUNCATE TABLE clientes;
+TRUNCATE TABLE contratos;
+TRUNCATE TABLE cuotas;
+TRUNCATE TABLE cuotas_actualizaciones;
+TRUNCATE TABLE gastos;
+TRUNCATE TABLE inmuebles;
+TRUNCATE TABLE logs_usuarios;
+TRUNCATE TABLE proyectos;
+TRUNCATE TABLE vehiculos;
+TRUNCATE TABLE vehiculos_condiciones;

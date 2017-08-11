@@ -10,7 +10,7 @@
 				$font_size = 14;
 				echo '<span class="logo-lg" style="font-size: '.$font_size.'px">
 				<center>
-				SCHWEIZER
+				'.$this->config->item('programa').'
 				</center>
 				</span>';
 				?>

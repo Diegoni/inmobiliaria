@@ -14,7 +14,7 @@
 				<b><?php echo lang('version')?></b> 1.0.1
 			</div>
 			<strong>
-			    <a href="">SCHEWEIZER Desarrollos Inmobiliarios</a>
+			    Consultas: <a href="mailto:<?php echo $this->config->item('mail')?> "><?php echo $this->config->item('mail')?></a></a>
             </strong>
 			
 		</footer>
