@@ -11,7 +11,7 @@
                     log_message('ERROR', $log);    
                 }
                 ?>
-				<b><?php echo lang('version')?></b> 1.0.1
+				<b><?php echo lang('version')?></b> 1.3.0
 			</div>
 			<strong>
 			    Consultas: <a href="mailto:<?php echo $this->config->item('mail')?> "><?php echo $this->config->item('mail')?></a></a>

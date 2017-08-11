@@ -172,6 +172,8 @@ $lang['menu']               = "Menu";
 $lang['marcacion']          = "Marcación";
 $lang['marca']              = "Marca";
 $lang['modelo']             = "Modelo";
+$lang['medicion']           = "Medición";
+$lang['marcar_vistas']      = "Marcar como vistas";
 
 /*--------------------------------------------------------------------------------  
     N
@@ -183,6 +185,7 @@ $lang['nuevo']              = "Nuevo";
 $lang['ok']                 = "OK";
 $lang['new_password']       = "Nueva Password";
 $lang['no_encontrada']      = "no encontrada";
+$lang['no_alertas']      	= "No hay alertas";
 $lang['nro_proveedor']      = "Nro pedido proveedor";
 $lang['nro_factura']        = "Nro factura proveedor";
 $lang['nro_referencia']     = "Nro referencia";
@@ -229,6 +232,7 @@ $lang['permuta']            = "Permuta";
 $lang['precio_toma']        = "Precio Toma";
 $lang['precio_costo']       = "Precio Costo";
 $lang['precio_venta']       = "Precio Venta";
+$lang['producto']       	= "Producto";
 
 /*--------------------------------------------------------------------------------  
     K

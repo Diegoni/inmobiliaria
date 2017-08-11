@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-08-2017 a las 15:07:00
+-- Tiempo de generación: 11-08-2017 a las 21:00:46
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -19,6 +19,58 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `inmobiliaria`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `alertas`
+--
+
+CREATE TABLE `alertas` (
+  `id_alerta` int(11) NOT NULL,
+  `alerta` varchar(128) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `visto` tinyint(4) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `alertas`
+--
+
+INSERT INTO `alertas` (`id_alerta`, `alerta`, `id_usuario`, `visto`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, '<p><a href="http://[::1]/srp/index.php/usuarios/abm/2">El usuario no tiene entes asignados</a></p>', 1, 1, '2017-08-11 15:54:42', '2017-08-11 20:08:54', 2, 1, 0),
+(2, '<p><a href="http://[::1]/srp/index.php/usuarios/abm/2">El usuario no tiene entes asignados</a></p>', 1, 1, '2017-08-11 15:54:47', '2017-08-11 20:08:54', 2, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `calendarios`
+--
+
+CREATE TABLE `calendarios` (
+  `id_calendario` int(11) NOT NULL,
+  `calendario` varchar(128) NOT NULL,
+  `id_color` int(11) NOT NULL,
+  `fecha_inicio` date NOT NULL,
+  `fecha_final` date NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `calendarios`
+--
+
+INSERT INTO `calendarios` (`id_calendario`, `calendario`, `id_color`, `fecha_inicio`, `fecha_final`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 'Test', 0, '2017-08-04', '0000-00-00', '2017-08-11 20:59:16', '2017-08-11 20:59:16', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -72,6 +124,24 @@ INSERT INTO `clientes_tipos` (`id_tipo`, `tipo`, `user_add`, `user_upd`, `date_a
 (1, 'Regular', 1, 1, '2016-10-12 17:24:12', '2016-10-12 17:24:12', 0),
 (2, 'Nuevo', 1, 1, '2016-10-12 17:24:38', '2016-10-12 17:24:38', 0),
 (3, 'Potencial', 1, 1, '2016-10-12 17:24:46', '2016-10-12 17:24:46', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `colores`
+--
+
+CREATE TABLE `colores` (
+  `id_color` int(11) NOT NULL,
+  `color` varchar(128) NOT NULL,
+  `background_color` varchar(128) NOT NULL,
+  `border_color` varchar(128) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -167,6 +237,13 @@ CREATE TABLE `cuotas_actualizaciones` (
   `vencidas` int(11) NOT NULL,
   `date_add` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cuotas_actualizaciones`
+--
+
+INSERT INTO `cuotas_actualizaciones` (`id_actualizacion`, `emitidas`, `vencidas`, `date_add`) VALUES
+(1, 0, 0, '2017-08-11 20:11:02');
 
 -- --------------------------------------------------------
 
@@ -316,6 +393,30 @@ CREATE TABLE `gastos_tipos` (
   `date_upd` datetime NOT NULL,
   `eliminado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `impuestos`
+--
+
+CREATE TABLE `impuestos` (
+  `id_impuesto` int(11) NOT NULL,
+  `impuesto` varchar(64) NOT NULL,
+  `porcentaje` decimal(3,2) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `impuestos`
+--
+
+INSERT INTO `impuestos` (`id_impuesto`, `impuesto`, `porcentaje`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(0, 'Iva 21', '9.99', '2017-08-03 20:35:26', '2017-08-03 20:35:26', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -23081,6 +23182,196 @@ CREATE TABLE `logs_usuarios` (
   `eliminado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `logs_usuarios`
+--
+
+INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `registro`, `user_add`, `date_add`, `programa`, `eliminado`) VALUES
+(1, 4, 'gastos/table', 'access', '', '', '1', '2017-08-11 16:38:09', 'Agencia Gestión', 0),
+(2, 3, '{"usuario":"Noel","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '3', '2017-08-11 17:06:36', 'Agencia Gestión', 0),
+(3, 4, 'clientes/table', 'access', '', '', '3', '2017-08-11 17:06:37', 'Agencia Gestión', 0),
+(4, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-11 19:08:10', 'Agencia Gestión', 0),
+(5, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:08:10', 'Agencia Gestión', 0),
+(6, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:08:17', 'Agencia Gestión', 0),
+(7, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 19:08:23', 'Agencia Gestión', 0),
+(8, 4, '{"id_menu":"0","menu":"Productos","icon":"","id_padre":"0","date_add":"2017-08-11 19:08:31","date_upd":"2017-08-11 19:08:31","user_add":"1","user_upd":"1"}', 'insert', 'menus', '36', '1', '2017-08-11 19:08:31', 'Agencia Gestión', 0),
+(9, 4, '{"id_perfil":"1","id_menu":36,"ver":1,"editar":1,"date_add":"2017-08-11 19:08:31","date_upd":"2017-08-11 19:08:31","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '140', '1', '2017-08-11 19:08:31', 'Agencia Gestión', 0),
+(10, 4, '{"id_perfil":"2","id_menu":36,"ver":1,"editar":1,"date_add":"2017-08-11 19:08:31","date_upd":"2017-08-11 19:08:31","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '141', '1', '2017-08-11 19:08:31', 'Agencia Gestión', 0),
+(11, 4, '{"id_perfil":"3","id_menu":36,"ver":1,"editar":1,"date_add":"2017-08-11 19:08:31","date_upd":"2017-08-11 19:08:31","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '142', '1', '2017-08-11 19:08:31', 'Agencia Gestión', 0),
+(12, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:08:31', 'Agencia Gestión', 0),
+(13, 3, 'logout', 'logout', '', '', '1', '2017-08-11 19:08:40', 'Agencia Gestión', 0),
+(14, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-11 19:09:29', 'Agencia Gestión', 0),
+(15, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:09:29', 'Agencia Gestión', 0),
+(16, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:10:10', 'Agencia Gestión', 0),
+(17, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 19:10:18', 'Agencia Gestión', 0),
+(18, 4, '{"id_menu":"0","url":"productos\\/table\\/","menu":"Productos","icon":"","id_padre":"36","date_add":"2017-08-11 19:10:29","date_upd":"2017-08-11 19:10:29","user_add":"1","user_upd":"1"}', 'insert', 'menus', '37', '1', '2017-08-11 19:10:29', 'Agencia Gestión', 0),
+(19, 4, '{"id_perfil":"1","id_menu":37,"ver":1,"editar":1,"date_add":"2017-08-11 19:10:29","date_upd":"2017-08-11 19:10:29","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '143', '1', '2017-08-11 19:10:29', 'Agencia Gestión', 0),
+(20, 4, '{"id_perfil":"2","id_menu":37,"ver":1,"editar":1,"date_add":"2017-08-11 19:10:29","date_upd":"2017-08-11 19:10:29","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '144', '1', '2017-08-11 19:10:29', 'Agencia Gestión', 0),
+(21, 4, '{"id_perfil":"3","id_menu":37,"ver":1,"editar":1,"date_add":"2017-08-11 19:10:30","date_upd":"2017-08-11 19:10:30","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '145', '1', '2017-08-11 19:10:30', 'Agencia Gestión', 0),
+(22, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:10:30', 'Agencia Gestión', 0),
+(23, 3, 'logout', 'logout', '', '', '1', '2017-08-11 19:10:33', 'Agencia Gestión', 0),
+(24, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-11 19:10:35', 'Agencia Gestión', 0),
+(25, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:10:36', 'Agencia Gestión', 0),
+(26, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:10:44', 'Agencia Gestión', 0),
+(27, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 19:10:46', 'Agencia Gestión', 0),
+(28, 4, '{"id_menu":"0","url":"stocks_movimientos\\/table\\/","menu":"Stocks Movimientos","icon":"","id_padre":"36","date_add":"2017-08-11 19:10:56","date_upd":"2017-08-11 19:10:56","user_add":"1","user_upd":"1"}', 'insert', 'menus', '38', '1', '2017-08-11 19:10:56', 'Agencia Gestión', 0),
+(29, 4, '{"id_perfil":"1","id_menu":38,"ver":1,"editar":1,"date_add":"2017-08-11 19:10:56","date_upd":"2017-08-11 19:10:56","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '146', '1', '2017-08-11 19:10:56', 'Agencia Gestión', 0),
+(30, 4, '{"id_perfil":"2","id_menu":38,"ver":1,"editar":1,"date_add":"2017-08-11 19:10:56","date_upd":"2017-08-11 19:10:56","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '147', '1', '2017-08-11 19:10:56', 'Agencia Gestión', 0),
+(31, 4, '{"id_perfil":"3","id_menu":38,"ver":1,"editar":1,"date_add":"2017-08-11 19:10:56","date_upd":"2017-08-11 19:10:56","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '148', '1', '2017-08-11 19:10:56', 'Agencia Gestión', 0),
+(32, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:10:56', 'Agencia Gestión', 0),
+(33, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 19:11:34', 'Agencia Gestión', 0),
+(34, 4, '{"id_menu":"0","url":"productos_categorias\\/table\\/","menu":"Productos categorias","icon":"","id_padre":"36","date_add":"2017-08-11 19:11:52","date_upd":"2017-08-11 19:11:52","user_add":"1","user_upd":"1"}', 'insert', 'menus', '39', '1', '2017-08-11 19:11:52', 'Agencia Gestión', 0),
+(35, 4, '{"id_perfil":"1","id_menu":39,"ver":1,"editar":1,"date_add":"2017-08-11 19:11:52","date_upd":"2017-08-11 19:11:52","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '149', '1', '2017-08-11 19:11:52', 'Agencia Gestión', 0),
+(36, 4, '{"id_perfil":"2","id_menu":39,"ver":1,"editar":1,"date_add":"2017-08-11 19:11:52","date_upd":"2017-08-11 19:11:52","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '150', '1', '2017-08-11 19:11:52', 'Agencia Gestión', 0),
+(37, 4, '{"id_perfil":"3","id_menu":39,"ver":1,"editar":1,"date_add":"2017-08-11 19:11:52","date_upd":"2017-08-11 19:11:52","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '151', '1', '2017-08-11 19:11:52', 'Agencia Gestión', 0),
+(38, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:11:52', 'Agencia Gestión', 0),
+(39, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 19:11:55', 'Agencia Gestión', 0),
+(40, 4, '{"id_menu":"0","url":"productos_marcas\\/table\\/","menu":"Productos marcas","icon":"","id_padre":"36","date_add":"2017-08-11 19:12:06","date_upd":"2017-08-11 19:12:06","user_add":"1","user_upd":"1"}', 'insert', 'menus', '40', '1', '2017-08-11 19:12:06', 'Agencia Gestión', 0),
+(41, 4, '{"id_perfil":"1","id_menu":40,"ver":1,"editar":1,"date_add":"2017-08-11 19:12:06","date_upd":"2017-08-11 19:12:06","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '152', '1', '2017-08-11 19:12:07', 'Agencia Gestión', 0),
+(42, 4, '{"id_perfil":"2","id_menu":40,"ver":1,"editar":1,"date_add":"2017-08-11 19:12:07","date_upd":"2017-08-11 19:12:07","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '153', '1', '2017-08-11 19:12:07', 'Agencia Gestión', 0),
+(43, 4, '{"id_perfil":"3","id_menu":40,"ver":1,"editar":1,"date_add":"2017-08-11 19:12:07","date_upd":"2017-08-11 19:12:07","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '154', '1', '2017-08-11 19:12:07', 'Agencia Gestión', 0),
+(44, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:12:07', 'Agencia Gestión', 0),
+(45, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 19:12:11', 'Agencia Gestión', 0),
+(46, 4, '{"id_menu":"0","url":"productos_mediciones\\/table\\/","menu":"Productos mediciones","icon":"","id_padre":"36","date_add":"2017-08-11 19:12:37","date_upd":"2017-08-11 19:12:37","user_add":"1","user_upd":"1"}', 'insert', 'menus', '41', '1', '2017-08-11 19:12:37', 'Agencia Gestión', 0),
+(47, 4, '{"id_perfil":"1","id_menu":41,"ver":1,"editar":1,"date_add":"2017-08-11 19:12:37","date_upd":"2017-08-11 19:12:37","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '155', '1', '2017-08-11 19:12:37', 'Agencia Gestión', 0),
+(48, 4, '{"id_perfil":"2","id_menu":41,"ver":1,"editar":1,"date_add":"2017-08-11 19:12:37","date_upd":"2017-08-11 19:12:37","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '156', '1', '2017-08-11 19:12:37', 'Agencia Gestión', 0),
+(49, 4, '{"id_perfil":"3","id_menu":41,"ver":1,"editar":1,"date_add":"2017-08-11 19:12:37","date_upd":"2017-08-11 19:12:37","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '157', '1', '2017-08-11 19:12:37', 'Agencia Gestión', 0),
+(50, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:12:37', 'Agencia Gestión', 0),
+(51, 3, 'logout', 'logout', '', '', '1', '2017-08-11 19:12:42', 'Agencia Gestión', 0),
+(52, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-11 19:12:44', 'Agencia Gestión', 0),
+(53, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:12:45', 'Agencia Gestión', 0),
+(54, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:12:57', 'Agencia Gestión', 0),
+(55, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 19:13:01', 'Agencia Gestión', 0),
+(56, 4, '{"id_menu":"39","url":"productos_categorias\\/table\\/","menu":"Productos categorias","icon":"","id_padre":"3","date_upd":"2017-08-11 19:13:05","user_upd":"1"}', 'update', 'menus', '39', '1', '2017-08-11 19:13:06', 'Agencia Gestión', 0),
+(57, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:13:06', 'Agencia Gestión', 0),
+(58, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 19:13:12', 'Agencia Gestión', 0),
+(59, 4, '{"id_menu":"40","url":"productos_marcas\\/table\\/","menu":"Productos marcas","icon":"","id_padre":"3","date_upd":"2017-08-11 19:13:16","user_upd":"1"}', 'update', 'menus', '40', '1', '2017-08-11 19:13:17', 'Agencia Gestión', 0),
+(60, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:13:17', 'Agencia Gestión', 0),
+(61, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 19:13:20', 'Agencia Gestión', 0),
+(62, 4, '{"id_menu":"41","url":"productos_mediciones\\/table\\/","menu":"Productos mediciones","icon":"","id_padre":"3","date_upd":"2017-08-11 19:13:24","user_upd":"1"}', 'update', 'menus', '41', '1', '2017-08-11 19:13:24', 'Agencia Gestión', 0),
+(63, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 19:13:24', 'Agencia Gestión', 0),
+(64, 3, 'logout', 'logout', '', '', '1', '2017-08-11 19:13:53', 'Agencia Gestión', 0),
+(65, 4, 'vehiculos/abm', 'access', '', '', 'end_session', '2017-08-11 19:14:19', 'Agencia Gestión', 0),
+(66, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-11 19:14:26', 'Agencia Gestión', 0),
+(67, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:14:26', 'Agencia Gestión', 0),
+(68, 4, 'productos/table', 'access', '', '', '1', '2017-08-11 19:14:53', 'Agencia Gestión', 0),
+(69, 4, 'productos/table', 'access', '', '', '1', '2017-08-11 19:15:19', 'Agencia Gestión', 0),
+(70, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:15:21', 'Agencia Gestión', 0),
+(71, 4, 'stocks_movimientos/abm', 'access', '', '', '1', '2017-08-11 19:15:24', 'Agencia Gestión', 0),
+(72, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:15:27', 'Agencia Gestión', 0),
+(73, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:16:46', 'Agencia Gestión', 0),
+(74, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:16:53', 'Agencia Gestión', 0),
+(75, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:17:09', 'Agencia Gestión', 0),
+(76, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:18:19', 'Agencia Gestión', 0),
+(77, 4, 'stocks_movimientos/abm', 'access', '', '', '1', '2017-08-11 19:18:23', 'Agencia Gestión', 0),
+(78, 4, 'stocks_movimientos/abm', 'access', '', '', '1', '2017-08-11 19:19:48', 'Agencia Gestión', 0),
+(79, 4, 'productos/table', 'access', '', '', '1', '2017-08-11 19:19:58', 'Agencia Gestión', 0),
+(80, 4, 'productos/table', 'access', '', '', '1', '2017-08-11 19:23:55', 'Agencia Gestión', 0),
+(81, 4, 'cuotas/table', 'access', '', '', '1', '2017-08-11 19:27:47', 'Agencia Gestión', 0),
+(82, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-11 19:27:49', 'Agencia Gestión', 0),
+(83, 4, 'cuotas/table', 'access', '', '', '1', '2017-08-11 19:27:51', 'Agencia Gestión', 0),
+(84, 4, 'cuotas/resumen', 'access', '', '', '1', '2017-08-11 19:27:54', 'Agencia Gestión', 0),
+(85, 4, 'vehiculos_versiones/table', 'access', '', '', '1', '2017-08-11 19:30:41', 'Agencia Gestión', 0),
+(86, 4, 'proyectos_tipos/table', 'access', '', '', '1', '2017-08-11 19:30:50', 'Agencia Gestión', 0),
+(87, 4, 'productos_mediciones/table', 'access', '', '', '1', '2017-08-11 19:31:09', 'Agencia Gestión', 0),
+(88, 4, 'productos_mediciones/table', 'access', '', '', '1', '2017-08-11 19:31:54', 'Agencia Gestión', 0),
+(89, 4, 'productos_marcas/table', 'access', '', '', '1', '2017-08-11 19:31:56', 'Agencia Gestión', 0),
+(90, 4, 'productos_categorias/table', 'access', '', '', '1', '2017-08-11 19:32:00', 'Agencia Gestión', 0),
+(91, 4, 'productos/table', 'access', '', '', '1', '2017-08-11 19:32:09', 'Agencia Gestión', 0),
+(92, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:32:11', 'Agencia Gestión', 0),
+(93, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:32:41', 'Agencia Gestión', 0),
+(94, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:53:25', 'Agencia Gestión', 0),
+(95, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:54:04', 'Agencia Gestión', 0),
+(96, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 19:54:52', 'Agencia Gestión', 0),
+(97, 3, 'logout', 'logout', '', '', '1', '2017-08-11 19:54:55', 'Agencia Gestión', 0),
+(98, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-11 19:54:57', 'Agencia Gestión', 0),
+(99, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:54:58', 'Agencia Gestión', 0),
+(100, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:55:09', 'Agencia Gestión', 0),
+(101, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:56:53', 'Agencia Gestión', 0),
+(102, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:57:30', 'Agencia Gestión', 0),
+(103, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:57:42', 'Agencia Gestión', 0),
+(104, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:59:07', 'Agencia Gestión', 0),
+(105, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:59:21', 'Agencia Gestión', 0),
+(106, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 19:59:42', 'Agencia Gestión', 0),
+(107, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:00:41', 'Agencia Gestión', 0),
+(108, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:01:33', 'Agencia Gestión', 0),
+(109, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:01:56', 'Agencia Gestión', 0),
+(110, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:02:08', 'Agencia Gestión', 0),
+(111, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:02:23', 'Agencia Gestión', 0),
+(112, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:05:33', 'Agencia Gestión', 0),
+(113, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:06:23', 'Agencia Gestión', 0),
+(114, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:08:31', 'Agencia Gestión', 0),
+(115, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:08:45', 'Agencia Gestión', 0),
+(116, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:08:55', 'Agencia Gestión', 0),
+(117, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:09:30', 'Agencia Gestión', 0),
+(118, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:09:50', 'Agencia Gestión', 0),
+(119, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:10:39', 'Agencia Gestión', 0),
+(120, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:10:56', 'Agencia Gestión', 0),
+(121, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 20:21:27', 'Agencia Gestión', 0),
+(122, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 20:21:31', 'Agencia Gestión', 0),
+(123, 4, '{"id_menu":"36","menu":"Productos","icon":"fa-shopping-cart","id_padre":"0","date_upd":"2017-08-11 20:21:34","user_upd":"1"}', 'update', 'menus', '36', '1', '2017-08-11 20:21:34', 'Agencia Gestión', 0),
+(124, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 20:21:34', 'Agencia Gestión', 0),
+(125, 3, 'logout', 'logout', '', '', '1', '2017-08-11 20:21:41', 'Agencia Gestión', 0),
+(126, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-11 20:21:42', 'Agencia Gestión', 0),
+(127, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:21:43', 'Agencia Gestión', 0),
+(128, 4, 'productos/table', 'access', '', '', '1', '2017-08-11 20:21:48', 'Agencia Gestión', 0),
+(129, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 20:21:51', 'Agencia Gestión', 0),
+(130, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 20:21:54', 'Agencia Gestión', 0),
+(131, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 20:21:58', 'Agencia Gestión', 0),
+(132, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 20:22:02', 'Agencia Gestión', 0),
+(133, 4, '{"id_menu":"36","menu":"Productos","icon":"fa fa-shopping-cart","id_padre":"0","date_upd":"2017-08-11 20:22:06","user_upd":"1"}', 'update', 'menus', '36', '1', '2017-08-11 20:22:06', 'Agencia Gestión', 0),
+(134, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 20:22:06', 'Agencia Gestión', 0),
+(135, 3, 'logout', 'logout', '', '', '1', '2017-08-11 20:22:10', 'Agencia Gestión', 0),
+(136, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-11 20:22:11', 'Agencia Gestión', 0),
+(137, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:22:12', 'Agencia Gestión', 0),
+(138, 4, 'productos/table', 'access', '', '', '1', '2017-08-11 20:22:15', 'Agencia Gestión', 0),
+(139, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:23:20', 'Agencia Gestión', 0),
+(140, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:26:32', 'Agencia Gestión', 0),
+(141, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:27:50', 'Agencia Gestión', 0),
+(142, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:28:14', 'Agencia Gestión', 0),
+(143, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:28:21', 'Agencia Gestión', 0),
+(144, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:29:54', 'Agencia Gestión', 0),
+(145, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:30:16', 'Agencia Gestión', 0),
+(146, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:30:40', 'Agencia Gestión', 0),
+(147, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:31:15', 'Agencia Gestión', 0),
+(148, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:31:56', 'Agencia Gestión', 0),
+(149, 4, 'productos/table', 'access', '', '', '1', '2017-08-11 20:32:57', 'Agencia Gestión', 0),
+(150, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:32:59', 'Agencia Gestión', 0),
+(151, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:34:25', 'Agencia Gestión', 0),
+(152, 4, 'productos/table', 'access', '', '', '1', '2017-08-11 20:34:30', 'Agencia Gestión', 0),
+(153, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:34:31', 'Agencia Gestión', 0),
+(154, 4, 'productos/abm', 'access', '', '', '1', '2017-08-11 20:36:35', 'Agencia Gestión', 0),
+(155, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 20:37:11', 'Agencia Gestión', 0),
+(156, 4, 'stocks_movimientos/abm', 'access', '', '', '1', '2017-08-11 20:38:39', 'Agencia Gestión', 0),
+(157, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-11 20:38:44', 'Agencia Gestión', 0),
+(158, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 20:48:33', 'Agencia Gestión', 0),
+(159, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 20:48:38', 'Agencia Gestión', 0),
+(160, 4, '{"id_menu":"0","url":"calendarios\\/table\\/","menu":"Calendarios","icon":"","id_padre":"34","date_add":"2017-08-11 20:49:04","date_upd":"2017-08-11 20:49:04","user_add":"1","user_upd":"1"}', 'insert', 'menus', '42', '1', '2017-08-11 20:49:04', 'Agencia Gestión', 0),
+(161, 4, '{"id_perfil":"1","id_menu":42,"ver":1,"editar":1,"date_add":"2017-08-11 20:49:04","date_upd":"2017-08-11 20:49:04","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '158', '1', '2017-08-11 20:49:04', 'Agencia Gestión', 0),
+(162, 4, '{"id_perfil":"2","id_menu":42,"ver":1,"editar":1,"date_add":"2017-08-11 20:49:04","date_upd":"2017-08-11 20:49:04","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '159', '1', '2017-08-11 20:49:04', 'Agencia Gestión', 0),
+(163, 4, '{"id_perfil":"3","id_menu":42,"ver":1,"editar":1,"date_add":"2017-08-11 20:49:04","date_upd":"2017-08-11 20:49:04","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '160', '1', '2017-08-11 20:49:04', 'Agencia Gestión', 0),
+(164, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 20:49:04', 'Agencia Gestión', 0),
+(165, 4, 'menus/abm', 'access', '', '', '1', '2017-08-11 20:49:07', 'Agencia Gestión', 0),
+(166, 4, '{"id_menu":"0","url":"colores\\/table\\/","menu":"Colores","icon":"","id_padre":"3","date_add":"2017-08-11 20:49:19","date_upd":"2017-08-11 20:49:19","user_add":"1","user_upd":"1"}', 'insert', 'menus', '43', '1', '2017-08-11 20:49:19', 'Agencia Gestión', 0),
+(167, 4, '{"id_perfil":"1","id_menu":43,"ver":1,"editar":1,"date_add":"2017-08-11 20:49:19","date_upd":"2017-08-11 20:49:19","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '161', '1', '2017-08-11 20:49:19', 'Agencia Gestión', 0),
+(168, 4, '{"id_perfil":"2","id_menu":43,"ver":1,"editar":1,"date_add":"2017-08-11 20:49:20","date_upd":"2017-08-11 20:49:20","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '162', '1', '2017-08-11 20:49:20', 'Agencia Gestión', 0),
+(169, 4, '{"id_perfil":"3","id_menu":43,"ver":1,"editar":1,"date_add":"2017-08-11 20:49:20","date_upd":"2017-08-11 20:49:20","user_add":"1","user_upd":"1"}', 'insert', 'usuarios_permisos', '163', '1', '2017-08-11 20:49:20', 'Agencia Gestión', 0),
+(170, 4, 'menus/table', 'access', '', '', '1', '2017-08-11 20:49:20', 'Agencia Gestión', 0),
+(171, 3, 'logout', 'logout', '', '', '1', '2017-08-11 20:49:24', 'Agencia Gestión', 0),
+(172, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-11 20:49:27', 'Agencia Gestión', 0),
+(173, 4, 'clientes/table', 'access', '', '', '1', '2017-08-11 20:49:27', 'Agencia Gestión', 0),
+(174, 4, 'colores/table', 'access', '', '', '1', '2017-08-11 20:52:23', 'Agencia Gestión', 0),
+(175, 4, 'colores/abm', 'access', '', '', '1', '2017-08-11 20:52:31', 'Agencia Gestión', 0),
+(176, 4, 'colores/abm', 'access', '', '', '1', '2017-08-11 20:53:34', 'Agencia Gestión', 0),
+(177, 4, 'colores/table', 'access', '', '', '1', '2017-08-11 20:53:38', 'Agencia Gestión', 0),
+(178, 4, 'calendarios/table', 'access', '', '', '1', '2017-08-11 20:57:35', 'Agencia Gestión', 0),
+(179, 4, 'calendarios/abm', 'access', '', '', '1', '2017-08-11 20:57:40', 'Agencia Gestión', 0),
+(180, 4, 'calendarios/abm', 'access', '', '', '1', '2017-08-11 20:58:38', 'Agencia Gestión', 0),
+(181, 4, 'calendarios/abm', 'access', '', '', '1', '2017-08-11 20:59:05', 'Agencia Gestión', 0),
+(182, 4, '{"id_calendario":"0","calendario":"Test","id_color":"","fecha_inicio":"2017-08-04","fecha_final":"","date_add":"2017-08-11 20:59:16","date_upd":"2017-08-11 20:59:16","user_add":"1","user_upd":"1"}', 'insert', 'calendarios', '1', '1', '2017-08-11 20:59:16', 'Agencia Gestión', 0),
+(183, 4, 'calendarios/table', 'access', '', '', '1', '2017-08-11 20:59:16', 'Agencia Gestión', 0),
+(184, 4, 'contratos/table', 'access', '', '', '1', '2017-08-11 20:59:56', 'Agencia Gestión', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -23139,7 +23430,15 @@ INSERT INTO `menus` (`id_menu`, `url`, `menu`, `icon`, `id_padre`, `date_add`, `
 (32, 'gastos/table/', 'Gastos', '', 23, '2017-08-04 19:15:02', '2017-08-04 19:15:02', 1, 1, 0),
 (33, 'gastos_tipos/table/', 'Gastos Tipos', '', 3, '2017-08-04 19:15:19', '2017-08-04 19:15:19', 1, 1, 0),
 (34, '', 'Configuracion', 'fa fa-cogs', 0, '2017-08-04 19:19:30', '2017-08-04 19:21:45', 1, 1, 0),
-(35, 'configuracion/table/', 'Empresa', '', 34, '2017-08-04 19:19:55', '2017-08-04 19:19:55', 1, 1, 0);
+(35, 'configuracion/table/', 'Empresa', '', 34, '2017-08-04 19:19:55', '2017-08-04 19:19:55', 1, 1, 0),
+(36, '', 'Productos', 'fa fa-shopping-cart', 0, '2017-08-11 19:08:31', '2017-08-11 20:22:06', 1, 1, 0),
+(37, 'productos/table/', 'Productos', '', 36, '2017-08-11 19:10:29', '2017-08-11 19:10:29', 1, 1, 0),
+(38, 'stocks_movimientos/table/', 'Stocks Movimientos', '', 36, '2017-08-11 19:10:56', '2017-08-11 19:10:56', 1, 1, 0),
+(39, 'productos_categorias/table/', 'Productos categorias', '', 3, '2017-08-11 19:11:52', '2017-08-11 19:13:05', 1, 1, 0),
+(40, 'productos_marcas/table/', 'Productos marcas', '', 3, '2017-08-11 19:12:06', '2017-08-11 19:13:16', 1, 1, 0),
+(41, 'productos_mediciones/table/', 'Productos mediciones', '', 3, '2017-08-11 19:12:37', '2017-08-11 19:13:24', 1, 1, 0),
+(42, 'calendarios/table/', 'Calendarios', '', 34, '2017-08-11 20:49:04', '2017-08-11 20:49:04', 1, 1, 0),
+(43, 'colores/table/', 'Colores', '', 3, '2017-08-11 20:49:19', '2017-08-11 20:49:19', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -23164,6 +23463,141 @@ CREATE TABLE `plantillas` (
 
 INSERT INTO `plantillas` (`id_plantilla`, `plantilla`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
 (1, 'Cuota', '<div style="margin: 20px">\n<h1>\n    <div style="float: left;"><u>#tipo_loteo# - #loteo#</u></div> \n    <div style="float: right;">Recibo</div>\n</h1> \n<br>\n<br>\n\n<p>#direccion_loteo#</p>\n<p>#localidad_loteo# - #provincia_loteo#</p>\n\n<hr>\n<p style="float: right;">Mendoza - #dia_semana#, #dia# de #mes# de #ano#</p>\n<br>\n<br>\n<p>El día de la fecha recibí del se&ntilde;or/ra <b>#cliente#</b></p>\n<p>la suma de pesos <b>#cuota_monto#</b>, en concepto de pago de CUOTA <b>#cuota_nro#</b></p>\n<p>vencimiento <b>#cuota_vencimiento#</b>, correspondiente al lote: <b>#lote#</b></p>\n</div>\n\n<div class="saltopagina"></div>', '2017-04-19 00:00:00', '2017-04-19 00:00:00', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id_producto` int(11) NOT NULL,
+  `producto` varchar(128) NOT NULL,
+  `cod_proveedor` varchar(128) NOT NULL,
+  `medicion` int(11) NOT NULL,
+  `id_medicion` int(11) NOT NULL,
+  `precio_costo` decimal(10,2) NOT NULL,
+  `precio_venta` decimal(10,2) NOT NULL,
+  `precio_min_venta` decimal(10,2) NOT NULL,
+  `id_impuesto` int(11) NOT NULL,
+  `precio_compra` decimal(10,2) NOT NULL,
+  `stock_fisico` int(11) NOT NULL,
+  `stock_pedido` int(11) NOT NULL,
+  `stock_deseado` int(11) NOT NULL,
+  `stock_alerta` int(11) NOT NULL,
+  `id_proveedor` int(11) NOT NULL,
+  `id_marca` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `comentario` text NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id_producto`, `producto`, `cod_proveedor`, `medicion`, `id_medicion`, `precio_costo`, `precio_venta`, `precio_min_venta`, `id_impuesto`, `precio_compra`, `stock_fisico`, `stock_pedido`, `stock_deseado`, `stock_alerta`, `id_proveedor`, `id_marca`, `id_categoria`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 'Test', '51515', 0, 0, '0.00', '0.00', '0.00', 0, '0.00', -10, 0, 0, 0, 0, 0, 0, '', '2017-08-03 20:35:55', '2017-08-03 21:34:13', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos_categorias`
+--
+
+CREATE TABLE `productos_categorias` (
+  `id_categoria` int(11) NOT NULL,
+  `categoria` varchar(64) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos_categorias`
+--
+
+INSERT INTO `productos_categorias` (`id_categoria`, `categoria`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(0, 'Sin categoria', '2017-08-03 20:22:13', '2017-08-03 20:22:13', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos_marcas`
+--
+
+CREATE TABLE `productos_marcas` (
+  `id_marca` int(11) NOT NULL,
+  `marca` varchar(64) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos_marcas`
+--
+
+INSERT INTO `productos_marcas` (`id_marca`, `marca`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(0, 'Sin Marca', '2017-08-03 20:20:35', '2017-08-03 20:20:35', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos_mediciones`
+--
+
+CREATE TABLE `productos_mediciones` (
+  `id_medicion` int(11) NOT NULL,
+  `medicion` varchar(64) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos_mediciones`
+--
+
+INSERT INTO `productos_mediciones` (`id_medicion`, `medicion`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(0, 'Metros', '2017-08-03 20:17:52', '2017-08-03 20:17:52', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE `proveedores` (
+  `id_proveedor` int(11) NOT NULL,
+  `proveedor` varchar(128) NOT NULL,
+  `id_tipo` int(11) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `telefono` varchar(64) NOT NULL,
+  `telefono_alternativo` varchar(64) NOT NULL,
+  `web` varchar(128) NOT NULL,
+  `id_forma_juridica` int(11) NOT NULL,
+  `calle` varchar(64) NOT NULL,
+  `calle_numero` int(11) NOT NULL,
+  `id_localidad` int(11) NOT NULL,
+  `id_provincia` int(11) NOT NULL,
+  `comentario` text NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -23278,6 +23712,35 @@ CREATE TABLE `proyectos_tipos` (
 INSERT INTO `proyectos_tipos` (`id_tipo`, `tipo`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
 (1, 'Venta de lotes', '2017-04-18 00:52:53', '2017-04-18 00:52:53', 1, 1, 0),
 (2, 'Venta de departamentos', '2017-04-18 00:53:02', '2017-04-18 00:53:02', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `stocks_movimientos`
+--
+
+CREATE TABLE `stocks_movimientos` (
+  `id_movimiento` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `ingreso` int(11) NOT NULL,
+  `egreso` int(11) NOT NULL,
+  `comentario` text NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `stocks_movimientos`
+--
+
+INSERT INTO `stocks_movimientos` (`id_movimiento`, `id_producto`, `ingreso`, `egreso`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 1, 10, 0, '', '2017-08-03 21:24:04', '2017-08-03 21:24:04', 1, 1, 0),
+(2, 1, 10, 0, '', '2017-08-03 21:25:28', '2017-08-03 21:26:04', 1, 1, 0),
+(3, 1, 10, 0, '<p>Faltante de mercaderia</p>\r\n', '2017-08-03 21:33:48', '2017-08-03 21:33:48', 1, 1, 0),
+(4, 1, 0, 20, '<p>Faltante de mercaderia</p>\r\n', '2017-08-03 21:34:13', '2017-08-03 21:34:13', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -23465,7 +23928,31 @@ INSERT INTO `usuarios_permisos` (`id_permiso`, `id_perfil`, `id_menu`, `ver`, `e
 (133, 3, 32, 1, 1, '2017-08-10 21:22:41', '2017-08-10 21:22:41', 1, 1, 0),
 (135, 3, 33, 1, 1, '2017-08-10 21:22:41', '2017-08-10 21:22:41', 1, 1, 0),
 (137, 3, 34, 0, 1, '2017-08-10 21:22:41', '2017-08-10 21:22:41', 1, 1, 0),
-(139, 3, 35, 0, 1, '2017-08-10 21:22:42', '2017-08-10 21:22:42', 1, 1, 0);
+(139, 3, 35, 0, 1, '2017-08-10 21:22:42', '2017-08-10 21:22:42', 1, 1, 0),
+(140, 1, 36, 1, 1, '2017-08-11 19:08:31', '2017-08-11 19:08:31', 1, 1, 0),
+(141, 2, 36, 1, 1, '2017-08-11 19:08:31', '2017-08-11 19:08:31', 1, 1, 0),
+(142, 3, 36, 1, 1, '2017-08-11 19:08:31', '2017-08-11 19:08:31', 1, 1, 0),
+(143, 1, 37, 1, 1, '2017-08-11 19:10:29', '2017-08-11 19:10:29', 1, 1, 0),
+(144, 2, 37, 1, 1, '2017-08-11 19:10:29', '2017-08-11 19:10:29', 1, 1, 0),
+(145, 3, 37, 1, 1, '2017-08-11 19:10:30', '2017-08-11 19:10:30', 1, 1, 0),
+(146, 1, 38, 1, 1, '2017-08-11 19:10:56', '2017-08-11 19:10:56', 1, 1, 0),
+(147, 2, 38, 1, 1, '2017-08-11 19:10:56', '2017-08-11 19:10:56', 1, 1, 0),
+(148, 3, 38, 1, 1, '2017-08-11 19:10:56', '2017-08-11 19:10:56', 1, 1, 0),
+(149, 1, 39, 1, 1, '2017-08-11 19:11:52', '2017-08-11 19:11:52', 1, 1, 0),
+(150, 2, 39, 1, 1, '2017-08-11 19:11:52', '2017-08-11 19:11:52', 1, 1, 0),
+(151, 3, 39, 1, 1, '2017-08-11 19:11:52', '2017-08-11 19:11:52', 1, 1, 0),
+(152, 1, 40, 1, 1, '2017-08-11 19:12:06', '2017-08-11 19:12:06', 1, 1, 0),
+(153, 2, 40, 1, 1, '2017-08-11 19:12:07', '2017-08-11 19:12:07', 1, 1, 0),
+(154, 3, 40, 1, 1, '2017-08-11 19:12:07', '2017-08-11 19:12:07', 1, 1, 0),
+(155, 1, 41, 1, 1, '2017-08-11 19:12:37', '2017-08-11 19:12:37', 1, 1, 0),
+(156, 2, 41, 1, 1, '2017-08-11 19:12:37', '2017-08-11 19:12:37', 1, 1, 0),
+(157, 3, 41, 1, 1, '2017-08-11 19:12:37', '2017-08-11 19:12:37', 1, 1, 0),
+(158, 1, 42, 1, 1, '2017-08-11 20:49:04', '2017-08-11 20:49:04', 1, 1, 0),
+(159, 2, 42, 1, 1, '2017-08-11 20:49:04', '2017-08-11 20:49:04', 1, 1, 0),
+(160, 3, 42, 1, 1, '2017-08-11 20:49:04', '2017-08-11 20:49:04', 1, 1, 0),
+(161, 1, 43, 1, 1, '2017-08-11 20:49:19', '2017-08-11 20:49:19', 1, 1, 0),
+(162, 2, 43, 1, 1, '2017-08-11 20:49:20', '2017-08-11 20:49:20', 1, 1, 0),
+(163, 3, 43, 1, 1, '2017-08-11 20:49:20', '2017-08-11 20:49:20', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -31994,6 +32481,18 @@ INSERT INTO `vehiculos_versiones` (`id_version`, `version`, `id_modelo`, `user_a
 --
 
 --
+-- Indices de la tabla `alertas`
+--
+ALTER TABLE `alertas`
+  ADD PRIMARY KEY (`id_alerta`);
+
+--
+-- Indices de la tabla `calendarios`
+--
+ALTER TABLE `calendarios`
+  ADD PRIMARY KEY (`id_calendario`);
+
+--
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
@@ -32004,6 +32503,12 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `clientes_tipos`
   ADD PRIMARY KEY (`id_tipo`);
+
+--
+-- Indices de la tabla `colores`
+--
+ALTER TABLE `colores`
+  ADD PRIMARY KEY (`id_color`);
 
 --
 -- Indices de la tabla `condiciones_pagos`
@@ -32117,6 +32622,30 @@ ALTER TABLE `plantillas`
   ADD PRIMARY KEY (`id_plantilla`);
 
 --
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id_producto`);
+
+--
+-- Indices de la tabla `productos_categorias`
+--
+ALTER TABLE `productos_categorias`
+  ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `productos_mediciones`
+--
+ALTER TABLE `productos_mediciones`
+  ADD PRIMARY KEY (`id_medicion`);
+
+--
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD PRIMARY KEY (`id_proveedor`);
+
+--
 -- Indices de la tabla `provincias`
 --
 ALTER TABLE `provincias`
@@ -32139,6 +32668,12 @@ ALTER TABLE `proyectos_estados`
 --
 ALTER TABLE `proyectos_tipos`
   ADD PRIMARY KEY (`id_tipo`);
+
+--
+-- Indices de la tabla `stocks_movimientos`
+--
+ALTER TABLE `stocks_movimientos`
+  ADD PRIMARY KEY (`id_movimiento`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -32211,6 +32746,16 @@ ALTER TABLE `vehiculos_versiones`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `alertas`
+--
+ALTER TABLE `alertas`
+  MODIFY `id_alerta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `calendarios`
+--
+ALTER TABLE `calendarios`
+  MODIFY `id_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
@@ -32220,6 +32765,11 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `clientes_tipos`
   MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `colores`
+--
+ALTER TABLE `colores`
+  MODIFY `id_color` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `condiciones_pagos`
 --
@@ -32239,7 +32789,7 @@ ALTER TABLE `cuotas`
 -- AUTO_INCREMENT de la tabla `cuotas_actualizaciones`
 --
 ALTER TABLE `cuotas_actualizaciones`
-  MODIFY `id_actualizacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_actualizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `cuotas_estados`
 --
@@ -32289,17 +32839,22 @@ ALTER TABLE `inmuebles_tipos`
 -- AUTO_INCREMENT de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT de la tabla `plantillas`
 --
 ALTER TABLE `plantillas`
   MODIFY `id_plantilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
@@ -32316,6 +32871,11 @@ ALTER TABLE `proyectos_estados`
 ALTER TABLE `proyectos_tipos`
   MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT de la tabla `stocks_movimientos`
+--
+ALTER TABLE `stocks_movimientos`
+  MODIFY `id_movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -32329,7 +32889,7 @@ ALTER TABLE `usuarios_perfiles`
 -- AUTO_INCREMENT de la tabla `usuarios_permisos`
 --
 ALTER TABLE `usuarios_permisos`
-  MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 --
 -- AUTO_INCREMENT de la tabla `vehiculos`
 --

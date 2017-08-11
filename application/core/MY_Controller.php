@@ -31,6 +31,7 @@ class MY_Controller extends CI_Controller
         
         $this->load->model('m_usuarios_permisos');
         $this->load->model('m_logs_usuarios');
+		$this->load->model('m_alertas');
     }
     
     
@@ -259,6 +260,7 @@ class MY_Controller extends CI_Controller
 	function armarVista($vista, $db = NULL, $session_data = NULL)
 	{
 	    $permiso = 0;
+		$db['alertas_user']	=  $this->getAlertas();
         
 	    //if($this->session->userdata('logged_in'))
 	    //{
@@ -381,13 +383,8 @@ class MY_Controller extends CI_Controller
 	
 	function getAlertas()
 	{
-		if($this->_session_data['id_perfil'] == 1)
-		{
-			$db['alertas_user'] = $this->m_alertas->getAlertas($this->_session_data['id_usuario']);
-		}else
-		{
-			$db['alertas_user'] = $this->m_alertas->getAlertas($this->_session_data['id_usuario'], $this->_session_data['id_ente']);
-		}
+		$logged = $this->session->userdata('logged_in') ;
+		$db['alertas_user'] = $this->m_alertas->getAlertas($logged['id_usuario']);
 		
 		return $db['alertas_user'];	
 	}
@@ -715,5 +712,5 @@ class MY_Controller extends CI_Controller
                 echo 1;
             }    
         }
-    }    
+    }
 }

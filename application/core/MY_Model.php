@@ -461,6 +461,7 @@ class MY_Model extends CI_Model
 		$no_log = array (
 			'cuotas_actualizaciones',
 			'logs_usuarios',
+			'alertas' ,
 		);
 		
 		if(!in_array($this->_tablename, $no_log))

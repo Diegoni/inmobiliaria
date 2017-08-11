@@ -19,6 +19,8 @@ $config['id_table']             = 'id_vehiculo';
 $config['subjet']               = 'vehiculo';
 $config['table']                = 'vehiculos';
 $config['model']                = 'm_vehiculos';
+$config['color']                = 'blue';
+
 
 
 $config['mail']                 = 'diego_nieto_1@hotmail.com';
