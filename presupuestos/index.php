@@ -15,43 +15,28 @@ foreach ($result as $row)
 	$cantidad_inicial = $row['cantidad_inicial'];
 	$empresa = $row['empresa'];
 }
+$librerias = '../librerias/plantilla/';
+
 ?>
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Top Navigation</title>
-    <!-- Tell the browser to be responsive to screen width -->
+    <title><?php echo $empresa ?></title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="../librerias/plantilla/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../librerias/plantilla/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../librerias/plantilla/dist/css/skins/_all-skins.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     
-    <link rel="stylesheet" href="../librerias/plantilla/plugins/jQueryUI/jquery-ui.css" type="text/css" />
-    <link rel="stylesheet" href="../librerias/plantilla/bootstrap/css/bootstrap.css" type="text/css" />
-  </head>
-  <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-  <body class="hold-transition skin-blue layout-top-nav">
-    <div class="wrapper">
-
-      <header class="main-header">
+    <link rel="stylesheet" href="<?php echo $librerias ?>bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $librerias ?>fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo $librerias ?>dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?php echo $librerias ?>dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="<?php echo $librerias ?>plugins/jQueryUI/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo $librerias ?>bootstrap/css/bootstrap.css" type="text/css" />
+</head>
+<body class="hold-transition skin-blue layout-top-nav">
+	<div class="wrapper">
+		<header class="main-header">
 			<nav class="navbar navbar-static-top">
 				<div class="container">
             		<div class="navbar-header">
@@ -67,7 +52,6 @@ foreach ($result as $row)
                 			<li><a href="#" class="show_hide">Cabecera <span class="sr-only">(current)</span></a></li>
                 			<li><a href="#" data-toggle="modal" data-target="#modal_comentario">Comentario</a></li>
               			</ul>
-              
             		</div>
             
 					<div class="navbar-custom-menu">
@@ -84,7 +68,7 @@ foreach ($result as $row)
 	                          				<li><!-- start message -->
 	                            				<a href="#">
 	                              					<div class="pull-left">
-	                                					<img src="../librerias/plantilla/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+	                                					<img src="<?php echo $librerias ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 	                              					</div>
 	                              
 	                              					<h4>
@@ -128,16 +112,11 @@ foreach ($result as $row)
           		</div>
         	</nav>
 		</header>
-      <!-- Full Width Column -->
-      <div class="content-wrapper">
-        <div class="container">
-         
-
-          <!-- Main content -->
-          <section class="content">
-          	
-          	
-          	<div class="box box-default slidingDiv">
+      
+		<div class="content-wrapper">
+        	<div class="container">
+          		<section class="content">
+		          	<div class="box box-default slidingDiv">
 		          		<div class="box-body">
 		        			<div class="row" id="cont_datos_buscador">
 		                		<div class="form-group col-md-6 ">
@@ -152,7 +131,6 @@ foreach ($result as $row)
 						  			</div>
 		                		</div>
 		                
-		                	<!-- Aca esta el button que estabas necesitando -->
 		                		<div class="form-group col-md-1">
 		                			<label class="control-label"></label>
 		                 		</div>
@@ -205,47 +183,42 @@ foreach ($result as $row)
 		            		</div>
 		             	</div>
 					</div>
-					
-					
-					
-					
+
 					<div class="box box-default">
-		              <div class="box-header with-border">
-		                
-							<div id="cont_busqueda_articulo">   
+						<div class="box-header with-border">
+		                	<div id="cont_busqueda_articulo">   
 				                <div id="cont_busca">
-				                <form  action='' method='post'>
-				                    <div class="row">
-				                        <p>
-				                            <div class="col-md-8">
-				                                <div class="form-group">
-				                                    <label class="col-sm-2 control-label">BUSCAR:</label>
-				                                    <input class="form-control input-sm" type='text' placeholder="Cod o Detalle" name='country' value='' id='quickfind'/>
-				                                    <!--<input class="form-control input-sm" type='text' placeholder="Busqueda x Codigo" name='country' value='' id='quickfind_cod'/>
-				                                --></div>
-				                            </div>
-				                            <div class="col-md-2">
-				                                <div class="form-group">
-				                                    <label class="col-sm-2 control-label">Precio</label>
-				                                    <input class="form-control input-sm" id="px_unitario_rapido" readonly="true"/>
-				                                </div>
-				                            </div>  
-				                            <div class="col-md-2">
-				                                <div class="form-group">
-				                                    <label class="col-sm-2 control-label">Cantidad:</label>
-				                                    <input class="form-control input-sm" type='number' name='cantidad' value='<?php echo $cantidad_inicial?>' id='cantidad'/>
-				                                    <p><input onclick="carga(item_elegido)" type='button' id="carga_articulo" hidden="hidden"/></p>
-				                                </div>
-				                            </div>
-				                        </p>
-				                    </div>  
-				                </form>
+				                	<form  action='' method='post'>
+					                    <div class="row">
+					                        <p>
+					                            <div class="col-md-8">
+					                                <div class="form-group">
+					                                    <label class="col-sm-2 control-label">BUSCAR:</label>
+					                                    <input class="form-control input-sm" type='text' placeholder="Cod o Detalle" name='country' value='' id='quickfind'/>
+													</div>
+					                            </div>
+					                            <div class="col-md-2">
+					                                <div class="form-group">
+					                                    <label class="col-sm-2 control-label">Precio</label>
+					                                    <input class="form-control input-sm" id="px_unitario_rapido" readonly="true"/>
+					                                </div>
+					                            </div>  
+					                            <div class="col-md-2">
+					                                <div class="form-group">
+					                                    <label class="col-sm-2 control-label">Cantidad:</label>
+					                                    <input class="form-control input-sm" type='number' name='cantidad' value='<?php echo $cantidad_inicial?>' id='cantidad'/>
+					                                    <p><input onclick="carga(item_elegido)" type='button' id="carga_articulo" hidden="hidden"/></p>
+					                                </div>
+					                            </div>
+					                        </p>
+					                    </div>  
+									</form>
 				                </div>
-				            </div>
-						
-		              </div>
-		              <div class="box-body">
-		                <div class="row">
+							</div>
+						</div>
+		              
+		              	<div class="box-body">
+		                	<div class="row">
 		                        <label for="inputEmail3" class="col-sm-3 control-label">TOTAL</label>
 		                        <label for="inputEmail3" class="col-sm-2 control-label">Total iva</label>
 		                        <label for="inputEmail3" class="col-sm-2 control-label">%Desc.</label>
@@ -289,38 +262,31 @@ foreach ($result as $row)
 		                        <span class="titulo_px_reglon col-sm-1"><b>SUBTOTAL</b></span>
 		                        <span class="col-sm-1"></span>
 		                    </div>
-		              </div><!-- /.box-body -->
-					</div><!-- /.box -->
-					
-					
-					
-            
-          </section><!-- /.content -->
-        </div><!-- /.container -->
-      </div><!-- /.content-wrapper -->
-      <footer class="main-footer">
-        <div class="container">
-          <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.0
-          </div>
-          <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-        </div><!-- /.container -->
-      </footer>
-    </div><!-- ./wrapper -->
+		              	</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		
+		<footer class="main-footer">
+        	<div class="container">
+          		<div class="pull-right hidden-xs">
+            		<b>Version</b> 2.0.0
+          		</div>
+          		<strong>Consultas <a href="mailto:diego_nieto_1@hotmail.com">diego_nieto_1@hotmail.com</a>.</strong>
+			</div>
+		</footer>
+	</div>
 
-    <!-- jQuery 2.1.4 -->
-    <script src="../librerias/plantilla/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="../librerias/plantilla/bootstrap/js/bootstrap.min.js"></script>
-    <!-- SlimScroll -->
-    <script src="../librerias/plantilla/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="../librerias/plantilla/plugins/fastclick/fastclick.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../librerias/plantilla/dist/js/app.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../librerias/plantilla/dist/js/demo.js"></script>
-  </body>
+    <script src="<?php echo $librerias ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="<?php echo $librerias ?>bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo $librerias ?>plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="<?php echo $librerias ?>plugins/fastclick/fastclick.min.js"></script>
+    <script src="<?php echo $librerias ?>dist/js/app.min.js"></script>
+    <script src="<?php echo $librerias ?>dist/js/demo.js"></script>
+    <script src="<?php echo $librerias ?>plugins/jQueryUI/jquery-ui.js"></script>      
+	<script src="js/buscador.js"></script> 
+</body>
 </html>
 
 
@@ -358,18 +324,12 @@ foreach ($result as $row)
   		</div>
 	</div>
 
-
-<script type="text/javascript" src="../librerias/plantilla/plugins/jQueryUI/jquery-ui.js"></script>      
-<script type="text/javascript" src="js/buscador.js"></script> 
-   
-
 <script>
 $(document).ready(function(){
 	 $("#cancel_comentario").click(function() {
   		 $('#comentario').val('');
 	});
 });
-
 </script>
 
 
@@ -389,5 +349,4 @@ $(document).ready(function(){
   		 $('#comentario').val('');
 	});
 });
-
 </script>
