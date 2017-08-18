@@ -1,10 +1,10 @@
 <?php
 include_once('My_Model.php');
-class m_articulos extends My_Model
+class m_productos extends My_Model
 {
-	protected $_tablename	= 'articulo';
-	protected $_id_table	= 'id_articulo';
-	protected $_order		= 'articulo';
+	protected $_tablename	= 'productos';
+	protected $_id_table	= 'id_producto';
+	protected $_order		= 'producto';
 	protected $_relation    = '';
 	
 	function __construct()
@@ -17,21 +17,19 @@ class m_articulos extends My_Model
 		);
 	}
 	
-	function getArticulo($filtro)
+	function getProducto($filtro)
 	{
-		$sql = "SELECT 
-				descripcion as value,
-				id_articulo,
-				precio_venta_sin_iva_con_imp, 
-				iva as porc_iva 
-			FROM 
-				articulo 
-			WHERE 
-				(descripcion LIKE '%".$filtro."%' OR 
-				cod_proveedor LIKE '%".$filtro."%') AND
-				id_estado = 1 
-			LIMIT 
-				20 ";
+		$sql = "
+		SELECT 
+			*
+		FROM 
+			productos 
+		WHERE 
+			(producto LIKE '%".$filtro."%' OR 
+			cod_proveedor LIKE '%".$filtro."%') AND
+			eliminado = 0 
+		LIMIT 
+			20 ";
 			
 		$result = $this->_db->query($sql);
 		

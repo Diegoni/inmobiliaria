@@ -9,7 +9,8 @@ if($result)
 {
 	foreach ($result as $row) 
 	{
-		$row_set[]		= $row;
+		$row['value']	= stripslashes(utf8_encode($row['cliente']));
+		$row_set[]		= $row;//build an array
 	}
 }
 

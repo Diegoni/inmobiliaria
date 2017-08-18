@@ -36,20 +36,17 @@ class m_clientes extends My_Model
 	
 	function getClientes($filtro)
 	{
-		$sql = "SELECT 
-				`cuil` as num_cuil, 
-				direccion , 
-				alias as value,
-				id_cliente,
-				apellido, 
-				nombre 
-			FROM 
-				cliente 
-			WHERE 
-				id_estado = 1  AND 
-				(alias LIKE '%".$filtro."%' OR 
-				`cuil` LIKE '%".$filtro."%') 
-			LIMIT 20";
+		//direccion
+		$sql = "
+		SELECT 
+			*
+		FROM 
+			clientes
+		WHERE 
+			eliminado = 0  AND 
+			(cliente LIKE '%".$filtro."%' OR 
+			`cuil` LIKE '%".$filtro."%') 
+		LIMIT 20";
 			
 		$result = $this->_db->query($sql);
 		

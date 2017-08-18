@@ -47,7 +47,7 @@ for ($i=0; $i<count($codigos_a_cargar); $i++ )
 		INSERT INTO 
 			reglon_presupuesto (
 				id_presupuesto,
-				id_articulo,
+				id_producto,
 				cantidad,
 				precio,
 				estado

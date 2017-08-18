@@ -5,7 +5,7 @@ class Model
 	protected $_db_host = 'localhost';
 	protected $_db_user	= 'root';
 	protected $_db_pass = '';
-	protected $_db_name = 'sarmiento';
+	protected $_db_name = 'inmobiliaria';
 	protected $_db_char = 'utf8mb4';
 	
 

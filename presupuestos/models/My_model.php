@@ -35,19 +35,25 @@ class MY_Model extends Model
 		
 		$result = $this->_db->query($consulta);
 		
-		if($result->num_rows > 0)
+		if($result)
 		{
-			while($row = $result->fetch_array())
+			if($result->num_rows > 0)
 			{
-				$rows[] = $row;
+				while($row = $result->fetch_array())
+				{
+					$rows[] = $row;
+				}
+				
+				return $rows;	
 			}
-			
-			return $rows;	
-		}
-		else
+			else
+			{
+				return FALSE;	
+			}
+		}else
 		{
 			return FALSE;	
-		}
+		}		
     }
 	
 		

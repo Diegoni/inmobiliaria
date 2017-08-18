@@ -149,19 +149,19 @@ $(function()
 	    minLength: 2,//search after two characters
 	    select: function(event,ui){
 	        console.log(ui);
-			nombre_cli	= ui.item.nombre;
-	        apellido_cli= ui.item.apellido;
 			id_cliente	= ui.item.id_cliente;
-	        num_cuil	= ui.item.num_cuil;
-	    	dom_cli		= ui.item.direccion;
-			console.log(apellido_cli);
-			
-			$('#apellido_cliente').val(apellido_cli);
-			$('#nombre_cliente').val(nombre_cli);
-			$('#domicilio_cliente').val(dom_cli);
-			$('#cuit_cliente').val(num_cuil);
+	        cuil	= ui.item.cuil;
+	        calle	= ui.item.calle;
+	        calle_numero	= ui.item.calle_numero;
+	        telefono	= ui.item.telefono;
+	    	
 			$('#id_cliente').val(id_cliente);
-			$('#tipo_presupuesto_ctacte').click();
+			$('#cuit_cliente').val(cuil);
+			$('#calle').val(calle);
+			$('#calle_numero').val(calle_numero);
+			$('#telefono').val(telefono);
+			
+			$('#tipo').focus();
 		},
 	    
 		close: function( event, ui ) {
@@ -174,7 +174,7 @@ $(function()
 /*---------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------- 
 
-		Carga la lista de articulos
+		Carga la lista de productos
 
 -----------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------*/
@@ -182,7 +182,7 @@ $(function()
 
 $(function() {
 	$("#quickfind").autocomplete({
-	    source: "search_articulo.php",
+	    source: "search_productos.php",
 	    minLength: 2,//search after two characters
 	    select: function(event,ui){
 	        porc_iva_art	= ui.item.iva;
@@ -224,7 +224,7 @@ $(function() {
         
 $("#cantidad").keypress(function( event ) {
 	if ( event.which == 13 ) {
-		$("#carga_articulo").click();
+		$("#carga_producto").click();
 		$("#cantidad").attr('disabled','disabled');
 	}
 });	

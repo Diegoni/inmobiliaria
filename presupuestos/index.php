@@ -1,5 +1,4 @@
 <?php
-include_once('models_/conexion.php');
 include_once('models/m_clientes.php');
 include_once('models/m_vendedores.php');
 include_once('models/m_config.php');
@@ -119,74 +118,44 @@ $librerias = '../librerias/plantilla/';
 		          	<div class="box box-default slidingDiv">
 		          		<div class="box-body">
 		        			<div class="row" id="cont_datos_buscador">
-		                		<div class="form-group col-md-6 ">
-		                			<label class="control-label">Cliente</label>
-		                    		<div class="input-group">
-						    			<input class="data_cliente form-control input-sm" type="text" id="carga_cliente" placeholder="Alias o Cuil/Cuit"/>
-						    			<div class="input-group-btn">
-						      				<button onclick="limpia_cli()" class="btn btn-danger form-control input-sm" id="search" name="search">
-						                    	<i class="glyphicon glyphicon-remove"></i>
-						                    </button>
-						    			</div>
-						  			</div>
-		                		</div>
-		                
-		                		<div class="form-group col-md-1">
-		                			<label class="control-label"></label>
-		                 		</div>
-		                        
-				                <div class="cont_rotulo_presupuesto form-group col-md-2">
+		        				<div class="col-md-7">
+			                		<div class="form-group">
+			                			<label class="control-label">Cliente</label>
+			                    		<div class="input-group">
+							    			<input class="data_cliente form-control input-sm" type="text" id="carga_cliente" placeholder="Alias o Cuil/Cuit"/>
+							    			<div class="input-group-btn">
+							      				<button onclick="limpia_cli()" class="btn btn-danger form-control input-sm" id="search" name="search">
+							                    	<i class="glyphicon glyphicon-remove"></i>
+							                    </button>
+							    			</div>
+							    			<div class="input-group-btn">
+							      				<button class="btn btn-default form-control input-sm" data-toggle="modal" data-target="#modal_cliente">
+							                    	<i class="fa fa-info-circle" aria-hidden="true"></i>
+							                    </button>
+							    			</div>
+							  			</div>
+							  		</div>
+						  		</div>
+						  		<div class="cont_rotulo_presupuesto form-group col-md-2">
 				                	<label class="control-label">Fecha</label>
-				                    <input class="data_presupuesto form-control input-sm" type="text" id="fecha_presupuesto" value=""/>
+				                    <input class="data_presupuesto form-control input-sm" type="text" id="fecha_presupuesto" value="<?php echo date('d-m-Y')?>"/>
 				                </div>
 		                
 				                <div class="cont_rotulo_presupuesto form-group col-md-3">
 				                	<label class="control-label">Pago</label>
-				                    <select class='form-control' name="tipo">
+				                    <select class='form-control input-sm' name="tipo" id="tipo">
 				                    	<option value="1">Contado</option>
 				                    	<option value="1">Tarjeta</option>
 				                    	<option value="1">Cuenta Corriente</option>
 									</select>
 				                </div>
 							</div>  
-		            		<div class="row" id="cont_datos_cliente">
-				                <div class="cont_rotulo_cliente col-md-3">
-				                    <div class="form-group">
-				                        <label for="email" class="col-sm-2 control-label">Nombre</label>
-				                        <input class="data_cliente form-control input-sm" disabled type="text" id="nombre_cliente" value=""/>
-				                    </div>
-				                </div>
-		                    
-				                <div class="cont_rotulo_cliente col-md-3">
-				                    <div class="form-group">
-				                        <label for="email" class="col-sm-2 control-label">Apellido</label>
-				                        <input class="data_cliente form-control input-sm" disabled type="text" id="apellido_cliente" value=""/>
-				                    </div>
-				                </div>
-		                    
-		                    
-				                <div class="cont_rotulo_cliente col-md-3">
-				                    <div class="form-group">
-				                        <label for="email" class="col-sm-2 control-label">Domicilio</label>
-				                        <input class="data_cliente form-control input-sm" disabled type="text" id="domicilio_cliente" value=""/>
-				                    </div>
-				                </div>
-		                
-				                <div class="cont_rotulo_cliente col-md-3">
-				                    <div class="form-group">
-				                        <label for="email" class="col-sm-2 control-label">Cuil/Cuit</label>
-				                        <input class="data_cliente form-control input-sm" type="text" disabled id="cuit_cliente" value=""/>
-				                    </div>
-				                </div>
-		                
-		                		<input hidden="hidden" type="text"  id="id_cliente" value="0"/>
-		            		</div>
 		             	</div>
 					</div>
 
 					<div class="box box-default">
 						<div class="box-header with-border">
-		                	<div id="cont_busqueda_articulo">   
+		                	<div id="cont_busqueda_producto">   
 				                <div id="cont_busca">
 				                	<form  action='' method='post'>
 					                    <div class="row">
@@ -207,7 +176,7 @@ $librerias = '../librerias/plantilla/';
 					                                <div class="form-group">
 					                                    <label class="col-sm-2 control-label">Cantidad:</label>
 					                                    <input class="form-control input-sm" type='number' name='cantidad' value='<?php echo $cantidad_inicial?>' id='cantidad'/>
-					                                    <p><input onclick="carga(item_elegido)" type='button' id="carga_articulo" hidden="hidden"/></p>
+					                                    <p><input onclick="carga(item_elegido)" type='button' id="carga_producto" hidden="hidden"/></p>
 					                                </div>
 					                            </div>
 					                        </p>
@@ -323,6 +292,53 @@ $librerias = '../librerias/plantilla/';
     		</div>
   		</div>
 	</div>
+	
+	
+	<div class="modal fade" id="modal_cliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+				<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        			<h4 class="modal-title" id="myModalLabel">Datos Cliente</h4>
+      			</div>
+		      	<div class="modal-body">
+		        	<div class="row" id="cont_datos_cliente">
+						<div class="form-group">
+    						<label class="control-label col-sm-4" for="cuit_cliente">Cuit Cliente:</label>
+    						<div class="col-sm-8">
+      							<input type="text" class="form-control" id="cuit_cliente" disabled/>
+    						</div>
+  						</div>
+  						<div class="form-group">
+    						<label class="control-label col-sm-4" for="calle">Calle:</label>
+    						<div class="col-sm-8">
+      							<input type="text" class="form-control" id="calle" disabled/>
+    						</div>
+  						</div>
+  						<div class="form-group">
+    						<label class="control-label col-sm-4" for="calle_numero">Calle nro:</label>
+    						<div class="col-sm-8">
+      							<input type="text" class="form-control" id="calle_numero" disabled/>
+    						</div>
+  						</div>
+  						<div class="form-group">
+    						<label class="control-label col-sm-4" for="telefono">Telefono:</label>
+    						<div class="col-sm-8">
+      							<input type="text" class="form-control" id="telefono" disabled/>
+    						</div>
+  						</div>
+  						
+  					</div>
+  					<input type="hidden" id="id_cliente" name="id_cliente">
+		      	</div>
+      			<div class="modal-footer">
+        			<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel_comentario">Cerrar</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+	
+							
 
 <script>
 $(document).ready(function(){
