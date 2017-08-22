@@ -34,7 +34,7 @@ if($registros)
     {
         $registro = array(
             $row->id_presupuesto,
-            tableUpd($subjet, $row->id_presupuesto),
+            tableButton($subjet.'/detalle_presupuesto/', $row->id_presupuesto, 'fa fa-chevron-circle-right'),
         );
         
         $html .= setTableContent($registro);    

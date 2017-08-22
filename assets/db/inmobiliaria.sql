@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-08-2017 a las 15:29:15
+-- Tiempo de generación: 22-08-2017 a las 21:16:16
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -45,6 +45,32 @@ CREATE TABLE `alertas` (
 INSERT INTO `alertas` (`id_alerta`, `alerta`, `id_usuario`, `visto`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
 (1, '<p><a href="http://[::1]/srp/index.php/usuarios/abm/2">El usuario no tiene entes asignados</a></p>', 1, 1, '2017-08-11 15:54:42', '2017-08-11 20:08:54', 2, 1, 0),
 (2, '<p><a href="http://[::1]/srp/index.php/usuarios/abm/2">El usuario no tiene entes asignados</a></p>', 1, 1, '2017-08-11 15:54:47', '2017-08-11 20:08:54', 2, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `anulaciones`
+--
+
+CREATE TABLE `anulaciones` (
+  `id_anulacion` int(11) NOT NULL,
+  `id_presupuesto` int(11) NOT NULL,
+  `monto` float NOT NULL,
+  `comentario` text NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `anulaciones`
+--
+
+INSERT INTO `anulaciones` (`id_anulacion`, `id_presupuesto`, `monto`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 8, 288, 'Test de anulacion', '2017-08-22 21:09:37', '2017-08-22 21:09:37', 1, 1, 0),
+(2, 8, 288, 'Test de anulacion', '2017-08-22 21:09:45', '2017-08-22 21:09:45', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -276,7 +302,8 @@ INSERT INTO `cuotas_actualizaciones` (`id_actualizacion`, `emitidas`, `vencidas`
 (3, 0, 0, '2017-08-15 20:11:03'),
 (4, 0, 0, '2017-08-16 20:11:02'),
 (5, 0, 0, '2017-08-17 20:11:02'),
-(6, 0, 0, '2017-08-18 20:11:03');
+(6, 0, 0, '2017-08-18 20:11:03'),
+(7, 0, 0, '2017-08-22 20:11:02');
 
 -- --------------------------------------------------------
 
@@ -536,6 +563,33 @@ INSERT INTO `inmuebles_tipos` (`id_tipo`, `tipo`, `date_add`, `date_upd`, `user_
 (1, 'Lote', '2017-04-18 01:01:10', '2017-04-18 01:01:10', 1, 1, 0),
 (2, 'Casa', '2017-04-18 01:01:15', '2017-04-18 01:01:15', 1, 1, 0),
 (3, 'Departamento', '2017-04-18 01:01:25', '2017-04-18 01:01:25', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `intereses`
+--
+
+CREATE TABLE `intereses` (
+  `id_interes` int(11) NOT NULL,
+  `id_presupuesto` int(11) NOT NULL,
+  `id_tipo` int(11) NOT NULL,
+  `monto` float NOT NULL,
+  `descripcion` varchar(128) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `intereses`
+--
+
+INSERT INTO `intereses` (`id_interes`, `id_presupuesto`, `id_tipo`, `monto`, `descripcion`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 9, 1, 50, '22-08-2017 Intereses generados por atraso', '2017-08-22 20:24:01', '2017-08-22 20:24:01', 1, 1, 0),
+(2, 9, 1, 50, '22-08-2017 Intereses generados por atraso', '2017-08-22 20:24:13', '2017-08-22 20:24:13', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -23509,7 +23563,199 @@ INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `re
 (287, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 15:23:35', 'Agencia Gestión', 0),
 (288, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-22 15:23:45', 'Agencia Gestión', 0),
 (289, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 15:26:23', 'Agencia Gestión', 0),
-(290, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 15:27:01', 'Agencia Gestión', 0);
+(290, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 15:27:01', 'Agencia Gestión', 0),
+(291, 3, 'logout', 'logout', '', '', '1', '2017-08-22 15:33:29', 'Agencia Gestión', 0),
+(292, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-22 15:35:55', 'Agencia Gestión', 0),
+(293, 4, 'clientes/table', 'access', '', '', '1', '2017-08-22 15:35:56', 'Agencia Gestión', 0),
+(294, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 15:35:59', 'Agencia Gestión', 0),
+(295, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-22 15:36:00', 'Agencia Gestión', 0),
+(296, 4, 'presupuestos/presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:00:41', 'Agencia Gestión', 0),
+(297, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:00:49', 'Agencia Gestión', 0),
+(298, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-22 16:01:01', 'Agencia Gestión', 0),
+(299, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 16:01:04', 'Agencia Gestión', 0),
+(300, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-22 16:01:08', 'Agencia Gestión', 0),
+(301, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:01:15', 'Agencia Gestión', 0),
+(302, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:01:40', 'Agencia Gestión', 0),
+(303, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:02:36', 'Agencia Gestión', 0),
+(304, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:30:47', 'Agencia Gestión', 0),
+(305, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:31:00', 'Agencia Gestión', 0),
+(306, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:31:14', 'Agencia Gestión', 0),
+(307, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:31:39', 'Agencia Gestión', 0),
+(308, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:31:47', 'Agencia Gestión', 0),
+(309, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:31:50', 'Agencia Gestión', 0),
+(310, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:31:55', 'Agencia Gestión', 0),
+(311, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:42:40', 'Agencia Gestión', 0),
+(312, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:42:47', 'Agencia Gestión', 0),
+(313, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:42:55', 'Agencia Gestión', 0),
+(314, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:43:04', 'Agencia Gestión', 0),
+(315, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:43:14', 'Agencia Gestión', 0),
+(316, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:46:58', 'Agencia Gestión', 0),
+(317, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:46:59', 'Agencia Gestión', 0),
+(318, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:47:03', 'Agencia Gestión', 0),
+(319, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:47:07', 'Agencia Gestión', 0),
+(320, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:47:10', 'Agencia Gestión', 0),
+(321, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:47:13', 'Agencia Gestión', 0),
+(322, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:47:29', 'Agencia Gestión', 0),
+(323, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:47:30', 'Agencia Gestión', 0),
+(324, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:47:33', 'Agencia Gestión', 0),
+(325, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:48:01', 'Agencia Gestión', 0),
+(326, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:48:04', 'Agencia Gestión', 0),
+(327, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:48:17', 'Agencia Gestión', 0),
+(328, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:48:20', 'Agencia Gestión', 0),
+(329, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:48:46', 'Agencia Gestión', 0),
+(330, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:48:50', 'Agencia Gestión', 0),
+(331, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:48:54', 'Agencia Gestión', 0),
+(332, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:49:39', 'Agencia Gestión', 0),
+(333, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:49:44', 'Agencia Gestión', 0),
+(334, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:50:20', 'Agencia Gestión', 0),
+(335, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:50:27', 'Agencia Gestión', 0),
+(336, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:50:31', 'Agencia Gestión', 0),
+(337, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:51:15', 'Agencia Gestión', 0),
+(338, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:51:18', 'Agencia Gestión', 0),
+(339, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:51:25', 'Agencia Gestión', 0),
+(340, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:51:27', 'Agencia Gestión', 0),
+(341, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:53:44', 'Agencia Gestión', 0),
+(342, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:53:51', 'Agencia Gestión', 0),
+(343, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:54:29', 'Agencia Gestión', 0),
+(344, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:55:07', 'Agencia Gestión', 0),
+(345, 4, 'productos/abm', 'access', '', '', '1', '2017-08-22 16:55:31', 'Agencia Gestión', 0),
+(346, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 16:55:35', 'Agencia Gestión', 0),
+(347, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:20:44', 'Agencia Gestión', 0),
+(348, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:21:05', 'Agencia Gestión', 0),
+(349, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:21:38', 'Agencia Gestión', 0),
+(350, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:22:56', 'Agencia Gestión', 0),
+(351, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:23:24', 'Agencia Gestión', 0),
+(352, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:25:23', 'Agencia Gestión', 0),
+(353, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:25:45', 'Agencia Gestión', 0),
+(354, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:25:58', 'Agencia Gestión', 0),
+(355, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:26:12', 'Agencia Gestión', 0),
+(356, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:26:45', 'Agencia Gestión', 0),
+(357, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:27:00', 'Agencia Gestión', 0),
+(358, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:28:16', 'Agencia Gestión', 0),
+(359, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:28:47', 'Agencia Gestión', 0),
+(360, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:29:10', 'Agencia Gestión', 0),
+(361, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:29:29', 'Agencia Gestión', 0),
+(362, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:30:36', 'Agencia Gestión', 0),
+(363, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:30:49', 'Agencia Gestión', 0),
+(364, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:30:50', 'Agencia Gestión', 0),
+(365, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-22 17:30:56', 'Agencia Gestión', 0),
+(366, 4, 'clientes/table', 'access', '', '', '1', '2017-08-22 17:31:10', 'Agencia Gestión', 0),
+(367, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-22 17:31:12', 'Agencia Gestión', 0),
+(368, 4, 'clientes/table', 'access', '', '', '1', '2017-08-22 17:31:15', 'Agencia Gestión', 0),
+(369, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-22 17:31:16', 'Agencia Gestión', 0),
+(370, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 17:31:22', 'Agencia Gestión', 0),
+(371, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-22 17:31:24', 'Agencia Gestión', 0),
+(372, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:31:31', 'Agencia Gestión', 0),
+(373, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:32:06', 'Agencia Gestión', 0),
+(374, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:32:49', 'Agencia Gestión', 0),
+(375, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:32:53', 'Agencia Gestión', 0),
+(376, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-22 17:33:06', 'Agencia Gestión', 0),
+(377, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:33:54', 'Agencia Gestión', 0),
+(378, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:34:03', 'Agencia Gestión', 0),
+(379, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:34:12', 'Agencia Gestión', 0),
+(380, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:34:44', 'Agencia Gestión', 0),
+(381, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:34:56', 'Agencia Gestión', 0),
+(382, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:35:06', 'Agencia Gestión', 0),
+(383, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:39:54', 'Agencia Gestión', 0),
+(384, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:45:46', 'Agencia Gestión', 0),
+(385, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:47:19', 'Agencia Gestión', 0),
+(386, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:48:49', 'Agencia Gestión', 0),
+(387, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-22 17:48:56', 'Agencia Gestión', 0),
+(388, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:49:01', 'Agencia Gestión', 0),
+(389, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:49:25', 'Agencia Gestión', 0),
+(390, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-22 17:49:27', 'Agencia Gestión', 0),
+(391, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:49:30', 'Agencia Gestión', 0),
+(392, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:54:44', 'Agencia Gestión', 0),
+(393, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 17:54:50', 'Agencia Gestión', 0),
+(394, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 19:54:18', 'Agencia Gestión', 0),
+(395, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 19:54:34', 'Agencia Gestión', 0),
+(396, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 19:54:50', 'Agencia Gestión', 0),
+(397, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:16:32', 'Agencia Gestión', 0),
+(398, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:17:08', 'Agencia Gestión', 0),
+(399, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:17:31', 'Agencia Gestión', 0),
+(400, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:23:08', 'Agencia Gestión', 0),
+(401, 4, '{"id_presupuesto":"9","id_tipo":1,"monto":"50","descripcion":"22-08-2017 Intereses generados por atraso","date_add":"2017-08-22 20:24:01","date_upd":"2017-08-22 20:24:01","user_add":"1","user_upd":"1"}', 'insert', 'intereses', '1', '1', '2017-08-22 20:24:01', 'Agencia Gestión', 0),
+(402, 4, '{"id_presupuesto":"9","id_tipo":1,"monto":"50","descripcion":"22-08-2017 Intereses generados por atraso","date_add":"2017-08-22 20:24:13","date_upd":"2017-08-22 20:24:13","user_add":"1","user_upd":"1"}', 'insert', 'intereses', '2', '1', '2017-08-22 20:24:13', 'Agencia Gestión', 0),
+(403, 4, '{"monto":97,"date_upd":"2017-08-22 20:24:13","user_upd":"1"}', 'update', 'presupuestos', '9', '1', '2017-08-22 20:24:13', 'Agencia Gestión', 0),
+(404, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:24:13', 'Agencia Gestión', 0),
+(405, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:27:39', 'Agencia Gestión', 0),
+(406, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:27:47', 'Agencia Gestión', 0),
+(407, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:28:20', 'Agencia Gestión', 0),
+(408, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:28:22', 'Agencia Gestión', 0),
+(409, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:28:49', 'Agencia Gestión', 0),
+(410, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:29:48', 'Agencia Gestión', 0);
+INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `registro`, `user_add`, `date_add`, `programa`, `eliminado`) VALUES
+(411, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:30:11', 'Agencia Gestión', 0),
+(412, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:30:17', 'Agencia Gestión', 0),
+(413, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:30:22', 'Agencia Gestión', 0),
+(414, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:30:32', 'Agencia Gestión', 0),
+(415, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:30:35', 'Agencia Gestión', 0),
+(416, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:30:57', 'Agencia Gestión', 0),
+(417, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:30:59', 'Agencia Gestión', 0),
+(418, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-22 20:31:03', 'Agencia Gestión', 0),
+(419, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:31:06', 'Agencia Gestión', 0),
+(420, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:32:32', 'Agencia Gestión', 0),
+(421, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:32:52', 'Agencia Gestión', 0),
+(422, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:34:29', 'Agencia Gestión', 0),
+(423, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:34:30', 'Agencia Gestión', 0),
+(424, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:34:51', 'Agencia Gestión', 0),
+(425, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:34:53', 'Agencia Gestión', 0),
+(426, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:34:55', 'Agencia Gestión', 0),
+(427, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:35:04', 'Agencia Gestión', 0),
+(428, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:37:09', 'Agencia Gestión', 0),
+(429, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:37:17', 'Agencia Gestión', 0),
+(430, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:37:19', 'Agencia Gestión', 0),
+(431, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:37:26', 'Agencia Gestión', 0),
+(432, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:37:27', 'Agencia Gestión', 0),
+(433, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:39:49', 'Agencia Gestión', 0),
+(434, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:39:56', 'Agencia Gestión', 0),
+(435, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:39:58', 'Agencia Gestión', 0),
+(436, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:40:07', 'Agencia Gestión', 0),
+(437, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:40:09', 'Agencia Gestión', 0),
+(438, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-22 20:40:41', 'Agencia Gestión', 0),
+(439, 4, 'clientes/table', 'access', '', '', '1', '2017-08-22 20:40:52', 'Agencia Gestión', 0),
+(440, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-22 20:40:54', 'Agencia Gestión', 0),
+(441, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:41:02', 'Agencia Gestión', 0),
+(442, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:41:04', 'Agencia Gestión', 0),
+(443, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-22 20:41:12', 'Agencia Gestión', 0),
+(444, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:41:13', 'Agencia Gestión', 0),
+(445, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:41:26', 'Agencia Gestión', 0),
+(446, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:44:17', 'Agencia Gestión', 0),
+(447, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:45:38', 'Agencia Gestión', 0),
+(448, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:46:00', 'Agencia Gestión', 0),
+(449, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:46:12', 'Agencia Gestión', 0),
+(450, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:46:44', 'Agencia Gestión', 0),
+(451, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:47:00', 'Agencia Gestión', 0),
+(452, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:47:12', 'Agencia Gestión', 0),
+(453, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:47:19', 'Agencia Gestión', 0),
+(454, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:47:43', 'Agencia Gestión', 0),
+(455, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:48:00', 'Agencia Gestión', 0),
+(456, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:49:42', 'Agencia Gestión', 0),
+(457, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:55:10', 'Agencia Gestión', 0),
+(458, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:55:11', 'Agencia Gestión', 0),
+(459, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:55:14', 'Agencia Gestión', 0),
+(460, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:55:17', 'Agencia Gestión', 0),
+(461, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:55:19', 'Agencia Gestión', 0),
+(462, 4, 'presupuestos/anular.php', 'access', '', '', '1', '2017-08-22 20:55:23', 'Agencia Gestión', 0),
+(463, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:55:32', 'Agencia Gestión', 0),
+(464, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:56:11', 'Agencia Gestión', 0),
+(465, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:56:46', 'Agencia Gestión', 0),
+(466, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:56:56', 'Agencia Gestión', 0),
+(467, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:57:14', 'Agencia Gestión', 0),
+(468, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:57:45', 'Agencia Gestión', 0),
+(469, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:57:51', 'Agencia Gestión', 0),
+(470, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:57:55', 'Agencia Gestión', 0),
+(471, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:58:15', 'Agencia Gestión', 0),
+(472, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:58:48', 'Agencia Gestión', 0),
+(473, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 20:59:34', 'Agencia Gestión', 0),
+(474, 4, '{"id_presupuesto":"8","monto":"288","comentario":"Test de anulacion","date_add":"2017-08-22 21:09:37","date_upd":"2017-08-22 21:09:37","user_add":"1","user_upd":"1"}', 'insert', 'anulaciones', '1', '1', '2017-08-22 21:09:37', 'Agencia Gestión', 0),
+(475, 4, '{"id_presupuesto":"8","monto":"288","comentario":"Test de anulacion","date_add":"2017-08-22 21:09:45","date_upd":"2017-08-22 21:09:45","user_add":"1","user_upd":"1"}', 'insert', 'anulaciones', '2', '1', '2017-08-22 21:09:45', 'Agencia Gestión', 0),
+(476, 4, '{"estado":3,"date_upd":"2017-08-22 21:09:45","user_upd":"1"}', 'update', 'presupuestos', '8', '1', '2017-08-22 21:09:46', 'Agencia Gestión', 0),
+(477, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 21:10:06', 'Agencia Gestión', 0),
+(478, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 21:10:57', 'Agencia Gestión', 0),
+(479, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 21:11:09', 'Agencia Gestión', 0),
+(480, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 21:11:18', 'Agencia Gestión', 0),
+(481, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-22 21:11:53', 'Agencia Gestión', 0);
 
 -- --------------------------------------------------------
 
@@ -23642,13 +23888,13 @@ INSERT INTO `presupuestos` (`id_presupuesto`, `fecha`, `monto`, `id_cliente`, `d
 (5, '2017-08-22 15:04:55', 42, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:04:55', '0000-00-00 00:00:00', 0, 0, 0),
 (6, '2017-08-22 15:05:09', 47, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:05:09', '0000-00-00 00:00:00', 0, 0, 0),
 (7, '2017-08-22 15:06:42', 122, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:06:42', '0000-00-00 00:00:00', 0, 0, 0),
-(8, '2017-08-22 15:08:03', 288, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:08:03', '0000-00-00 00:00:00', 0, 0, 0),
-(9, '2017-08-22 15:08:44', 47, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:08:44', '0000-00-00 00:00:00', 0, 0, 0);
+(8, '2017-08-22 15:08:03', 288, 0, 0, 1, 0, 0, 3, '', 0, '2017-08-22 15:08:03', '2017-08-22 21:09:45', 0, 1, 0),
+(9, '2017-08-22 15:08:44', 97, 1, 0, 2, 0, 1, 2, '', 0, '2017-08-22 15:08:44', '2017-08-22 20:24:13', 0, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `presupuestos_reglones`
+-- Estructura de tabla para la tabla `presupuestos_renglones`
 --
 
 CREATE TABLE `presupuestos_renglones` (
@@ -23728,8 +23974,8 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id_producto`, `producto`, `cod_proveedor`, `medicion`, `id_medicion`, `precio_costo`, `precio_venta`, `precio_min_venta`, `precio_iva`, `id_impuesto`, `precio_compra`, `stock_fisico`, `stock_pedido`, `stock_deseado`, `stock_alerta`, `id_proveedor`, `id_marca`, `id_categoria`, `comentario`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
 (1, 'Test', '51515', 0, 0, '10.00', '20.00', '15.00', '0.00', 0, '0.00', -10, 0, 0, 0, 0, 0, 0, '', '2017-08-03 20:35:55', '2017-08-03 21:34:13', 1, 1, 0),
-(2, 'test 2', '', 0, 0, '12.00', '22.00', '15.00', '0.00', 0, '0.00', 0, 0, 0, 0, 0, 0, 0, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
-(3, 'Test 3', '', 0, 0, '15.00', '25.00', '20.00', '0.00', 0, '0.00', 0, 0, 0, 0, 0, 0, 0, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0);
+(2, 'test 2', '615356', 0, 0, '12.00', '22.00', '15.00', '0.00', 0, '0.00', 0, 0, 0, 0, 0, 0, 0, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
+(3, 'Test 3', '898789', 0, 0, '15.00', '25.00', '20.00', '0.00', 0, '0.00', 0, 0, 0, 0, 0, 0, 0, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -32710,6 +32956,31 @@ INSERT INTO `vehiculos_versiones` (`id_version`, `version`, `id_modelo`, `user_a
 (6621, '1.6 4P Comfortline Plus', 788, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
 (6622, '2.0 TDI 4.2', 1501, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vendedores`
+--
+
+CREATE TABLE `vendedores` (
+  `id_vendedor` int(11) NOT NULL,
+  `vendedor` varchar(128) NOT NULL,
+  `date_add` date NOT NULL,
+  `date_upd` date NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `eliminado` tinyint(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `vendedores`
+--
+
+INSERT INTO `vendedores` (`id_vendedor`, `vendedor`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, 'Pablo', '0000-00-00', '0000-00-00', 0, 0, 1),
+(2, 'Juan', '0000-00-00', '0000-00-00', 0, 0, 1),
+(3, 'Martin', '0000-00-00', '0000-00-00', 0, 0, 1);
+
 --
 -- Índices para tablas volcadas
 --
@@ -32719,6 +32990,12 @@ INSERT INTO `vehiculos_versiones` (`id_version`, `version`, `id_modelo`, `user_a
 --
 ALTER TABLE `alertas`
   ADD PRIMARY KEY (`id_alerta`);
+
+--
+-- Indices de la tabla `anulaciones`
+--
+ALTER TABLE `anulaciones`
+  ADD PRIMARY KEY (`id_anulacion`);
 
 --
 -- Indices de la tabla `calendarios`
@@ -32831,6 +33108,12 @@ ALTER TABLE `inmuebles_tipos`
   ADD PRIMARY KEY (`id_tipo`);
 
 --
+-- Indices de la tabla `intereses`
+--
+ALTER TABLE `intereses`
+  ADD PRIMARY KEY (`id_interes`);
+
+--
 -- Indices de la tabla `localidades`
 --
 ALTER TABLE `localidades`
@@ -32868,9 +33151,9 @@ ALTER TABLE `presupuestos`
   ADD PRIMARY KEY (`id_presupuesto`);
 
 --
--- Indices de la tabla `presupuestos_reglones`
+-- Indices de la tabla `presupuestos_renglones`
 --
-ALTER TABLE `presupuestos_reglones`
+ALTER TABLE `presupuestos_renglones`
   ADD PRIMARY KEY (`id_renglon`);
 
 --
@@ -32994,6 +33277,12 @@ ALTER TABLE `vehiculos_versiones`
   ADD PRIMARY KEY (`id_version`);
 
 --
+-- Indices de la tabla `vendedores`
+--
+ALTER TABLE `vendedores`
+  ADD PRIMARY KEY (`id_vendedor`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -33002,6 +33291,11 @@ ALTER TABLE `vehiculos_versiones`
 --
 ALTER TABLE `alertas`
   MODIFY `id_alerta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `anulaciones`
+--
+ALTER TABLE `anulaciones`
+  MODIFY `id_anulacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `calendarios`
 --
@@ -33041,7 +33335,7 @@ ALTER TABLE `cuotas`
 -- AUTO_INCREMENT de la tabla `cuotas_actualizaciones`
 --
 ALTER TABLE `cuotas_actualizaciones`
-  MODIFY `id_actualizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_actualizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `cuotas_estados`
 --
@@ -33088,10 +33382,15 @@ ALTER TABLE `inmuebles_estados`
 ALTER TABLE `inmuebles_tipos`
   MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT de la tabla `intereses`
+--
+ALTER TABLE `intereses`
+  MODIFY `id_interes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=291;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=482;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --
@@ -33108,9 +33407,9 @@ ALTER TABLE `plantillas`
 ALTER TABLE `presupuestos`
   MODIFY `id_presupuesto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT de la tabla `presupuestos_reglones`
+-- AUTO_INCREMENT de la tabla `presupuestos_renglones`
 --
-ALTER TABLE `presupuestos_reglones`
+ALTER TABLE `presupuestos_renglones`
   MODIFY `id_renglon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -33192,6 +33491,11 @@ ALTER TABLE `vehiculos_modelos`
 --
 ALTER TABLE `vehiculos_versiones`
   MODIFY `id_version` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6623;
+--
+-- AUTO_INCREMENT de la tabla `vendedores`
+--
+ALTER TABLE `vendedores`
+  MODIFY `id_vendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -4,7 +4,16 @@ class m_presupuestos extends MY_Model
 	protected $_tablename	= 'presupuestos';
 	protected $_id_table	= 'id_presupuesto';
 	protected $_order		= 'id_presupuesto';
-	protected $_relation    =  '';
+	protected $_relation    = array(
+        'id_cliente' => array(
+            'table'     => 'clientes',
+            'subjet'    => 'cliente',
+        ),
+        'id_vendedor' => array(
+            'table'     => 'vendedores',
+            'subjet'    => 'vendedor',
+        ),
+	);        
 		
 	function __construct()
 	{
