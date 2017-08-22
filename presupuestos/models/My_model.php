@@ -80,7 +80,8 @@ class MY_Model extends Model
 					}
 					else
 					{
-						$datos	.= $value." ,";	
+						//$datos	.= $value." ,";	
+						$datos	.= "'".$value."' ,";
 					}
 				}
 			}

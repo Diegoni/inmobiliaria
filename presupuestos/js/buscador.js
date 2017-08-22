@@ -91,7 +91,7 @@ function fin_presupuesto()
 {
 	atotal		= $("#total_presupuesto").val();
 	acliente	= $("#id_cliente").val();
-	atipo		= $("input[name='tipo']:checked").val(); 
+	atipo		= $("#tipo").val(); 
 	dto			= parseFloat($('#descuento').val());
 	vendedor	= $('#vendedor').val();
 	comentario	= $("#comentario").val();
@@ -108,6 +108,8 @@ function fin_presupuesto()
 	} else {
 		aestado = 1;// falta de pago
 	}	
+	
+	console.log(codigo_r);
 
 	$.ajax({
 		url : 'carga_presupuesto.php',
@@ -196,10 +198,9 @@ $(function() {
 			$("#cantidad").removeAttr('disabled');
 			$('#cantidad').focus();
 			$('#cantidad').select();
-			 
-	        //console.log(px_unitario);
-	        
-			if (pos != -1) {    
+			
+			if (pos != -1) 
+			{    
 	        	nuevo		= false; 
 				cant_cargada= $('#cant_'+este).val();
 	            $('#cantidad').val(cant_cargada);
@@ -247,9 +248,11 @@ function carga(elem)
 		if($("#quickfind").val().length >= 1) {
 			este = elem.id;
 	 
-			if(nuevo){
+			if(nuevo)
+			{
 				items_reglon.push(este);
 			}
+			
 			agrega_a_reglon(este,elem.value,cantidad, nuevo,px_unitario,porc_iva_art);
 			reset_item();
 		} else {
