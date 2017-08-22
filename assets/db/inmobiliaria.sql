@@ -23651,7 +23651,7 @@ INSERT INTO `presupuestos` (`id_presupuesto`, `fecha`, `monto`, `id_cliente`, `d
 -- Estructura de tabla para la tabla `presupuestos_reglones`
 --
 
-CREATE TABLE `presupuestos_reglones` (
+CREATE TABLE `presupuestos_renglones` (
   `id_renglon` int(11) NOT NULL,
   `id_presupuesto` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
@@ -23666,10 +23666,10 @@ CREATE TABLE `presupuestos_reglones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `presupuestos_reglones`
+-- Volcado de datos para la tabla `presupuestos_renglones`
 --
 
-INSERT INTO `presupuestos_reglones` (`id_renglon`, `id_presupuesto`, `id_producto`, `cantidad`, `precio`, `estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+INSERT INTO `presupuestos_renglones` (`id_renglon`, `id_presupuesto`, `id_producto`, `cantidad`, `precio`, `estado`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
 (1, 1, 0, 1, 20, 1, '2017-08-22 14:55:05', '0000-00-00 00:00:00', 0, 0, 0),
 (2, 2, 0, 1, 22, 1, '2017-08-22 14:57:03', '0000-00-00 00:00:00', 0, 0, 0),
 (3, 2, 0, 1, 20, 1, '2017-08-22 14:57:03', '0000-00-00 00:00:00', 0, 0, 0),
