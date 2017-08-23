@@ -143,7 +143,7 @@ if($row->estado != 3)
 	if(!$llamada)
 	{
 		// Presupuesto pendiente de pago
-		if($row->tipo == 2)
+		if($row->id_forma_pago == 2)
 		{
 			echo '<a href="'.base_url().'index.php/ventas/interes/'.$id_presupuesto.'" class="btn btn-default" data-toggle="modal" data-target="#interesModal"/>';
 			echo '<i class="fa fa-angle-up"></i> Interes';
@@ -151,7 +151,7 @@ if($row->estado != 3)
 		}
 		
 		// Presupuesto pagado
-		if($row->tipo == 1) 
+		if($row->id_forma_pago == 1) 
 		{
 			echo '<a class="btn btn-default" data-toggle="modal" data-target="#anularModal"/>';
 			echo '<i class="fa fa-trash-o"></i> Anular';

@@ -91,7 +91,7 @@ function fin_presupuesto()
 {
 	atotal		= $("#total_presupuesto").val();
 	acliente	= $("#id_cliente").val();
-	atipo		= $("#tipo").val(); 
+	forma_pago	= $("#forma_pago").val(); 
 	dto			= parseFloat($('#descuento').val());
 	vendedor	= $('#vendedor').val();
 	comentario	= $("#comentario").val();
@@ -103,7 +103,8 @@ function fin_presupuesto()
 	}
 	
 	
-	if(atipo == 1) { // contado
+	if(forma_pago < 3) 
+	{ // contado
 		aestado = 2;// cancelado
 	} else {
 		aestado = 1;// falta de pago
@@ -117,7 +118,7 @@ function fin_presupuesto()
 		data : {
 			total:atotal,
 			cliente:acliente,
-			tipo:atipo,
+			forma_pago:forma_pago,
 			estado:aestado,
 			codigos_art:codigo_r,
 			cantidades:cantidad_r,
@@ -163,7 +164,7 @@ $(function()
 			$('#calle_numero').val(calle_numero);
 			$('#telefono').val(telefono);
 			
-			$('#tipo').focus();
+			$('#forma_pago').focus();
 		},
 	    
 		close: function( event, ui ) {

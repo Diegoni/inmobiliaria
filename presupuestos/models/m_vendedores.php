@@ -2,7 +2,7 @@
 include_once('My_Model.php');
 class m_vendedores extends My_Model
 {
-	protected $_tablename	= 'vendedor';
+	protected $_tablename	= 'vendedores';
 	protected $_id_table	= 'id_vendedor';
 	protected $_order		= 'vendedor';
 	protected $_relation    = '';

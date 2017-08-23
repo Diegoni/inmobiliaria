@@ -5,7 +5,7 @@ include_once('models/m_presupuestos_renglones.php');
 $fecha				= date('Y-m-d H:i:s');
 $monto				= $_POST['total'];
 $id_cliente			= $_POST['cliente'];
-$tipo				= $_POST['tipo'];
+$forma_pago			= $_POST['forma_pago'];
 $estado				= $_POST['estado'];
 $dto				= $_POST['desc'];
 $id_vendedor   		= $_POST['vendedor'];
@@ -30,7 +30,7 @@ $registro = array(
 	'fecha'			=> $fecha, 
 	'monto'			=> $monto, 
 	'id_cliente'	=> $id_cliente,
-	'tipo'			=> $tipo,
+	'id_forma_pago'	=> $forma_pago,
 	'estado'		=> $estado,
 	'descuento'		=> $dto, 
 	'id_vendedor'	=> $id_vendedor, 

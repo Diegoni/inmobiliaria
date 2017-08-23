@@ -4,7 +4,13 @@
  --------------------------------------------------------------------------------*/
  
 $cabeceras = array(
-    lang('id_presupuesto'),
+    lang('presupuesto'),
+    lang('fecha'),
+    lang('monto'),
+	lang('descuento'),
+	lang('cliente'),
+	lang('forma_pago'),
+	lang('vendedor'),
     lang('opciones'),
 );
 
@@ -34,6 +40,12 @@ if($registros)
     {
         $registro = array(
             $row->id_presupuesto,
+            formatDate($row->fecha),
+    		formatImporte($row->monto),
+			formatImporte($row->descuento),
+			$row->cliente,
+			$row->forma_pago,
+			$row->vendedor,
             tableButton($subjet.'/detalle_presupuesto/', $row->id_presupuesto, 'fa fa-chevron-circle-right'),
         );
         

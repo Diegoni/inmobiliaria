@@ -1,10 +1,15 @@
 <?php
 include_once('models/m_clientes.php');
 include_once('models/m_vendedores.php');
+include_once('models/m_formas_pagos.php');
 include_once('models/m_config.php');
 
 $m_vendedores = new m_vendedores();
 $query_vendedores = $m_vendedores->getRegistros();
+
+$m_formas_pagos = new m_formas_pagos();
+$query_formas_pagos = $m_formas_pagos->getRegistros();
+
 
 $m_config = new m_config();
 $result = $m_config->getRegistros(1);
@@ -13,6 +18,7 @@ foreach ($result as $row)
 {
 	$cantidad_inicial = $row['cantidad_inicial'];
 	$empresa = $row['empresa'];
+	$forma_pago_default = $row['forma_pago_default'];
 }
 $librerias = '../librerias/plantilla/';
 
@@ -142,11 +148,23 @@ $librerias = '../librerias/plantilla/';
 				                </div>
 		                
 				                <div class="cont_rotulo_presupuesto form-group col-md-3">
-				                	<label class="control-label">Pago</label>
-				                    <select class='form-control input-sm' name="tipo" id="tipo">
-				                    	<option value="1">Contado</option>
-				                    	<option value="1">Tarjeta</option>
-				                    	<option value="1">Cuenta Corriente</option>
+				                	<label class="control-label">Forma Pago</label>
+				                    <select class='form-control input-sm' name="forma_pago" id="forma_pago">
+				                    	<?php
+		                            	if($query_formas_pagos)
+		                            	{
+		                                	foreach ($query_formas_pagos as $row_pagos) 
+		                                	{
+		                                		if($row_pagos['id_forma_pago'] == $forma_pago_default)
+		                                		{
+		                                			echo "<option value=".$row_pagos['id_forma_pago']." selected> ".$row_pagos['forma_pago']."</option>";
+		                                		}else
+		                                		{
+		                                			echo "<option value=".$row_pagos['id_forma_pago']."> ".$row_pagos['forma_pago']."</option>";	
+		                                		}
+		                                	}
+		                            	}
+		                            	?>
 									</select>
 				                </div>
 							</div>  

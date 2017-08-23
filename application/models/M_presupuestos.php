@@ -13,6 +13,10 @@ class m_presupuestos extends MY_Model
             'table'     => 'vendedores',
             'subjet'    => 'vendedor',
         ),
+        'id_forma_pago' => array(
+            'table'     => 'formas_pagos',
+            'subjet'    => 'forma_pago',
+        ),
 	);        
 		
 	function __construct()
