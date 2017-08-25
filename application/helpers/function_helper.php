@@ -34,7 +34,7 @@ function formatDatetime($fecha){
 
 
 function formatDate($fecha){
-	if($fecha == ''){
+	if($fecha == '' || $fecha == '0000-00-00'){
 		return '';
 	}else{
 		return date('d/m/Y', strtotime($fecha));

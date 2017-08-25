@@ -16,7 +16,7 @@ echo '<div id="printableArea">';
 
 if($presupuestos)
 {
-	echo "<table class='table table-hover'>";
+	echo "<table class='table table-hover table-condensed'>";
 				
 	foreach ($presupuestos as $row) 
 	{
@@ -25,20 +25,35 @@ if($presupuestos)
 		echo '<th>'.$row->id_presupuesto.'</th>';
 		echo '<td class="active">'.lang('fecha').'</td>';
 		echo '<th>'.formatDate($row->fecha).'</th>';
+		echo '<td class="active">'.lang('cliente').'</td>';
+		echo '<td><a class="btn btn-default btn-xs" title="'.lang('ver').' '.lang('cliente').'" href="'.base_url().'index.php/clientes/abm/'.$row->id_cliente.'">'.$row->cliente.'</a></td>';
 		echo '</tr>';		
 									
 		echo '<tr>';
-		echo '<td class="active">'.lang('cliente').'</td>';
-		echo '<td><a class="btn btn-default btn-xs" title="'.lang('ver').' '.lang('cliente').'" href="'.base_url().'index.php/clientes/abm/'.$row->id_cliente.'">'.$row->cliente.'</a></td>';
 		echo '<td class="active">'.lang('vendedor').'</td>';
 		echo '<td><a class="btn btn-default btn-xs" title="'.lang('ver').' '.lang('vendedor').'" href="'.base_url().'index.php/vendedores/abm/'.$row->id_vendedor.'">'.$row->vendedor.'</a></td>';
-		echo '</tr>';
-					
-		echo '<tr>';
 		echo '<td class="active">'.lang('descuento').'</td>';
 		echo '<th>'.formatImporte($row->descuento).'</th>';
 		echo '<td class="active">'.lang('monto').'</td>';
 		echo '<th>'.formatImporte($row->monto).'</th>';
+		echo '</tr>';
+					
+		echo '<tr>';
+		echo '<td class="active">'.lang('forma_pago').'</td>';
+		echo '<th>'.$row->forma_pago.'</th>';
+		echo '<td class="active">'.lang('condicion_pago').'</td>';
+		echo '<th>'.$row->condicion_pago.'</th>';
+		echo '<td class="active">'.lang('origen').'</td>';
+		echo '<th>'.$row->origen.'</th>';
+		echo '</tr>';
+		
+		echo '<tr>';
+		echo '<td class="active">'.lang('fecha_entrega').'</td>';
+		echo '<th>'.formatDate($row->fecha_entrega).'</th>';
+		echo '<td class="active">'.lang('validez').'</td>';
+		echo '<th>'.formatDate($row->validez).'</th>';
+		echo '<td class="active">'.lang('envio').'</td>';
+		echo '<th>'.$row->envio.'</th>';
 		echo '</tr>';
 		
 		$monto_presupuesto = $row->monto;	                
@@ -133,7 +148,7 @@ if(!$llamada)
 	echo "<a href='".base_url()."index.php/presupuestos/table/' type='button' class='btn btn-default'>".lang('presupuestos')."</a>";
 }
 		
-if($row->estado != 3)
+if($row->id_estado != 3)
 {
 	?>
 	<button class="btn btn-default" type="button" onclick="printDiv('printableArea')"/>

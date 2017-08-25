@@ -17,6 +17,19 @@ class m_presupuestos extends MY_Model
             'table'     => 'formas_pagos',
             'subjet'    => 'forma_pago',
         ),
+        'id_condicion_pago' => array(
+            'table'     => 'condiciones_pagos',
+            'subjet'    => 'condicion_pago',
+        ),
+        'id_origen' => array(
+            'table'     => 'presupuestos_origenes',
+            'subjet'    => 'origen',
+        ),
+        'id_envio' => array(
+            'table'     => 'presupuestos_envios',
+            'subjet'    => 'envio',
+        ),
+        
 	);        
 		
 	function __construct()

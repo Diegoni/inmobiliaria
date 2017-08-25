@@ -16,6 +16,12 @@ class Presupuestos extends MY_Controller
 		$this->load->model('m_presupuestos_renglones');		
 		$this->load->model('m_intereses');
 		$this->load->model('m_anulaciones');
+		$this->load->model('m_clientes');
+		$this->load->model('m_formas_pagos');
+		$this->load->model('m_condiciones_pagos');
+		$this->load->model('m_vendedores');
+		$this->load->model('m_presupuestos_origenes');
+  		$this->load->model('m_presupuestos_envios');
     } 
 
 /*--------------------------------------------------------------------------------- 
@@ -140,5 +146,42 @@ class Presupuestos extends MY_Controller
 			redirect('/','refresh');
 		}
 	}
+
+
+   
+/*--------------------------------------------------------------------------------- 
+-----------------------------------------------------------------------------------  
+            
+       Ejemplo de abm
+  
+----------------------------------------------------------------------------------- 
+---------------------------------------------------------------------------------*/   
+    
+    
+    function abm($id = NULL)
+    {                           
+        $db['clientes']    = $this->m_clientes->getRegistros();
+		$db['formas_pagos']    = $this->m_formas_pagos->getRegistros();
+		$db['condiciones_pagos']    = $this->m_condiciones_pagos->getRegistros();
+		$db['vendedores']    = $this->m_vendedores->getRegistros();
+		$db['origenes']    = $this->m_presupuestos_origenes->getRegistros();
+		$db['envios']    = $this->m_presupuestos_envios->getRegistros();
+		          
+        $db['campos']   = array(
+            array('fecha',    '', 'required'), 
+            array('select',   'id_cliente',  'cliente', $db['clientes'], 'required'),
+            array('select',   'id_forma_pago',  'forma_pago', $db['formas_pagos']),
+            array('select',   'id_condicion_pago',  'condicion_pago', $db['condiciones_pagos']),
+            array('select',   'id_vendedor',  'vendedor', $db['vendedores']),
+            array('fecha_entrega',    '', ''),
+            array('validez',    '', ''),
+            array('select',   'id_origen',  'origen', $db['origenes']),
+            array('select',   'id_envio',  'envio', $db['envios']),
+            array('checkbox', 'com_publico'),
+            array('comentario',    '', ''),            
+        );
+        
+        $this->armarAbm($id, $db);                     // Envia todo a la plantilla de la pagina
+    }
 }
 ?>

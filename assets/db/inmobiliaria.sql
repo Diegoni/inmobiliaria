@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-08-2017 a las 21:21:31
+-- Tiempo de generación: 25-08-2017 a las 21:00:56
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -214,15 +214,18 @@ CREATE TABLE `config` (
   `cantidad` int(11) NOT NULL,
   `cantidad_inicial` float NOT NULL,
   `empresa` varchar(128) NOT NULL,
-  `forma_pago_default` int(11) NOT NULL
+  `forma_pago_default` int(11) NOT NULL,
+  `condicion_pago_default` int(11) NOT NULL,
+  `origen_default` int(11) NOT NULL,
+  `envio_default` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `config`
 --
 
-INSERT INTO `config` (`id_config`, `dias_pago`, `cantidad`, `cantidad_inicial`, `empresa`, `forma_pago_default`) VALUES
-(1, 30, 2000, 1, 'Tes de empresa', 2);
+INSERT INTO `config` (`id_config`, `dias_pago`, `cantidad`, `cantidad_inicial`, `empresa`, `forma_pago_default`, `condicion_pago_default`, `origen_default`, `envio_default`) VALUES
+(1, 30, 2000, 1, 'Tes de empresa', 2, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -306,7 +309,9 @@ INSERT INTO `cuotas_actualizaciones` (`id_actualizacion`, `emitidas`, `vencidas`
 (5, 0, 0, '2017-08-17 20:11:02'),
 (6, 0, 0, '2017-08-18 20:11:03'),
 (7, 0, 0, '2017-08-22 20:11:02'),
-(8, 0, 0, '2017-08-23 20:11:02');
+(8, 0, 0, '2017-08-23 20:11:02'),
+(9, 0, 0, '2017-08-24 20:11:02'),
+(10, 0, 0, '2017-08-25 20:11:02');
 
 -- --------------------------------------------------------
 
@@ -23806,7 +23811,57 @@ INSERT INTO `logs_usuarios` (`id_log`, `id_nivel`, `log`, `accion`, `tabla`, `re
 (526, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-23 20:43:21', 'Agencia Gestión', 0),
 (527, 4, 'stocks_movimientos/abm', 'access', '', '', '1', '2017-08-23 20:43:26', 'Agencia Gestión', 0),
 (528, 4, 'stocks_movimientos/table', 'access', '', '', '1', '2017-08-23 21:01:28', 'Agencia Gestión', 0),
-(529, 3, 'logout', 'logout', '', '', '1', '2017-08-23 21:01:33', 'Agencia Gestión', 0);
+(529, 3, 'logout', 'logout', '', '', '1', '2017-08-23 21:01:33', 'Agencia Gestión', 0),
+(530, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-24 17:31:25', 'Agencia Gestión', 0),
+(531, 4, 'clientes/table', 'access', '', '', '1', '2017-08-24 17:31:26', 'Agencia Gestión', 0),
+(532, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-24 17:31:30', 'Agencia Gestión', 0),
+(533, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-24 17:32:01', 'Agencia Gestión', 0),
+(534, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-24 17:57:38', 'Agencia Gestión', 0),
+(535, 3, '{"usuario":"admin","ip":"::1","navegador":"Chrome","sistema":"Windows 10"}', 'login', '', '', '1', '2017-08-25 19:41:41', 'Agencia Gestión', 0),
+(536, 4, 'clientes/table', 'access', '', '', '1', '2017-08-25 19:41:42', 'Agencia Gestión', 0),
+(537, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-25 19:43:25', 'Agencia Gestión', 0),
+(538, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:45:29', 'Agencia Gestión', 0),
+(539, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:49:28', 'Agencia Gestión', 0),
+(540, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:50:04', 'Agencia Gestión', 0),
+(541, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:50:44', 'Agencia Gestión', 0),
+(542, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:51:07', 'Agencia Gestión', 0),
+(543, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:51:33', 'Agencia Gestión', 0),
+(544, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:51:41', 'Agencia Gestión', 0),
+(545, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:53:23', 'Agencia Gestión', 0),
+(546, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:54:39', 'Agencia Gestión', 0),
+(547, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:54:46', 'Agencia Gestión', 0),
+(548, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:55:48', 'Agencia Gestión', 0),
+(549, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 19:56:04', 'Agencia Gestión', 0),
+(550, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:02:00', 'Agencia Gestión', 0),
+(551, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:02:53', 'Agencia Gestión', 0),
+(552, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:03:56', 'Agencia Gestión', 0),
+(553, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:04:12', 'Agencia Gestión', 0),
+(554, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:04:35', 'Agencia Gestión', 0),
+(555, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:15:07', 'Agencia Gestión', 0),
+(556, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:15:25', 'Agencia Gestión', 0),
+(557, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:15:36', 'Agencia Gestión', 0),
+(558, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:16:00', 'Agencia Gestión', 0),
+(559, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:16:08', 'Agencia Gestión', 0),
+(560, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:16:18', 'Agencia Gestión', 0),
+(561, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:16:51', 'Agencia Gestión', 0),
+(562, 4, 'clientes/abm', 'access', '', '', '1', '2017-08-25 20:16:53', 'Agencia Gestión', 0),
+(563, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:16:56', 'Agencia Gestión', 0),
+(564, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:17:24', 'Agencia Gestión', 0),
+(565, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:19:09', 'Agencia Gestión', 0),
+(566, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:19:47', 'Agencia Gestión', 0),
+(567, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:19:50', 'Agencia Gestión', 0),
+(568, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:20:08', 'Agencia Gestión', 0),
+(569, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:21:22', 'Agencia Gestión', 0),
+(570, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:21:31', 'Agencia Gestión', 0),
+(571, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:21:50', 'Agencia Gestión', 0),
+(572, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:22:02', 'Agencia Gestión', 0),
+(573, 4, 'presupuestos/detalle_presupuestos.php', 'access', '', '', '1', '2017-08-25 20:22:10', 'Agencia Gestión', 0),
+(574, 4, 'presupuestos/table', 'access', '', '', '1', '2017-08-25 20:26:02', 'Agencia Gestión', 0),
+(575, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-25 20:35:03', 'Agencia Gestión', 0),
+(576, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-25 20:38:03', 'Agencia Gestión', 0),
+(577, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-25 20:40:12', 'Agencia Gestión', 0),
+(578, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-25 20:41:13', 'Agencia Gestión', 0),
+(579, 4, 'presupuestos/abm', 'access', '', '', '1', '2017-08-25 20:42:06', 'Agencia Gestión', 0);
 
 -- --------------------------------------------------------
 
@@ -23915,9 +23970,14 @@ CREATE TABLE `presupuestos` (
   `id_cliente` int(11) NOT NULL DEFAULT '1',
   `descuento` float NOT NULL,
   `id_forma_pago` int(11) NOT NULL,
+  `id_condicion_pago` int(11) NOT NULL,
   `a_cuenta` float NOT NULL,
   `id_vendedor` int(11) NOT NULL,
-  `estado` int(11) NOT NULL,
+  `id_estado` int(11) NOT NULL,
+  `fecha_entrega` date NOT NULL,
+  `validez` date NOT NULL,
+  `id_origen` int(11) NOT NULL,
+  `id_envio` int(11) NOT NULL,
   `comentario` text COLLATE utf8_spanish_ci NOT NULL,
   `com_publico` tinyint(4) NOT NULL,
   `date_add` datetime NOT NULL,
@@ -23931,25 +23991,90 @@ CREATE TABLE `presupuestos` (
 -- Volcado de datos para la tabla `presupuestos`
 --
 
-INSERT INTO `presupuestos` (`id_presupuesto`, `fecha`, `monto`, `id_cliente`, `descuento`, `id_forma_pago`, `a_cuenta`, `id_vendedor`, `estado`, `comentario`, `com_publico`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
-(1, '2017-08-22 14:55:05', 20, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 14:55:05', '0000-00-00 00:00:00', 0, 0, 0),
-(2, '2017-08-22 14:57:03', 67, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 14:57:03', '0000-00-00 00:00:00', 0, 0, 0),
-(3, '2017-08-22 15:04:21', 25, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:04:21', '0000-00-00 00:00:00', 0, 0, 0),
-(4, '2017-08-22 15:04:31', 47, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:04:31', '0000-00-00 00:00:00', 0, 0, 0),
-(5, '2017-08-22 15:04:55', 42, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:04:55', '0000-00-00 00:00:00', 0, 0, 0),
-(6, '2017-08-22 15:05:09', 47, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:05:09', '0000-00-00 00:00:00', 0, 0, 0),
-(7, '2017-08-22 15:06:42', 122, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-22 15:06:42', '0000-00-00 00:00:00', 0, 0, 0),
-(8, '2017-08-22 15:08:03', 288, 0, 0, 1, 0, 0, 3, '', 0, '2017-08-22 15:08:03', '2017-08-22 21:09:45', 0, 1, 0),
-(9, '2017-08-22 15:08:44', 97, 1, 0, 2, 0, 1, 2, '', 0, '2017-08-22 15:08:44', '2017-08-22 20:24:13', 0, 1, 0),
-(10, '2017-08-23 19:41:33', 20, 0, 0, 1, 0, 0, 2, '', 0, '2017-08-23 19:41:33', '0000-00-00 00:00:00', 0, 0, 0),
-(11, '2017-08-23 19:44:29', 20, 0, 0, 1, 0, 3, 2, '', 0, '2017-08-23 19:44:29', '0000-00-00 00:00:00', 0, 0, 0),
-(12, '2017-08-23 19:45:37', 22, 0, 0, 1, 0, 2, 2, '', 0, '2017-08-23 19:45:37', '0000-00-00 00:00:00', 0, 0, 0),
-(13, '2017-08-23 19:46:10', 22, 1, 0, 1, 0, 2, 2, '', 0, '2017-08-23 19:46:10', '0000-00-00 00:00:00', 0, 0, 0),
-(14, '2017-08-23 19:56:14', 25, 1, 0, 0, 0, 2, 1, '', 0, '2017-08-23 19:56:14', '0000-00-00 00:00:00', 0, 0, 0),
-(15, '2017-08-23 19:57:05', 22, 1, 0, 0, 0, 2, 1, '', 0, '2017-08-23 19:57:05', '0000-00-00 00:00:00', 0, 0, 0),
-(16, '2017-08-23 19:58:02', 20, 1, 0, 0, 0, 2, 1, '', 0, '2017-08-23 19:58:02', '0000-00-00 00:00:00', 0, 0, 0),
-(17, '2017-08-23 19:58:32', 22, 1, 0, 0, 0, 2, 2, '', 0, '2017-08-23 19:58:32', '0000-00-00 00:00:00', 0, 0, 0),
-(18, '2017-08-23 19:59:23', 20, 1, 0, 2, 0, 2, 2, '', 0, '2017-08-23 19:59:23', '0000-00-00 00:00:00', 0, 0, 0);
+INSERT INTO `presupuestos` (`id_presupuesto`, `fecha`, `monto`, `id_cliente`, `descuento`, `id_forma_pago`, `id_condicion_pago`, `a_cuenta`, `id_vendedor`, `id_estado`, `fecha_entrega`, `validez`, `id_origen`, `id_envio`, `comentario`, `com_publico`, `date_add`, `date_upd`, `user_add`, `user_upd`, `eliminado`) VALUES
+(1, '2017-08-22 14:55:05', 20, 0, 0, 1, 0, 0, 0, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-22 14:55:05', '0000-00-00 00:00:00', 0, 0, 0),
+(2, '2017-08-22 14:57:03', 67, 0, 0, 1, 0, 0, 0, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-22 14:57:03', '0000-00-00 00:00:00', 0, 0, 0),
+(3, '2017-08-22 15:04:21', 25, 0, 0, 1, 0, 0, 0, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-22 15:04:21', '0000-00-00 00:00:00', 0, 0, 0),
+(4, '2017-08-22 15:04:31', 47, 0, 0, 1, 0, 0, 0, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-22 15:04:31', '0000-00-00 00:00:00', 0, 0, 0),
+(5, '2017-08-22 15:04:55', 42, 0, 0, 1, 0, 0, 0, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-22 15:04:55', '0000-00-00 00:00:00', 0, 0, 0),
+(6, '2017-08-22 15:05:09', 47, 0, 0, 1, 0, 0, 0, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-22 15:05:09', '0000-00-00 00:00:00', 0, 0, 0),
+(7, '2017-08-22 15:06:42', 122, 0, 0, 1, 0, 0, 0, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-22 15:06:42', '0000-00-00 00:00:00', 0, 0, 0),
+(8, '2017-08-22 15:08:03', 288, 0, 0, 1, 0, 0, 0, 3, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-22 15:08:03', '2017-08-22 21:09:45', 0, 1, 0),
+(9, '2017-08-22 15:08:44', 97, 1, 0, 2, 0, 0, 1, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-22 15:08:44', '2017-08-22 20:24:13', 0, 1, 0),
+(10, '2017-08-23 19:41:33', 20, 0, 0, 1, 0, 0, 0, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-23 19:41:33', '0000-00-00 00:00:00', 0, 0, 0),
+(11, '2017-08-23 19:44:29', 20, 0, 0, 1, 0, 0, 3, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-23 19:44:29', '0000-00-00 00:00:00', 0, 0, 0),
+(12, '2017-08-23 19:45:37', 22, 0, 0, 1, 0, 0, 2, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-23 19:45:37', '0000-00-00 00:00:00', 0, 0, 0),
+(13, '2017-08-23 19:46:10', 22, 1, 0, 1, 0, 0, 2, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-23 19:46:10', '0000-00-00 00:00:00', 0, 0, 0),
+(14, '2017-08-23 19:56:14', 25, 1, 0, 0, 0, 0, 2, 1, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-23 19:56:14', '0000-00-00 00:00:00', 0, 0, 0),
+(15, '2017-08-23 19:57:05', 22, 1, 0, 0, 0, 0, 2, 1, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-23 19:57:05', '0000-00-00 00:00:00', 0, 0, 0),
+(16, '2017-08-23 19:58:02', 20, 1, 0, 0, 0, 0, 2, 1, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-23 19:58:02', '0000-00-00 00:00:00', 0, 0, 0),
+(17, '2017-08-23 19:58:32', 22, 1, 0, 0, 0, 0, 2, 2, '0000-00-00', '0000-00-00', 0, 0, '', 0, '2017-08-23 19:58:32', '0000-00-00 00:00:00', 0, 0, 0),
+(18, '2017-08-23 19:59:23', 20, 1, 0, 2, 1, 0, 2, 2, '2017-08-08', '2017-08-15', 1, 1, '', 0, '2017-08-23 19:59:23', '0000-00-00 00:00:00', 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `presupuestos_envios`
+--
+
+CREATE TABLE `presupuestos_envios` (
+  `id_envio` int(11) NOT NULL,
+  `envio` varchar(64) NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `presupuestos_envios`
+--
+
+INSERT INTO `presupuestos_envios` (`id_envio`, `envio`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
+(1, 'Recepción', 1, 1, '2016-10-12 19:53:00', '2016-10-12 19:53:00', 0),
+(2, 'Transporte Fido', 1, 1, '2016-10-12 19:53:13', '2016-10-12 19:53:13', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `presupuestos_estados`
+--
+
+CREATE TABLE `presupuestos_estados` (
+  `id_estado` int(11) NOT NULL,
+  `estado` varchar(64) NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `presupuestos_origenes`
+--
+
+CREATE TABLE `presupuestos_origenes` (
+  `id_origen` int(11) NOT NULL,
+  `origen` varchar(64) NOT NULL,
+  `user_add` int(11) NOT NULL,
+  `user_upd` int(11) NOT NULL,
+  `date_add` datetime NOT NULL,
+  `date_upd` datetime NOT NULL,
+  `eliminado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `presupuestos_origenes`
+--
+
+INSERT INTO `presupuestos_origenes` (`id_origen`, `origen`, `user_add`, `user_upd`, `date_add`, `date_upd`, `eliminado`) VALUES
+(1, 'Llamado telefónico', 1, 1, '2016-10-12 19:55:07', '2016-10-12 19:55:07', 0),
+(2, 'Visita vendedor', 1, 1, '2016-10-12 19:55:52', '2016-10-12 19:56:04', 0),
+(3, 'Local comercial', 1, 1, '2016-10-12 19:56:18', '2016-10-12 19:56:18', 0);
 
 -- --------------------------------------------------------
 
@@ -33220,6 +33345,24 @@ ALTER TABLE `presupuestos`
   ADD PRIMARY KEY (`id_presupuesto`);
 
 --
+-- Indices de la tabla `presupuestos_envios`
+--
+ALTER TABLE `presupuestos_envios`
+  ADD PRIMARY KEY (`id_envio`);
+
+--
+-- Indices de la tabla `presupuestos_estados`
+--
+ALTER TABLE `presupuestos_estados`
+  ADD PRIMARY KEY (`id_estado`);
+
+--
+-- Indices de la tabla `presupuestos_origenes`
+--
+ALTER TABLE `presupuestos_origenes`
+  ADD PRIMARY KEY (`id_origen`);
+
+--
 -- Indices de la tabla `presupuestos_renglones`
 --
 ALTER TABLE `presupuestos_renglones`
@@ -33404,7 +33547,7 @@ ALTER TABLE `cuotas`
 -- AUTO_INCREMENT de la tabla `cuotas_actualizaciones`
 --
 ALTER TABLE `cuotas_actualizaciones`
-  MODIFY `id_actualizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_actualizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `cuotas_estados`
 --
@@ -33459,7 +33602,7 @@ ALTER TABLE `intereses`
 -- AUTO_INCREMENT de la tabla `logs_usuarios`
 --
 ALTER TABLE `logs_usuarios`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=530;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=580;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --
@@ -33475,6 +33618,16 @@ ALTER TABLE `plantillas`
 --
 ALTER TABLE `presupuestos`
   MODIFY `id_presupuesto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT de la tabla `presupuestos_envios`
+--
+ALTER TABLE `presupuestos_envios`
+  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `presupuestos_origenes`
+--
+ALTER TABLE `presupuestos_origenes`
+  MODIFY `id_origen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `presupuestos_renglones`
 --

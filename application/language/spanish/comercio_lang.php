@@ -17,6 +17,7 @@ $lang['border_color']   	= "Border Color";
 
 $lang['cod_proveedor']      = "Código Proveedor";
 $lang['calendario']			= "Calendario";
+$lang['com_publico']		= "Comentario público";
 
 /*--------------------------------------------------------------------------------  
     D
