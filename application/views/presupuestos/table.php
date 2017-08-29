@@ -38,6 +38,10 @@ if($registros)
 {
     foreach ($registros as $row) 
     {
+    	
+    	$buttons = tableButton($subjet.'/detalle_presupuesto', $row->id_presupuesto, 'fa fa-folder-open');
+		$buttons .= tableButton($subjet.'/detalle', $row->id_presupuesto, 'fa fa-pencil-square-o');
+		
         $registro = array(
             $row->id_presupuesto,
             formatDate($row->fecha),
@@ -46,7 +50,7 @@ if($registros)
 			$row->cliente,
 			$row->forma_pago,
 			$row->vendedor,
-            tableButton($subjet.'/detalle_presupuesto/', $row->id_presupuesto, 'fa fa-chevron-circle-right'),
+            $buttons,
         );
         
         $html .= setTableContent($registro);    

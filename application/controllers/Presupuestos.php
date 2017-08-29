@@ -183,5 +183,48 @@ class Presupuestos extends MY_Controller
         
         $this->armarAbm($id, $db);                     // Envia todo a la plantilla de la pagina
     }
+
+/*--------------------------------------------------------------------------------- 
+-----------------------------------------------------------------------------------  
+            
+       Ejemplo de abm
+  
+----------------------------------------------------------------------------------- 
+---------------------------------------------------------------------------------*/ 
+
+	function afterInsert($registro, $id)
+    {
+    	redirect('/presupuestos/detalle/'.$id,'refresh');
+	} 	
+
+
+	function detalle($id)
+	{
+		if($this->input->post('id_producto'))
+		{
+			$registro = array(
+				'id_presupuesto'	=> $id,
+				'id_producto'		=> $this->input->post('id_producto'),
+				'cantidad'			=> $this->input->post('cantidad'),
+				'precio'			=> $this->input->post('monto'),
+				'estado'			=> 1,
+			);
+			
+			$this->m_presupuestos_renglones->insert($registro);
+		}
+		
+		if($this->input->post('eliminar'))
+		{
+			$this->m_presupuestos_renglones->delete($this->input->post('eliminar'));
+		}
+		
+		$db['presupuestos']			= $this->model->getRegistros($id);
+		$db['detalle_presupuesto']	= $this->m_presupuestos_renglones->getRegistros($id, 'id_presupuesto');
+		$db['interes_presupuesto']	= $this->m_intereses->getRegistros($id, 'id_presupuesto');
+		$db['anulaciones']			= $this->m_anulaciones->getRegistros($id, 'id_presupuesto');
+		$db['id_presupuesto']		= $id;
+		$db['llamada']				= TRUE;
+		$this->armarVista('detalle_presupuestos.php' ,$db);
+	}
 }
 ?>

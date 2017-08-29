@@ -36,5 +36,24 @@ class m_productos extends MY_Model
 			$relation		= $this->_relation
 		);
 	}
+	
+	
+	
+	function getProductos($filtro)
+	{
+		$sql = "
+		SELECT 
+			*
+		FROM 
+			productos 
+		WHERE 
+			(producto LIKE '%".$filtro."%' OR 
+			cod_proveedor LIKE '%".$filtro."%') AND
+			eliminado = 0 
+		LIMIT 
+			20 ";
+			
+		return $this->getQuery($sql);			
+	}
 } 
 ?>

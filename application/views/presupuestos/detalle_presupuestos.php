@@ -65,14 +65,35 @@ if($presupuestos)
 	$total = 0;
 				
 	echo "<table class='table table-hover'>";
+	
+	if($llamada)
+	{
+		echo '<form method="post">';
+		echo "<tr>";
+		echo "<th colspan='2'><input type='text' name='producto' id='producto' class='form-control input-sm' placeholder='".lang('producto')."' autofocus></th>";
+		echo "<th><input type='text' name='cantidad' id='cantidad' value='1' class='form-control input-sm' placeholder='".lang('cantidad')."'></th>";
+		echo "<th><input type='text' name='precio' id='precio' class='form-control input-sm' placeholder='".lang('precio')."' readonly></th>";
+		echo "<th><input type='text' name='monto' id='monto' class='form-control input-sm' placeholder='".lang('monto')."' readonly></th>";
+		echo "<input type='hidden' name='id_producto' id='id_producto'>";
+		echo "<th colspan='2'><button type='submit' class='btn btn-default form-control input-sm' id='carga_producto'>Aceptar</button></th>";
+		echo "</tr>";
+		echo '</form>';
+	}
+	
 	echo "<tr>";
+	echo "<th>".lang('codigo')."</th>";
 	echo "<th>".lang('producto')."</th>";
-	echo "<th>".lang('descripcion')."</th>";
 	echo "<th>".lang('cantidad')."</th>";
 	echo "<th>".lang('monto')."</th>";
 	echo "<th>".lang('total')."</th>";
+	if($llamada)
+	{
+		echo "<th></th>";
+	}
 	echo "</tr>";
-				
+	
+	
+	echo '<form method="post">';			
 	if($detalle_presupuesto)
 	{
 		foreach ($detalle_presupuesto as $row_detalle) 
@@ -80,8 +101,7 @@ if($presupuestos)
 			echo "<tr>";	
 			//echo "<td><a title='ver Articulo' class='btn btn-default btn-xs' href='".base_url()."index.php/articulos/articulo_abm/read/".$row_detalle->id_producto."'>".$row_detalle->cod_proveedor."</a></td>";
 			echo "<td><a title='".lang('ver').' '.lang('producto')."' class='btn btn-default btn-xs' href='".base_url()."index.php/productos/abm/".$row_detalle->id_producto."'>".$row_detalle->cod_proveedor."</a></td>";
-			//echo "<td>".$row_detalle->producto."</td>";
-			echo "<td></td>";
+			echo "<td>".$row_detalle->producto."</td>";
 			echo "<td>".$row_detalle->cantidad."</td>";
 			if($row_detalle->cantidad > 0){
 				$precio = $row_detalle->precio/$row_detalle->cantidad;
@@ -93,9 +113,14 @@ if($presupuestos)
 			$sub_total = $row_detalle->cantidad * $precio;
 			$total = $total + $sub_total;
 			echo "<td>".formatImporte($sub_total)."</td>";
+			if($llamada)
+			{
+				echo "<th><button name='eliminar' value='".$row_detalle->id_renglon."' class='btn btn-danger btn-xs'><i class='fa fa-trash-o'></i></button></th>";
+			}
 			echo "</tr>";
 		}
-	}		
+	}	
+	echo '</form>';	
 				
 	if($interes_presupuesto)
 	{
@@ -115,6 +140,10 @@ if($presupuestos)
 	echo "<tr class='success'>";	
 	echo "<td colspan='4'>".lang('total')."</td>";
 	echo "<th>".formatImporte($total)."</th>";
+	if($llamada)
+	{
+		echo "<td></td>";
+	}
 	echo "</tr>";
 				
 	echo "</table>";
@@ -274,4 +303,80 @@ if($row->id_estado != 3)
 		</div>
 	</div>
 </div>
+
+
+<script>
+/*---------------------------------------------------------------------------------
+----------------------------------------------------------------------------------- 
+
+		Carga la lista de productos
+
+-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------*/
+var items_reglon	= [];
+
+$(function() {
+	$("#producto").autocomplete({
+	    source: "<?php echo base_url()?>index.php/productos/getProductos",
+	    minLength: 2,//search after two characters
+	    select: function(event,ui){
+	        porc_iva_art	= ui.item.iva;
+	        item_elegido	= ui.item;
+	        este			= ui.item.id;
+			px_unitario		= ui.item.precio;
+			
+			$('#precio').val(px_unitario * ((porc_iva_art/100) + 1 ));	
+			$('#id_producto').val(este);
+			pos				= items_reglon.indexOf(este);
+	    	
+			$("#cantidad").removeAttr('disabled');
+			$('#cantidad').focus();
+			$('#cantidad').select();
+			
+			if (pos != -1) 
+			{    
+	        	nuevo		= false; 
+				cant_cargada= $('#cant_'+este).val();
+	            $('#cantidad').val(cant_cargada);
+				$('#cantidad').select();
+			}
+		},
+	    
+		close: function( event, ui ) 
+		{
+		}
+	});		
+});
+
+
+
+/*---------------------------------------------------------------------------------
+----------------------------------------------------------------------------------- 
+
+		Para cantidad
+
+-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------*/
+$("#cantidad").keyup(function( event ) {
+	var cantidad = $("#cantidad").val();
+	var precio = $("#precio").val();
+	var monto = cantidad * precio;
+	$("#monto").val(monto);
+});	
+	
+
+        
+$("#cantidad").keypress(function( event ) {
+	if ( event.which == 13 ) {
+		$("#carga_producto").click();
+	}
+});	
+
+
+
+
+
+</script>
+
+
 

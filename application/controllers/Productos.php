@@ -68,5 +68,27 @@ class Productos extends MY_Controller
 		        
         $this->armarAbm($id, $db);
     }
+
+
+
+	function getProductos()
+	{
+		$term = trim(strip_tags(utf8_decode($_GET['term'])));//retrieve the search term that autocomplete sends
+		$result = $this->model->getProductos($term);
+
+		if($result)
+		{
+			foreach ($result as $row) 
+			{
+				$_row['value']	= stripslashes(utf8_encode($row->producto));
+				$_row['id']		= (int)$row->id_producto;
+				$_row['iva']	= (float)$row->precio_iva;
+				$_row['precio']	= (float)$row->precio_venta;
+				$row_set[]		= $_row;//build an array
+			}
+		}
+
+		echo json_encode($row_set);		
+	}
 }
 ?>
