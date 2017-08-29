@@ -43,7 +43,7 @@ $lang['codigo']             = "Código";
 $lang['contraseña']         = "Contraseña";
 $lang['confirm_pass']       = "Confirmar Password";
 $lang['comentario']         = "Comentario";
-$lang['comentario_publico'] = "Comentario público";
+$lang['comentario_publico'] = "Comentario p&uacute;blico";
 $lang['comentario_privado'] = "Comentario privado";
 $lang['cloaca']             = "Cloaca";
 $lang['cod_post']           = "Codigo Postal";
@@ -58,7 +58,7 @@ $lang['cuotas']             = "Cuotas";
 $lang['confirma_accion']    = "Confirma Accion";
 $lang['condicion']          = "Condición";
 $lang['color']              = "Color";
-$lang['calculo']            = "Cálculo";
+$lang['calculo']            = "C&aacute;lculo";
 
 /*--------------------------------------------------------------------------------  
     D
@@ -69,8 +69,8 @@ $lang['dni']                = "DNI";
 $lang['detalle']            = "Detalle";
 $lang['domicilio']          = "Domicilio";
 $lang['date_add']           = "Fecha alta";
-$lang['dia']                = "Día";
-$lang['dias']               = "Días";
+$lang['dia']                = "D&iacute;a";
+$lang['dias']               = "D&iacute;as";
 $lang['dimension']          = "Dimensión";
 $lang['direccion']          = "Dirección";
 
@@ -166,7 +166,7 @@ $lang['modificar']          = "Modificar";
 $lang['monto']              = "Monto";
 $lang['monto_cuota']        = "Monto cuota";
 $lang['monto_anticipo']     = "Monto anticipo";
-$lang['monto_interes']      = "Monto interés";
+$lang['monto_interes']      = "Monto inter&eacute;s";
 $lang['monto_pago']         = "Monto pago";
 $lang['menu']               = "Menu";
 $lang['marcacion']          = "Marcación";
@@ -266,14 +266,14 @@ $lang['superficie_cubierta']= "Superficie cubierta";
 
 $lang['tablas']             = "Tablas";
 $lang['tambo']              = "Tambo";
-$lang['telefono']           = "Telefono";
+$lang['telefono']           = "Tel&eacute;fono";
 $lang['telefono_alternativo'] = "Telefono alternativo";
 $lang['turno']              = "Turno";
 $lang['tipo']               = "Tipo";
 $lang['total']              = "Total";
 $lang['totales']            = "Totales";
 $lang['tiempo']             = "Tiempo";
-$lang['titulo']             = "Título";
+$lang['titulo']             = "T&iacute;tulo";
 
 /*--------------------------------------------------------------------------------  
     U
@@ -294,7 +294,7 @@ $lang['version']            = "Versión";
 $lang['validez']            = "Validez";
 $lang['vencimiento_cuota']  = "Vencimiento cuota";
 $lang['vencimiento']        = "Vencimiento";
-$lang['vehiculo']           = "Vehículo";
+$lang['vehiculo']           = "Veh&iacute;culo";
 
 /*--------------------------------------------------------------------------------  
     W

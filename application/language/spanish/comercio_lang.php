@@ -15,9 +15,9 @@ $lang['border_color']   	= "Border Color";
     C
  --------------------------------------------------------------------------------*/ 
 
-$lang['cod_proveedor']      = "Código Proveedor";
+$lang['cod_proveedor']      = "C&oacute;digo Proveedor";
 $lang['calendario']			= "Calendario";
-$lang['com_publico']		= "Comentario público";
+$lang['com_publico']		= "Comentario p&uacute;blico";
 
 /*--------------------------------------------------------------------------------  
     D
@@ -115,7 +115,7 @@ $lang['presupuestos']		= "Presupuestos";
 
 $lang['stock_alerta']      	= "Stock Alerta";
 $lang['stock_deseado']      = "Stock Deseado";   
-$lang['stock_fisico']      	= "Stock Físico";
+$lang['stock_fisico']      	= "Stock F&iacute;sico";
 $lang['stock_pedido']      	= "Stock Pedido";
 
 /*--------------------------------------------------------------------------------  
